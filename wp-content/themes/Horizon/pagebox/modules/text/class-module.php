@@ -23,7 +23,6 @@ class Module extends Abstract_Module {
 		parent::__construct();
 
 	}
-
 	/**
 	 * Template config
 	 * @return void

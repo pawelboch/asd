@@ -1,2 +1,12 @@
 /* MAIN STYLESHEETS */
 
+body {
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.full-width {
+    margin-top: 132px;
+}

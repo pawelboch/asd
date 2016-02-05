@@ -7,7 +7,7 @@
 ?>
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-12 full-width">
 			<?php foreach ($this->get_variable( 'full-width_modules' ) as $module): ?>
 				<?php $module->display(); ?>
 			<?php endforeach ?>

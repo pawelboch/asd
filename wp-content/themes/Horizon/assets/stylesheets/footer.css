@@ -1,6 +1,15 @@
 /* FOOTER STYLESHEET */
 
-footer {
-    background-color: red;
-    height: 20px;
+footer .container {
+    background-color: #fff;
+    height: 263px;
+}
+
+footer li {
+    display: inline;
+    padding-left: 10px;
+}
+
+footer ul {
+    margin-top: 0;
 }

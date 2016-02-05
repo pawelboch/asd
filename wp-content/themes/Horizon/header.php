@@ -19,10 +19,10 @@
 		<header class="banner-header" role="banner">
 			<div class="top-header">
 				<div class="container">
-					<div class="logo">
+					<div class="logo col-md-4">
 						<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" /></a>
 					</div>
-					<div class="main-nav">
+					<div class="main-nav col-md-8">
 						<nav role="navigation" class="nav-main">
 							<?php
 							wp_nav_menu( array(
@@ -35,11 +35,11 @@
 							?>
 						</nav>
 					</div>
-					<button class="nav-toggle visible-xs" type="button">
+					<!-- <button class="nav-toggle visible-xs" type="button">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
-					</button>
+					</button> -->
 				</div>
 			</div>
 		</header>

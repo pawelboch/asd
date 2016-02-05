@@ -1,0 +1,27 @@
+<?php
+/**
+ * {{name}} template file
+ *
+ * @author Pagebox Generator
+ */
+?>
+
+<div class="<?php echo $this->get_variable( 'template_class' ) ?>">
+
+	{{#sections}}
+
+		<!-- {{ID}} section -->
+		<!-- {{label}} -->
+		<div class="<?php echo $this->get_variable( '{{ID}}_class' ) ?>">
+
+			<?php foreach ($this->get_variable( '{{ID}}_modules' ) as $module): ?>
+			
+				<?php $module->display(); ?>
+
+			<?php endforeach ?>
+
+		</div>
+
+	{{/sections}}
+
+</div>

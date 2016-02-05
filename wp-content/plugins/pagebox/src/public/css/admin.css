@@ -1,0 +1,49 @@
+/**
+ * Admin styles for Settings and Generator
+ *
+ * @author Kuba Mikita
+ * @since 1.0.0
+ */
+
+.regular-select {
+	width: 25em;
+}
+
+
+
+/* Templates generator */
+
+.generator .fieldset {
+	margin-bottom: 10px;
+}
+
+.generator .fieldset:first-child {
+	margin-top: 6px;
+}
+
+.generator .fieldset label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 8px;
+	margin-right: 10px;
+	float: left;
+	width: 200px;
+}
+
+.generator .regular-text {
+	width: 25em;
+}
+
+@media screen and (max-width: 782px) {
+
+	.generator .regular-text {
+		width: 100%;
+	}
+
+}
+
+.generator .fieldset .description {
+	display: block;
+	padding: 6px 0;
+	color: #555;
+}

@@ -1,0 +1,62 @@
+<?php
+/**
+ * {{name}} template class file
+ *
+ * {{description}}
+ *
+ * @author Pagebox Generator
+ *
+ * @package pagebox/templates
+ */
+
+namespace Pagebox\Templates;
+
+use \WPG_Pagebox;
+use Pagebox\Templates\Template as Template_Abstract;
+
+class {{class_name}} extends Template_Abstract {
+
+	/**
+	 * Template constructor
+	 * @access public
+	 */
+	public function __construct( WPG_Pagebox $pagebox ) {
+
+		parent::__construct( $pagebox );
+
+	}
+
+	/**
+	 * Template config
+	 * @return void
+	 */
+	public function set_config() {
+
+		/**
+		 * Contains array of sections available within template
+		 * @var sections
+		 */
+		$sections = array(
+			{{#sections}}
+			'{{ID}}' => array( // template slug
+				'label' => '{{label}}', // label
+				'size'  => {{size}}, // size in %
+				'limit' => {{limit}} // limit of modules which can be added to this section. 0 for no limit.
+			),
+			{{/sections}}
+		);
+
+		/**
+		 * Entire config array
+		 * @uses var sections
+		 * @var config
+		 */
+		$this->config = array( 
+			'name'        => '{{name}}', // human readable name of template
+			'description' => '{{description}}', // human readable description of template
+			'sections'    => $sections
+		);
+
+	}
+	
+}

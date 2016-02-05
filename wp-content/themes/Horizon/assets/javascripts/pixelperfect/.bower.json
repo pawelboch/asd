@@ -1,0 +1,35 @@
+{
+  "name": "pixelperfect",
+  "homepage": "https://github.com/stefanoortisi/pixelperfect",
+  "authors": [
+    "Stefano Ortisi <stefanoortisi@gmail.com>"
+  ],
+  "description": "A JavaScript plugin to handle your website image preview in order to create a pixel perfect website",
+  "main": "src/pixel-perfect.js",
+  "keywords": [
+    "pixel",
+    "perfect",
+    "plugin",
+    "javascript",
+    "image",
+    "preview"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "295214dc7e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "295214dc7e05f25b19acfe4f34be816cf043f7f2"
+  },
+  "_source": "git://github.com/stefanoortisi/pixelperfect.git",
+  "_target": "*",
+  "_originalSource": "pixelperfect",
+  "_direct": true
+}

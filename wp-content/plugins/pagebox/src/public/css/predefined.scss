@@ -1,0 +1,64 @@
+/**
+ * Predefined modules page CSS classes
+ *
+ * @author      Max Matloka (max@matloka.me)
+ * @since       1.0.0
+ * 
+ * @package     pagebox
+ * @subpackage  pagebox/src/public/css
+ */
+
+// get dependencies
+@import 'font-awesome/font-awesome.css';
+@import 'font-awesome/_mixins';
+
+@import '_variables';
+@import '_forms';
+@import '_modules';
+
+// attempt to disable FOUC
+#pagebox_predefined_listing {
+	background: transparent;
+	box-shadow: none;
+	border: none;
+
+	h3.hndle {
+		display: none;
+	}
+}
+
+#pagebox-modules {
+	max-height: 300px;
+	overflow: auto;
+	margin-bottom: 20px;
+
+	ul {
+		overflow: hidden;
+		margin: 0;
+
+		.module {
+			width: 49%;
+			margin: 2% 2% 0 0;
+
+			&:nth-child(1),
+			&:nth-child(2) {
+				margin-top:0;
+			}
+
+			&:nth-child(2n) { 
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+#pagebox_predefined_settings {
+	.inside {
+		padding: 0;
+		margin: 0;
+	}
+
+	.pagebox-notice {
+		margin: 15px !important;
+	}
+}

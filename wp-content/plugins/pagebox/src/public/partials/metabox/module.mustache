@@ -1,0 +1,14 @@
+<div id="{{id}}" class="module module-{{slug}}" data-module="{{slug}}">
+	<strong>
+		{{title}}{{#primary}} : {{primary}}{{/primary}}
+	</strong>
+	<input type="hidden" name="pagebox_modules[{{target}}][]" value='{{data}}' />
+	<div class="buttonset">
+		<button class="pagebox button-secondary" data-action="edit">
+			<span class="dashicons dashicons-edit"></span>
+		</button>
+		<button class="pagebox button-secondary" data-action="remove">
+			<span class="dashicons dashicons-trash"></span>
+		</button>
+	</div>
+</div>

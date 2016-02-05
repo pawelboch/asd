@@ -1,0 +1,336 @@
+/**
+ * Backend CSS classes
+ *
+ * @author      Max Matloka (max@matloka.me)
+ * @since       1.0.0
+ * 
+ * @package     pagebox
+ * @subpackage  pagebox/src/public/css
+ */
+
+// get dependencies
+@import 'font-awesome/font-awesome.css';
+@import 'font-awesome/_mixins';
+
+@import '_variables';
+@import '_forms';
+@import '_lightbox';
+@import '_modules';
+
+// listing modal
+.featherlight {
+	#pagebox-modal-listing {
+		width: 1000px;
+		max-width: 100%;
+
+		#pagebox-modules,
+		#pagebox-predefined {
+			ul {
+				margin: 0;
+				overflow: hidden;
+				max-height: 300px;
+				overflow: auto;			
+			}	
+		}
+
+		.pagebox-search {
+			text-align: right;
+			padding: 10px 2%;
+		}
+	}
+
+	.pagebox-notice {
+		display: block;
+		background: #fff;
+		border-left: 4px solid #7ad03a;
+		box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+		margin: 15px 15px 2px;
+		padding: 1px 12px;
+
+		p {
+			line-height: 1.5;
+		}
+	}
+}
+
+// listing modal
+
+.featherlight {
+	#pagebox-modal-edit {
+		width: 800px;
+		max-width: 100%;
+
+		.pagebox-content {
+			.pagebox-form th.label {
+				width: 140px;
+			}
+		}
+	}
+}
+
+// metabox style
+#pagebox {
+	margin-top: 40px;
+	position: relative;
+
+	h3:first-of-type {
+		display: none;
+	}
+
+	.inside {
+		margin-top: 0;
+		padding: 12px;
+
+		.metabox > div:not(.current) {
+			display: none;
+		}
+	}
+
+	.loader {
+		background: url('../img/loader-small.gif') center no-repeat;
+		display: block;
+		overflow: hidden;
+		height: 150px;
+	}
+
+	.pagebox-navigation {
+		position: absolute;
+		top: -41px;
+		right: -1px;
+
+		a {
+			line-height: 40px;
+			height: 40px;
+			padding: 0 10px;
+			margin-left: 5px;
+			display: block;
+			float: left;
+			border: solid 1px #e5e5e5;
+			border-bottom: none;
+			background: #ebebeb;
+			text-decoration: none;
+			color: #777;
+			box-shadow: none;
+			outline: none;
+
+			&.current {
+				background: #fff;
+			}
+		}
+	}
+}
+
+
+// metabox sections
+#pagebox .sections {
+	overflow: hidden;
+
+	.section-wrap {
+		overflow: hidden;
+		border-radius: 3px;
+  		background: #f0f0f0;
+  		margin-bottom: 10px;
+
+  		&:last-of-type {
+  			margin-bottom: 0;
+  		}
+	}
+
+	.section {
+		float: left;
+		padding: 8px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		.modules {
+			min-height: 2px;
+		}
+
+		.module-placeholder {
+			height: 58px;
+			border: dashed 2px #e0e0e0;
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		.module {
+			margin: 0;
+			margin-bottom: 10px;
+			padding: 15px;
+			padding-left: 20px;
+			line-height: 30px;
+			height: 60px;
+			width: 100%;
+			overflow: hidden;
+			float: none;
+
+			i.icon {
+				float: left;
+				font-size: 24px;
+				margin-right: 10px;
+				line-height: 30px;
+			}
+
+			strong {
+				display: block;
+				max-width: 100%;
+				overflow: hidden;
+				white-space: nowrap;
+				float: left;
+
+				&:after {
+					width: 20px;
+					content: '';
+					background: linear-gradient(to right, rgba(255,255,255,0) 0%, #fff 100%);
+					height: 100%;
+					display: block;
+					top: 0;
+					right: 15px;
+					position: absolute;
+				}
+			}
+
+			&.ui-sortable-helper {
+				.buttonset {
+					display: none;
+				}
+			}
+
+			&:hover {
+				.buttonset {
+					opacity: 1;
+				}
+			}
+
+			.buttonset {
+				background: #fff;
+				position: absolute;
+				right: 15px;
+				top: 50%;
+				margin-top: -15px;
+				opacity: 0;
+		    	transition: opacity .3s ease-in-out 0;
+
+			    &:before {
+			    	width: 20px;
+					content: '';
+					background: linear-gradient(to right, rgba(255,255,255,0) 0%, #fff 100%);
+					height: 100%;
+					display: block;
+					top: 0;
+					left: -20px;
+					position: absolute;
+			    }
+			}
+
+			button,
+			a.button {
+				position: relative;
+				border-width: 0;
+				outline: none;
+				box-shadow: none;
+
+				&.button-secondary {
+					box-shadow: 0px 2px 0px 0px #eee;
+					border-width: 0;
+
+					&:hover {
+						background: #eee;
+						top: 2px;
+						box-shadow: none;
+					}
+				}
+
+				&.button-large {
+					height: auto;
+					line-height: auto;
+					font-size: 1.1em;
+					padding: 5px 10px;
+				}
+
+				span {
+					vertical-align: middle;
+					color: #aaa;
+				}
+			}
+		}
+	}
+
+	.pagebox[data-action="add"] {
+		border: dashed 2px #e0e0e0;
+		display: block;
+		text-align: center;
+		line-height: 50px;
+		border-radius: 3px;
+		color: #e0e0e0;
+		text-decoration: none;
+		font-weight: 800;
+		font-size: 58px;
+	}
+}
+
+// metabox template previews
+#pagebox .previews {
+	overflow: hidden;
+
+	ul {
+		overflow: hidden;
+		text-align: center;
+		margin: 35px 0 0;
+
+		li {
+			max-width: 150px;
+ 			width: 33%;
+			padding: 0 15px 15px;
+			display: inline-block;
+			cursor: pointer;
+			vertical-align: top;
+
+			&:hover .pagebox-template-preview .preview-section {
+				background: #e0e0e0;
+			}
+
+			// template preview holder
+			.pagebox-template-preview {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-content: stretch;
+				width: 150px;
+				height: 120px;
+				margin: 0 auto;
+
+				.preview-section {
+					-webkit-box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					box-sizing: border-box;
+					background: #f0f0f0;
+					border: solid 3px #ffffff;
+					border-radius: 8px;
+			     	transition: background-color .3s ease-in-out 0;
+				}
+			}
+
+			&.current-template .preview-section {
+				background: #5e5e5e;
+			}
+
+		}
+
+	}
+}
+
+// sections and previews width
+@for $i from 1 through 100 {
+	#pagebox .preview-section.section-width-#{$i},
+	#pagebox .section.section-width-#{$i} { 
+		@if $i == 33 {
+			width: 33.33%; 
+		} @else if $i == 66 {
+			width: 66.66%; 
+		} @else {
+			width: $i * 1%; 
+		}
+	}
+}

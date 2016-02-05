@@ -1,0 +1,13 @@
+// Font awesome mixins
+
+@mixin fa-css-icon($icon) {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+
+    &:before {
+        content: $icon;
+    }
+}

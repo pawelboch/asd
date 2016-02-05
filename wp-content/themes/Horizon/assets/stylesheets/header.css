@@ -1,0 +1,10 @@
+/* HEADER STYLESHEET */
+
+header {
+    background-color: #303e47;
+}
+
+header .main-nav,
+header .logo {
+    float: left;
+}

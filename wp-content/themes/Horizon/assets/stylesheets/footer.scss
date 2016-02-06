@@ -1,19 +1,19 @@
 /* FOOTER STYLESHEET */
 
-$footer-container-background-color: #fff;
-$footer-container-height: 263px;
-$footer-li-padding-left: 10px;
+$container-background-color: #fff;
+$container-height: 263px;
+$li-padding-left: 10px;
 
 footer {
   .container {
-    background-color: $footer-container-background-color;
-    height: $footer-container-height;
+    background-color: $container-background-color;
+    height: $container-height;
   }
 
 
   li {
     display: inline;
-    padding-left: $footer-li-padding-left;
+    padding-left: $li-padding-left;
   }
 
   ul {

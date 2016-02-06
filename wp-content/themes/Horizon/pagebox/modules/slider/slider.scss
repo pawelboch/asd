@@ -8,11 +8,12 @@ $background-color: transparent;
 
 $h2-background-color: #303e48;
 $h2-color: #fff;
-$h2-width: 50%;
+$h2-width: auto;
 $h2-padding: 15px;
 $h2-font-size: 36px;
 $h2-font-family: "Avenir Next";
 $h2-text-transform: uppercase;
+$h2-position: relative;
 
 /* SLIDER P */
 
@@ -33,22 +34,23 @@ $a-padding: 10px;
   h2 {
     background-color: $h2-background-color;
     color: $h2-color;
-    width: $h2-width;
+    //width: $h2-width;
     font-family: $h2-font-family;
     font-size: $h2-font-size;
     padding: $h2-padding;
     text-transform: $h2-text-transform;
+    position: $h2-position;
   }
 
   p {
     color: $h2-color;
     font-size: $p-font-size;
     font-family: $p-font-family;
-    width: $p-width;
+    //width: $p-width;
   }
 
   a {
-    width: $a-width;
+    //width: $a-width;
     background-color: $a-background;
     padding: $a-padding;
   }

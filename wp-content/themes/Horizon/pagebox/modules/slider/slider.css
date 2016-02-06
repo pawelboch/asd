@@ -9,18 +9,16 @@
   .slider-module h2 {
     background-color: #303e48;
     color: #fff;
-    width: 50%;
     font-family: "Avenir Next";
     font-size: 36px;
     padding: 15px;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    position: relative; }
   .slider-module p {
     color: #fff;
     font-size: 32px;
-    font-family: "Georgia";
-    width: 40%; }
+    font-family: "Georgia"; }
   .slider-module a {
-    width: 40px;
     background-color: rgba(48, 62, 72, 0.8);
     padding: 10px; }
 

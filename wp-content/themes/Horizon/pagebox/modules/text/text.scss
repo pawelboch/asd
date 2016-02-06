@@ -1,0 +1,9 @@
+/* TEXT MODULE STYLESHEET */
+
+$text-module-min-height: 120px;
+$text-module-background-color: darkslategray;
+
+.text-module {
+  min-height: $text-module-min-height;
+  background-color: $text-module-background-color;
+}

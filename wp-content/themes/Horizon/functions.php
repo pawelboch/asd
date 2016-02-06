@@ -6,6 +6,7 @@ function theme_enqueue_style() {
     wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css', array(), false, false );
     wp_enqueue_style( 'style-sass', get_template_directory_uri() . '/assets/stylesheets/style.css', array(), false, false );
     wp_enqueue_style( 'text', get_template_directory_uri() . '/pagebox/modules/text/text.css', array(), false, false );
+    wp_enqueue_style( 'slider', get_template_directory_uri() . '/pagebox/modules/slider/slider.css', array(), false, false );
 }
 
 function theme_enqueue_script() {

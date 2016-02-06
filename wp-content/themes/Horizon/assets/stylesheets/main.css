@@ -1,0 +1,10 @@
+/* MAIN STYLESHEET */
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover; }
+
+/*# sourceMappingURL=main.css.map */

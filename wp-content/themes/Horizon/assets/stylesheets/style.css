@@ -1,3 +1,13 @@
+/* IMPORT ALL REQUEST STYLESHEET */
+/* MAIN STYLESHEET */
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+  background-image: url("../images/background.png");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover; }
+
 /* HEADER STYLESHEET */
 header {
   background-color: rgba(48, 62, 71, 0.7);
@@ -26,14 +36,5 @@ footer ul {
 /* CONTENT STYLESHEET */
 .content .row .full-width {
   margin-top: 0; }
-
-/* MAIN STYLESHEET */
-body {
-  font: 100% Helvetica, sans-serif;
-  color: #333;
-  background-image: url("../images/background.jpg");
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  background-size: cover; }
 
 /*# sourceMappingURL=style.css.map */

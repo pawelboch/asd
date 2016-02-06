@@ -1,20 +1,6 @@
+/* IMPORT ALL REQUEST STYLESHEET */
+
+@import 'main';
 @import 'header';
 @import 'footer';
 @import 'content';
-
-/* MAIN STYLESHEET */
-
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
-$body-background-image: url("../images/background.jpg");
-$body-background-size: cover;
-
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
-  background-image: $body-background-image;
-  background-repeat: no-repeat;
-  -webkit-background-size: $body-background-size;
-  background-size: $body-background-size;
-}
-

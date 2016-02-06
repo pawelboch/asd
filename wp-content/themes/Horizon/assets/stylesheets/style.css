@@ -1,0 +1,26 @@
+/* MAIN STYLESHEET */
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333; }
+
+/* HEADER STYLESHEET */
+header {
+  background-color: rgba(48, 62, 71, 0.7);
+  position: fixed;
+  height: 132px;
+  width: 100%;
+  z-index: 1; }
+
+/* FOOTER STYLESHEET */
+footer .container {
+  background-color: #fff;
+  height: 263px; }
+footer li {
+  display: inline;
+  padding-left: 10px; }
+footer ul {
+  margin-top: 0; }
+
+/* MODULE STYLESHEET */
+
+/*# sourceMappingURL=style.css.map */

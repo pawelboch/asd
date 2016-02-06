@@ -1,0 +1,49 @@
+/* MAIN STYLESHEET */
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+/* HEADER STYLESHEET */
+
+$header-background-color: rgba(48, 62, 71, 0.7);
+$header-height: 132px;
+$header-width: 100%;
+$header-z-index: 1;
+
+header {
+  background-color: $header-background-color;
+  position: fixed;
+  height: $header-height;
+  width: $header-width;
+  z-index: $header-z-index;
+}
+
+
+
+
+/* FOOTER STYLESHEET */
+
+footer {
+  .container {
+    background-color: #fff;
+    height: 263px;
+  }
+
+
+  li {
+    display: inline;
+    padding-left: 10px;
+  }
+
+  ul {
+    margin-top: 0;
+  }
+}
+
+
+/* MODULE STYLESHEET */

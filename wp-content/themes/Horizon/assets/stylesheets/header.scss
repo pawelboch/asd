@@ -1,0 +1,26 @@
+/* HEADER STYLESHEET */
+
+$header-background-color: rgba(48, 62, 71, 0.7);
+$header-position: relative;
+$header-height: 132px;
+$header-width: 100%;
+$header-z-index: 1;
+
+header {
+  background-color: $header-background-color;
+  position: $header-position;
+  height: $header-height;
+  width: $header-width;
+  z-index: $header-z-index;
+
+  .main-nav,
+  .logo {
+    margin-top: 40px;
+    text-transform: uppercase;
+  }
+
+  .main-nav li {
+    display: inline;
+    padding-left: 10px;
+  }
+}

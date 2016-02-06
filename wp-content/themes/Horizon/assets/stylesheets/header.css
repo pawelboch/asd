@@ -1,24 +1,16 @@
 /* HEADER STYLESHEET */
-
 header {
-    background-color: rgba(48, 62, 71, 0.7);
-    position: fixed;
-    height: 132px;
-    width: 100%;
-    z-index: 1;
-}
-
-header .main-nav,
-header .logo {
+  background-color: rgba(48, 62, 71, 0.7);
+  position: relative;
+  height: 132px;
+  width: 100%;
+  z-index: 1; }
+  header .main-nav,
+  header .logo {
     margin-top: 40px;
-    text-transform: uppercase;
-}
-
-header .main-nav nav ul {
-    /*margin-left: 75px;*/
-}
-
-header .main-nav li {
+    text-transform: uppercase; }
+  header .main-nav li {
     display: inline;
-    padding-left: 10px;
-}
+    padding-left: 10px; }
+
+/*# sourceMappingURL=header.css.map */

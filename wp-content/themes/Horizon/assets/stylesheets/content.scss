@@ -1,0 +1,11 @@
+/* CONTENT STYLESHEET */
+
+$content-margin-top: 0;
+
+.content {
+  .row {
+    .full-width {
+      margin-top: $content-margin-top;
+    }
+  }
+}

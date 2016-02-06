@@ -62,6 +62,14 @@ class Module extends Abstract_Module {
 				array(
 					'type'			=> 'text',
 					'group'			=> __( 'main', 'pagebox' ),
+					'name'			=> 'title_highlight',
+					'option'	  	=> 'yes',
+					'label'			=> __( 'Title highlighted word' ),
+					'description'	=> __( 'description' )
+				),
+				array(
+					'type'			=> 'text',
+					'group'			=> __( 'main', 'pagebox' ),
 					'name'			=> 'description',
 					'option'		=> 'no',
 					'label'			=> __( 'Description' ),

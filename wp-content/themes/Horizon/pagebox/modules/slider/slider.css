@@ -1,6 +1,7 @@
 /* SLIDER STYLESHEET */
 /* SLIDER MAIN */
 /* SLIDER H2 */
+/* SLIDER SPAN */
 /* SLIDER P */
 /* SLIDER A BUTTON */
 .slider-module {
@@ -10,16 +11,25 @@
     background-color: #303e48;
     color: #fff;
     font-family: "Avenir Next";
-    font-size: 36px;
+    font-size: 2.25rem;
     padding: 15px;
     text-transform: uppercase;
-    position: relative; }
+    position: relative;
+    font-weight: 300; }
+  .slider-module span {
+    font-weight: 600; }
   .slider-module p {
     color: #fff;
-    font-size: 32px;
+    font-size: 2rem;
     font-family: "Georgia"; }
   .slider-module a {
     background-color: rgba(48, 62, 72, 0.8);
-    padding: 10px; }
+    padding: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    height: 53px; }
+    .slider-module a span {
+      font-size: 0.95rem; }
 
 /*# sourceMappingURL=slider.css.map */

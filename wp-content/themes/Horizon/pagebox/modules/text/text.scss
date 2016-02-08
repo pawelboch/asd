@@ -3,7 +3,6 @@
 $min-height: 120px;
 $background-color: #fff;
 $color: #000;
-$border-top: 2px solid #c2c2c2;
 
 /* SLIDER A BUTTON */
 
@@ -18,12 +17,23 @@ $learn-more-clear: both;
 
 
 .text-module {
+
   min-height: $min-height;
   background-color: $background-color;
   color: $color;
-  border-top: $border-top;
+  padding-top: 40px;
+  padding-bottom: 51px;
+  border-bottom: 12px solid #ffc425;
 
-  a {
+  p {
+    font-family: 'Arial';
+    line-height: 1.722;
+  }
+
+  .learn-more-btn {
+
+    width: $learn-more-width;
+    clear: $learn-more-clear;
     background-color: $a-background;
     padding: $a-padding;
     color: $a-color;
@@ -32,11 +42,10 @@ $learn-more-clear: both;
     height: 53px;
 
     span {
+
       font-size: $a-font-size;
+
     }
   }
-  .learn-more-btn {
-    width: $learn-more-width;
-    clear: $learn-more-clear;
-  }
 }
+

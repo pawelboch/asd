@@ -4,18 +4,22 @@
   min-height: 120px;
   background-color: #fff;
   color: #000;
-  border-top: 2px solid #c2c2c2; }
-  .text-module a {
+  padding-top: 40px;
+  padding-bottom: 51px;
+  border-bottom: 12px solid #ffc425; }
+  .text-module p {
+    font-family: 'Arial';
+    line-height: 1.722; }
+  .text-module .learn-more-btn {
+    width: 161px;
+    clear: both;
     background-color: #303e48;
     padding: 18px;
     color: #fff;
     text-transform: uppercase;
     font-size: 0.95rem;
     height: 53px; }
-    .text-module a span {
+    .text-module .learn-more-btn span {
       font-size: 0.95rem; }
-  .text-module .learn-more-btn {
-    width: 161px;
-    clear: both; }
 
 /*# sourceMappingURL=text.css.map */

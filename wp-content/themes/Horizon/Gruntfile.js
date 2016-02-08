@@ -78,8 +78,7 @@ module.exports = function( grunt ) {
                 options: {
                     stdout: true,
                     stderr: true,
-                    failOnError: true,
-                    bower: '--allow-root'
+                    failOnError: true
                 }
             }
         }

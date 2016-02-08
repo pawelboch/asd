@@ -19,27 +19,27 @@
 		<header class="banner-header" role="banner">
 			<div class="top-header">
 				<div class="container">
-					<div class="logo col-md-4">
+					<div class="logo col-md-4 col-sm-8">
 						<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" /></a>
 					</div>
-					<div class="main-nav col-md-8">
-						<nav role="navigation" class="nav-main hidden-sm-down">
+					<div class="main-nav col-md-8 hidden-sm-down">
+						<nav role="navigation" class="nav-main">
 							<?php
 							wp_nav_menu( array(
 									'theme_location' => 'primary',
 									'container' => false,
 									'menu_class' => 'nav',
-									'menu_id' => 'nav',
+									'menu_id' => 'nav'
 								)
 							);
 							?>
 						</nav>
 					</div>
-					<!-- <button class="nav-toggle visible-xs" type="button">
+					<button class="nav-toggle hidden-md-up pull-right" type="button">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
-					</button> -->
+					</button>
 				</div>
 			</div>
 		</header>

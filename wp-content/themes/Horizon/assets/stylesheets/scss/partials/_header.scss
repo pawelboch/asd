@@ -9,24 +9,53 @@ header {
   width: $width;
   z-index: $z-index;
 
+  color: red;
 /* HEADER MENU */
+
 
   .main-nav,
   .logo {
-    margin-top: 40px;
     text-transform: uppercase;
   }
 
+  .logo {
+    img {
+      margin-top: 40px;
+    }
+  }
+
   .main-nav {
+    margin-top: 62px;
+
     li {
       display: inline;
-      padding-left: 10px;
+      padding: 0 15px;
+
+      &:last-child {
+        border-left: 1px solid red;
+      }
 
       a {
         color: $header-menu-color;
         text-decoration: $header-menu-decoration;
         font-family: $header-menu-font-family;
       }
+    }
+  }
+}
+
+
+/* HEADER BREAKPOINTS */
+
+@media (max-width: $breakpoint-tablet) {
+  header {
+
+    button {
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      bottom: 20px;
     }
   }
 }

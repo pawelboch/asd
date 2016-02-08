@@ -1,9 +1,7 @@
 /* MAIN STYLESHEET */
 
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
-$background-image: url("../images/background.png");
-$background-size: cover;
+
+@import "variables";
 
 body {
   font: 100% $font-stack;
@@ -12,4 +10,5 @@ body {
   background-repeat: no-repeat;
   -webkit-background-size: $background-size;
   background-size: $background-size;
+  background-color: $main-background-color;
 }

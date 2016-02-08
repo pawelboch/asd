@@ -3,6 +3,8 @@
 
 $min-height: 420px;
 $background-color: transparent;
+$background-image: url('../../../assets/images/slider1.png');
+$border-bottom: 2px solid #c2c2c2;
 
 /* SLIDER H2 */
 
@@ -38,47 +40,136 @@ $learn-more-width: 161px;
 $learn-more-clear: both;
 
 .slider-module {
+
   min-height: $min-height;
   background-color: $background-color;
+  margin-top: -150px;
+  background-image: $background-image;
+  -webkit-background-size: cover;
+  background-size: cover;
 
-  h2 {
-    background-color: $h2-background-color;
-    color: $h2-color;
-    font-family: $h2-font-family;
-    font-size: $h2-font-size;
-    padding: $h2-padding;
-    text-transform: $h2-text-transform;
-    position: $h2-position;
-    font-weight: $h2-font-weight;
-    clear: both;
-    width: auto;
+  .container {
+    border-bottom: $border-bottom;
   }
 
-  span {
-    font-weight: $span-font-weight;
-  }
+  .slides {
 
-  p {
-    color: $h2-color;
-    font-size: $p-font-size;
-    font-family: $p-font-family;
-    clear: both;
-  }
+    padding-top: 150px;
 
-  a {
-    background-color: $a-background;
-    padding: $a-padding;
-    color: $a-color;
-    text-transform: $a-text-transform;
-    font-size: $a-font-size;
-    height: 53px;
+    h2 {
+
+      margin-bottom: 39px;
+      background-color: $h2-background-color;
+      color: $h2-color;
+      font-family: $h2-font-family;
+      font-size: $h2-font-size;
+      padding: $h2-padding;
+      text-transform: $h2-text-transform;
+      position: $h2-position;
+      font-weight: $h2-font-weight;
+      clear: both;
+      width: auto;
+
+    }
 
     span {
+
+      font-weight: $span-font-weight;
+
+    }
+
+    p {
+
+      color: $h2-color;
+      font-size: $p-font-size;
+      font-family: $p-font-family;
+      clear: both;
+      padding: 0;
+      margin-bottom: 21px;
+
+    }
+
+    a {
+
+      background-color: $a-background;
+      padding: $a-padding;
+      color: $a-color;
+      text-transform: $a-text-transform;
       font-size: $a-font-size;
+      height: 53px;
+      margin-bottom: 69px;
+
+      span {
+
+        font-size: $a-font-size;
+      }
+
+    }
+
+    .learn-more-btn {
+
+      width: $learn-more-width;
+      clear: $learn-more-clear;
+
     }
   }
-  .learn-more-btn {
-    width: $learn-more-width;
-    clear: $learn-more-clear;
+
+
+  .tabs {
+
+    .tab-head {
+
+      background-color: #e5aa0e;
+
+      .tab-title {
+
+        background-color: #e5aa0e;
+        width: 180px;
+        display: inline-block;
+        text-align: center;
+        padding: 10px;
+        position: relative;
+
+        &.active {
+          background-color: #ffc425;
+
+          &:before {
+            position: absolute;
+            height: 10px;
+            width: 100%;
+            background-color: #ffc425;
+            content: '';
+            left: 0;
+            top: -10px;
+          }
+        }
+
+
+      }
+
+      h2 {
+
+        font-size: 1rem;
+        font-weight: bold;
+        font-family: "Arial";
+
+      }
+    }
+
+    .tab-content {
+
+      background-color: #e8e8e8;
+      min-height: 100px;
+
+      p {
+
+        font-size: $p-font-size;
+        font-family: $p-font-family;
+        padding: 33px;
+        color: #787878;
+        margin-bottom: 0;
+
+      }
+    }
   }
 }

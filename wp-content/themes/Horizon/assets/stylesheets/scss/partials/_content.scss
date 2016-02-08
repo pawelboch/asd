@@ -1,11 +1,11 @@
 /* CONTENT STYLESHEET */
 
-$margin-top: 0;
+@import "variables";
 
 .content {
   .row {
     .full-width {
-      margin-top: $margin-top;
+      margin-top: $content-margin-top;
     }
   }
 }

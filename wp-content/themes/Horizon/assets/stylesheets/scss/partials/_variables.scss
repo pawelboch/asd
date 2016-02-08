@@ -1,5 +1,19 @@
 /* VARIABLES */
 
+/* BREAKPOINTS */
+
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 544px;
+
+
+/* MAIN STYLESHEET */
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+$background-image: url("../images/background.png");
+$background-size: cover;
+$main-background-color: #ecf3ef;
+
 /* HEADER MENU */
 
 $background-color: rgba(48, 62, 72, 0.8);
@@ -12,3 +26,13 @@ $z-index: 1;
 $header-menu-color: #fff;
 $header-menu-decoration: none;
 $header-menu-font-family: "Montserrat";
+
+/* CONTENT STYLESHEET */
+
+$content-margin-top: 15px;
+
+/* FOOTER STYLESHEET */
+
+$container-background-color: #fff;
+$container-height: 263px;
+$li-padding-left: 10px;

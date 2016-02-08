@@ -1,8 +1,7 @@
-jQuery( ".nav-toggle" ).click(function() {
-  jQuery( ".nav-main" ).toggleClass( "display-on" );
-});
+jQuery( document ).ready(function( $ ) {
 
-pixelperfect.init( { 
-    image: "wp-content/themes/theme/assets/images/www.png",
-    opacity: .7,
-} );
+    $( ".nav-toggle" ).click(function() {
+        $( ".nav-main" ).toggleClass( "display-on" );
+    });
+
+});

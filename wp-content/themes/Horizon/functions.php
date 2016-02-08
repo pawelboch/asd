@@ -1,16 +1,17 @@
 <?php
 
+define( 'TEMPLATE_DIR_PATH', get_template_directory() );
+define( 'TEMPLATE_DIR_URI', get_template_directory_uri() );
+
 function theme_enqueue_style() {
-    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/stylesheets/bootstrap.min.css', array(), false, false );
-    wp_enqueue_style( 'normalize', get_template_directory_uri() . '/assets/stylesheets/normalize.css', array(), false, false );
-    wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css', array(), false, false );
-    wp_enqueue_style( 'style-sass', get_template_directory_uri() . '/assets/stylesheets/style.css', array(), false, false );
-    wp_enqueue_style( 'text', get_template_directory_uri() . '/pagebox/modules/text/text.css', array(), false, false );
-    wp_enqueue_style( 'slider', get_template_directory_uri() . '/pagebox/modules/slider/slider.css', array(), false, false );
+    wp_enqueue_style( 'bootstrap',  TEMPLATE_DIR_URI . '/assets/stylesheets/bootstrap.min.css', array(), false, false );
+    wp_enqueue_style( 'style-sass', TEMPLATE_DIR_URI . '/assets/stylesheets/style.css',         array(), false, false );
+    wp_enqueue_style( 'text',       TEMPLATE_DIR_URI . '/pagebox/modules/text/text.css',        array(), false, false );
+    wp_enqueue_style( 'slider',     TEMPLATE_DIR_URI . '/pagebox/modules/slider/slider.css',    array(), false, false );
 }
 
 function theme_enqueue_script() {
- wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/javascripts/script.js', array(), false, true );
+	wp_enqueue_script( 'scripts',   TEMPLATE_DIR_URI . '/assets/javascripts/script.js',         array(), false, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_style' );
@@ -27,14 +28,4 @@ function wppn_setup() {
 	) );
 }
 
-require_once get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
-
-function string_limit_words($string, $word_limit)
-{
-  $words = explode(' ', $string, ($word_limit + 1));
-  if(count($words) > $word_limit)
-  array_pop($words);
-  return implode(' ', $words);
-}
-
-?>
+require_once TEMPLATE_DIR_PATH . '/inc/wp_bootstrap_navwalker.php';

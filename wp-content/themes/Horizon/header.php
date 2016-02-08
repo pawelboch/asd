@@ -23,7 +23,7 @@
 						<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" /></a>
 					</div>
 					<div class="main-nav col-md-8">
-						<nav role="navigation" class="nav-main">
+						<nav role="navigation" class="nav-main hidden-sm-down">
 							<?php
 							wp_nav_menu( array(
 									'theme_location' => 'primary',

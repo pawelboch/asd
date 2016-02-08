@@ -1,6 +1,21 @@
 /* TEXT MODULE STYLESHEET */
+/* SLIDER A BUTTON */
 .text-module {
   min-height: 120px;
-  background-color: darkslategray; }
+  background-color: #fff;
+  color: #000;
+  border-top: 2px solid #c2c2c2; }
+  .text-module a {
+    background-color: #303e48;
+    padding: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    height: 53px; }
+    .text-module a span {
+      font-size: 0.95rem; }
+  .text-module .learn-more-btn {
+    width: 161px;
+    clear: both; }
 
 /*# sourceMappingURL=text.css.map */

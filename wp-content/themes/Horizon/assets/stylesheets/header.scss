@@ -1,10 +1,8 @@
 /* HEADER STYLESHEET */
 
-$background-color: rgba(48, 62, 72, 0.8);
-$position: relative;
-$height: 132px;
-$width: 100%;
-$z-index: 1;
+
+@import "variables";
+
 
 header {
   background-color: $background-color;
@@ -13,14 +11,25 @@ header {
   width: $width;
   z-index: $z-index;
 
+
+/* HEADER MENU */
+
   .main-nav,
   .logo {
     margin-top: 40px;
     text-transform: uppercase;
   }
 
-  .main-nav li {
-    display: inline;
-    padding-left: 10px;
+  .main-nav {
+    li {
+      display: inline;
+      padding-left: 10px;
+
+      a {
+        color: $header-menu-color;
+        text-decoration: $header-menu-decoration;
+        font-family: $header-menu-font-family;
+      }
+    }
   }
 }

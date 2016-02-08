@@ -15,13 +15,16 @@
     padding: 15px;
     text-transform: uppercase;
     position: relative;
-    font-weight: 300; }
+    font-weight: 300;
+    clear: both;
+    width: auto; }
   .slider-module span {
     font-weight: 600; }
   .slider-module p {
     color: #fff;
     font-size: 2rem;
-    font-family: "Georgia"; }
+    font-family: "Georgia";
+    clear: both; }
   .slider-module a {
     background-color: rgba(48, 62, 72, 0.8);
     padding: 18px;
@@ -31,5 +34,8 @@
     height: 53px; }
     .slider-module a span {
       font-size: 0.95rem; }
+  .slider-module .learn-more-btn {
+    width: 161px;
+    clear: both; }
 
 /*# sourceMappingURL=slider.css.map */

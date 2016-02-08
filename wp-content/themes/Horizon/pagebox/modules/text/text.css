@@ -4,9 +4,12 @@
   min-height: 120px;
   background-color: #fff;
   color: #000;
-  padding-top: 40px;
+  padding-top: 40px; }
+.text-module .border {
+  width: 100%;
+  border-bottom: 12px solid #ffc425;
   padding-bottom: 51px;
-  border-bottom: 12px solid #ffc425; }
+}
   .text-module p {
     font-family: 'Arial';
     line-height: 1.722; }

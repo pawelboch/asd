@@ -1,0 +1,18 @@
+{
+  "name": "pagebox-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pagebox template",
+  "scripts": {},
+  "author": "WpGeeks",
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "grunt": "^0.4.5",
+    "grunt-auto-install": "^0.3.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-sass": "^1.1.0",
+    "load-grunt-tasks": "^3.4.0",
+    "time-grunt": "^1.3.0"
+  }
+}

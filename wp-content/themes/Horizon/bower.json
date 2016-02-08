@@ -1,0 +1,9 @@
+{
+  "name": "pagebox-template",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "compass-mixins": "~1.0.2",
+    "bootstrap": "v4.0.0-alpha.2"
+  }
+}

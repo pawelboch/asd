@@ -1,0 +1,70 @@
+/* IMPORT ALL REQUEST STYLESHEET */
+/* MAIN STYLESHEET */
+/* line 8, C:/Projects/Horizon Investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_main.scss */
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+  background-image: url("../images/background.png");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+/* HEADER STYLESHEET */
+/* VARIABLES */
+/* HEADER MENU */
+/* line 5, C:/Projects/Horizon Investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
+header {
+  background-color: rgba(48, 62, 72, 0.8);
+  position: relative;
+  height: 132px;
+  width: 100%;
+  z-index: 1;
+  /* HEADER MENU */
+}
+
+/* line 14, C:/Projects/Horizon Investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
+header .main-nav,
+header .logo {
+  margin-top: 40px;
+  text-transform: uppercase;
+}
+
+/* line 21, C:/Projects/Horizon Investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
+header .main-nav li {
+  display: inline;
+  padding-left: 10px;
+}
+
+/* line 25, C:/Projects/Horizon Investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
+header .main-nav li a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Montserrat";
+}
+
+/* FOOTER STYLESHEET */
+/* line 8, C:/Projects/Horizon Investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_footer.scss */
+footer .container {
+  background-color: #fff;
+  height: 263px;
+}
+
+/* line 14, C:/Projects/Horizon Investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_footer.scss */
+footer li {
+  display: inline;
+  padding-left: 10px;
+}
+
+/* line 19, C:/Projects/Horizon Investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_footer.scss */
+footer ul {
+  margin-top: 0;
+}
+
+/* CONTENT STYLESHEET */
+/* line 7, C:/Projects/Horizon Investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_content.scss */
+.content .row .full-width {
+  margin-top: 0;
+}
+
+/*# sourceMappingURL=../map/style.css.map */

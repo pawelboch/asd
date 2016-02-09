@@ -11,13 +11,12 @@
 }
 
 .learn-more-btn {
-  width: 161px;
-  clear: both;
-  background-color: #303e48;
-  padding: 18px;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 0.95rem;
-  height: 53px; }
+  width: $learn-more-width;
+  background-color: $learn-more-background-color;
+  padding: $learn-more-padding;
+  color: $learn-more-color;
+  text-transform: $learn-more-text-transform;
+  font-size: $learn-more-font-size;
+  height: $learn-more-height; }
 .learn-more-btn span {
-  font-size: 0.95rem; }
+  font-size: $learn-more-span-font-size; }

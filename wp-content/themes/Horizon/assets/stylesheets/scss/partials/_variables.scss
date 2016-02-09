@@ -16,21 +16,52 @@ $main-background-color: #ecf3ef;
 
 /* HEADER MENU */
 
-$background-color: rgba(48, 62, 72, 0.8);
-$position: relative;
-$height: 132px;
-$width: 100%;
-$z-index: 1;
+$header-background-color: rgba(48, 62, 72, 0.8);
+$header-position: relative;
+$header-height: 132px;
+$header-width: 100%;
+$header-z-index: 1;
 $header-image-margin: 40px;
-
 
 $header-menu-color: #fff;
 $header-menu-decoration: none;
 $header-menu-font-family: "Montserrat";
 
+// Main nav, logo
+
+$header-mainnav-text-transform: uppercase;
+
+// Main nav
+
+$header-mainnav-margin-top: 62px;
+
+// Main nav li
+
+$header-mainnav-li-padding: 0 15px;
+
+// Main nav li:last-child
+
+$header-mainnav-lilastchild: 1px solid red;
+
+
+
+
 /* CONTENT STYLESHEET */
 
 $content-margin-top: 15px;
+
+
+/* LEARN MORE BUTTON */
+
+$learn-more-width: 161px;
+$learn-more-background-color: #303e48;
+$learn-more-padding: 18px;
+$learn-more-color: #fff;
+$learn-more-text-transform: uppercase;
+$learn-more-font-size: 0.95rem;
+$learn-more-height: 53px;
+
+$learn-more-span-font-size: 0.95rem;
 
 /* FOOTER STYLESHEET */
 

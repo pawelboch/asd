@@ -35,11 +35,11 @@
 							?>
 						</nav>
 					</div>
-					<button class="nav-toggle hidden-md-up pull-right" type="button">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
+					<div class="nav-toggle hidden-md-up pull-right col-sm-4">
+						<div class="icon-bar"></div>
+						<div class="icon-bar"></div>
+						<div class="icon-bar"></div>
+					</div>
 				</div>
 			</div>
 		</header>

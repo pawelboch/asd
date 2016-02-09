@@ -1,7 +1,7 @@
 jQuery( document ).ready(function( $ ) {
 
-    $( ".nav-toggle" ).click(function() {
-        $( ".nav-main" ).toggleClass( "display-on" );
+    $( '.nav-toggle' ).click(function() {
+        $( '.main-nav' ).toggleClass( "display-on" );
     });
 
 });

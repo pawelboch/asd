@@ -171,4 +171,21 @@ footer ul {
   margin-top: 15px;
 }
 
+/* line 13, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_content.scss */
+.learn-more-btn {
+  width: 161px;
+  clear: both;
+  background-color: #303e48;
+  padding: 18px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  height: 53px;
+}
+
+/* line 22, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_content.scss */
+.learn-more-btn span {
+  font-size: 0.95rem;
+}
+
 /*# sourceMappingURL=../map/style.css.map */

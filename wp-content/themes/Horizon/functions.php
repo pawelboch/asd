@@ -12,6 +12,7 @@ function theme_enqueue_style() {
 	}
     wp_enqueue_style( 'text',       TEMPLATE_DIR_URI . '/pagebox/modules/text/text.css',        array(), false, false );
     wp_enqueue_style( 'slider',     TEMPLATE_DIR_URI . '/pagebox/modules/slider/slider.css',    array(), false, false );
+	wp_enqueue_style( 'two_images',       TEMPLATE_DIR_URI . '/pagebox/modules/two_images/two_images.css',        array(), false, false );
 }
 
 function theme_enqueue_script() {

@@ -4,15 +4,16 @@ define( 'TEMPLATE_DIR_PATH', get_template_directory() );
 define( 'TEMPLATE_DIR_URI', get_template_directory_uri() );
 
 function theme_enqueue_style() {
+	$version_hash = uniqid();
 	if( defined('WP_DEBUG') && WP_DEBUG === true ) {
-		wp_enqueue_style( 'bootstrap',  TEMPLATE_DIR_URI . '/assets/stylesheets/css/bootstrap.css', array(), false, false );
-		wp_enqueue_style( 'style-sass', TEMPLATE_DIR_URI . '/assets/stylesheets/css/style.css',     array(), false, false );
+		wp_enqueue_style( 'bootstrap',  TEMPLATE_DIR_URI . '/assets/stylesheets/css/bootstrap.css', array(), $version_hash, false );
+		wp_enqueue_style( 'style-sass', TEMPLATE_DIR_URI . '/assets/stylesheets/css/style.css',     array(), $version_hash, false );
 	} else {
 		wp_enqueue_style( 'main',  	TEMPLATE_DIR_URI . '/assets/stylesheets/css/main.min.css',      array(), false, false );
 	}
-    wp_enqueue_style( 'text',       TEMPLATE_DIR_URI . '/pagebox/modules/text/css/module.css',          array(), false, false );
-    wp_enqueue_style( 'slider',     TEMPLATE_DIR_URI . '/pagebox/modules/slider/css/module.css',        array(), false, false );
-	wp_enqueue_style( 'two_images', TEMPLATE_DIR_URI . '/pagebox/modules/two_images/css/module.css',    array(), false, false );
+    wp_enqueue_style( 'text',       TEMPLATE_DIR_URI . '/pagebox/modules/text/css/module.css',          array(), $version_hash, false );
+    wp_enqueue_style( 'slider',     TEMPLATE_DIR_URI . '/pagebox/modules/slider/css/module.css',        array(), $version_hash, false );
+	wp_enqueue_style( 'two_images', TEMPLATE_DIR_URI . '/pagebox/modules/two_images/css/module.css',    array(), $version_hash, false );
 }
 
 function theme_enqueue_script() {
@@ -34,3 +35,20 @@ function wppn_setup() {
 }
 
 require_once TEMPLATE_DIR_PATH . '/inc/wp_bootstrap_navwalker.php';
+
+// Disable wp emojis
+function disable_wp_emojicons() {
+
+	// all actions related to emojis
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+
+	// filter to remove TinyMCE emojis
+	add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+}
+add_action( 'init', 'disable_wp_emojicons' );

@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "description": "Pagebox template",
-  "scripts": {},
+  "scripts": {
+    "watch": "npm install && grunt default",
+    "compile": "npm install && grunt compile"
+  },
   "author": "WpGeeks",
   "license": "ISC",
   "devDependencies": {
     "bower": "^1.7.7",
     "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
     "grunt-auto-install": "^0.3.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-sass": "^1.1.0",

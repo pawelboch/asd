@@ -72,7 +72,8 @@ module.exports = function( grunt ) {
                 options: {
                     stdout: true,
                     stderr: true,
-                    failOnError: true
+                    failOnError: true,
+                    npm: false
                 }
             }
         },
@@ -95,7 +96,9 @@ module.exports = function( grunt ) {
     ]);
 
     grunt.registerTask( 'compile', 'Compile scss files with compression', [
-        'sass'
+        'auto_install',
+        'sass',
+        'comments'
     ]);
 
 };

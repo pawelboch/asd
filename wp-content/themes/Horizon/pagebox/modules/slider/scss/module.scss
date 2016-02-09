@@ -50,6 +50,12 @@ $learn-more-clear: both;
   -webkit-background-size: cover;
   background-size: cover;
 
+  .tab-content-2,
+  .tab-content-3,
+  .tab-content-4 {
+    display: none;
+  }
+
   .container {
     border-bottom: $border-bottom;
   }

@@ -117,6 +117,15 @@ header {
 
 @media (max-width: $breakpoint-tablet) {
   header {
+
+    .display-on {
+      display: block !important;
+      position: absolute;
+      top: 80px;
+      width: 100%;
+      left: 0;
+    }
+
     .nav-toggle {
       width: 40px;
       height: 40px;

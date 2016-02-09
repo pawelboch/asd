@@ -17,7 +17,9 @@ function theme_enqueue_style() {
 }
 
 function theme_enqueue_script() {
+	wp_enqueue_script( 'jQuery', 		TEMPLATE_DIR_URI . '/assets/javascripts/jquery-2.2.0.min.js',		array(), false, true );
 	wp_enqueue_script( 'scripts',   	TEMPLATE_DIR_URI . '/assets/javascripts/script.js',					array(), false, true );
+
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_style' );

@@ -16,21 +16,30 @@
 				<div class="tabs col-xs-12 col-sm-12">
 					<div class="row">
 						<div class="tab-head">
-							<div class="tab-title active">
-								<h2>This is Tab 1</h2>
+							<div class="tab-1 tab-title active">
+								<h2><?php echo $this->get( 'first_tab_title' ) ;?></h2>
 							</div>
-							<div class="tab-title">
-								<h2>This is another Tab</h2>
+							<div class="tab-2 tab-title">
+								<h2><?php echo $this->get( 'second_tab_title' ) ;?></h2>
 							</div>
-							<div class="tab-title">
-								<h2>This is Tab 3</h2>
+							<div class="tab-3 tab-title">
+								<h2><?php echo $this->get( 'third_tab_title' ) ;?></h2>
 							</div>
-							<div class="tab-title">
-								<h2>This is Tab 4</h2>
+							<div class="tab-4 tab-title">
+								<h2><?php echo $this->get( 'fourth_tab_title' ) ;?></h2>
 							</div>
 						</div>
-						<div class="tab-content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur condimentum porttitor ante, quis ornare felis viverra vitae. </p>
+						<div class="tab-content-1 tab-content active">
+							<p><?php echo $this->get( 'first_tab_content' ) ;?></p>
+						</div>
+						<div class="tab-content-2 tab-content">
+							<p><?php echo $this->get( 'first_tab_content' ) ;?></p>
+						</div>
+						<div class="tab-content-3 tab-content">
+							<p><?php echo $this->get( 'first_tab_content' ) ;?></p>
+						</div>
+						<div class="tab-content-4 tab-content">
+							<p><?php echo $this->get( 'first_tab_content' ) ;?></p>
 						</div>
 					</div>
 

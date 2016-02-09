@@ -11,8 +11,9 @@ module.exports = function( grunt ) {
         pkg: grunt.file.readJSON('package.json'),
         sass: {
             options: {
+                sourceMap: true,
                 outputStyle: 'expanded', // nested, expanded, compact, compressed
-                sourceComments: true,
+                sourceComments: false,
                 includePaths: [
                     'assets/stylesheets/scss',
                     'assets/bower_components/compass-mixins/lib',
@@ -20,17 +21,17 @@ module.exports = function( grunt ) {
                 ]
             },
             bootstrap: {
-                options: {
-                    sourceMap: 'assets/stylesheets/map/bootstrap.css.map'
-                },
+                //options: {
+                //    sourceMap: 'assets/stylesheets/map/bootstrap.css.map'
+                //},
                 files: {
                     'assets/stylesheets/css/bootstrap.css': 'assets/stylesheets/scss/bootstrap.scss'
                 }
             },
             style: {
-                options: {
-                    sourceMap: 'assets/stylesheets/map/style.css.map'
-                },
+                //options: {
+                //    sourceMap: 'assets/stylesheets/map/style.css.map'
+                //},
                 files: {
                     'assets/stylesheets/css/style.css': 'assets/stylesheets/scss/style.scss'
                 }
@@ -38,8 +39,7 @@ module.exports = function( grunt ) {
             minify: {
                 options: {
                     sourceMap: false,
-                    outputStyle: 'compressed',
-                    sourceComments: false
+                    outputStyle: 'compressed'
                 },
                 files: {
                     'assets/stylesheets/css/main.min.css': 'assets/stylesheets/scss/main.scss'

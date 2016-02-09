@@ -1,5 +1,4 @@
 .idea
 /assets/bower_components
-/assets/stylesheets/map
 /node_modules
 npm-debug.log

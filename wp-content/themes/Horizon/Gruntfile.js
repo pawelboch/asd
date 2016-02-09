@@ -1,14 +1,14 @@
 module.exports = function( grunt ) {
 
     // Load grunt tasks automatically
-    require('load-grunt-tasks')(grunt);
+    require( 'load-grunt-tasks' )( grunt );
 
     // Time how long tasks take. Can help when optimizing build times
-    require('time-grunt')(grunt);
+    require( 'time-grunt' )( grunt );
 
     // Project configuration.
-    grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
+    grunt.initConfig( {
+        pkg: grunt.file.readJSON( 'package.json' ),
         sass: {
             options: {
                 sourceMap: true,
@@ -47,21 +47,21 @@ module.exports = function( grunt ) {
                     '!assets/stylesheets/scss/main.scss',
                     '!assets/stylesheets/scss/bootstrap.scss'
                 ],
-                tasks: ['sass:style', 'comments:cssStyle'],
+                tasks: [ 'sass:style', 'comments:cssStyle' ],
                 options: {
                     spawn: false
                 }
             },
             sassBootstrap: {
                 files: 'assets/stylesheets/scss/bootstrap.scss',
-                tasks: ['sass:bootstrap'],
+                tasks: [ 'sass:bootstrap' ],
                 options: {
                     spawn: false
                 }
             },
             sassMain: {
                 files: 'assets/stylesheets/scss/main.scss',
-                tasks: ['sass:minify'],
+                tasks: [ 'sass:minify' ],
                 options: {
                     spawn: false
                 }
@@ -83,22 +83,22 @@ module.exports = function( grunt ) {
                     singleline: true,
                     multiline: true
                 },
-                src: ['assets/stylesheets/css/style.css']
+                src: [ 'assets/stylesheets/css/style.css' ]
             }
         }
-    });
+    } );
 
     grunt.registerTask( 'default', 'Watch scss files and compile after change', [
         'auto_install',
         'sass',
         'comments',
         'watch'
-    ]);
+    ] );
 
     grunt.registerTask( 'compile', 'Compile scss files with compression', [
         'auto_install',
         'sass',
         'comments'
-    ]);
+    ] );
 
 };

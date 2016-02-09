@@ -3,15 +3,14 @@
 @import "variables";
 @import "compass/css3/border-radius";
 
+/* HEADER MENU */
+
 header {
   background-color: $header-background-color;
   position: $header-position;
   height: $header-height;
   width: $header-width;
   z-index: $header-z-index;
-
-/* HEADER MENU */
-
 
   .main-nav,
   .logo {
@@ -44,11 +43,11 @@ header {
         > .sub-menu {
           display: block;
           position: absolute;
-          left: -457.5%;
-          padding-left: 15px;
-          background-color: #fff;
-          top: 75px;
-          width: 1140px;
+          left: $header-mainnav-lihover-submenu-left;
+          padding-left: $header-mainnav-lihover-submenu-padding-left;
+          background-color: $header-mainnav-lihover-submenu-background-color;
+          top: $header-mainnav-lihover-submenu-top;
+          width: $header-mainnav-lihover-submenu-width;
 
           li {
             border-left: none;
@@ -87,13 +86,8 @@ header {
 
         &:hover {
           > .sub-menu {
-            display: block;
-            position: absolute;
-            left: -454px;
-            padding-left: 15px;
-            background-color: #fff;
-            top: 75px;
-            width: 940px;
+            left: $header-mainnav-lihover-submenu-left + 67px;
+            width: $header-mainnav-lihover-submenu-width - 200px;
 
           }
         }
@@ -111,13 +105,8 @@ header {
 
         &:hover {
           > .sub-menu {
-            display: block;
-            position: absolute;
-            left: -382px;
-            padding-left: 15px;
-            background-color: #fff;
-            top: 75px;
-            width: 720px;
+            left: $header-mainnav-lihover-submenu-left + 140px;
+            width: $header-mainnav-lihover-submenu-width - 420px;
 
           }
         }
@@ -128,13 +117,21 @@ header {
 
 @media (max-width: $breakpoint-tablet) {
   header {
-
-    button {
-      right: 20px;
+    .nav-toggle {
       width: 40px;
       height: 40px;
-      position: absolute;
-      bottom: 20px;
+      padding: 0;
+      float: right;
+      margin-top: 70px;
+
+      .icon-bar {
+        height: 10px;
+        width: 100%;
+        background-color: red;
+        margin: 2px;
+        border: 2px solid red;
+        border-radius: 10px;
+      }
     }
   }
 }

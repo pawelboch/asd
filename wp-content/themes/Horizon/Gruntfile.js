@@ -6,6 +6,18 @@ module.exports = function( grunt ) {
     // Time how long tasks take. Can help when optimizing build times
     require( 'time-grunt' )( grunt );
 
+    function resolveModulesScssPaths() {
+        var paths = {};
+        grunt.file.expandMapping(
+            'pagebox/modules/**/scss/module.scss',
+            '',
+            { ext: '/../../css/module.css' }
+        ).forEach( function( item ) {
+            paths[ item.dest ] = item.src[0];
+        });
+        return paths;
+    }
+
     // Project configuration.
     grunt.initConfig( {
         pkg: grunt.file.readJSON( 'package.json' ),
@@ -38,6 +50,12 @@ module.exports = function( grunt ) {
                 files: {
                     'assets/stylesheets/css/main.min.css': 'assets/stylesheets/scss/main.scss'
                 }
+            },
+            modules: {
+                options: {
+                    outputStyle: 'compressed'
+                },
+                files: resolveModulesScssPaths()
             }
         },
         watch: {
@@ -65,6 +83,13 @@ module.exports = function( grunt ) {
                 options: {
                     spawn: false
                 }
+            },
+            sassModules: {
+                files: 'pagebox/modules/**/scss/*.scss',
+                tasks: [ 'sass:modules', 'comments:cssModules' ],
+                options: {
+                    spawn: false
+                }
             }
         },
         auto_install: {
@@ -84,6 +109,13 @@ module.exports = function( grunt ) {
                     multiline: true
                 },
                 src: [ 'assets/stylesheets/css/style.css' ]
+            },
+            cssModules: {
+                options: {
+                    singleline: true,
+                    multiline: true
+                },
+                src: [ 'pagebox/modules/**/css/*.css' ]
             }
         }
     } );

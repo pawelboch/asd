@@ -21,17 +21,11 @@ module.exports = function( grunt ) {
                 ]
             },
             bootstrap: {
-                //options: {
-                //    sourceMap: 'assets/stylesheets/map/bootstrap.css.map'
-                //},
                 files: {
                     'assets/stylesheets/css/bootstrap.css': 'assets/stylesheets/scss/bootstrap.scss'
                 }
             },
             style: {
-                //options: {
-                //    sourceMap: 'assets/stylesheets/map/style.css.map'
-                //},
                 files: {
                     'assets/stylesheets/css/style.css': 'assets/stylesheets/scss/style.scss'
                 }
@@ -53,7 +47,7 @@ module.exports = function( grunt ) {
                     '!assets/stylesheets/scss/main.scss',
                     '!assets/stylesheets/scss/bootstrap.scss'
                 ],
-                tasks: ['sass:style'],
+                tasks: ['sass:style', 'comments:cssStyle'],
                 options: {
                     spawn: false
                 }
@@ -81,12 +75,22 @@ module.exports = function( grunt ) {
                     failOnError: true
                 }
             }
+        },
+        comments: {
+            cssStyle: {
+                options: {
+                    singleline: true,
+                    multiline: true
+                },
+                src: ['assets/stylesheets/css/style.css']
+            }
         }
     });
 
     grunt.registerTask( 'default', 'Watch scss files and compile after change', [
         'auto_install',
         'sass',
+        'comments',
         'watch'
     ]);
 

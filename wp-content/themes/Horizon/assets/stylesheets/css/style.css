@@ -1,11 +1,3 @@
-/* IMPORT ALL REQUEST STYLESHEET */
-/* MAIN STYLESHEET */
-/* VARIABLES */
-/* BREAKPOINTS */
-/* MAIN STYLESHEET */
-/* HEADER MENU */
-/* CONTENT STYLESHEET */
-/* FOOTER STYLESHEET */
 body {
   font: 100% Helvetica, sans-serif;
   color: #333;
@@ -15,21 +7,12 @@ body {
   background-size: cover;
   background-color: #ecf3ef;
 }
-
-/* HEADER STYLESHEET */
-/* VARIABLES */
-/* BREAKPOINTS */
-/* MAIN STYLESHEET */
-/* HEADER MENU */
-/* CONTENT STYLESHEET */
-/* FOOTER STYLESHEET */
 header {
   background-color: rgba(48, 62, 72, 0.8);
   position: relative;
   height: 132px;
   width: 100%;
   z-index: 1;
-  /* HEADER MENU */
 }
 
 header .main-nav,
@@ -84,8 +67,6 @@ header .main-nav li a {
   text-decoration: none;
   font-family: "Montserrat";
 }
-
-/* HEADER BREAKPOINTS */
 @media (max-width: 1200px) {
   header .main-nav li:hover > .sub-menu {
     display: block;
@@ -119,14 +100,6 @@ header .main-nav li a {
     bottom: 20px;
   }
 }
-
-/* FOOTER STYLESHEET */
-/* VARIABLES */
-/* BREAKPOINTS */
-/* MAIN STYLESHEET */
-/* HEADER MENU */
-/* CONTENT STYLESHEET */
-/* FOOTER STYLESHEET */
 footer .container {
   background-color: #fff;
   height: 263px;
@@ -140,14 +113,6 @@ footer li {
 footer ul {
   margin-top: 0;
 }
-
-/* CONTENT STYLESHEET */
-/* VARIABLES */
-/* BREAKPOINTS */
-/* MAIN STYLESHEET */
-/* HEADER MENU */
-/* CONTENT STYLESHEET */
-/* FOOTER STYLESHEET */
 .content .row .full-width {
   margin-top: 15px;
 }

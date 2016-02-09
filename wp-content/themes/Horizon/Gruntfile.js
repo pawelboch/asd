@@ -86,7 +86,7 @@ module.exports = function( grunt ) {
             },
             sassModules: {
                 files: 'pagebox/modules/**/scss/*.scss',
-                tasks: [ 'sass:modules', 'comments:cssModules' ],
+                tasks: [ 'sass:modules' ],
                 options: {
                     spawn: false
                 }
@@ -109,13 +109,6 @@ module.exports = function( grunt ) {
                     multiline: true
                 },
                 src: [ 'assets/stylesheets/css/style.css' ]
-            },
-            cssModules: {
-                options: {
-                    singleline: true,
-                    multiline: true
-                },
-                src: [ 'pagebox/modules/**/css/*.css' ]
             }
         }
     } );

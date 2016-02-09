@@ -78,7 +78,7 @@ header {
 
 /* HEADER BREAKPOINTS */
 
-@media (max-width: 1200px ) {
+@media (max-width: map-get($grid-breakpoints, xl) ) {
 
   header {
     .main-nav {

@@ -29,7 +29,6 @@ header {
   height: 132px;
   width: 100%;
   z-index: 1;
-  color: red;
   /* HEADER MENU */
 }
 
@@ -49,10 +48,35 @@ header .main-nav {
 header .main-nav li {
   display: inline;
   padding: 0 15px;
+  position: relative;
 }
 
 header .main-nav li:last-child {
   border-left: 1px solid red;
+}
+
+header .main-nav li:hover > .sub-menu {
+  display: block;
+  position: absolute;
+  left: -457.5%;
+  padding-left: 15px;
+  background-color: #fff;
+  top: 75px;
+  width: 1000%;
+}
+
+header .main-nav li:hover > .sub-menu li {
+  border-left: none;
+  padding: 0;
+}
+
+header .main-nav li:hover > .sub-menu li a {
+  color: #000;
+}
+
+header .main-nav li .sub-menu {
+  display: none;
+  min-height: 300px;
 }
 
 header .main-nav li a {
@@ -62,6 +86,30 @@ header .main-nav li a {
 }
 
 /* HEADER BREAKPOINTS */
+@media (max-width: 1200px) {
+  header .main-nav li:hover > .sub-menu {
+    display: block;
+    position: absolute;
+    left: -454px;
+    padding-left: 15px;
+    background-color: #fff;
+    top: 75px;
+    width: 940px;
+  }
+}
+
+@media (max-width: 992px) {
+  header .main-nav li:hover > .sub-menu {
+    display: block;
+    position: absolute;
+    left: -382px;
+    padding-left: 15px;
+    background-color: #fff;
+    top: 75px;
+    width: 720px;
+  }
+}
+
 @media (max-width: 768px) {
   header button {
     right: 20px;
@@ -102,6 +150,21 @@ footer ul {
 /* FOOTER STYLESHEET */
 .content .row .full-width {
   margin-top: 15px;
+}
+
+.learn-more-btn {
+  width: 161px;
+  clear: both;
+  background-color: #303e48;
+  padding: 18px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  height: 53px;
+}
+
+.learn-more-btn span {
+  font-size: 0.95rem;
 }
 
 /*# sourceMappingURL=style.css.map */

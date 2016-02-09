@@ -1,6 +1,7 @@
 /* HEADER STYLESHEET */
 
 @import "variables";
+@import "compass/css3/border-radius";
 
 header {
   background-color: $background-color;
@@ -9,18 +10,21 @@ header {
   width: $width;
   z-index: $z-index;
 
-  color: red;
 /* HEADER MENU */
 
 
   .main-nav,
   .logo {
+
     text-transform: uppercase;
   }
 
+
   .logo {
     img {
+
       margin-top: 40px;
+
     }
   }
 
@@ -30,9 +34,36 @@ header {
     li {
       display: inline;
       padding: 0 15px;
+      position: relative;
 
       &:last-child {
         border-left: 1px solid red;
+      }
+      
+      &:hover {
+        > .sub-menu {
+          display: block;
+          position: absolute;
+          left: -457.5%;
+          padding-left: 15px;
+          background-color: #fff;
+          top: 75px;
+          width: 1000%;
+
+          li {
+            border-left: none;
+            padding: 0;
+
+            a {
+              color: #000;
+            }
+          }
+        }
+      }
+
+      .sub-menu {
+        display: none;
+        min-height: 300px;
       }
 
       a {
@@ -46,6 +77,54 @@ header {
 
 
 /* HEADER BREAKPOINTS */
+
+@media (max-width: 1200px ) {
+
+  header {
+    .main-nav {
+
+      li {
+
+        &:hover {
+          > .sub-menu {
+            display: block;
+            position: absolute;
+            left: -454px;
+            padding-left: 15px;
+            background-color: #fff;
+            top: 75px;
+            width: 940px;
+
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px ) {
+
+  header {
+    .main-nav {
+
+      li {
+
+        &:hover {
+          > .sub-menu {
+            display: block;
+            position: absolute;
+            left: -382px;
+            padding-left: 15px;
+            background-color: #fff;
+            top: 75px;
+            width: 720px;
+
+          }
+        }
+      }
+    }
+  }
+}
 
 @media (max-width: $breakpoint-tablet) {
   header {

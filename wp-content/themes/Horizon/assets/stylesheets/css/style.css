@@ -1,3 +1,12 @@
+/* IMPORT ALL REQUEST STYLESHEET */
+/* MAIN STYLESHEET */
+/* VARIABLES */
+/* BREAKPOINTS */
+/* MAIN STYLESHEET */
+/* HEADER MENU */
+/* CONTENT STYLESHEET */
+/* FOOTER STYLESHEET */
+/* line 6, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_main.scss */
 body {
   font: 100% Helvetica, sans-serif;
   color: #333;
@@ -7,37 +16,53 @@ body {
   background-size: cover;
   background-color: #ecf3ef;
 }
+
+/* HEADER STYLESHEET */
+/* VARIABLES */
+/* BREAKPOINTS */
+/* MAIN STYLESHEET */
+/* HEADER MENU */
+/* CONTENT STYLESHEET */
+/* FOOTER STYLESHEET */
+/* line 6, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
 header {
   background-color: rgba(48, 62, 72, 0.8);
   position: relative;
   height: 132px;
   width: 100%;
   z-index: 1;
+  /* HEADER MENU */
 }
 
+/* line 16, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
 header .main-nav,
 header .logo {
   text-transform: uppercase;
 }
 
+/* line 24, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
 header .logo img {
   margin-top: 40px;
 }
 
+/* line 31, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
 header .main-nav {
   margin-top: 62px;
 }
 
+/* line 34, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
 header .main-nav li {
   display: inline;
   padding: 0 15px;
   position: relative;
 }
 
+/* line 39, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
 header .main-nav li:last-child {
   border-left: 1px solid red;
 }
 
+/* line 44, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
 header .main-nav li:hover > .sub-menu {
   display: block;
   position: absolute;
@@ -48,26 +73,33 @@ header .main-nav li:hover > .sub-menu {
   width: 1000%;
 }
 
+/* line 53, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
 header .main-nav li:hover > .sub-menu li {
   border-left: none;
   padding: 0;
 }
 
+/* line 57, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
 header .main-nav li:hover > .sub-menu li a {
   color: #000;
 }
 
+/* line 64, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
 header .main-nav li .sub-menu {
   display: none;
   min-height: 300px;
 }
 
+/* line 69, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
 header .main-nav li a {
   color: #fff;
   text-decoration: none;
   font-family: "Montserrat";
 }
+
+/* HEADER BREAKPOINTS */
 @media (max-width: 1200px) {
+  /* line 89, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
   header .main-nav li:hover > .sub-menu {
     display: block;
     position: absolute;
@@ -80,6 +112,7 @@ header .main-nav li a {
 }
 
 @media (max-width: 992px) {
+  /* line 113, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
   header .main-nav li:hover > .sub-menu {
     display: block;
     position: absolute;
@@ -92,6 +125,7 @@ header .main-nav li a {
 }
 
 @media (max-width: 768px) {
+  /* line 132, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_header.scss */
   header button {
     right: 20px;
     width: 40px;
@@ -100,23 +134,44 @@ header .main-nav li a {
     bottom: 20px;
   }
 }
+
+/* FOOTER STYLESHEET */
+/* VARIABLES */
+/* BREAKPOINTS */
+/* MAIN STYLESHEET */
+/* HEADER MENU */
+/* CONTENT STYLESHEET */
+/* FOOTER STYLESHEET */
+/* line 7, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_footer.scss */
 footer .container {
   background-color: #fff;
   height: 263px;
 }
 
+/* line 13, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_footer.scss */
 footer li {
   display: inline;
   padding-left: 10px;
 }
 
+/* line 18, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_footer.scss */
 footer ul {
   margin-top: 0;
 }
+
+/* CONTENT STYLESHEET */
+/* VARIABLES */
+/* BREAKPOINTS */
+/* MAIN STYLESHEET */
+/* HEADER MENU */
+/* CONTENT STYLESHEET */
+/* FOOTER STYLESHEET */
+/* line 7, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_content.scss */
 .content .row .full-width {
   margin-top: 15px;
 }
 
+/* line 13, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_content.scss */
 .learn-more-btn {
   width: 161px;
   clear: both;
@@ -128,8 +183,9 @@ footer ul {
   height: 53px;
 }
 
+/* line 22, /Applications/MAMP/htdocs/horizon-investments/wp-content/themes/Horizon/assets/stylesheets/scss/partials/_content.scss */
 .learn-more-btn span {
   font-size: 0.95rem;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=../map/style.css.map */

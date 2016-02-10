@@ -27,9 +27,7 @@ module.exports = function( grunt ) {
                 outputStyle: 'expanded', // nested, expanded, compact, compressed
                 sourceComments: false,
                 includePaths: [
-                    'assets/stylesheets/scss',
-                    'assets/bower_components/compass-mixins/lib',
-                    'assets/bower_components/bootstrap/scss'
+                    'assets/stylesheets/scss'
                 ]
             },
             bootstrap: {
@@ -62,6 +60,7 @@ module.exports = function( grunt ) {
             sass: {
                 files: [
                     'assets/stylesheets/scss/**/*.scss',
+                    '!assets/stylesheets/vendor/',
                     '!assets/stylesheets/scss/main.scss',
                     '!assets/stylesheets/scss/bootstrap.scss'
                 ],
@@ -110,18 +109,45 @@ module.exports = function( grunt ) {
                 },
                 src: [ 'assets/stylesheets/css/style.css' ]
             }
+        },
+        copy: {
+            sassVendor: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'assets/bower_components/bootstrap/scss/',
+                        src: ['**'],
+                        dest: 'assets/stylesheets/scss/vendor/bootstrap/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'assets/bower_components/compass-mixins/lib/',
+                        src: ['**'],
+                        dest: 'assets/stylesheets/scss/vendor/'
+                    }
+                ]
+            }
+        },
+        clean: {
+            sassVendor: ["assets/stylesheets/scss/vendor/"]
         }
     } );
 
-    grunt.registerTask( 'default', 'Watch scss files and compile after change', [
+    grunt.registerTask( 'install-sass-vendor', 'Install vendors from bower and copy to vendor folder', [
         'auto_install',
+        'clean:sassVendor',
+        'copy:sassVendor'
+    ] );
+
+    grunt.registerTask( 'default', 'Watch scss files and compile after change', [
+        'install-sass-vendor',
         'sass',
         'comments',
         'watch'
     ] );
 
     grunt.registerTask( 'compile', 'Compile scss files with compression', [
-        'auto_install',
+        'install-sass-vendor',
         'sass',
         'comments'
     ] );

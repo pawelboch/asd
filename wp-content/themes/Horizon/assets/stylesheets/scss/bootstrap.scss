@@ -1,20 +1,20 @@
 @import "theme-config";
 
-@import "mixins";
+@import "vendor/bootstrap/mixins";
 
 // Reset and dependencies
-@import "normalize";
-@import "print";
+@import "vendor/bootstrap/normalize";
+@import "vendor/bootstrap/print";
 
 // Core CSS
-@import "reboot";
-@import "type";
-@import "images";
-@import "code";
-@import "grid";
+@import "vendor/bootstrap/reboot";
+@import "vendor/bootstrap/type";
+@import "vendor/bootstrap/images";
+@import "vendor/bootstrap/code";
+@import "vendor/bootstrap/grid";
 
 // Utility classes
-@import "utilities";
-@import "utilities-background";
-@import "utilities-spacing";
-@import "utilities-responsive";
+@import "vendor/bootstrap/utilities";
+@import "vendor/bootstrap/utilities-background";
+@import "vendor/bootstrap/utilities-spacing";
+@import "vendor/bootstrap/utilities-responsive";

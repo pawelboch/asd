@@ -1,7 +1,6 @@
 @import "module-variables";
 
-
-.title_three_sections-module {
+.#{$module-name} {
 
   background-color: #fff;
   padding-top: 72px;

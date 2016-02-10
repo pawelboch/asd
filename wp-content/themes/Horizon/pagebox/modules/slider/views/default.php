@@ -4,7 +4,7 @@
  */
 ?>
 
-	<div class="container-fluid slider-module">
+	<div class="container-fluid slider-module-fg23gh">
 		<div class="container">
 			<div class="row">
 				<div class="slides">

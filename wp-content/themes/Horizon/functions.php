@@ -1,45 +1,74 @@
 <?php
 
+/**
+ * Defined constants
+ */
 define( 'TEMPLATE_DIR_PATH', get_template_directory() );
 define( 'TEMPLATE_DIR_URI', get_template_directory_uri() );
 
+/**
+ * Theme styles (CSS)
+ */
 function theme_enqueue_style() {
-	$version_hash = uniqid();
+
+	/**
+	 * Load css styles for development
+	 */
 	if( defined('WP_DEBUG') && WP_DEBUG === true ) {
+		$version_hash = uniqid();
 		wp_enqueue_style( 'bootstrap',  TEMPLATE_DIR_URI . '/assets/stylesheets/css/bootstrap.css', array(), $version_hash, false );
 		wp_enqueue_style( 'style-sass', TEMPLATE_DIR_URI . '/assets/stylesheets/css/style.css',     array(), $version_hash, false );
+
+		/**
+		 * Modules autoload css files.
+		 */
+		foreach( glob( TEMPLATE_DIR_PATH . '/pagebox/modules/*', GLOB_ONLYDIR ) as $dir ) {
+			$dirname = basename( $dir );
+			wp_enqueue_style( "{$dirname}-module",	TEMPLATE_DIR_URI . "/pagebox/modules/{$dirname}/css/module.css", array(), $version_hash, false );
+		}
 	} else {
-		wp_enqueue_style( 'main',  	TEMPLATE_DIR_URI . '/assets/stylesheets/css/main.min.css',      array(), false, false );
+		/**
+		 * Load only one, compressed file for production
+		 */
+		wp_enqueue_style( 'main', TEMPLATE_DIR_URI . '/assets/stylesheets/css/main.min.css', array(), false, false );
 	}
-    wp_enqueue_style( 'text',						TEMPLATE_DIR_URI . '/pagebox/modules/text/css/module.css',          				array(), $version_hash, false );
-    wp_enqueue_style( 'slider',						TEMPLATE_DIR_URI . '/pagebox/modules/slider/css/module.css',        				array(), $version_hash, false );
-	wp_enqueue_style( 'two_images',					TEMPLATE_DIR_URI . '/pagebox/modules/two_images/css/module.css',					array(), $version_hash, false );
-	wp_enqueue_style( 'title_three_sections',		TEMPLATE_DIR_URI . '/pagebox/modules/title_three_sections.css/css/module.css',		array(), $version_hash, false );
 }
-
-function theme_enqueue_script() {
-	wp_enqueue_script( 'jQuery', 		TEMPLATE_DIR_URI . '/assets/javascripts/jquery-2.2.0.min.js',		array(), false, true );
-	wp_enqueue_script( 'scripts',   	TEMPLATE_DIR_URI . '/assets/javascripts/script.js',					array(), false, true );
-
-}
-
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_style' );
+
+/**
+ * Theme scripts (JavaScript)
+ */
+function theme_enqueue_script() {
+	wp_enqueue_script( 'scripts', TEMPLATE_DIR_URI . '/assets/javascripts/script.js', array('jquery'), false, true );
+}
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_script' );
 
-add_theme_support( 'post-thumbnails' ); 
+/**
+ * Enabled post-thumbnail support
+ */
+add_theme_support( 'post-thumbnails' );
 
-add_action( 'after_setup_theme', 'wppn_setup' );
-
-function wppn_setup() {  
+/**
+ * Register default menus
+ */
+function wppn_setup() {
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'theme' ),
         'footer' => __('Footer Menu', 'theme')
 	) );
 }
+add_action( 'after_setup_theme', 'wppn_setup' );
 
+/**
+ * Bootstrap navwalker
+ * GitHub URI: https://github.com/twittem/wp-bootstrap-navwalker
+ * Description: A custom WordPress nav walker class to implement the Bootstrap 3 navigation style in a custom theme using the WordPress built in menu manager.
+ */
 require_once TEMPLATE_DIR_PATH . '/inc/wp_bootstrap_navwalker.php';
 
-// Disable wp emojis
+/**
+ * Disable wp emojis
+ */
 function disable_wp_emojicons() {
 
 	// all actions related to emojis

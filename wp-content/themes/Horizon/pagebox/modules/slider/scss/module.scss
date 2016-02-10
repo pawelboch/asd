@@ -1,45 +1,9 @@
 @import "module-variables";
-
-/* SLIDER STYLESHEET */
-/* SLIDER MAIN */
-
-$min-height: 420px;
-$background-color: transparent;
-$background-image: url('../../../../assets/images/slider1.png');
-$border-bottom: 2px solid #c2c2c2;
-
-/* SLIDER H2 */
-
-$h2-background-color: #303e48;
-$h2-color: #fff;
-$h2-width: auto;
-$h2-padding: 15px;
-$h2-font-size: 2.25rem;
-$h2-font-family: "Avenir Next";
-$h2-text-transform: uppercase;
-$h2-position: relative;
-$h2-font-weight: 300;
-
-/* SLIDER SPAN */
-
-$span-font-weight: 600;
-
-/* SLIDER P */
-
-$p-font-size: 2rem;
-$p-font-family: "Georgia";
-
-
-/* SLIDER A BUTTON */
-
-$a-background: rgba(48, 62, 72, 0.8);
-$a-padding: 18px;
-$a-color: #fff;
-$a-text-transform: uppercase;
-$a-font-size: 0.95rem;
-
-$learn-more-width: 161px;
-$learn-more-clear: both;
+//
+//    SLIDER MODULE STYLESHEET
+//
+//
+//////////////////////////////////
 
 .slider-module {
 

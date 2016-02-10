@@ -12,25 +12,22 @@
 			</h2>
 		</div>
 
-		<div class="first col-md-4">
+		<div class="first col-md-4 text-sm-center">
 			<img src="<?php echo wp_get_attachment_url( $this->get( 'first_image' ) ) ;?>">
-			<p><?php echo $this->get( 'first_title' ) ;?></p>
-			<p>description placeholder</p>
-			col-1
+			<h3><?php echo $this->get( 'first_title' ) ;?></h3>
+			<p><?php echo $this->get( 'first_description' ) ;?></p>
 		</div>
 
-		<div class="second col-md-4">
+		<div class="second col-md-4 text-sm-center">
 			<img src="<?php echo wp_get_attachment_url( $this->get( 'second_image' ) ) ;?>">
-			<p>title placeholder</p>
-			<p>description placeholder</p>
-			col-2
+			<h3><?php echo $this->get( 'second_title' ) ;?></h3>
+			<p><?php echo $this->get( 'second_description' ) ;?></p>
 		</div>
 
-		<div class="third col-md-4">
+		<div class="third col-md-4 text-sm-center">
 			<img src="<?php echo wp_get_attachment_url( $this->get( 'third_image' ) ) ;?>">
-			<p>title placeholder</p>
-			<p>description placeholder</p>
-			col-3
+			<h3><?php echo $this->get( 'third_title' ) ;?></h3>
+			<p><?php echo $this->get( 'third_description' ) ;?></p>
 		</div>
 
 	</div>

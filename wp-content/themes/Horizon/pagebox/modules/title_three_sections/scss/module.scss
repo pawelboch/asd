@@ -2,8 +2,38 @@
 
 
 .title_three_sections-module {
-  
-  .first {
 
+  background-color: #fff;
+  padding-top: 72px;
+  padding-bottom: 95px;
+  border-bottom: 1px solid #c2c2c2;
+
+  .title {
+    margin-bottom: 77px;
+    padding: 0 66px;
+    font-size: 32px;
+    font-family: "Georgia";
+    line-height: 1.156;
   }
+
+  .first,
+  .second,
+  .third {
+
+    img {
+      margin-bottom: 47px;
+    }
+
+    h3 {
+      font-size: 21px;
+      font-family: "Avenir Next";
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 16px;
+      font-family: "Arial";
+    }
+  }
+
 }

@@ -75,6 +75,62 @@ class Module extends Abstract_Module {
 						'label'			=> __( 'Title' ),
 						'description'	=> __( 'Title under icon')
 				),
+				array(
+						'type'			=> 'editor',
+						'group'			=> __( 'First part', 'pagebox'),
+						'name'			=> 'first_description',
+						'option'	  	=> 'yes',
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Title under icon')
+				),
+				array(
+						'type'			=> 'image',
+						'group'			=> __( 'Second part', 'pagebox'),
+						'name'			=> 'second_image',
+						'option'	  	=> 'yes',
+						'label'			=> __( 'Image' ),
+						'description'	=> __( 'Image')
+				),
+				array(
+						'type'			=> 'text',
+						'group'			=> __( 'Second part', 'pagebox'),
+						'name'			=> 'second_title',
+						'option'	  	=> 'yes',
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Title under icon')
+				),
+				array(
+						'type'			=> 'editor',
+						'group'			=> __( 'Second part', 'pagebox'),
+						'name'			=> 'second_description',
+						'option'	  	=> 'yes',
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Title under icon')
+				),
+				array(
+						'type'			=> 'image',
+						'group'			=> __( 'Third part', 'pagebox'),
+						'name'			=> 'third_image',
+						'option'	  	=> 'yes',
+						'label'			=> __( 'Image' ),
+						'description'	=> __( 'Image')
+				),
+				array(
+						'type'			=> 'text',
+						'group'			=> __( 'Third part', 'pagebox'),
+						'name'			=> 'third_title',
+						'option'	  	=> 'yes',
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Title under icon')
+				),
+				array(
+						'type'			=> 'editor',
+						'group'			=> __( 'Third part', 'pagebox'),
+						'name'			=> 'third_description',
+						'option'	  	=> 'yes',
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Title under icon')
+				),
 			)
 		);
 	}

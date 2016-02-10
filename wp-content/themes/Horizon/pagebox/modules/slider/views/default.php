@@ -16,16 +16,16 @@
 				<div class="tabs col-xs-12 col-sm-12">
 					<div class="row">
 						<div class="tab-head">
-							<div class="tab-1 tab-title active">
+							<div class="tab-1 tab-title active col-md-3 col-sm-3 col-xs-12">
 								<h2><?php echo $this->get( 'first_tab_title' ) ;?></h2>
 							</div>
-							<div class="tab-2 tab-title">
+							<div class="tab-2 tab-title col-md-3 col-sm-3 col-xs-12">
 								<h2><?php echo $this->get( 'second_tab_title' ) ;?></h2>
 							</div>
-							<div class="tab-3 tab-title">
+							<div class="tab-3 tab-title col-md-3 col-sm-3 col-xs-12">
 								<h2><?php echo $this->get( 'third_tab_title' ) ;?></h2>
 							</div>
-							<div class="tab-4 tab-title">
+							<div class="tab-4 tab-title col-md-3 col-sm-3 col-xs-12">
 								<h2><?php echo $this->get( 'fourth_tab_title' ) ;?></h2>
 							</div>
 						</div>

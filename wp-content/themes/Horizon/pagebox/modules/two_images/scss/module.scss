@@ -6,40 +6,65 @@
 //////////////////////////////////
 
 
-.text-module {
+.two_images-module {
+  background-color: #fff;
+  padding-top: 65px;
 
-  min-height: $min-height;
-  background-color: $background-color;
-  color: $color;
-  padding-top: 40px;
 
-  .border {
-    width: 100%;
-    border-bottom: 12px solid #ffc425;
-    padding-bottom: 51px;
-  }
+  .half-part {
+    min-height: 456px;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    border-bottom: 12px solid;
 
-  p {
-    font-family: 'Arial';
-    line-height: 1.722;
-  }
 
-  .learn-more-btn {
+    .title {
+      margin-top: 86px;
+      padding: 21px 22px 16px 22px;
+      font-size: 36px;
+      font-family: "Avenir Next";
+      color: #fff;
+    }
 
-    width: $learn-more-width;
-    clear: $learn-more-clear;
-    background-color: $a-background;
-    padding: $a-padding;
-    color: $a-color;
-    text-transform: $a-text-transform;
-    font-size: $a-font-size;
-    height: 53px;
+    .description {
+      margin-left: 20px;
+    }
 
-    span {
+    .learn-more-btn {
+      margin-left: 11px;
+    }
 
-      font-size: $a-font-size;
+
+    .description {
+      margin-top: 78px;
+      font-size: 32px;
+      font-family: "Georgia";
+      color: #fff;
+    }
+
+
+    &.left {
+      background-image: url("../../../../assets/images/image-right.png");
+      border-color: #ff9f29;
+
+      .title {
+        background-color: rgba(255, 159, 41, 0.8);
+      }
 
     }
-  }
-}
 
+
+    &.right {
+      background-image: url("../../../../assets/images/image-right.png");
+      border-color: #0093bc;
+
+      .title {
+        background-color: rgba(0, 147, 188, 0.8);
+      }
+
+    }
+
+  }
+
+}

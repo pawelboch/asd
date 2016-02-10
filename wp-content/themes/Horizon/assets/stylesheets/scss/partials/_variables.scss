@@ -11,6 +11,7 @@ $breakpoint-mobile: 544px;
 $font-stack: Helvetica, sans-serif;
 $main-background-color: #ecf3ef;
 $color: #fff;
+$bgc: #fff;
 $logo-margin: 42px;
 
 
@@ -20,7 +21,7 @@ $logo-margin: 42px;
 $main-nav-li: 0 15px;
 
 
-// Main nav li:hover sub-menu
+// Main sub-menu
 
 $submenu-left: -522px;
 $submenu-padding: 15px;
@@ -42,7 +43,6 @@ $learn-more-padding: 18px;
 $learn-more-color: #fff;
 $learn-more-text-transform: uppercase;
 $learn-more-font-size: 0.95rem;
-
 $learn-more-span-font-size: 0.95rem;
 
 /* FOOTER STYLESHEET */

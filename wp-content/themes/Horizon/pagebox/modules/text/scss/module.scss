@@ -1,25 +1,9 @@
 @import "module-variables";
 
-$min-height: 120px;
-$background-color: #fff;
-$color: #000;
-
-//  Slider a button
-
-$a-background: rgb(48, 62, 72);
-$a-padding: 18px;
-$a-color: #fff;
-$a-text-transform: uppercase;
-$a-font-size: 0.95rem;
-
-$learn-more-width: 161px;
-$learn-more-clear: both;
-
 .#{$module-name} {
 
-  min-height: $min-height;
-  background-color: $background-color;
-  color: $color;
+  background-color: #fff;
+  color: #000;
   padding-top: 40px;
 
   .border {
@@ -33,22 +17,5 @@ $learn-more-clear: both;
     line-height: 1.722;
   }
 
-  .learn-more-btn {
-
-    width: $learn-more-width;
-    clear: $learn-more-clear;
-    background-color: $a-background;
-    padding: $a-padding;
-    color: $a-color;
-    text-transform: $a-text-transform;
-    font-size: $a-font-size;
-    height: 53px;
-
-    span {
-
-      font-size: $a-font-size;
-
-    }
-  }
 }
 

@@ -11,9 +11,10 @@ function theme_enqueue_style() {
 	} else {
 		wp_enqueue_style( 'main',  	TEMPLATE_DIR_URI . '/assets/stylesheets/css/main.min.css',      array(), false, false );
 	}
-    wp_enqueue_style( 'text',       TEMPLATE_DIR_URI . '/pagebox/modules/text/css/module.css',          array(), $version_hash, false );
-    wp_enqueue_style( 'slider',     TEMPLATE_DIR_URI . '/pagebox/modules/slider/css/module.css',        array(), $version_hash, false );
-	wp_enqueue_style( 'two_images', TEMPLATE_DIR_URI . '/pagebox/modules/two_images/css/module.css',    array(), $version_hash, false );
+    wp_enqueue_style( 'text',						TEMPLATE_DIR_URI . '/pagebox/modules/text/css/module.css',          				array(), $version_hash, false );
+    wp_enqueue_style( 'slider',						TEMPLATE_DIR_URI . '/pagebox/modules/slider/css/module.css',        				array(), $version_hash, false );
+	wp_enqueue_style( 'two_images',					TEMPLATE_DIR_URI . '/pagebox/modules/two_images/css/module.css',					array(), $version_hash, false );
+	wp_enqueue_style( 'title_three_sections',		TEMPLATE_DIR_URI . '/pagebox/modules/title_three_sections.css/css/module.css',		array(), $version_hash, false );
 }
 
 function theme_enqueue_script() {

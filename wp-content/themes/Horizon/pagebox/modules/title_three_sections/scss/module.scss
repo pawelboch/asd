@@ -1,0 +1,72 @@
+@import "module-variables";
+//
+//    TWO_IMAGES VARIABLES
+//
+//
+//////////////////////////////////
+
+
+.two_images-module {
+  background-color: #fff;
+  padding-top: 65px;
+  border-bottom: 1px solid #c2c2c2;
+  padding-bottom: 75px;
+
+
+  .half-part {
+    min-height: 456px;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    border-bottom: 12px solid;
+
+
+    .title {
+      margin-top: 86px;
+      padding: 21px 22px 16px 22px;
+      font-size: 36px;
+      font-family: "Avenir Next";
+      color: #fff;
+    }
+
+    .description {
+      margin-left: 20px;
+    }
+
+    .learn-more-btn {
+      margin-left: 11px;
+    }
+
+
+    .description {
+      margin-top: 78px;
+      font-size: 32px;
+      font-family: "Georgia";
+      color: #fff;
+    }
+
+
+    &.left {
+      background-image: url("../../../../assets/images/image-right.png");
+      border-color: #ff9f29;
+
+      .title {
+        background-color: rgba(255, 159, 41, 0.8);
+      }
+
+    }
+
+
+    &.right {
+      background-image: url("../../../../assets/images/image-right.png");
+      border-color: #0093bc;
+
+      .title {
+        background-color: rgba(0, 147, 188, 0.8);
+      }
+
+    }
+
+  }
+
+}

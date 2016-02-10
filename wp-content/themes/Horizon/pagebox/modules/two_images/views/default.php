@@ -5,6 +5,7 @@
 ?>
 
 	<div class="container two_images-module">
+
 		<div class="half-part left col-md-6">
 			<div class="row">
 				<h2 class="title">
@@ -32,5 +33,6 @@
 				</a>
 			</div>
 		</div>
+
 	</div>
 

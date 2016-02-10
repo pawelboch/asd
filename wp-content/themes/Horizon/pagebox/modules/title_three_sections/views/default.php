@@ -4,21 +4,32 @@
  */
 ?>
 
-	<div class="container title_three_sections">
+	<div class="container title_three_sections-module">
 
 		<div class="title text-sm-center">
-			title Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eos fuga ipsa. Adipisci cupiditate quasi quo quod repudiandae tempore ut veritatis vitae voluptate voluptatum? Animi culpa eveniet facere necessitatibus vel!
+			<h2>
+				<?php echo $this->get( 'title' ) ;?>
+			</h2>
 		</div>
 
-		<div class="col-md-4">
+		<div class="first col-md-4">
+			<img src="<?php echo wp_get_attachment_url( $this->get( 'first_image' ) ) ;?>">
+			<p><?php echo $this->get( 'first_title' ) ;?></p>
+			<p>description placeholder</p>
 			col-1
 		</div>
 
-		<div class="col-md-4">
+		<div class="second col-md-4">
+			<img src="<?php echo wp_get_attachment_url( $this->get( 'second_image' ) ) ;?>">
+			<p>title placeholder</p>
+			<p>description placeholder</p>
 			col-2
 		</div>
 
-		<div class="col-md-4">
+		<div class="third col-md-4">
+			<img src="<?php echo wp_get_attachment_url( $this->get( 'third_image' ) ) ;?>">
+			<p>title placeholder</p>
+			<p>description placeholder</p>
 			col-3
 		</div>
 

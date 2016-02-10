@@ -35,7 +35,7 @@ class Module extends Abstract_Module {
 			'slug'        => 'title_three_sections',
 			// Human readable title of box. It will be displayed in all
 			// backend functionalities
-			'title'       => __(  '3wo images', 'pagebox_blocks' ),
+			'title'       => __(  'Title | Three Sections', 'pagebox_blocks' ),
 			// Short description about what box outputs. It will be displayed
 			// below the title in new box modal window.
 			'description' => __(  '', 'pagebox_blocks' ),
@@ -53,35 +53,27 @@ class Module extends Abstract_Module {
 			'fields'      => array(
 				array(
 						'type'			=> 'text',
-						'group'			=> __( 'Left part', 'pagebox'),
-						'name'			=> 'title_left',
+						'group'			=> __( 'Title', 'pagebox'),
+						'name'			=> 'title',
 						'option'	  	=> 'yes',
-						'label'			=> __( 'Left title' ),
-						'description'	=> __( 'Left title')
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Title')
+				),
+				array(
+						'type'			=> 'image',
+						'group'			=> __( 'First part', 'pagebox'),
+						'name'			=> 'first_image',
+						'option'	  	=> 'yes',
+						'label'			=> __( 'Image' ),
+						'description'	=> __( 'Image')
 				),
 				array(
 						'type'			=> 'text',
-						'group'			=> __( 'Left part', 'pagebox'),
-						'name'			=> 'description_left',
+						'group'			=> __( 'First part', 'pagebox'),
+						'name'			=> 'first_title',
 						'option'	  	=> 'yes',
-						'label'			=> __( 'Left description' ),
-						'description'	=> __( 'Left description')
-				),
-				array(
-						'type'			=> 'text',
-						'group'			=> __( 'Right part', 'pagebox'),
-						'name'			=> 'title_right',
-						'option'	  	=> 'yes',
-						'label'			=> __( 'Left title' ),
-						'description'	=> __( 'Left title')
-				),
-				array(
-						'type'			=> 'text',
-						'group'			=> __( 'Right part', 'pagebox'),
-						'name'			=> 'description_right',
-						'option'	  	=> 'yes',
-						'label'			=> __( 'Left description' ),
-						'description'	=> __( 'Left description')
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Title under icon')
 				),
 			)
 		);

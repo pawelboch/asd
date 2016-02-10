@@ -5,49 +5,52 @@
 
 /* HEADER MENU */
 
+$header-image-margin: 40px;
+
+
 header {
-  background-color: $header-background-color;
-  position: $header-position;
-  height: $header-height;
-  width: $header-width;
-  z-index: $header-z-index;
+  background-color: rgba(48, 62, 72, 0.8);
+  position: relative;
+  height: 132px;
+  width: 100%;
+  z-index: 1;
 
   .main-nav,
   .logo {
 
-    text-transform: $header-mainnav-text-transform;
+    text-transform: uppercase;
   }
 
 
   .logo {
     img {
 
-      margin-top: $header-image-margin;
+      margin-top: $logo-margin;
 
     }
   }
 
   .main-nav {
-    margin-top: $header-mainnav-margin-top;
+    margin-top: 62px;
 
     li {
       display: inline;
-      padding: $header-mainnav-li-padding;
+      padding: $main-nav-li;
       position: relative;
 
       &:last-child {
-        border-left: $header-mainnav-lilastchild;
+        border-left: 1px solid red;
       }
       
       &:hover {
         > .sub-menu {
           display: block;
           position: absolute;
-          left: $header-mainnav-lihover-submenu-left;
-          padding-left: $header-mainnav-lihover-submenu-padding-left;
-          background-color: $header-mainnav-lihover-submenu-background-color;
-          top: $header-mainnav-lihover-submenu-top;
-          width: $header-mainnav-lihover-submenu-width;
+          left: $submenu-left;
+          padding-left: $submenu-padding;
+          background-color: $submenu-bgc;
+          top: $submenu-top;
+          width: $submenu-width;
 
           li {
             border-left: none;
@@ -66,9 +69,9 @@ header {
       }
 
       a {
-        color: $header-menu-color;
-        text-decoration: $header-menu-decoration;
-        font-family: $header-menu-font-family;
+        color: $color;
+        text-decoration: none;
+        font-family: "Montserrat";
       }
     }
   }
@@ -86,8 +89,8 @@ header {
 
         &:hover {
           > .sub-menu {
-            left: $header-mainnav-lihover-submenu-left + 67px;
-            width: $header-mainnav-lihover-submenu-width - 200px;
+            left: $submenu-left + 67px;
+            width: $submenu-width - 200px;
 
           }
         }
@@ -105,8 +108,8 @@ header {
 
         &:hover {
           > .sub-menu {
-            left: $header-mainnav-lihover-submenu-left + 140px;
-            width: $header-mainnav-lihover-submenu-width - 420px;
+            left: $submenu-left + 140px;
+            width: $submenu-width - 420px;
 
           }
         }

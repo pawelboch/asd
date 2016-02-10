@@ -53,35 +53,19 @@ class Module extends Abstract_Module {
 			'fields'      => array(
 				array(
 						'type'			=> 'text',
-						'group'			=> __( 'Left part', 'pagebox'),
-						'name'			=> 'title_left',
-						'option'	  	=> 'yes',
-						'label'			=> __( 'Left title' ),
-						'description'	=> __( 'Left title')
+						'group'			=> __( 'Title', 'pagebox'),
+						'name'			=> 'title',
+						'value'		  	=> 'News & Insights',
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Title')
 				),
 				array(
 						'type'			=> 'text',
-						'group'			=> __( 'Left part', 'pagebox'),
-						'name'			=> 'description_left',
-						'option'	  	=> 'yes',
-						'label'			=> __( 'Left description' ),
-						'description'	=> __( 'Left description')
-				),
-				array(
-						'type'			=> 'text',
-						'group'			=> __( 'Right part', 'pagebox'),
-						'name'			=> 'title_right',
-						'option'	  	=> 'yes',
-						'label'			=> __( 'Left title' ),
-						'description'	=> __( 'Left title')
-				),
-				array(
-						'type'			=> 'text',
-						'group'			=> __( 'Right part', 'pagebox'),
-						'name'			=> 'description_right',
-						'option'	  	=> 'yes',
-						'label'			=> __( 'Left description' ),
-						'description'	=> __( 'Left description')
+						'group'			=> __( 'Title', 'pagebox'),
+						'name'			=> 'learn_more',
+						'value'		  	=> 'view all articles',
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Title')
 				),
 			)
 		);

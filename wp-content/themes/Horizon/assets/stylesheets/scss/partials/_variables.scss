@@ -8,48 +8,25 @@ $breakpoint-mobile: 544px;
 
 /* MAIN STYLESHEET */
 
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
-$background-image: url("../images/background.png");
-$background-size: cover;
+$font-stack: Helvetica, sans-serif;
 $main-background-color: #ecf3ef;
+$color: #fff;
+$logo-margin: 42px;
 
-/* HEADER MENU */
 
-$header-background-color: rgba(48, 62, 72, 0.8);
-$header-position: relative;
-$header-height: 132px;
-$header-width: 100%;
-$header-z-index: 1;
-$header-image-margin: 40px;
-
-$header-menu-color: #fff;
-$header-menu-decoration: none;
-$header-menu-font-family: "Montserrat";
-
-// Main nav, logo
-
-$header-mainnav-text-transform: uppercase;
-
-// Main nav
-
-$header-mainnav-margin-top: 62px;
 
 // Main nav li
 
-$header-mainnav-li-padding: 0 15px;
+$main-nav-li: 0 15px;
 
-// Main nav li:last-child
-
-$header-mainnav-lilastchild: 1px solid red;
 
 // Main nav li:hover sub-menu
 
-$header-mainnav-lihover-submenu-left: -522px;
-$header-mainnav-lihover-submenu-padding-left: 15px;
-$header-mainnav-lihover-submenu-background-color: #fff;
-$header-mainnav-lihover-submenu-top: 75px;
-$header-mainnav-lihover-submenu-width: 1140px;
+$submenu-left: -522px;
+$submenu-padding: 15px;
+$submenu-bgc: #fff;
+$submenu-top: 75px;
+$submenu-width: 1140px;
 
 
 
@@ -60,13 +37,11 @@ $content-margin-top: 15px;
 
 /* LEARN MORE BUTTON */
 
-$learn-more-width: 161px;
 $learn-more-background-color: #303e48;
 $learn-more-padding: 18px;
 $learn-more-color: #fff;
 $learn-more-text-transform: uppercase;
 $learn-more-font-size: 0.95rem;
-$learn-more-height: 53px;
 
 $learn-more-span-font-size: 0.95rem;
 

@@ -4,7 +4,7 @@
  */
 ?>
 
-	<div class="container title_three_sections-module">
+	<div class="container title_three_sections-module-fg23gh">
 
 		<div class="title text-sm-center">
 			<h2>

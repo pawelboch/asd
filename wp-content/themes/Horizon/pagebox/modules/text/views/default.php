@@ -4,7 +4,7 @@
  */
 ?>
 
-	<div class="container text-module">
+	<div class="container text-module-fg23gh">
 		<div class="border clearfix">
 			<div class="col-md-10">
 				<?php echo $this->get( 'text' ) ;?>

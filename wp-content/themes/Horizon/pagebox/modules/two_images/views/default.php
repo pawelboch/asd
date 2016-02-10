@@ -4,7 +4,7 @@
  */
 ?>
 
-	<div class="container two_images-module">
+	<div class="container two_images-module-fg23gh">
 
 		<div class="half-part left col-md-6">
 			<div class="row">

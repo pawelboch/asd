@@ -3,18 +3,48 @@
 @import "variables";
 
 footer {
+  padding-bottom: 150px;
+
   .container {
     background-color: $container-background-color;
-    height: $container-height;
+    color: #000;
+    padding-top: 60px;
+    min-height: 263px;
+
+    .footer-nav {
+      margin-top: -20px;
+    }
+
+
+    #nav-footer {
+      float: left;
+      li {
+        float: left;
+        position: relative;
+        list-style-type: none;
+        padding-left: 15px;
+        font-weight: bold;
+
+        a {
+          color: #000;
+        }
+      }
+      .sub-menu {
+        padding-left: 0;
+
+        li {
+          width: 100%;
+          padding-left: 0;
+          font-weight: normal;
+        }
+      }
+    }
+
+    .social-media {
+      float: left;
+    }
   }
 
 
-  li {
-    display: inline;
-    padding-left: $li-padding-left;
-  }
 
-  ul {
-    margin-top: 0;
-  }
 }

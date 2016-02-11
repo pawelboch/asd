@@ -30,6 +30,10 @@
 			<div class="message">
 				message
 			</div>
+
+			<div class="submit">
+				submit >
+			</div>
 		</div>
 	</div>
 

@@ -13,3 +13,11 @@ body {
   background-size: cover;
   background-color: $main-background-color;
 }
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}

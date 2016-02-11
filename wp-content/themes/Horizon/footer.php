@@ -20,20 +20,20 @@
 								?>
 								<div class="social-media">
 									<div class="header">
-										connect
+										Connect with us
 									</div>
 									<div class="media">
 										<div class="facebook">
-											fb
+											<span>ico</span> fb
 										</div>
 										<div class="twitter">
-											twitter
+											<span>ico</span> twitter
 										</div>
 										<div class="google">
-											google plus
+											<span>ico</span> google plus
 										</div>
 										<div class="youtube">
-											youtube
+											<span>ico</span> youtube
 										</div>
 									</div>
 								</div>

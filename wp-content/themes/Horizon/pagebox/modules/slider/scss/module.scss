@@ -28,7 +28,7 @@
     h2 {
 
 
-      margin-bottom: 39px;
+      margin-bottom: 65px;
       background-color: #303e48;
       color: #fff;
       font-family: "Avenir Next";
@@ -40,11 +40,22 @@
       clear: both;
       width: auto;
 
-    }
+      span {
 
-    span {
+        font-weight: 600;
+        position: relative;
+        padding: 0 40px 0 25px;
 
-      font-weight: 600;
+        &:before {
+          content: '';
+          position: absolute;
+          width: 181px;
+          height: 196px;
+          background-image: url("../../../../assets/images/square.png");
+          left: -2px;
+          top: -73px;
+        }
+      }
 
     }
 

@@ -1,0 +1,46 @@
+@import "module-variables";
+
+
+$border-bottom: 2px solid #c2c2c2;
+
+
+.#{$module-name} {
+
+  border-bottom: $border-bottom;
+
+  .tabs {
+    .row {
+      .head {
+        .title {
+
+          background-color: #e5aa0e;
+
+          &.active {
+            background-color: #ffc425;
+          }
+        }
+      }
+
+      .content {
+        display: none;
+        background-color: #e8e8e8;
+        height: 200px;
+      }
+
+      .active {
+        display: block;
+
+        &:before {
+          position: absolute;
+          height: 10px;
+          width: 100%;
+          background-color: #ffc425;
+          content: '';
+          left: 0;
+          top: -10px;
+        }
+      }
+
+    }
+  }
+}

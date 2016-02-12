@@ -7,7 +7,7 @@
  * Call to action module with slider
  */
 
-namespace HorizonInvestments\Pagebox\Modules\Slider;
+namespace HorizonInvestments\Pagebox\Modules\Tables;
 
 use \Pagebox\Modules\Module as Abstract_Module;
 use \WPGeeks_HTML;
@@ -32,10 +32,10 @@ class Module extends Abstract_Module {
 		$this->config = array(
 			// Name of the box for plugin use. Only alphanumeric charactes 
 			// and underscores are allowed
-			'slug'        => 'slider',
+			'slug'        => 'tables',
 			// Human readable title of box. It will be displayed in all
 			// backend functionalities
-			'title'       => __(  'Slider', 'pagebox_blocks' ),
+			'title'       => __(  'Table', 'pagebox_blocks' ),
 			// Short description about what box outputs. It will be displayed
 			// below the title in new box modal window.
 			'description' => __(  '', 'pagebox_blocks' ),
@@ -113,6 +113,46 @@ class Module extends Abstract_Module {
 					'label'			=> __( 'img' ),
 					'description' 	=> __( 'img' ),
 					'sass'          => true
+				),
+				array(
+					'type'			=> 'text',
+					'group'			=> __( 'First Tab', 'pagebox' ),
+					'name'			=> 'first_tab_title',
+					'option'		=> 'no',
+					'label'			=> __( 'First tab title' ),
+					'description' 	=> __( 'Type first tab title' )
+				),
+				array(
+					'type'			=> 'editor',
+					'group'			=> __( 'First Tab', 'pagebox' ),
+					'name'			=> 'first_tab_content',
+					'option'		=> 'no',
+					'label'			=> __( 'First tab content' ),
+					'description' 	=> __( 'Type first tab content' )
+				),
+				array(
+					'type'			=> 'text',
+					'group'			=> __( 'Second Tab', 'pagebox' ),
+					'name'			=> 'second_tab_title',
+					'option'		=> 'no',
+					'label'			=> __( 'Second tab title' ),
+					'description' 	=> __( 'Type second tab title' )
+				),
+				array(
+					'type'			=> 'text',
+					'group'			=> __( 'Third Tab', 'pagebox' ),
+					'name'			=> 'third_tab_title',
+					'option'		=> 'no',
+					'label'			=> __( 'Third tab title' ),
+					'description' 	=> __( 'Type third tab title' )
+				),
+				array(
+					'type'			=> 'text',
+					'group'			=> __( 'Fourth Tab', 'pagebox' ),
+					'name'			=> 'fourth_tab_title',
+					'option'		=> 'no',
+					'label'			=> __( 'Fourth tab title' ),
+					'description' 	=> __( 'Type fourth tab title' )
 				),
 			)
 		);

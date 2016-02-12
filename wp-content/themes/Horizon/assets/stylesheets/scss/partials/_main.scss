@@ -14,10 +14,6 @@ body {
   background-color: $main-background-color;
 }
 
-.pull-left {
-  float: left;
-}
-
-.pull-right {
-  float: right;
+.slick-slider {
+  margin-bottom: 0 !important;
 }

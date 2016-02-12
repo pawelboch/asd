@@ -1,37 +1,5 @@
 @import "module-variables";
 
-// Slider H2
-
-$h2-background-color: #303e48;
-$h2-color: #fff;
-$h2-width: auto;
-$h2-padding: 15px;
-$h2-font-size: 2.25rem;
-$h2-font-family: "Avenir Next";
-$h2-text-transform: uppercase;
-$h2-position: relative;
-$h2-font-weight: 300;
-
-// Slider span
-
-$span-font-weight: 600;
-
-// Slider p
-
-$p-font-size: 2rem;
-$p-font-family: "Georgia";
-
-
-// Slider a button
-
-$a-background: rgba(48, 62, 72, 0.8);
-$a-padding: 18px;
-$a-color: #fff;
-$a-text-transform: uppercase;
-$a-font-size: 0.95rem;
-
-$learn-more-width: 161px;
-$learn-more-clear: both;
 
 .#{$module-name} {
 
@@ -61,14 +29,14 @@ $learn-more-clear: both;
 
 
       margin-bottom: 39px;
-      background-color: $h2-background-color;
-      color: $h2-color;
-      font-family: $h2-font-family;
-      font-size: $h2-font-size;
-      padding: $h2-padding;
-      text-transform: $h2-text-transform;
-      position: $h2-position;
-      font-weight: $h2-font-weight;
+      background-color: #303e48;
+      color: #fff;
+      font-family: "Avenir Next";
+      font-size: 2.25rem;
+      padding: 15px;
+      text-transform: uppercase;
+      position: relative;
+      font-weight: 300;
       clear: both;
       width: auto;
 
@@ -76,7 +44,7 @@ $learn-more-clear: both;
 
     span {
 
-      font-weight: $span-font-weight;
+      font-weight: 600;
 
     }
 
@@ -93,84 +61,15 @@ $learn-more-clear: both;
 
     a {
 
-      background-color: $a-background;
-      padding: $a-padding;
-      color: $a-color;
-      text-transform: $a-text-transform;
-      font-size: $a-font-size;
       height: 53px;
-      margin-bottom: 69px;
-
-      span {
-
-        font-size: $a-font-size;
-      }
+      margin-bottom: 60px;
 
     }
 
     .learn-more-btn {
 
-      width: $learn-more-width;
-      clear: $learn-more-clear;
+      width: 161px;
 
-    }
-  }
-
-
-  .tabs {
-
-    .tab-head {
-
-      background-color: #e5aa0e;
-
-      .tab-title {
-
-        background-color: #e5aa0e;
-        display: inline-block;
-        text-align: center;
-        padding: 10px;
-        position: relative;
-
-        &.active {
-          background-color: #ffc425;
-
-          &:before {
-            position: absolute;
-            height: 10px;
-            width: 100%;
-            background-color: #ffc425;
-            content: '';
-            left: 0;
-            top: -10px;
-          }
-        }
-
-
-      }
-
-      h2 {
-
-        font-size: 1rem;
-        font-weight: bold;
-        font-family: "Arial";
-
-      }
-    }
-
-    .tab-content {
-
-      background-color: #e8e8e8;
-      min-height: 100px;
-
-      p {
-
-        font-size: $p-font-size;
-        font-family: $p-font-family;
-        padding: 33px;
-        color: #787878;
-        margin-bottom: 0;
-
-      }
     }
   }
 }

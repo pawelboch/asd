@@ -52,73 +52,9 @@ class Module extends Abstract_Module {
 			// WPGeeks_Forms
 			'fields'      => array(
 				array(
-					'type'		=> 'repeater',
-					'group'		=> __('Slider background', 'pagebox'),
-					'name'		=> 'slider',
-					'labels'  => array(
-						'singular' => __('Slide'),
-						'plural'   => __('Slides'),
-					),
-					'buttons' => array(
-						'add'		=> __('Add another slide', 'pagebox'),
-						'remove' => __('Remove this slide', 'pagebox'),
-					),
-					'fields'	=> array(
-						array(
-							'type'        => 'image',
-							'group'		  => __( 'General', 'pagebox' ),
-							'name'        => 'image',
-							'label'       => __( 'Slide image', 'pagebox' ),
-							'description' => __( 'Slide image', 'pagebox' )
-						)
-					)
-				),
-				array(
-						'type'			=> 'text',
-						'group'			=> __( 'Slides', 'pagebox' ),
-						'name'			=> 'title',
-						'option'	  	=> 'yes',
-						'label'			=> __( 'Title' ),
-						'description'	=> __( 'description' )
-				),
-				array(
-					'type'			=> 'text',
-					'group'			=> __( 'Slides', 'pagebox' ),
-					'name'			=> 'title_highlight',
-					'option'	  	=> 'yes',
-					'label'			=> __( 'Title highlighted word' ),
-					'description'	=> __( 'description' )
-				),
-				array(
-					'type'			=> 'text',
-					'group'			=> __( 'Slides', 'pagebox' ),
-					'name'			=> 'description',
-					'option'		=> 'no',
-					'label'			=> __( 'Description' ),
-					'description' 	=> __( 'description' )
-				),
-				array(
-					'type'			=> 'SinglePage',
-					'group'			=> __( 'Slides', 'pagebox' ),
-					'name'			=> 'button',
-					'option'		=> 'no',
-					'label'			=> __( 'btn' ),
-					'description' 	=> __( 'btn' )
-				),
-				array(
-					'type'			=> 'image',
-					'group'			=> __( 'Slides', 'pagebox' ),
-					'name'			=> 'image',
-					'option'		=> 'no',
-					'label'			=> __( 'img' ),
-					'description' 	=> __( 'img' ),
-					'sass'          => true
-				),
-				array(
 					'type'			=> 'text',
 					'group'			=> __( 'First Tab', 'pagebox' ),
 					'name'			=> 'first_tab_title',
-					'option'		=> 'no',
 					'label'			=> __( 'First tab title' ),
 					'description' 	=> __( 'Type first tab title' )
 				),
@@ -126,7 +62,6 @@ class Module extends Abstract_Module {
 					'type'			=> 'editor',
 					'group'			=> __( 'First Tab', 'pagebox' ),
 					'name'			=> 'first_tab_content',
-					'option'		=> 'no',
 					'label'			=> __( 'First tab content' ),
 					'description' 	=> __( 'Type first tab content' )
 				),
@@ -134,25 +69,43 @@ class Module extends Abstract_Module {
 					'type'			=> 'text',
 					'group'			=> __( 'Second Tab', 'pagebox' ),
 					'name'			=> 'second_tab_title',
-					'option'		=> 'no',
 					'label'			=> __( 'Second tab title' ),
 					'description' 	=> __( 'Type second tab title' )
+				),
+				array(
+					'type'			=> 'editor',
+					'group'			=> __( 'Second Tab', 'pagebox' ),
+					'name'			=> 'second_tab_content',
+					'label'			=> __( 'Second tab content' ),
+					'description' 	=> __( 'Type second tab content' )
 				),
 				array(
 					'type'			=> 'text',
 					'group'			=> __( 'Third Tab', 'pagebox' ),
 					'name'			=> 'third_tab_title',
-					'option'		=> 'no',
 					'label'			=> __( 'Third tab title' ),
 					'description' 	=> __( 'Type third tab title' )
+				),
+				array(
+					'type'			=> 'editor',
+					'group'			=> __( 'Third Tab', 'pagebox' ),
+					'name'			=> 'third_tab_content',
+					'label'			=> __( 'Third tab content' ),
+					'description' 	=> __( 'Type third tab content' )
 				),
 				array(
 					'type'			=> 'text',
 					'group'			=> __( 'Fourth Tab', 'pagebox' ),
 					'name'			=> 'fourth_tab_title',
-					'option'		=> 'no',
 					'label'			=> __( 'Fourth tab title' ),
 					'description' 	=> __( 'Type fourth tab title' )
+				),
+				array(
+					'type'			=> 'editor',
+					'group'			=> __( 'Fourth Tab', 'pagebox' ),
+					'name'			=> 'fourth_tab_content',
+					'label'			=> __( 'Fourth tab content' ),
+					'description' 	=> __( 'Type fourth tab content' )
 				),
 			)
 		);

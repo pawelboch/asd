@@ -21,6 +21,11 @@
   color: $learn-more-color;
   text-transform: $learn-more-text-transform;
   font-size: $learn-more-font-size;
+  width: $learn-more-width;
+
+  &.article {
+    width: $learn-more-width + 40px;
+  }
 
   span {
 

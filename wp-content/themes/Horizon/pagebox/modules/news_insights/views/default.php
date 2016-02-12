@@ -51,7 +51,7 @@ $posts_array = get_posts( $args ); ?>
 		</div>
 
 		<div class="col-md-12">
-			<a class="col-xs-12 col-md-3 learn-more-btn" href="#"><?php echo $this->get( 'learn_more' ) ;?> <span> > </span></a>
+			<a class="col-xs-12 col-md-3 learn-more-btn article" href="#"><?php echo $this->get( 'learn_more' ) ;?> <span> > </span></a>
 		</div>
 
 

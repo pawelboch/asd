@@ -7,7 +7,7 @@ $border-bottom: 2px solid #c2c2c2;
 .#{$module-name} {
 
   border-bottom: $border-bottom;
-  margin-top: -150px;
+  margin-top: -259px;
 
   .tabs {
     .row {
@@ -21,6 +21,7 @@ $border-bottom: 2px solid #c2c2c2;
             font-family: "Arial";
             padding: 12px 5px;
             text-align: center;
+            color: #000;
 
           }
 
@@ -45,9 +46,10 @@ $border-bottom: 2px solid #c2c2c2;
       .content {
         display: none;
         background-color: #e8e8e8;
-        float: left;
+        clear: both;
         width: 100%;
         position: relative;
+        min-height: 210px;
 
         p {
           font-size: 2em;

@@ -22,7 +22,7 @@
 
     .container {
       padding-top: 135px + 142px;
-      padding-bottom: 150px;
+      padding-bottom: 280px;
     }
 
     h2 {
@@ -50,9 +50,9 @@
 
     p {
 
-      color: $h2-color;
-      font-size: $p-font-size;
-      font-family: $p-font-family;
+      color: #fff;
+      font-size: 2rem;
+      font-family: "Georgia";
       clear: both;
       padding: 0;
       margin-bottom: 21px;
@@ -69,6 +69,7 @@
     .learn-more-btn {
 
       width: 161px;
+      clear: both;
 
     }
   }

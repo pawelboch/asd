@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "compass-mixins": "~1.0.2",
-    "bootstrap": "v4.0.0-alpha.2"
+    "bootstrap": "v4.0.0-alpha.2",
+    "slick-carousel": "slick.js#^1.5.9"
   }
 }

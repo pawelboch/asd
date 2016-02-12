@@ -124,6 +124,12 @@ module.exports = function( grunt ) {
                         cwd: 'assets/bower_components/compass-mixins/lib/',
                         src: ['**'],
                         dest: 'assets/stylesheets/scss/vendor/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'assets/bower_components/slick-carousel/slick/',
+                        src: ['*.scss'],
+                        dest: 'assets/stylesheets/scss/vendor/slick/'
                     }
                 ]
             }

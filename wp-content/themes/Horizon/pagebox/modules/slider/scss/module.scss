@@ -1,7 +1,5 @@
 @import "module-variables";
 
-$background-image: url('../../../../assets/images/slider1.png');
-
 // Slider H2
 
 $h2-background-color: #303e48;
@@ -37,9 +35,7 @@ $learn-more-clear: both;
 
 .#{$module-name} {
 
-  height: 835px;
-  margin-top: -150px;
-  background-image: $background-image;
+
   -webkit-background-size: cover;
   background-size: cover;
 
@@ -50,9 +46,20 @@ $learn-more-clear: both;
 
   .slides {
 
-    padding-top: 150px;
+    margin-top: -150px;
+
+    .background-image {
+      min-height: 835px;
+      -webkit-background-size: cover;
+      background-size: cover;
+    }
+
+    .container {
+      padding-top: 135px + 142px;
+    }
 
     h2 {
+
 
       margin-bottom: 39px;
       background-color: $h2-background-color;

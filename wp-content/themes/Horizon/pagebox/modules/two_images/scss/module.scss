@@ -1,6 +1,6 @@
 @import "module-variables";
 
-
+$margin-between: 1%;
 
 
 .#{$module-name} {
@@ -10,14 +10,13 @@
   padding-bottom: 75px;
   color: #fff;
 
-
   .half-part {
     min-height: 456px;
     background-position: center;
     -webkit-background-size: cover;
     background-size: cover;
     border-bottom: 12px solid;
-
+    width: 50% - (2 * $margin-between);
 
     .title {
       margin-top: 86px;
@@ -34,17 +33,16 @@
     //  margin-left: 11px;
     //}
 
-
     .description {
       margin-top: 78px;
       font-size: 32px;
       font-family: "Georgia";
     }
 
-
     &.left {
       background-image: url("../../../../assets/images/image-right.png");
       border-color: #ff9f29;
+      margin-right: $margin-between * 2;
 
       .title {
         background-color: rgba(255, 159, 41, 0.8);
@@ -52,10 +50,10 @@
 
     }
 
-
     &.right {
       background-image: url("../../../../assets/images/image-right.png");
       border-color: #0093bc;
+      margin-left: $margin-between * 2;
 
       .title {
         background-color: rgba(0, 147, 188, 0.8);
@@ -64,5 +62,21 @@
     }
 
   }
+}
 
+@media (max-width: 768px) {
+
+    .#{$module-name} {
+
+      .half-part {
+        width: auto;
+
+        &.left,
+        &.right {
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
+
+    }
 }

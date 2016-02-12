@@ -52,6 +52,28 @@ class Module extends Abstract_Module {
 			// WPGeeks_Forms
 			'fields'      => array(
 				array(
+					'type'		=> 'repeater',
+					'group'		=> __('Slider background', 'pagebox'),
+					'name'		=> 'slider',
+					'labels'  => array(
+						'singular' => __('Slide'),
+						'plural'   => __('Slides'),
+					),
+					'buttons' => array(
+						'add'		=> __('Add another slide', 'pagebox'),
+						'remove' => __('Remove this slide', 'pagebox'),
+					),
+					'fields'	=> array(
+						array(
+							'type'        => 'image',
+							'group'		  => __( 'General', 'pagebox' ),
+							'name'        => 'image',
+							'label'       => __( 'Slide image', 'pagebox' ),
+							'description' => __( 'Slide image', 'pagebox' )
+						)
+					)
+				),
+				array(
 						'type'			=> 'text',
 						'group'			=> __( 'Slides', 'pagebox' ),
 						'name'			=> 'title',

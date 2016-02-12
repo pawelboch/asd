@@ -53,7 +53,7 @@ class Module extends Abstract_Module {
 			'fields'      => array(
 				array(
 					'type'		=> 'repeater',
-					'group'		=> __('Slider background', 'pagebox'),
+					'group'		=> __('Slider options', 'pagebox'),
 					'name'		=> 'slider',
 					'labels'  => array(
 						'singular' => __('Slide'),
@@ -65,54 +65,47 @@ class Module extends Abstract_Module {
 					),
 					'fields'	=> array(
 						array(
-							'type'        => 'image',
-							'group'		  => __( 'General', 'pagebox' ),
-							'name'        => 'image',
-							'label'       => __( 'Slide image', 'pagebox' ),
-							'description' => __( 'Slide image', 'pagebox' )
-						)
+							'type'			=> 'text',
+							'group'			=> __( 'Slides', 'pagebox' ),
+							'name'			=> 'title',
+							'option'	  	=> 'yes',
+							'label'			=> __( 'Title' ),
+							'description'	=> __( 'description' )
+						),
+						array(
+							'type'			=> 'text',
+							'group'			=> __( 'Slides', 'pagebox' ),
+							'name'			=> 'title_highlight',
+							'option'	  	=> 'yes',
+							'label'			=> __( 'Title highlighted word' ),
+							'description'	=> __( 'description' )
+						),
+						array(
+							'type'			=> 'text',
+							'group'			=> __( 'Slides', 'pagebox' ),
+							'name'			=> 'description',
+							'option'		=> 'no',
+							'label'			=> __( 'Description' ),
+							'description' 	=> __( 'description' )
+						),
+						array(
+							'type'			=> 'SinglePage',
+							'group'			=> __( 'Slides', 'pagebox' ),
+							'name'			=> 'button',
+							'option'		=> 'no',
+							'label'			=> __( 'btn' ),
+							'description' 	=> __( 'btn' )
+						),
+						array(
+							'type'			=> 'image',
+							'group'			=> __( 'Slides', 'pagebox' ),
+							'name'			=> 'image',
+							'option'		=> 'no',
+							'label'			=> __( 'img' ),
+							'description' 	=> __( 'img' ),
+							'sass'          => true
+						),
 					)
-				),
-				array(
-						'type'			=> 'text',
-						'group'			=> __( 'Slides', 'pagebox' ),
-						'name'			=> 'title',
-						'option'	  	=> 'yes',
-						'label'			=> __( 'Title' ),
-						'description'	=> __( 'description' )
-				),
-				array(
-					'type'			=> 'text',
-					'group'			=> __( 'Slides', 'pagebox' ),
-					'name'			=> 'title_highlight',
-					'option'	  	=> 'yes',
-					'label'			=> __( 'Title highlighted word' ),
-					'description'	=> __( 'description' )
-				),
-				array(
-					'type'			=> 'text',
-					'group'			=> __( 'Slides', 'pagebox' ),
-					'name'			=> 'description',
-					'option'		=> 'no',
-					'label'			=> __( 'Description' ),
-					'description' 	=> __( 'description' )
-				),
-				array(
-					'type'			=> 'SinglePage',
-					'group'			=> __( 'Slides', 'pagebox' ),
-					'name'			=> 'button',
-					'option'		=> 'no',
-					'label'			=> __( 'btn' ),
-					'description' 	=> __( 'btn' )
-				),
-				array(
-					'type'			=> 'image',
-					'group'			=> __( 'Slides', 'pagebox' ),
-					'name'			=> 'image',
-					'option'		=> 'no',
-					'label'			=> __( 'img' ),
-					'description' 	=> __( 'img' ),
-					'sass'          => true
 				),
 			)
 		);

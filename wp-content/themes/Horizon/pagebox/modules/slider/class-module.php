@@ -84,6 +84,14 @@ class Module extends Abstract_Module {
 					'description' 	=> __( 'btn' )
 				),
 				array(
+					'type'			=> 'image',
+					'group'			=> __( 'Slides', 'pagebox' ),
+					'name'			=> 'image',
+					'option'		=> 'no',
+					'label'			=> __( 'img' ),
+					'description' 	=> __( 'img' )
+				),
+				array(
 					'type'			=> 'text',
 					'group'			=> __( 'First Tab', 'pagebox' ),
 					'name'			=> 'first_tab_title',

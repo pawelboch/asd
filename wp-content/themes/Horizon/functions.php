@@ -14,17 +14,17 @@ function theme_enqueue_style() {
 	/**
 	 * Load css styles for development
 	 */
-	if( defined('WP_DEBUG') && WP_DEBUG === true ) {
+	if ( defined( 'WP_DEBUG' ) && WP_DEBUG === true ) {
 		$version_hash = uniqid();
-		wp_enqueue_style( 'bootstrap',  TEMPLATE_DIR_URI . '/assets/stylesheets/css/bootstrap.css', array(), $version_hash, false );
-		wp_enqueue_style( 'style-sass', TEMPLATE_DIR_URI . '/assets/stylesheets/css/style.css',     array(), $version_hash, false );
+		wp_enqueue_style( 'bootstrap', TEMPLATE_DIR_URI . '/assets/stylesheets/css/bootstrap.css', array(), $version_hash, false );
+		wp_enqueue_style( 'style-sass', TEMPLATE_DIR_URI . '/assets/stylesheets/css/style.css', array(), $version_hash, false );
 
 		/**
 		 * Modules autoload css files.
 		 */
-		foreach( glob( TEMPLATE_DIR_PATH . '/pagebox/modules/*', GLOB_ONLYDIR ) as $dir ) {
+		foreach ( glob( TEMPLATE_DIR_PATH . '/pagebox/modules/*', GLOB_ONLYDIR ) as $dir ) {
 			$dirname = basename( $dir );
-			wp_enqueue_style( "{$dirname}-module",	TEMPLATE_DIR_URI . "/pagebox/modules/{$dirname}/css/module.css", array(), $version_hash, false );
+			wp_enqueue_style( "{$dirname}-module", TEMPLATE_DIR_URI . "/pagebox/modules/{$dirname}/css/module.css", array(), $version_hash, false );
 		}
 	} else {
 		/**
@@ -33,14 +33,16 @@ function theme_enqueue_style() {
 		wp_enqueue_style( 'main', TEMPLATE_DIR_URI . '/assets/stylesheets/css/main.min.css', array(), false, false );
 	}
 }
+
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_style' );
 
 /**
  * Theme scripts (JavaScript)
  */
 function theme_enqueue_script() {
-	wp_enqueue_script( 'scripts', TEMPLATE_DIR_URI . '/assets/javascripts/script.js', array('jquery'), false, true );
+	wp_enqueue_script( 'scripts', TEMPLATE_DIR_URI . '/assets/javascripts/script.js', array( 'jquery' ), false, true );
 }
+
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_script' );
 
 /**
@@ -54,9 +56,10 @@ add_theme_support( 'post-thumbnails' );
 function wppn_setup() {
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'theme' ),
-        'footer' => __('Footer Menu', 'theme')
+		'footer'  => __( 'Footer Menu', 'theme' )
 	) );
 }
+
 add_action( 'after_setup_theme', 'wppn_setup' );
 
 /**
@@ -83,6 +86,7 @@ function disable_wp_emojicons() {
 	// filter to remove TinyMCE emojis
 	add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
 }
+
 add_action( 'init', 'disable_wp_emojicons' );
 
 
@@ -90,8 +94,10 @@ add_action( 'init', 'disable_wp_emojicons' );
  * SVG Support
  */
 
-function cc_mime_types($mimes) {
+function cc_mime_types( $mimes ) {
 	$mimes['svg'] = 'image/svg+xml';
+
 	return $mimes;
 }
-add_filter('upload_mimes', 'cc_mime_types');
+
+add_filter( 'upload_mimes', 'cc_mime_types' );

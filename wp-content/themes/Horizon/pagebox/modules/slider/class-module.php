@@ -89,7 +89,8 @@ class Module extends Abstract_Module {
 					'name'			=> 'image',
 					'option'		=> 'no',
 					'label'			=> __( 'img' ),
-					'description' 	=> __( 'img' )
+					'description' 	=> __( 'img' ),
+					'sass'          => true
 				),
 				array(
 					'type'			=> 'text',

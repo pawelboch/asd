@@ -7,7 +7,9 @@
  * @package pagebox
  */
 
-function autoload($className) {
+function autoload( $className ) {
+	$start = microtime( true );
+	$tmp = $className;
 	// remove left \ char
 	$className = ltrim($className, '\\');
 
@@ -48,6 +50,8 @@ function autoload($className) {
 		require $abstractPath;
 	}
 
+
+	echo '<pre>'; printf("%s: %.4fms", $tmp, microtime( true ) - $start ); echo '</pre>';
 }
 
 spl_autoload_register('autoload');

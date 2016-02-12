@@ -6,7 +6,7 @@ module.exports = function( grunt ) {
     // Time how long tasks take. Can help when optimizing build times
     require( 'time-grunt' )( grunt );
 
-    function resolveModulesScssPaths() {
+    var modulesScssPaths = (function resolveModulesScssPaths() {
         var paths = {};
         grunt.file.expandMapping(
             'pagebox/modules/**/scss/module.scss',
@@ -16,7 +16,7 @@ module.exports = function( grunt ) {
             paths[ item.dest ] = item.src[0];
         });
         return paths;
-    }
+    })();
 
     // Project configuration.
     grunt.initConfig( {
@@ -53,7 +53,7 @@ module.exports = function( grunt ) {
                 options: {
                     outputStyle: 'compressed'
                 },
-                files: resolveModulesScssPaths()
+                files: modulesScssPaths
             }
         },
         watch: {
@@ -139,17 +139,15 @@ module.exports = function( grunt ) {
         'copy:sassVendor'
     ] );
 
-    grunt.registerTask( 'default', 'Watch scss files and compile after change', [
-        'install-sass-vendor',
-        'sass',
-        'comments',
-        'watch'
-    ] );
-
     grunt.registerTask( 'compile', 'Compile scss files with compression', [
         'install-sass-vendor',
         'sass',
         'comments'
+    ] );
+
+    grunt.registerTask( 'default', 'Watch scss files and compile after change', [
+        'compile',
+        'watch'
     ] );
 
 };

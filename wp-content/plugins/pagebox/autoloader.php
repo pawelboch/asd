@@ -7,17 +7,9 @@
  * @package pagebox
  */
 
-function d( $d ) {
-	echo '<pre>';
-	var_dump( $d );
-	echo '</pre>';
-}
-
 define('PAGEBOX_AUTOLOAD_DIRECTORY_PATH', dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR);
 
 function autoload( $className ) {
-	$start = microtime( true );
-	$tmp   = $className;
 
 	// remove left \ char
 	if ( $className[0] === '\\' ) {
@@ -42,9 +34,6 @@ function autoload( $className ) {
 		$classPath    = PAGEBOX_AUTOLOAD_DIRECTORY_PATH . 'class-' . $class . '.php';
 	}
 
-	$c = microtime( true );
-	echo '</pre>';
-
 	// check for class-{$name}
 	if ( is_file( $classPath ) ) {
 		require $classPath;
@@ -54,10 +43,6 @@ function autoload( $className ) {
 	if ( is_file( $abstractPath ) ) {
 		require $abstractPath;
 	}
-
-	echo '<pre>';
-	printf( "%s: %.4fms %.4fms", $tmp, $c - $start, microtime( true ) - $start );
-	echo '</pre>';
 }
 
 spl_autoload_register( 'autoload' );

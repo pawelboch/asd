@@ -53,7 +53,7 @@ class Module extends Abstract_Module {
 			'fields'      => array(
 				array(
 					'type'		=> 'repeater',
-					'group'		=> __('General', 'pagebox'),
+					'group'		=> __('Slider background', 'pagebox'),
 					'name'		=> 'slider',
 					'labels'  => array(
 						'singular' => __('Slide'),

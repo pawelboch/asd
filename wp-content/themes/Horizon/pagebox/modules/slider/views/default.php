@@ -11,7 +11,7 @@
 		<?php $slider = $this->get( 'slider' );
 		foreach($slider as $slide): ?>
 
-				<div class="background-image" style="background-image: url(<?php echo wp_get_attachment_image_url( $slide->image) ;?>)">
+				<div class="background" style="background-image: url(<?php echo wp_get_attachment_image_url( $slide->image) ;?>)">
 					<div class="transparency">
 						<div class="container">
 							<h2 class="col-xs-12 col-sm-8 col-md-10 col-lg-8"> <?php echo $slide->title  ;?> <span><?php echo $slide->title_highlight  ;?></span> </h2>

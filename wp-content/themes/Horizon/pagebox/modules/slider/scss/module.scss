@@ -41,21 +41,20 @@ $learn-more-clear: both;
 
   .transparency {
     background: linear-gradient(to bottom, rgba(255,255,255,0) 80%,rgba(236, 243, 239 ,1) 100%);
-    height: 835px;
   }
 
   .slides {
 
     margin-top: -150px;
 
-    .background-image {
-      min-height: 835px;
+    .background {
       -webkit-background-size: cover;
       background-size: cover;
     }
 
     .container {
       padding-top: 135px + 142px;
+      padding-bottom: 150px;
     }
 
     h2 {

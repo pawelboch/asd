@@ -1,60 +1,66 @@
 <?php
 /**
  * autoloader
- * 
+ *
  * @since 1.0.0
  *
  * @package pagebox
  */
 
+function d( $d ) {
+	echo '<pre>';
+	var_dump( $d );
+	echo '</pre>';
+}
+
+define('PAGEBOX_AUTOLOAD_DIRECTORY_PATH', dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR);
+
 function autoload( $className ) {
 	$start = microtime( true );
-	$tmp = $className;
+	$tmp   = $className;
+
 	// remove left \ char
-	$className = ltrim($className, '\\');
+	if ( $className[0] === '\\' ) {
+		$className = substr( $className, 1 );
+	}
 
 	// we just need to autoload classes from Pagebox namespace
-	if (substr_compare($className, 'Pagebox', 0, 7) !== 0) {
+	if ( substr_compare( $className, 'Pagebox', 0, 7 ) !== 0 ) {
 		return;
 	}
 
-	$classElements = explode('\\', $className);
-	$className     = strtolower(array_pop($classElements));
+	$class = str_replace( 'pagebox\\', '', strtolower( $className ) );
 
-	// remove Pagebox prefix
-	// e.g. Pagebox\Elements\Template will point to src/elements/template.php
-	// not /src/pagebox/elements/template.php
-	array_shift($classElements);
-
-	// dirname(__FILE__) should point to mail plugin directory
-	$path = dirname(__FILE__) . '/src/';
-
-	// convert namespaces into directory
-	$classPath = strtolower(implode(DIRECTORY_SEPARATOR, $classElements));
-
-	// do we need trailing slash?
-	if ($classPath) {
-		$classPath .= '/';
+	$lastDash = strrpos( $class, '\\' );
+	if ( $lastDash ) {
+		$p            = PAGEBOX_AUTOLOAD_DIRECTORY_PATH . substr( $class, 0, $lastDash ++ ) . DIRECTORY_SEPARATOR;
+		$n            = substr( $class, $lastDash ) . '.php';
+		$abstractPath = $p . 'abstract-' . $n;
+		$classPath    = $p . 'class-' . $n;
+	} else {
+		$abstractPath = PAGEBOX_AUTOLOAD_DIRECTORY_PATH . 'abstract-' . $class . '.php';
+		$classPath    = PAGEBOX_AUTOLOAD_DIRECTORY_PATH . 'class-' . $class . '.php';
 	}
 
-	$abstractPath = $path . $classPath . 'abstract-' . $className . '.php';
-	$classPath    = $path . $classPath . 'class-' . $className . '.php';
+	$c = microtime( true );
+	echo '</pre>';
 
 	// check for class-{$name}
-	if (file_exists($classPath)) {
+	if ( is_file( $classPath ) ) {
 		require $classPath;
 	}
 
 	// check for abstract-{$name}
-	if (file_exists($abstractPath)) {
+	if ( is_file( $abstractPath ) ) {
 		require $abstractPath;
 	}
 
-
-	echo '<pre>'; printf("%s: %.4fms", $tmp, microtime( true ) - $start ); echo '</pre>';
+	echo '<pre>';
+	printf( "%s: %.4fms %.4fms", $tmp, $c - $start, microtime( true ) - $start );
+	echo '</pre>';
 }
 
-spl_autoload_register('autoload');
+spl_autoload_register( 'autoload' );
 
 /* Mustache autoloader */
 require_once( PAGEBOX_DIR . 'src/libs/Mustache/Autoloader.php' );

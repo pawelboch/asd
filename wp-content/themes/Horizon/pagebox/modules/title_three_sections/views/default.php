@@ -18,7 +18,12 @@
 			<p><?php echo $this->get( 'first_description' ) ;?></p>
 		</div>
 
+	<?php if($this->get('border') !== ''): ?>
+		<div class="second col-md-4 text-sm-center text-xs-center" style="border-left: <?php echo $this->get('border') ;?>; border-right: <?php echo $this->get('border') ;?>">
+	<?php else: ;?>
 		<div class="second col-md-4 text-sm-center text-xs-center">
+	<?php endif ;?>
+
 			<img src="<?php echo wp_get_attachment_url( $this->get( 'second_image' ) ) ;?>">
 			<h3><?php echo $this->get( 'second_title' ) ;?></h3>
 			<p><?php echo $this->get( 'second_description' ) ;?></p>

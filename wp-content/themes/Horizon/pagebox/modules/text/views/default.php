@@ -13,7 +13,7 @@
 		<div class="border clearfix" style="border: none">
 	<?php endif ;?>
 
-		<div class="col-md-10">
+		<div class="col-md-12">
 
 			<?php echo $this->get( 'text' ) ;?>
 

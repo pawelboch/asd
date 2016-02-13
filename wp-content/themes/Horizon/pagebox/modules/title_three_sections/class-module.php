@@ -55,7 +55,6 @@ class Module extends Abstract_Module {
 						'type'			=> 'text',
 						'group'			=> __( 'Title', 'pagebox'),
 						'name'			=> 'title',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Title' ),
 						'description'	=> __( 'Title')
 				),
@@ -63,7 +62,6 @@ class Module extends Abstract_Module {
 						'type'			=> 'image',
 						'group'			=> __( 'First part', 'pagebox'),
 						'name'			=> 'first_image',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Image' ),
 						'description'	=> __( 'Image')
 				),
@@ -71,7 +69,6 @@ class Module extends Abstract_Module {
 						'type'			=> 'text',
 						'group'			=> __( 'First part', 'pagebox'),
 						'name'			=> 'first_title',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Title' ),
 						'description'	=> __( 'Title under icon')
 				),
@@ -79,7 +76,6 @@ class Module extends Abstract_Module {
 						'type'			=> 'editor',
 						'group'			=> __( 'First part', 'pagebox'),
 						'name'			=> 'first_description',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Title' ),
 						'description'	=> __( 'Title under icon')
 				),
@@ -87,7 +83,6 @@ class Module extends Abstract_Module {
 						'type'			=> 'image',
 						'group'			=> __( 'Second part', 'pagebox'),
 						'name'			=> 'second_image',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Image' ),
 						'description'	=> __( 'Image')
 				),
@@ -95,7 +90,6 @@ class Module extends Abstract_Module {
 						'type'			=> 'text',
 						'group'			=> __( 'Second part', 'pagebox'),
 						'name'			=> 'second_title',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Title' ),
 						'description'	=> __( 'Title under icon')
 				),
@@ -103,7 +97,6 @@ class Module extends Abstract_Module {
 						'type'			=> 'editor',
 						'group'			=> __( 'Second part', 'pagebox'),
 						'name'			=> 'second_description',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Title' ),
 						'description'	=> __( 'Title under icon')
 				),
@@ -111,7 +104,6 @@ class Module extends Abstract_Module {
 						'type'			=> 'image',
 						'group'			=> __( 'Third part', 'pagebox'),
 						'name'			=> 'third_image',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Image' ),
 						'description'	=> __( 'Image')
 				),
@@ -119,7 +111,6 @@ class Module extends Abstract_Module {
 						'type'			=> 'text',
 						'group'			=> __( 'Third part', 'pagebox'),
 						'name'			=> 'third_title',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Title' ),
 						'description'	=> __( 'Title under icon')
 				),
@@ -127,9 +118,15 @@ class Module extends Abstract_Module {
 						'type'			=> 'editor',
 						'group'			=> __( 'Third part', 'pagebox'),
 						'name'			=> 'third_description',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Title' ),
 						'description'	=> __( 'Title under icon')
+				),
+				array(
+						'type'			=> 'text',
+						'group'			=> __( 'Style', 'pagebox'),
+						'name'			=> 'border',
+						'label'			=> __( 'Border' ),
+						'description'	=> __( 'Border style')
 				),
 			)
 		);

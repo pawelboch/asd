@@ -66,11 +66,11 @@ class Module extends Abstract_Module {
 						'description'	=> __( 'Select page for button')
 				),
 				array(
-						'type'			=> 'SinglePage',
+						'type'			=> 'text',
 						'group'			=> __( 'Main', 'pagebox'),
-						'name'			=> 'button',
-						'label'			=> __( 'Select page' ),
-						'description'	=> __( 'Select page for button')
+						'name'			=> 'button_text',
+						'label'			=> __( 'Button text' ),
+						'description'	=> __( 'Button text')
 				),
 				array(
 						'type'			=> 'switch',

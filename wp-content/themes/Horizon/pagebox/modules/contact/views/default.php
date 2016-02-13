@@ -1,6 +1,6 @@
 <?php
 /**
- * Text view
+ * Contact view
  */
 ?>
 

@@ -7,11 +7,11 @@
 	<div class="container contact-module-fg23gh">
 		<div class="col-md-6 left-part">
 			<h2 class="title">
-				Get in touch
+				<?php echo $this->get('title') ;?>
 			</h2>
 
 			<p class="description">
-				Nullam eu ultricies lacus. Aliquam nec lacinia justo. Phasellus tempus consequat ex non fringilla. Integer tincidunt dui non mollis elementum.
+				<?php echo $this->get('description') ;?>
 			</p>
 
 		</div>

@@ -52,20 +52,18 @@ class Module extends Abstract_Module {
 			// WPGeeks_Forms
 			'fields'      => array(
 				array(
-						'type'			=> 'editor',
+						'type'			=> 'text',
 						'group'			=> __( 'main', 'pagebox'),
-						'name'			=> 'text',
-						'option'	  	=> 'yes',
-						'label'			=> __( 'eee' ),
-						'description'	=> __( 'sss')
+						'name'			=> 'title',
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Title')
 				),
 				array(
-					'type'			=> 'SinglePage',
-					'group'			=> __( 'main', 'pagebox'),
-					'name'			=> 'button',
-					'option'	  	=> 'yes',
-					'label'			=> __( 'eee' ),
-					'description'	=> __( 'sss')
+						'type'			=> 'editor',
+						'group'			=> __( 'main', 'pagebox'),
+						'name'			=> 'description',
+						'label'			=> __( 'Description' ),
+						'description'	=> __( 'Description' )
 				)
 			)
 		);

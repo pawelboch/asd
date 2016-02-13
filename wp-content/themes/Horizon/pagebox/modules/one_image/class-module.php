@@ -55,10 +55,16 @@ class Module extends Abstract_Module {
 						'type'			=> 'image',
 						'group'			=> __( 'General', 'pagebox'),
 						'name'			=> 'image',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Image to display' ),
 						'description'	=> __( 'Select image to display on page' )
 				),
+				array(
+						'type'			=> 'text',
+						'group'			=> __( 'Style', 'pagebox'),
+						'name'			=> 'border',
+						'label'			=> __( 'Border bottom' ),
+						'description'	=> __( 'Settings for border bottom (PX/TYPE/COLOR)')
+				)
 			)
 		);
 	}

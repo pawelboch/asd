@@ -4,7 +4,7 @@
  */
 ?>
 
-	<div class="container one_image-module-fg23gh" style="background-image: url(<?php echo wp_get_attachment_url($this->get('image')) ;?>)">
+	<div class="container one_image-module-fg23gh" style="background-image: url(<?php echo wp_get_attachment_url($this->get('image')) ;?>); border-bottom: <?php echo $this->get('border') ;?>">
 
 
 	</div>

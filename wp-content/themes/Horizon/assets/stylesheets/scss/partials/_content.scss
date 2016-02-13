@@ -12,7 +12,50 @@
 
     }
   }
-}
+
+  .post {
+    color: #000;
+
+    .title {
+      color: #fff;
+    }
+
+    .content {
+      background-color: #fff;
+      padding-top: 48px;
+
+      .sidebar {
+        .author,
+        .details {
+          border-bottom: 1px solid #bcbcbc;
+          padding: 20px 0;
+        }
+
+        .author {
+          font-size: 1.25rem;
+          padding-top: 0;
+          .name {
+            color: #ffc425;
+          }
+        }
+
+        .share-print {
+          padding: 20px 0;
+
+
+
+          }
+        }
+      }
+
+      .post-text {
+        font-size: 1.25rem;
+        font-family: "Georgia";
+      }
+    }
+
+  }
+
 
 .learn-more-btn {
 
@@ -22,10 +65,6 @@
   text-transform: $learn-more-text-transform;
   font-size: $learn-more-font-size;
   width: $learn-more-width;
-
-  &.article {
-    width: $learn-more-width + 40px;
-  }
 
   span {
 

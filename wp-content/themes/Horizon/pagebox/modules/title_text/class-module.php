@@ -52,10 +52,31 @@ class Module extends Abstract_Module {
 			// WPGeeks_Forms
 			'fields'      => array(
 				array(
+						'type'			=> 'text',
+						'group'			=> __( 'Main', 'pagebox'),
+						'name'			=> 'title',
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Type your text')
+				),
+				array(
 						'type'			=> 'editor',
 						'group'			=> __( 'Main', 'pagebox'),
-						'name'			=> 'text',
+						'name'			=> 'description',
 						'label'			=> __( 'Editor' ),
+						'description'	=> __( 'Type your text')
+				),
+				array(
+						'type'			=> 'colorpicker',
+						'group'			=> __( 'Style', 'pagebox'),
+						'name'			=> 'title_color',
+						'label'			=> __( 'Title color' ),
+						'description'	=> __( 'Type your text')
+				),
+				array(
+						'type'			=> 'colorpicker',
+						'group'			=> __( 'Style', 'pagebox'),
+						'name'			=> 'text_color',
+						'label'			=> __( 'Text color' ),
 						'description'	=> __( 'Type your text')
 				),
 			)

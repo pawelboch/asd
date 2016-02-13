@@ -5,6 +5,23 @@
   min-height: 100px;
   background-color: #fff;
   color: #000;
+  border-bottom: 1px solid #c2c2c2;
+  padding-top: 65px;
+  margin-top: -259px;
+  position: relative;
+
+  .title {
+    font-family: "Avenir Next";
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 43px;
+  }
+
+  .description {
+    font-size: 1.815rem;
+    font-family: "Georgia";
+    margin-bottom: 58px;
+  }
 
 }
 

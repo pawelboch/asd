@@ -1,0 +1,16 @@
+@import "module-variables";
+
+$margin-between: 1%;
+
+
+.#{$module-name} {
+
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-color: #fff;
+  border-bottom: 1px solid #c2c2c2;
+  color: #000;
+  min-height: 430px;
+
+
+}

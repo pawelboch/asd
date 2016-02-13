@@ -12,17 +12,21 @@
 			</h2>
 		</div>
 
+		<?php if($this->get('switch') !== false): ?>
+
 		<div class="first col-md-4 text-sm-center text-xs-center">
 			<img src="<?php echo wp_get_attachment_url( $this->get( 'first_image' ) ) ;?>">
 			<h3><?php echo $this->get( 'first_title' ) ;?></h3>
 			<p><?php echo $this->get( 'first_description' ) ;?></p>
 		</div>
 
-	<?php if($this->get('border') !== ''): ?>
+		<?php if($this->get('border') !== ''): ?>
 		<div class="second col-md-4 text-sm-center text-xs-center" style="border-left: <?php echo $this->get('border') ;?>; border-right: <?php echo $this->get('border') ;?>">
-	<?php else: ;?>
+
+		<?php else: ;?>
 		<div class="second col-md-4 text-sm-center text-xs-center">
-	<?php endif ;?>
+
+		<?php endif ;?>
 
 			<img src="<?php echo wp_get_attachment_url( $this->get( 'second_image' ) ) ;?>">
 			<h3><?php echo $this->get( 'second_title' ) ;?></h3>
@@ -34,6 +38,23 @@
 			<h3><?php echo $this->get( 'third_title' ) ;?></h3>
 			<p><?php echo $this->get( 'third_description' ) ;?></p>
 		</div>
+
+		<?php else: ?>
+
+		<div class="first col-md-6 text-sm-center text-xs-center">
+			<img src="<?php echo wp_get_attachment_url( $this->get( 'first_image' ) ) ;?>">
+			<h3><?php echo $this->get( 'first_title' ) ;?></h3>
+			<p><?php echo $this->get( 'first_description' ) ;?></p>
+		</div>
+
+		<div class="second col-md-6 text-sm-center text-xs-center">
+
+			<img src="<?php echo wp_get_attachment_url( $this->get( 'second_image' ) ) ;?>">
+			<h3><?php echo $this->get( 'second_title' ) ;?></h3>
+			<p><?php echo $this->get( 'second_description' ) ;?></p>
+		</div>
+
+		<?php endif ;?>
 
 	</div>
 

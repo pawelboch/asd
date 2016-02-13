@@ -52,6 +52,13 @@ class Module extends Abstract_Module {
 			// WPGeeks_Forms
 			'fields'      => array(
 				array(
+						'type'			=> 'switch',
+						'group'			=> __( '2/3 columns', 'pagebox'),
+						'name'			=> 'switch',
+						'label'			=> __( 'Switch' ),
+						'description'	=> __( 'Switch between 2 or 3 columns')
+				),
+				array(
 						'type'			=> 'text',
 						'group'			=> __( 'Title', 'pagebox'),
 						'name'			=> 'title',

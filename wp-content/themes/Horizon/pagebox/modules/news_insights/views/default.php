@@ -40,7 +40,9 @@ $posts_array = get_posts( $args ); ?>
 						<?php echo $post->post_date ;?>
 					</div>
 					<h2 class="title">
-						<?php echo $post->post_title ;?>
+						<a href="<?php echo $post->guid ; ?>">
+							<?php echo $post->post_title ;?>
+						</a>
 					</h2>
 					<p class="content">
 						<?php echo $post->post_content ;?>

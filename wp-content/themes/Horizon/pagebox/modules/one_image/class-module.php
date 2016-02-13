@@ -35,7 +35,7 @@ class Module extends Abstract_Module {
 			'slug'        => 'one_image',
 			// Human readable title of box. It will be displayed in all
 			// backend functionalities
-			'title'       => __(  'One image', 'pagebox_blocks' ),
+			'title'       => __(  'One image - full width', 'pagebox_blocks' ),
 			// Short description about what box outputs. It will be displayed
 			// below the title in new box modal window.
 			'description' => __(  '', 'pagebox_blocks' ),

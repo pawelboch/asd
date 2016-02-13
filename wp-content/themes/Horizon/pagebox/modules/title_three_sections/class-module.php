@@ -125,8 +125,9 @@ class Module extends Abstract_Module {
 						'type'			=> 'text',
 						'group'			=> __( 'Style', 'pagebox'),
 						'name'			=> 'border',
+						'value'			=> '1px solid #c2c2c2',
 						'label'			=> __( 'Border' ),
-						'description'	=> __( 'Border style')
+						'description'	=> __( 'Border style (default: 1px solid #c2c2c2)')
 				),
 			)
 		);

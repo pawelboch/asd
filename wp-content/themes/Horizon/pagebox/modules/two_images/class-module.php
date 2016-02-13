@@ -35,7 +35,7 @@ class Module extends Abstract_Module {
 			'slug'        => 'two_images',
 			// Human readable title of box. It will be displayed in all
 			// backend functionalities
-			'title'       => __(  'Two images', 'pagebox_blocks' ),
+			'title'       => __(  'One / Two images', 'pagebox_blocks' ),
 			// Short description about what box outputs. It will be displayed
 			// below the title in new box modal window.
 			'description' => __(  '', 'pagebox_blocks' ),
@@ -52,10 +52,16 @@ class Module extends Abstract_Module {
 			// WPGeeks_Forms
 			'fields'      => array(
 				array(
+						'type'			=> 'switch',
+						'group'			=> __( 'General', 'pagebox'),
+						'name'			=> 'switch',
+						'label'			=> __( 'Switch' ),
+						'description'	=> __( 'Switch between one or two images')
+				),
+				array(
 						'type'			=> 'text',
 						'group'			=> __( 'Left part', 'pagebox'),
 						'name'			=> 'title_left',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Left title' ),
 						'description'	=> __( 'Left title')
 				),
@@ -63,15 +69,27 @@ class Module extends Abstract_Module {
 						'type'			=> 'text',
 						'group'			=> __( 'Left part', 'pagebox'),
 						'name'			=> 'description_left',
-						'option'	  	=> 'yes',
+						'label'			=> __( 'Left description' ),
+						'description'	=> __( 'Left description')
+				),
+				array(
+						'type'			=> 'image',
+						'group'			=> __( 'Left part', 'pagebox'),
+						'name'			=> 'background',
 						'label'			=> __( 'Left description' ),
 						'description'	=> __( 'Left description')
 				),
 				array(
 						'type'			=> 'text',
+						'group'			=> __( 'Left part', 'pagebox'),
+						'name'			=> 'border_left',
+						'label'			=> __( 'Border' ),
+						'description'	=> __( 'Border uder image')
+				),
+				array(
+						'type'			=> 'text',
 						'group'			=> __( 'Right part', 'pagebox'),
 						'name'			=> 'title_right',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Left title' ),
 						'description'	=> __( 'Left title')
 				),
@@ -79,7 +97,6 @@ class Module extends Abstract_Module {
 						'type'			=> 'text',
 						'group'			=> __( 'Right part', 'pagebox'),
 						'name'			=> 'description_right',
-						'option'	  	=> 'yes',
 						'label'			=> __( 'Left description' ),
 						'description'	=> __( 'Left description')
 				),

@@ -10,6 +10,17 @@ $margin-between: 1%;
   padding-bottom: 75px;
   color: #fff;
 
+  .full {
+    min-height: 456px;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+    .title {
+      background-color: rgba(255, 159, 41, 0.8);
+    }
+  }
+
   .half-part {
     min-height: 456px;
     background-position: center;
@@ -17,6 +28,28 @@ $margin-between: 1%;
     background-size: cover;
     border-bottom: 12px solid;
     width: 50% - (2 * $margin-between);
+
+    &.left {
+      background-image: url("../../../../assets/images/image-right.png");
+      border-color: #ff9f29;
+      margin-right: $margin-between * 2;
+
+      .title {
+        background-color: rgba(255, 159, 41, 0.8);
+      }
+
+    }
+
+    &.right {
+      background-image: url("../../../../assets/images/image-right.png");
+      border-color: #0093bc;
+      margin-left: $margin-between * 2;
+
+      .title {
+        background-color: rgba(0, 147, 188, 0.8);
+      }
+    }
+  }
 
     .title {
       margin-top: 86px;
@@ -38,31 +71,8 @@ $margin-between: 1%;
       font-size: 32px;
       font-family: "Georgia";
     }
-
-    &.left {
-      background-image: url("../../../../assets/images/image-right.png");
-      border-color: #ff9f29;
-      margin-right: $margin-between * 2;
-
-      .title {
-        background-color: rgba(255, 159, 41, 0.8);
-      }
-
-    }
-
-    &.right {
-      background-image: url("../../../../assets/images/image-right.png");
-      border-color: #0093bc;
-      margin-left: $margin-between * 2;
-
-      .title {
-        background-color: rgba(0, 147, 188, 0.8);
-      }
-
-    }
-
   }
-}
+
 
 @media (max-width: 768px) {
 

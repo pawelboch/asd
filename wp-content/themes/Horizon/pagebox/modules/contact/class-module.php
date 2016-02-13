@@ -55,6 +55,7 @@ class Module extends Abstract_Module {
 						'type'			=> 'text',
 						'group'			=> __( 'main', 'pagebox'),
 						'name'			=> 'title',
+						'value'			=> 'get in touch',
 						'label'			=> __( 'Title' ),
 						'description'	=> __( 'Title')
 				),

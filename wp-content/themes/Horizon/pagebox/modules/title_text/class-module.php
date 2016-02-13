@@ -58,41 +58,6 @@ class Module extends Abstract_Module {
 						'label'			=> __( 'Editor' ),
 						'description'	=> __( 'Type your text')
 				),
-				array(
-						'type'			=> 'SinglePage',
-						'group'			=> __( 'Main', 'pagebox'),
-						'name'			=> 'button',
-						'label'			=> __( 'Select page' ),
-						'description'	=> __( 'Select page for button')
-				),
-				array(
-						'type'			=> 'text',
-						'group'			=> __( 'Main', 'pagebox'),
-						'name'			=> 'button_text',
-						'label'			=> __( 'Button text' ),
-						'description'	=> __( 'Button text')
-				),
-				array(
-						'type'			=> 'switch',
-						'group'			=> __( 'Style', 'pagebox' ),
-						'name'			=> 'btn_switch',
-						'label'			=> __( 'learn more btn switch' ),
-						'description'	=> __( 'lrn mor btn')
-				),
-				array(
-						'type'			=> 'switch',
-						'group'			=> __( 'Style', 'pagebox' ),
-						'name'			=> 'border_switch',
-						'label'			=> __( 'border switch' ),
-						'description'	=> __( 'border')
-				),
-				array(
-						'type'			=> 'text',
-						'group'			=> __( 'Style', 'pagebox' ),
-						'name'			=> 'border_style',
-						'label'			=> __( 'Border style' ),
-						'description'	=> __( 'Leave empty for default border style')
-				),
 			)
 		);
 	}

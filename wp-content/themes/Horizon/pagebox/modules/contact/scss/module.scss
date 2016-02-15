@@ -26,17 +26,13 @@
 
   .contact-form {
 
-    div {
-      border: 1px solid #000;
-      margin-bottom: 5px;
-      padding: 10px;
+    input, button, select, textarea {
+      padding: 15px;
+      width: 100%;
     }
 
-    .submit {
-      background-color: #ffc600;
-      border: none;
-      width: 100px;
-      color: #fff;
+    input::-webkit-input-placeholder {
+      color: #cbcbcb;
     }
   }
 

@@ -51,7 +51,13 @@ class Module extends Abstract_Module {
 			// minimum and maximum percent width that module fits in
 			// WPGeeks_Forms
 			'fields'      => array(
-
+				array(
+					'type'			=> 'text',
+					'group'			=> __( 'General', 'pagebox'),
+					'name'			=> 'map_url',
+					'label'			=> __( 'URL' ),
+					'description'	=> __( 'Copy the URL from Google Map - https://mapbuildr.com/buildr/jej7t8')
+				)
 			)
 		);
 	}

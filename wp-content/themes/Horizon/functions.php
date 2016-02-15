@@ -30,7 +30,7 @@ function theme_enqueue_style() {
 		/**
 		 * Load only one, compressed file for production
 		 */
-		wp_enqueue_style( 'main', TEMPLATE_DIR_URI . '/assets/stylesheets/css/main.min.css', array(), false, false );
+		wp_enqueue_style( 'theme-style', TEMPLATE_DIR_URI . '/assets/stylesheets/css/style.min.css' );
 	}
 }
 

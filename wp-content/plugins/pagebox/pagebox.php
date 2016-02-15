@@ -57,7 +57,7 @@ class WPG_Pagebox {
 
         $this->load();
 
-        $predefined = new Pagebox\Predefined( $this );
+        //$predefined = new Pagebox\Predefined( $this );
 
         add_action( 'init', array( $this, 'instances' ), 10, 0 );
         add_action( 'init', array( $this, 'admin_instances' ), 20, 0 );

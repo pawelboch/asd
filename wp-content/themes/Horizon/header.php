@@ -42,4 +42,3 @@
 		<!-- /Header -->
 		<!-- Content -->
 		<div class="content">
-			<?php pagebox() ;?>

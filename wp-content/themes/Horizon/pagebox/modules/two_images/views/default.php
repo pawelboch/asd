@@ -4,7 +4,7 @@
  */
 ?>
 
-	<div class="container two_images-module-fg23gh">
+	<div class="container <?php echo $this->get('css_class'); ?>">
 
 		<?php if($this->get('switch') !== false): ?>
 

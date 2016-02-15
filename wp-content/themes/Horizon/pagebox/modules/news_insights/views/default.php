@@ -24,7 +24,7 @@
 );
 $posts_array = get_posts( $args ); ?>
 
-	<div class="container news_insights-module-fg23gh">
+	<div class="container <?php echo $this->get('css_class'); ?>">
 		<div class="title col-md-12">
 			<h2><?php echo $this->get( 'title' ) ;?></h2>
 		</div>

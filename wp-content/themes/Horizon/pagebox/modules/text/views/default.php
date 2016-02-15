@@ -4,7 +4,7 @@
  */
 ?>
 
-<div class="container text-module-fg23gh">
+<div class="container <?php echo $this->get('css_class'); ?>">
 
 <?php $border = $this->get('border_switch');
 	if($border !== false) : ?>

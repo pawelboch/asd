@@ -4,7 +4,7 @@
  */
 ?>
 
-	<div class="container tables-module-fg23gh">
+	<div class="container <?php echo $this->get('css_class'); ?>">
 		<div class="tabs">
 			<div class="row">
 				<div class="head">

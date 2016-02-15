@@ -4,7 +4,7 @@
  */
 ?>
 
-	<div class="container contact-module-fg23gh">
+	<div class="container <?php echo $this->get('css_class'); ?>">
 		<div class="col-md-6 left-part">
 			<h2 class="title">
 				<?php echo $this->get('title') ;?>

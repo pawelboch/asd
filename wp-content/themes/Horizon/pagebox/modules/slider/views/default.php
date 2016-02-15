@@ -6,7 +6,7 @@
 
 
 
-<div class="container-fluid slider-module-fg23gh">
+<div class="container-fluid <?php echo $this->get('css_class'); ?>">
 	<div class="slides slider">
 		<?php $slider = $this->get( 'slider' );
 		foreach($slider as $slide): ?>

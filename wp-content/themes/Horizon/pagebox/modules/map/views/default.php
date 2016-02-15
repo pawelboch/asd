@@ -4,7 +4,7 @@
  */
 ?>
 
-<div class="container map-module-fg23gh">
+<div class="container <?php echo $this->get('css_class'); ?>">
     <div class="row">
         <?php echo $this->get( 'map_url' ) ;?>
     </div>

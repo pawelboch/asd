@@ -4,7 +4,7 @@
  */
 ?>
 
-<div class="container title_text-module-fg23gh">
+<div class="container <?php echo $this->get('css_class'); ?>">
     <div class="col-md-12">
         <h2 class="title" style="color: <?php echo $this->get('title_color') ;?>">
             <?php echo $this->get('title') ;?>

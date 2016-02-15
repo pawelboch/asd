@@ -189,7 +189,7 @@ abstract class Module {
 		$view = new View;
 
 		// set module CSS classes
-		$css_class = 'pagebox-module pagebox-module-' . $this->data->slug . ' pagebox-module-' . $this->data->id;
+		$css_class = $this->data->slug . '-module-fg23gh pagebox-module-' . $this->data->id;
 
 		$view->set_variable( 'css_class', apply_filters( 'pagebox/modules/css_class', $css_class, $this ) );
 

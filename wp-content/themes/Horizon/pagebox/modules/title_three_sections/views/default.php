@@ -4,7 +4,7 @@
  */
 ?>
 
-	<div class="container title_three_sections-module-fg23gh">
+	<div class="container <?php echo $this->get('css_class'); ?>">
 
 		<div class="title text-sm-center text-xs-center">
 			<h2>

@@ -16,24 +16,7 @@
 
 		</div>
 		<div class="col-md-6 contact-form">
-			<div class="first-name">
-				first name
-			</div>
-
-			<div class="your-email">
-				your email
-			</div>
-
-			<div class="investor">
-				investor
-			</div>
-			<div class="message">
-				message
-			</div>
-
-			<div class="submit">
-				submit >
-			</div>
+			<?php echo do_shortcode($this->get('contact_form')) ;?>
 		</div>
 	</div>
 

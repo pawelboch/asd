@@ -53,7 +53,7 @@ class Module extends Abstract_Module {
 			'fields'      => array(
 				array(
 						'type'			=> 'text',
-						'group'			=> __( 'main', 'pagebox'),
+						'group'			=> __( 'Main', 'pagebox'),
 						'name'			=> 'title',
 						'value'			=> 'get in touch',
 						'label'			=> __( 'Title' ),
@@ -61,10 +61,17 @@ class Module extends Abstract_Module {
 				),
 				array(
 						'type'			=> 'editor',
-						'group'			=> __( 'main', 'pagebox'),
+						'group'			=> __( 'Main', 'pagebox'),
 						'name'			=> 'description',
 						'label'			=> __( 'Description' ),
 						'description'	=> __( 'Description' )
+				),
+				array(
+						'type'			=> 'text',
+						'group'			=> __('Contact form', 'pagebox'),
+						'name'			=> 'contact_form',
+						'label'			=> __( 'Contact' ),
+						'description'	=> __( 'Contact form shortcode' )
 				)
 			)
 		);

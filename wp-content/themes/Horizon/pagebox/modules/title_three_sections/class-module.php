@@ -55,6 +55,7 @@ class Module extends Abstract_Module {
 						'type'			=> 'switch',
 						'group'			=> __( '2/3 columns', 'pagebox'),
 						'name'			=> 'switch',
+						'option'		=> 'yes',
 						'label'			=> __( 'Switch' ),
 						'description'	=> __( 'Switch between 2 or 3 columns')
 				),

@@ -76,6 +76,7 @@ class Module extends Abstract_Module {
 						'type'			=> 'switch',
 						'group'			=> __( 'Style', 'pagebox' ),
 						'name'			=> 'btn_switch',
+						'option'		=> 'yes',
 						'label'			=> __( 'learn more btn switch' ),
 						'description'	=> __( 'lrn mor btn')
 				),

@@ -56,7 +56,7 @@ class Module extends Abstract_Module {
 					'group'			=> __( 'General', 'pagebox'),
 					'name'			=> 'map_url',
 					'label'			=> __( 'URL' ),
-					'description'	=> __( 'Copy the URL from Google Map - https://mapbuildr.com/buildr/jej7t8')
+					'description'	=> __( 'Copy the URL from Google Map')
 				)
 			)
 		);

@@ -40,55 +40,33 @@ module.exports = function( grunt ) {
                     'assets/stylesheets/css/style.css': 'assets/stylesheets/scss/style.scss'
                 }
             },
-            minify: {
-                options: {
-                    sourceMap: false,
-                    outputStyle: 'compressed'
-                },
-                files: {
-                    'assets/stylesheets/css/main.min.css': 'assets/stylesheets/scss/main.scss'
-                }
-            },
             modules: {
-                options: {
-                    outputStyle: 'compressed'
-                },
                 files: modulesScssPaths
             }
         },
         watch: {
+            options: {
+                spawn: false
+            },
             sass: {
                 files: [
-                    'assets/stylesheets/scss/**/*.scss',
-                    '!assets/stylesheets/vendor/',
-                    '!assets/stylesheets/scss/main.scss',
-                    '!assets/stylesheets/scss/bootstrap.scss'
+                    'assets/stylesheets/scss/style.scss',
+                    'assets/stylesheets/scss/mixins/**/*.scss',
+                    'assets/stylesheets/scss/partials/**/*.scss'
                 ],
-                tasks: [ 'sass:style', 'comments:cssStyle' ],
-                options: {
-                    spawn: false
-                }
+                tasks: [ 'sass:style', 'comments:cssStyle' ]
             },
             sassBootstrap: {
                 files: 'assets/stylesheets/scss/bootstrap.scss',
-                tasks: [ 'sass:bootstrap' ],
-                options: {
-                    spawn: false
-                }
-            },
-            sassMain: {
-                files: 'assets/stylesheets/scss/main.scss',
-                tasks: [ 'sass:minify' ],
-                options: {
-                    spawn: false
-                }
+                tasks: [ 'sass:bootstrap' ]
             },
             sassModules: {
                 files: 'pagebox/modules/**/scss/*.scss',
-                tasks: [ 'sass:modules' ],
-                options: {
-                    spawn: false
-                }
+                tasks: [ 'sass:modules' ]
+            },
+            sassThemeConfig: {
+                files: 'assets/stylesheets/scss/theme-config.scss',
+                tasks: [ 'sass:style', 'comments:cssStyle', 'sass:bootstrap' ]
             }
         },
         auto_install: {
@@ -136,6 +114,27 @@ module.exports = function( grunt ) {
         },
         clean: {
             sassVendor: ["assets/stylesheets/scss/vendor/"]
+        },
+        concat: {
+            css: {
+                src: [
+                    'assets/stylesheets/css/bootstrap.css',
+                    'assets/stylesheets/css/style.css',
+                    'pagebox/modules/**/css/module.css'
+                ],
+                dest: 'assets/stylesheets/css/style.min.css'
+            }
+        },
+        cssmin: {
+            options: {
+                shorthandCompacting: true,
+                roundingPrecision: 10 // 10 is for bootstrap
+            },
+            target: {
+                files: {
+                    'assets/stylesheets/css/style.min.css': ['assets/stylesheets/css/style.min.css']
+                }
+            }
         }
     } );
 
@@ -148,7 +147,9 @@ module.exports = function( grunt ) {
     grunt.registerTask( 'compile', 'Compile scss files with compression', [
         'install-sass-vendor',
         'sass',
-        'comments'
+        'comments',
+        'concat',
+        'cssmin'
     ] );
 
     grunt.registerTask( 'default', 'Watch scss files and compile after change', [

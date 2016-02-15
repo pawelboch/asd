@@ -55,6 +55,7 @@ class Module extends Abstract_Module {
 						'type'			=> 'switch',
 						'group'			=> __( 'General', 'pagebox'),
 						'name'			=> 'switch',
+						'option'	  	=> 'yes',
 						'label'			=> __( 'Switch' ),
 						'description'	=> __( 'Switch between one or two images')
 				),

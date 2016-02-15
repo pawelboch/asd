@@ -68,7 +68,6 @@ class Module extends Abstract_Module {
 							'type'			=> 'text',
 							'group'			=> __( 'Slides', 'pagebox' ),
 							'name'			=> 'title',
-							'option'	  	=> 'yes',
 							'label'			=> __( 'Title' ),
 							'description'	=> __( 'description' )
 						),
@@ -76,7 +75,6 @@ class Module extends Abstract_Module {
 							'type'			=> 'text',
 							'group'			=> __( 'Slides', 'pagebox' ),
 							'name'			=> 'title_highlight',
-							'option'	  	=> 'yes',
 							'label'			=> __( 'Title highlighted word' ),
 							'description'	=> __( 'description' )
 						),
@@ -84,7 +82,6 @@ class Module extends Abstract_Module {
 							'type'			=> 'text',
 							'group'			=> __( 'Slides', 'pagebox' ),
 							'name'			=> 'description',
-							'option'		=> 'no',
 							'label'			=> __( 'Description' ),
 							'description' 	=> __( 'description' )
 						),
@@ -92,7 +89,6 @@ class Module extends Abstract_Module {
 							'type'			=> 'SinglePage',
 							'group'			=> __( 'Slides', 'pagebox' ),
 							'name'			=> 'button',
-							'option'		=> 'no',
 							'label'			=> __( 'btn' ),
 							'description' 	=> __( 'btn' )
 						),
@@ -100,12 +96,33 @@ class Module extends Abstract_Module {
 							'type'			=> 'image',
 							'group'			=> __( 'Slides', 'pagebox' ),
 							'name'			=> 'image',
-							'option'		=> 'no',
 							'label'			=> __( 'img' ),
 							'description' 	=> __( 'img' ),
 							'sass'          => true
 						),
 					)
+				),
+				array(
+					'type'			=> 'colorpicker',
+					'group'			=> __( 'Style', 'pagebox' ),
+					'name'			=> 'h2_bgc',
+					'label'			=> __( 'Title background color' ),
+					'description' 	=> __( 'Leave blank for default color' )
+				),
+				array(
+					'type'			=> 'colorpicker',
+					'group'			=> __( 'Style', 'pagebox' ),
+					'name'			=> 'h2_color',
+					'label'			=> __( 'Title color' ),
+					'description' 	=> __( 'Leave blank for default color' )
+				),
+				array(
+					'type'			=> 'switch',
+					'group'			=> __( 'Style', 'pagebox' ),
+					'name'			=> 'learn_switch',
+					'option'		=> 'yes',
+					'label'			=> __( 'Learn more button' ),
+					'description' 	=> __( 'Disable or enable learn more button' )
 				),
 			)
 		);

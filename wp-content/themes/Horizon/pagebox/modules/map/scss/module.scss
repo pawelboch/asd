@@ -2,13 +2,37 @@
 
 .#{$module-name} {
 
-  min-height: 250px;
-  background-color: #fff;
+  .row {
 
-  iframe {
-    width: 100% !important;
+  background-color: #F5F5F5;
 
+    background-image: url("../../../../assets/images/transparent_map_bg.png");
+    opacity: 0.8;
+    background-position: center;
+    background-size: cover;
+
+
+    #Horizon {
+      height:400px;
+      width:100%;
+
+      div div div div {
+
+        // Map transparency
+        background-color: rgba(131, 135, 140, 0.2);
+      }
+    }
+    .gm-style-iw * {
+      display: block;
+      width: 100%;
+    }
+    .gm-style-iw h4, .gm-style-iw p {
+      margin: 0;
+      padding: 0;
+    }
+    .gm-style-iw a {
+      color: #4272db;
+    }
   }
-
 }
 

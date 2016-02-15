@@ -30,7 +30,7 @@ $margin-between: 1%;
     width: 50% - (2 * $margin-between);
 
     &.left {
-      background-image: url("../../../../assets/images/image-right.png");
+      background-image: url($template-url + "/assets/images/image-right.png");
       border-color: #ff9f29;
       margin-right: $margin-between * 2;
 
@@ -41,7 +41,7 @@ $margin-between: 1%;
     }
 
     &.right {
-      background-image: url("../../../../assets/images/image-right.png");
+      background-image: url($template-url + "/assets/images/image-right.png");
       border-color: #0093bc;
       margin-left: $margin-between * 2;
 

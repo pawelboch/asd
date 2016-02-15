@@ -3,10 +3,10 @@
  * Abstract module
  *
  * Contains default methods for each module
- * 
+ *
  * @author   Max Matloka (max@matloka.me)
  * @since    1.0.0
- * 
+ *
  * @package  pagebox/modules
  */
 
@@ -24,7 +24,7 @@ abstract class Module {
 	public $data;
 
 	/**
-	 * Constructor method gets path of module and 
+	 * Constructor method gets path of module and
 	 * include config
 	 *
 	 * @access  public
@@ -34,8 +34,8 @@ abstract class Module {
 		$this->set_config();
 
 		// use reflection class to get module path
-		$module = new \ReflectionClass( $this );
-		$this->path   = dirname( $module->getFileName() );
+		$module     = new \ReflectionClass( $this );
+		$this->path = dirname( $module->getFileName() );
 
 	}
 
@@ -50,10 +50,11 @@ abstract class Module {
 	 *
 	 * @access  public
 	 *
-	 * @param   string  $name  name of the key to return
+	 * @param   string $name name of the key to return
+	 *
 	 * @return  mixed          returns config array or if the settings
-	 *          			   name was given returns value or false
-	 *          			   (key not found)
+	 *                       name was given returns value or false
+	 *                       (key not found)
 	 */
 	public function get_config( $name = null ) {
 
@@ -73,7 +74,7 @@ abstract class Module {
 	 * Gets module slug slug
 	 *
 	 * Can be used for variables, arrays, CSS classes
-	 * 
+	 *
 	 * @return  string  template slug
 	 */
 	public function get_slug() {
@@ -91,8 +92,8 @@ abstract class Module {
 	 */
 	public function set_form() {
 
-		if ( isset( $this->config[ 'fields' ] ) && is_array( $this->config[ 'fields' ] ) ) {
-			$this->form = new \WPGeeks_Form_Factory( $this->config[ 'fields' ] );
+		if ( isset( $this->config['fields'] ) && is_array( $this->config['fields'] ) ) {
+			$this->form = new \WPGeeks_Form_Factory( $this->config['fields'] );
 		}
 
 		return $this;
@@ -105,19 +106,20 @@ abstract class Module {
 	 *
 	 * @access  public
 	 *
-	 * @param   array         $values  array containing form values
+	 * @param   array $values array containing form values
+	 *
 	 * @return  WPGeeks_Form
 	 */
 	public function set_form_values( $values = array() ) {
-		
+
 		$this->form->setValues( $values );
 
 		return $this;
-		
+
 	}
 
 	/**
-	 * Returns edit form object (instance of 
+	 * Returns edit form object (instance of
 	 * WPGeeks_Form)for current module.
 	 *
 	 * @access  public
@@ -134,7 +136,9 @@ abstract class Module {
 	 * Sets current module data
 	 *
 	 * @access  public
+	 *
 	 * @param   array $data data
+	 *
 	 * @return  void
 	 */
 	public function set_data( $data ) {
@@ -164,7 +168,7 @@ abstract class Module {
 			'title'   => $this->get_config( 'title' ),
 			'primary' => ( isset( $data->primary ) ) ? $data->primary : false,
 			'target'  => 'section-' . $section_name,
-			'data'    => str_replace("'", "&#39;", $json_data)
+			'data'    => str_replace( "'", "&#39;", $json_data )
 		) );
 
 	}
@@ -195,17 +199,17 @@ abstract class Module {
 
 		// logic method exists so pass all settings to it
 		if ( method_exists( $this, 'logic' ) ) {
-			
+
 			$settings = $this->logic( $this->data->settings );
 
-			foreach ($settings as $setting => $value) {
+			foreach ( $settings as $setting => $value ) {
 				$view->set_variable( $setting, $value );
 			}
 
 		} else { // or pass raw data
 
 			// set module data
-			foreach ($this->data->settings as $setting => $value) {
+			foreach ( $this->data->settings as $setting => $value ) {
 				$view->set_variable( $setting, $value );
 			}
 
@@ -223,7 +227,18 @@ abstract class Module {
 			$view->get_file( $this->path . '/views/default.php' );
 
 		}
-		
+
+		// Add module javascript in footer if exists
+		if( is_file( $this->path . '/js/module.js' ) ) {
+			wp_enqueue_script(
+				'pagebox-' . $this->data->slug . '-module',
+				get_template_directory_uri() . '/pagebox/modules/' . $this->data->slug . '/js/module.js',
+				array( 'jquery' ),
+				false,
+				true
+			);
+		}
+
 	}
 
 	/**
@@ -232,7 +247,7 @@ abstract class Module {
 	public function display() {
 
 		$this->display_frontend();
-		
+
 	}
 
 }

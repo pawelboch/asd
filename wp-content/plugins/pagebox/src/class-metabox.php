@@ -3,7 +3,7 @@
  * Class registers metabox and handles all metabox actions
  * such as displaying menu with available block or rendering
  * block edit form.
- * 
+ *
  * @since 1.0.0
  *
  * @package pagebox
@@ -12,7 +12,6 @@
 namespace Pagebox;
 
 use \WPG_pagebox;
-use Pagebox\View;
 
 class Metabox {
 
@@ -40,7 +39,7 @@ class Metabox {
 
 	/**
 	 * Class constructor
-	 * 
+	 *
 	 * @access  public
 	 * @author  Kuba Mikita
 	 */
@@ -75,7 +74,7 @@ class Metabox {
 	 *
 	 * @access  public
 	 * @author  Kuba Mikita
-	 * 
+	 *
 	 * @return  array  post types
 	 */
 	public function get_enabled_post_types() {
@@ -95,10 +94,10 @@ class Metabox {
 
 	/**
 	 * Registers Metabox for Pagebox use
-	 * 
+	 *
 	 * @access  public
 	 * @author  Kuba Mikita
-	 * 
+	 *
 	 * @return  void
 	 */
 	public function register_metabox() {
@@ -120,10 +119,10 @@ class Metabox {
 
 	/**
 	 * Display Pagebox Metabox content
-	 * 
+	 *
 	 * @access  public
 	 * @author  Max Matloka (max@matloka.me)
-	 * 
+	 *
 	 * @return  void
 	 */
 	public function display_metabox() {
@@ -150,7 +149,7 @@ class Metabox {
         	$template = ob_get_clean();
 
         	$metabox->set( 'template', $template );
-			
+
 		}
 
 		$metabox->get_part( 'metabox/metabox', 'templates' );
@@ -159,10 +158,10 @@ class Metabox {
 
 	/**
 	 * AJAX action to list all available modules in modal
-	 * 
+	 *
 	 * @access  public
 	 * @author  Max Matloka (max@matloka.me)
-	 * 
+	 *
 	 * @return  void
 	 */
 	public function ajax_listing() {
@@ -184,15 +183,15 @@ class Metabox {
 		$view->get_part( 'metabox/modal/listing' );
 
 		die();
-		
+
 	}
 
 	/**
 	 * AJAX action to edit/add module
-	 * 
+	 *
 	 * @access  public
 	 * @author  Max Matloka (max@matloka.me)
-	 * 
+	 *
 	 * @return  void
 	 */
 	public function ajax_edit() {
@@ -236,18 +235,18 @@ class Metabox {
 		$view->get_part( 'metabox/modal/edit' );
 
 		die();
-		
+
 	}
 
 	/**
 	 * Render template skeleton
-	 * 
+	 *
 	 * Renders backend skeleton of template in which
 	 * we can add some modules using provided interface.
 	 *
 	 * @access  public
 	 * @author  Max Matloka (max@matloka.me)
-	 * 
+	 *
 	 * @return  void
 	 */
 	public function ajax_template() {
@@ -257,7 +256,7 @@ class Metabox {
 
 		if ( $template == false ) {
 			die();
-		} 
+		}
 
 		$template->display_backend();
 
@@ -374,17 +373,20 @@ class Metabox {
 	    if ( isset( $_REQUEST[ 'pagebox_modules' ] ) ) {
 			$modules = $_REQUEST[ 'pagebox_modules' ];
 	    }
-	    
+
 	    update_post_meta( $post_id, 'pagebox_modules', $modules );
+
+		$sass = new Sass( $this->pagebox );
+		$sass->compile( $modules );
 
 	}
 
 	/**
 	 * Enqueue styles for metabox
-	 * 
+	 *
 	 * @access  public
 	 * @author  Max Matloka (max@matloka.me)
-	 * 
+	 *
 	 * @return  void
 	 */
 	public function enqueue_styles() {
@@ -406,10 +408,10 @@ class Metabox {
 
 	/**
 	 * Enqueue scripts for metabox
-	 * 
+	 *
 	 * @access  public
 	 * @author  Max Matloka (max@matloka.me)
-	 * 
+	 *
 	 * @return  void
 	 */
 	public function enqueue_scripts() {
@@ -422,22 +424,22 @@ class Metabox {
 		}
 
 		// enqueue scripts
-		\wp_enqueue_script( 'pagebox/metabox', PAGEBOX_URL . 'src/public/js/jquery.metabox.js', array( 
+		\wp_enqueue_script( 'pagebox/metabox', PAGEBOX_URL . 'src/public/js/jquery.metabox.js', array(
 			'pagebox/serializejson',
 			'pagebox/tabs',
 			'pagebox/form',
 			'pagebox/codemirror/css',
 			'pagebox/codemirror/js',
 			'pagebox/codemirror/html',
-			'pagebox/featherlight', 
-			'pagebox/mustache', 
-			'pagebox/frosty', 
-			'jquery-ui-sortable' 
+			'pagebox/featherlight',
+			'pagebox/mustache',
+			'pagebox/frosty',
+			'jquery-ui-sortable'
 		) );
 
 		// send some data to js file
 		$metabox_array = array(
-			'path' => array( 
+			'path' => array(
 				'module' => PAGEBOX_URL . 'src/public/partials/metabox/module.mustache',
 			),
 			'i18n' => array(

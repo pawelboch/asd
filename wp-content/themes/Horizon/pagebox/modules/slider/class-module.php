@@ -10,7 +10,6 @@
 namespace HorizonInvestments\Pagebox\Modules\Slider;
 
 use \Pagebox\Modules\Module as Abstract_Module;
-use \WPGeeks_HTML;
 
 class Module extends Abstract_Module {
 
@@ -107,14 +106,16 @@ class Module extends Abstract_Module {
 					'group'			=> __( 'Style', 'pagebox' ),
 					'name'			=> 'h2_bgc',
 					'label'			=> __( 'Title background color' ),
-					'description' 	=> __( 'Leave blank for default color' )
+					'description' 	=> __( 'Leave blank for default color' ),
+					'sass'          => true
 				),
 				array(
 					'type'			=> 'colorpicker',
 					'group'			=> __( 'Style', 'pagebox' ),
 					'name'			=> 'h2_color',
 					'label'			=> __( 'Title color' ),
-					'description' 	=> __( 'Leave blank for default color' )
+					'description' 	=> __( 'Leave blank for default color' ),
+					'sass'          => true
 				),
 				array(
 					'type'			=> 'switch',

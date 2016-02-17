@@ -120,8 +120,21 @@
 				</div>
 			</div>
 
-			<div class="contact col-md-12">
-				contact placeholder
+			<div class="contact col-md-12"><div class="col-md-6 left-part">
+					<h2 class="title">
+						title
+					</h2>
+
+					<p class="description">
+						desc
+					</p>
+
+				</div>
+				<div class="col-md-6 contact-form">
+				<?php $contact = '[contact-form-7 id="90" title="Contact form"]';
+
+				echo do_shortcode($contact) ;?>
+					</div>
 			</div>
 
 		</div>

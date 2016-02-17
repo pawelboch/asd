@@ -78,6 +78,22 @@ class Module extends Abstract_Module {
 							'description'	=> __( 'description' )
 						),
 						array(
+							'type'			=> 'colorpicker',
+							'group'			=> __( 'Style', 'pagebox' ),
+							'name'			=> 'h2_bgc',
+							'label'			=> __( 'Title background color' ),
+							'description' 	=> __( 'Leave blank for default color' ),
+							'sass'          => true
+						),
+						array(
+							'type'			=> 'colorpicker',
+							'group'			=> __( 'Style', 'pagebox' ),
+							'name'			=> 'h2_color',
+							'label'			=> __( 'Title color' ),
+							'description' 	=> __( 'Leave blank for default color' ),
+							'sass'          => true
+						),
+						array(
 							'type'			=> 'text',
 							'group'			=> __( 'Slides', 'pagebox' ),
 							'name'			=> 'description',
@@ -107,22 +123,6 @@ class Module extends Abstract_Module {
 							'sass'          => true
 						),
 					)
-				),
-				array(
-					'type'			=> 'colorpicker',
-					'group'			=> __( 'Style', 'pagebox' ),
-					'name'			=> 'h2_bgc',
-					'label'			=> __( 'Title background color' ),
-					'description' 	=> __( 'Leave blank for default color' ),
-					'sass'          => true
-				),
-				array(
-					'type'			=> 'colorpicker',
-					'group'			=> __( 'Style', 'pagebox' ),
-					'name'			=> 'h2_color',
-					'label'			=> __( 'Title color' ),
-					'description' 	=> __( 'Leave blank for default color' ),
-					'sass'          => true
 				),
 				array(
 					'type'			=> 'switch',

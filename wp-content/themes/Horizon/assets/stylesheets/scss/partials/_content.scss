@@ -27,6 +27,7 @@
 
   .post {
     color: #000;
+    background-color: #fff;
 
     .content {
       background-color: #fff;
@@ -49,9 +50,6 @@
 
         .share-print {
           padding: 20px 0;
-
-
-
           }
         }
       }
@@ -60,9 +58,13 @@
         font-size: 1.25rem;
         font-family: "Georgia";
       }
-    }
 
+    .news-insights {
+      border-top: 2px solid #303e48;
+    }
   }
+
+}
 
 
 .learn-more-btn {

@@ -107,7 +107,8 @@ class Module extends Abstract_Module {
 					'name'			=> 'h2_bgc',
 					'label'			=> __( 'Title background color' ),
 					'description' 	=> __( 'Leave blank for default color' ),
-					'sass'          => true
+					'sass'          => true,
+					'value'         => '#303e48'
 				),
 				array(
 					'type'			=> 'colorpicker',
@@ -115,7 +116,8 @@ class Module extends Abstract_Module {
 					'name'			=> 'h2_color',
 					'label'			=> __( 'Title color' ),
 					'description' 	=> __( 'Leave blank for default color' ),
-					'sass'          => true
+					'sass'          => true,
+					'value'         => '#fff'
 				),
 				array(
 					'type'			=> 'switch',

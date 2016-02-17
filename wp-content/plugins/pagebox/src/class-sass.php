@@ -21,7 +21,7 @@ class Sass {
 	private function auto_quote( $value ) {
 		if( is_numeric( $value )) {
 			return $value;
-		} else if( ! preg_match( "/^[\\w-#&]*$/", $value )) {
+		} else if( ! preg_match( "/^[\\w-#&]*$/", $value ) || strlen( $value ) == 0 ) {
 			return "'" . $value . "'";
 		} else {
 			return $value;
@@ -70,7 +70,7 @@ EOD;
 
 							$name = is_string( $field['sass'] ) ? $field['sass'] : $field['name'];
 
-							if( isset( $data->settings->{ $field['name'] } )) {
+							if( isset( $data->settings->{ $field['name'] } ) && ! empty( $data->settings->{ $field['name'] } )) {
 								$variables[ $name ] = $data->settings->{ $field['name'] };
 							} else if( isset( $field['value'] )) {
 								$variables[ $name ] = $field['value'];

@@ -120,7 +120,10 @@ class Module extends Abstract_Module {
 							'name'			=> 'image',
 							'label'			=> __( 'img' ),
 							'description' 	=> __( 'img' ),
-							'sass'          => true
+							'sass'          => true,
+							'sass_filter'   => function( $value ) {
+								return wp_get_attachment_url( $value );
+							}
 						),
 					)
 				),

@@ -28,6 +28,13 @@ class Sass {
 		}
 	}
 
+	private function filter( $fields, $value ) {
+		if( is_array( $fields ) && isset( $fields['sass_filter'] ) && is_callable( $fields['sass_filter'] )) {
+			return $fields['sass_filter']( $value );
+		}
+		return $value;
+	}
+
 	private function parse_variables( array $variables ) {
 		$out = <<<EOD
 /**
@@ -71,9 +78,9 @@ EOD;
 							$name = is_string( $field['sass'] ) ? $field['sass'] : $field['name'];
 
 							if( isset( $data->settings->{ $field['name'] } ) && ! empty( $data->settings->{ $field['name'] } )) {
-								$variables[ $name ] = $data->settings->{ $field['name'] };
+								$variables[ $name ] = $this->filter( $field, $data->settings->{ $field['name'] } );
 							} else if( isset( $field['value'] )) {
-								$variables[ $name ] = $field['value'];
+								$variables[ $name ] = $this->filter( $field, $field['value'] );
 							} else {
 								$variables[ $name ] = null;
 							}
@@ -87,7 +94,7 @@ EOD;
 
 										if( isset( $data->settings->{ $field['name'] } )) {
 											foreach( $data->settings->{$field['name']} as $f ) {
-												$variables[ $name ][] = isset( $f->{ $field2['name'] } ) ? $f->{ $field2['name'] } : null;
+												$variables[ $name ][] = isset( $f->{ $field2['name'] } ) ? $this->filter( $field2, $f->{ $field2['name'] }) : null;
 											}
 										}
 									}

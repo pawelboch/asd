@@ -8,35 +8,37 @@
 
 <div class="post container">
 
-		<div class="top">
+		<div class="top col-md-12">
 			<?php foreach ($this->get_variable( 'post-100-up_modules' ) as $module): ?>
 				<?php $module->display(); ?>
 			<?php endforeach ?>
 		</div>
 
 
-				<div class="left col-md-2">
-					<?php foreach ($this->get_variable( 'post-30_modules' ) as $module): ?>
-						<?php $module->display(); ?>
-					<?php endforeach ?>
-				</div>
+		<div class="left col-md-2">
+			<?php foreach ($this->get_variable( 'post-30_modules' ) as $module): ?>
+				<?php $module->display(); ?>
+			<?php endforeach ?>
+		</div>
 
 
 
 
 
-				<div class="right col-md-10">
-					<?php foreach ($this->get_variable( 'post-70_modules' ) as $module): ?>
-						<?php $module->display(); ?>
-					<?php endforeach ?>
-				</div>
+		<div class="right col-md-10">
+			<?php foreach ($this->get_variable( 'post-70_modules' ) as $module): ?>
+				<?php $module->display(); ?>
+			<?php endforeach ?>
+		</div>
 
 
 
 		<div class="bottom">
-			<?php foreach ($this->get_variable( 'post-100-down_modules' ) as $module): ?>
-				<?php $module->display(); ?>
-			<?php endforeach ?>
+			<div class="row">
+				<?php foreach ($this->get_variable( 'post-100-down_modules' ) as $module): ?>
+					<?php $module->display(); ?>
+				<?php endforeach ?>
+			</div>
 		</div>
 
 

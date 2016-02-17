@@ -26,64 +26,64 @@ $h2_color: #fff !default;
     .container {
       padding-top: 135px + 142px;
       padding-bottom: 280px;
-    }
 
-    h2 {
-
-      margin-bottom: 65px;
-      background-color: $slider-h2_bgc;
-      color: $slider-h2_color;
-      font-family: "Avenir Next";
-      font-size: 2.25rem;
-      padding: 15px;
-      text-transform: uppercase;
-      position: relative;
-      font-weight: 300;
-      clear: both;
-      width: auto;
-
-      span {
-
-        font-weight: 600;
-        position: relative;
-        padding: 0 40px 0 25px;
-
-        &:before {
-          content: '';
-          position: absolute;
-          width: 181px;
-          height: 196px;
-          background-image: url($template-url + "/assets/images/square.png");
-          left: -2px;
-          top: -73px;
+      @for $i from 1 through length($slider-h2_bgc) {
+        &.slide-#{$i} {
+          h2 {
+            background-color: nth($slider-h2_bgc, $i);
+            color: nth($slider-h2_color, $i);
+          }
         }
       }
 
-    }
+      h2 {
+        margin-bottom: 65px;
+        background-color: $h2_bgc;
+        color: $h2_color;
+        font-family: "Avenir Next";
+        font-size: 2.25rem;
+        padding: 15px;
+        text-transform: uppercase;
+        position: relative;
+        font-weight: 300;
+        clear: both;
+        width: auto;
 
-    p {
+        span {
+          font-weight: 600;
+          position: relative;
+          padding: 0 40px 0 25px;
 
-      color: #fff;
-      font-size: 2rem;
-      font-family: "Georgia";
-      clear: both;
-      padding: 0;
-      margin-bottom: 21px;
+          &:before {
+            content: '';
+            position: absolute;
+            width: 181px;
+            height: 196px;
+            background-image: url($template-url + "/assets/images/square.png");
+            left: -2px;
+            top: -73px;
+          }
+        }
+      }
 
-    }
+      p {
+        color: #fff;
+        font-size: 2rem;
+        font-family: "Georgia";
+        clear: both;
+        padding: 0;
+        margin-bottom: 21px;
+      }
 
-    a {
+      a {
+        height: 53px;
+        margin-bottom: 60px;
+      }
 
-      height: 53px;
-      margin-bottom: 60px;
-
-    }
-
-    .learn-more-btn {
-
-      width: 161px;
-      clear: both;
-
+      .learn-more-btn {
+        width: 161px;
+        clear: both;
+      }
     }
   }
 }

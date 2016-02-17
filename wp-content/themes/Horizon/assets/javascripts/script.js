@@ -9,10 +9,10 @@ jQuery( document ).ready(function( $ ) {
     
     // Tab toggle
 
-    $('.tables-module-fg23gh .head .title').on('click',function(){
-        $('.tables-module-fg23gh .head .title').removeClass('active');
+    $('.pagebox-module-hd39fa12 .head .title').on('click',function(){
+        $('.pagebox-module-hd39fa12 .head .title').removeClass('active');
         $(this).addClass('active');
-        $('.tables-module-fg23gh .tabs .row .content').hide();
+        $('.pagebox-module-hd39fa12 .tabs .row .content').hide();
         $('.'+$(this).attr('id')).fadeIn('fast');
     });
 

@@ -1,5 +1,22 @@
 <?php
 
+
+/**
+ * Don't show page before login
+ */
+
+function personal_message_when_logged_in() {
+$show = isset( $_GET['show'] ) ? $_GET['show'] : false;
+if ( !is_user_logged_in() && $show != 'pokaz'  ){
+  $currnet_url = urlencode("//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+  wp_redirect( home_url()."/wp-login.php?redirect_to=".$currnet_url);
+  die();
+  }
+}
+if( !defined('PROD') || !PROD ){
+  add_action( 'wp', 'personal_message_when_logged_in' );
+}
+
 /**
  * Defined constants
  */

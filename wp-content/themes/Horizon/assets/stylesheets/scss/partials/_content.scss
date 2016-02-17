@@ -14,12 +14,19 @@
     }
   }
 
-  .post {
-    color: #000;
+  // Single.php
 
+  .top-title {
+
+    background-image: url("../../../images/background-pictures-13.jpg");
     .title {
       color: #fff;
+      padding: 50px 0;
     }
+  }
+
+  .post {
+    color: #000;
 
     .content {
       background-color: #fff;

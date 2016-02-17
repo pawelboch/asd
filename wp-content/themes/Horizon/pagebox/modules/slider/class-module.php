@@ -93,6 +93,13 @@ class Module extends Abstract_Module {
 							'description' 	=> __( 'btn' )
 						),
 						array(
+							'type'			=> 'text',
+							'group'			=> __( 'Slides', 'pagebox' ),
+							'name'			=> 'learn_more',
+							'label'			=> __( 'Learn more' ),
+							'description' 	=> __( 'btn' )
+						),
+						array(
 							'type'			=> 'image',
 							'group'			=> __( 'Slides', 'pagebox' ),
 							'name'			=> 'image',

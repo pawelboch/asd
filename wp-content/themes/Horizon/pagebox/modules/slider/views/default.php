@@ -18,7 +18,7 @@
 							<p class="col-xs-12 col-sm-8 col-md-10 col-lg-7"> <?php echo $slide->description  ;?> </p>
 
 							<?php if($this->get('learn_switch') !== false): ?>
-							<a class="col-xs-12 learn-more-btn" href="<?php echo $slide->button ;?>" class="btn-2">learn more <span> > </span></a>
+							<a class="col-xs-12 learn-more-btn" href="<?php echo $slide->button ;?>" class="btn-2"><?php echo $slide->learn_more ;?> <span> > </span></a>
 							<?php else: ?>
 								<!-- Button disabled -->
 							<?php endif ;?>

@@ -1,10 +1,12 @@
 <?php get_header(); ?>
 
-<div class="container post">
 
-	<div class="col-md-12">
-		<h2 class="title"><?php the_title() ;?></h2>
-	</div>
+
+<div class="container top-title">
+	<h2 class="title"><?php the_title() ;?></h2>
+</div>
+
+<div class="container post">
 
 	<div class="content col-md-12">
 		<div class="row">
@@ -43,6 +45,7 @@
 			</div>
 
 			<div class="post-text col-md-10">
+
 				<?php
 				if ( have_posts() ) {
 					while ( have_posts() ) {

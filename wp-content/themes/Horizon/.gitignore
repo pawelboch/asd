@@ -4,3 +4,4 @@
 /node_modules
 npm-debug.log
 pagebox/modules/**/css
+pagebox/modules/**/compiler.map

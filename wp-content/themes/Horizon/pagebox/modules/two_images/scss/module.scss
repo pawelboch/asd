@@ -2,8 +2,7 @@
 
 $margin-between: 1%;
 
-
-.#{$module-name} {
+#{$module} {
   background-color: #fff;
   padding-top: 65px;
   border-bottom: 1px solid #c2c2c2;
@@ -76,7 +75,7 @@ $margin-between: 1%;
 
 @media (max-width: 768px) {
 
-    .#{$module-name} {
+    #{$module} {
 
       .half-part {
         width: auto;

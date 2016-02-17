@@ -1,13 +1,12 @@
 @import "module-variables";
+@import "mixins/compact";
+@import "vendor/compass/css3";
 
-/* Default values */
+// Default values
 $h2_bgc: #303e48 !default;
 $h2_color: #fff !default;
 
-.#{$module-name} {
-
-  -webkit-background-size: cover;
-  background-size: cover;
+#{$module} {
 
   .transparency {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, rgba(236, 243, 239, 1) 100%);
@@ -18,23 +17,12 @@ $h2_color: #fff !default;
     margin-top: -150px;
 
     .background {
-      background-image: $slider-image;
-      -webkit-background-size: cover;
-      background-size: cover;
+      @include background-size(cover);
     }
 
     .container {
       padding-top: 135px + 142px;
       padding-bottom: 280px;
-
-      @for $i from 1 through length($slider-h2_bgc) {
-        &.slide-#{$i} {
-          h2 {
-            background-color: nth($slider-h2_bgc, $i);
-            color: nth($slider-h2_color, $i);
-          }
-        }
-      }
 
       h2 {
         margin-bottom: 65px;
@@ -84,6 +72,29 @@ $h2_color: #fff !default;
         width: 161px;
         clear: both;
       }
+    }
+  }
+
+  @each $id, $vars in $ids {
+    &.#{$id} {
+      // Styles for concrete module, by id
+
+      .background {
+        @for $i from 1 through length(map-get($vars, slider-h2_bgc)) {
+          &.slide-#{$i} {
+            background-image: url(nth(map-get($vars, slider-image), $i));
+
+            .container {
+              h2 {
+                background-color: nth(map-get($vars, slider-h2_bgc), $i);
+                color: nth(map-get($vars, slider-h2_color), $i);
+              }
+            }
+          }
+        }
+      }
+
+      // END Styles for concrete module, by id
     }
   }
 }

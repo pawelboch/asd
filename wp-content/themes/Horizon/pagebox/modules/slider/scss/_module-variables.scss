@@ -1,11 +1,18 @@
-/**
- * !!! Attention !!!
- * This document is generated automatically when post is updated.
- * Content will be overwritten.
- **/
+// !!! Attention !!!
+// This document is generated automatically when post is updated.
+// Content will be overwritten.
 
-$module-name: pagebox-slider-module;
+$module: '.pagebox-slider-module';
 $template-url: 'http://www.horizon.com/wp-content/themes/Horizon';
-$slider-h2_bgc: #81d742, #24257c;
-$slider-h2_color: #dd9933, #c10f74;
-$slider-image: 76, 77;
+$ids: (
+	pagebox-module-5d8h29t1: (
+		slider-h2_bgc: #ff2323,
+		slider-h2_color: '',
+		slider-image: 'http://www.horizon.com/wp-content/uploads/2016/02/arrow_ico.png',
+	),
+	pagebox-module-o5yi0zrh: (
+		slider-h2_bgc: (#ffffff, #530066),
+		slider-h2_color: (#000000, #16f9db),
+		slider-image: ('http://www.horizon.com/wp-content/uploads/2016/02/api.jpg', 'http://www.horizon.com/wp-content/uploads/2016/02/colors-1.png'),
+	),
+);

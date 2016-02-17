@@ -23,6 +23,7 @@ module.exports = function( grunt ) {
         pkg: grunt.file.readJSON( 'package.json' ),
         sass: {
             options: {
+                compass: true,
                 sourceMap: true,
                 outputStyle: 'expanded', // nested, expanded, compact, compressed
                 sourceComments: false,
@@ -54,7 +55,7 @@ module.exports = function( grunt ) {
                     'assets/stylesheets/scss/mixins/**/*.scss',
                     'assets/stylesheets/scss/partials/**/*.scss'
                 ],
-                tasks: [ 'sass:style', 'comments:cssStyle' ]
+                tasks: [ 'sass:style' ]
             },
             sassBootstrap: {
                 files: 'assets/stylesheets/scss/bootstrap.scss',
@@ -66,7 +67,7 @@ module.exports = function( grunt ) {
             },
             sassThemeConfig: {
                 files: 'assets/stylesheets/scss/theme-config.scss',
-                tasks: [ 'sass:style', 'comments:cssStyle', 'sass:bootstrap' ]
+                tasks: [ 'sass:style', 'sass:bootstrap' ]
             }
         },
         auto_install: {
@@ -77,15 +78,6 @@ module.exports = function( grunt ) {
                     failOnError: true,
                     npm: false
                 }
-            }
-        },
-        comments: {
-            cssStyle: {
-                options: {
-                    singleline: true,
-                    multiline: true
-                },
-                src: [ 'assets/stylesheets/css/style.css' ]
             }
         },
         copy: {
@@ -147,7 +139,6 @@ module.exports = function( grunt ) {
     grunt.registerTask( 'compile', 'Compile scss files with compression', [
         'install-sass-vendor',
         'sass',
-        'comments',
         'concat',
         'cssmin'
     ] );

@@ -84,6 +84,7 @@ class Module extends Abstract_Module {
 						'type'			=> 'switch',
 						'group'			=> __( 'Style', 'pagebox' ),
 						'name'			=> 'border_switch',
+						'option'		=> 'yes',
 						'label'			=> __( 'border switch' ),
 						'description'	=> __( 'border')
 				),

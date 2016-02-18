@@ -52,9 +52,10 @@ class Module extends Abstract_Module {
 			// WPGeeks_Forms
 			'fields'      => array(
 				array(
-						'type'			=> 'text',
+						'type'			=> 'switch',
 						'group'			=> __( 'Post settings', 'pagebox'),
 						'name'			=> 'title',
+						'option'		=> 'yes',
 						'label'			=> __( 'Title' ),
 						'description'	=> __( 'Title')
 				)

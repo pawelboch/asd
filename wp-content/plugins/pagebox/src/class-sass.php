@@ -31,7 +31,15 @@ class Sass {
 	}
 
 	public function saveMap( $path, array $array ) {
-		file_put_contents( $path . DIRECTORY_SEPARATOR . 'compiler.map', serialize( $array ));
+		file_put_contents( $path . DIRECTORY_SEPARATOR . 'compiler.map', serialize( $array ), LOCK_EX );
+	}
+
+	public function saveModuleVariables( $path, array $map ) {
+		file_put_contents(
+			$path . DIRECTORY_SEPARATOR . 'scss' . DIRECTORY_SEPARATOR . '_module-variables.scss',
+			$this->parseMapToScss( $map ),
+			LOCK_EX
+		);
 	}
 
 	public function getCompiler() {
@@ -133,19 +141,13 @@ EOD;
 			$data = json_decode( stripslashes( $data ));
 			$module = $this->pagebox->modules->get_module( $data->slug );
 			$path = $module->get_path();
-			$variables = $this->getVariablesFromModule( $module, $data );
 
 			$map = $this->loadMap( $path );
 			$map['module'] = '.pagebox-' . $data->slug . '-module';
 			$map['template-url'] = get_template_directory_uri();
-			$map['ids'][ 'pagebox-module-' . $data->id ] = $variables;
+			$map['ids'][ 'pagebox-module-' . $data->id ] = $this->getVariablesFromModule( $module, $data );
 			$this->saveMap( $path, $map );
-
-			file_put_contents(
-				$path . DIRECTORY_SEPARATOR . 'scss' . DIRECTORY_SEPARATOR . '_module-variables.scss',
-				$this->parseMapToScss( $map ),
-				LOCK_EX
-			);
+			$this->saveModuleVariables( $path, $map );
 
 //			try {
 //				$scss = $this->getCompiler();

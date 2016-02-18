@@ -6,7 +6,7 @@
 
 	<div class="container <?php echo $this->get('css_class'); ?>">
 
-		<?php if($this->get('switch') !== false): ?>
+		<?php if($this->get('switch') != false): ?>
 
 		<div class="half-part left col-md-6">
 			<div class="row">

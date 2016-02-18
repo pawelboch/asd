@@ -52,20 +52,27 @@ class Module extends Abstract_Module {
 			// WPGeeks_Forms
 			'fields'      => array(
 				array(
-						'type'			=> 'switch',
-						'group'			=> __( 'Post settings', 'pagebox'),
-						'name'			=> 'category',
-						'option'		=> 'yes',
-						'label'			=> __( 'Category' ),
-						'description'	=> __( 'Category')
+						'type'			=> 'image',
+						'group'			=> __( 'Main', 'pagebox'),
+						'name'			=> 'bgc_image',
+						'label'			=> __( 'Background image' ),
+						'description'	=> __( 'Select background image')
 				),
 				array(
 						'type'			=> 'switch',
-						'group'			=> __( 'Post settings', 'pagebox'),
+						'group'			=> __( 'Switches', 'pagebox'),
+						'name'			=> 'category',
+						'option'		=> 'yes',
+						'label'			=> __( 'Category' ),
+						'description'	=> __( 'Disable / enable category')
+				),
+				array(
+						'type'			=> 'switch',
+						'group'			=> __( 'Switches', 'pagebox'),
 						'name'			=> 'title',
 						'option'		=> 'yes',
 						'label'			=> __( 'Title' ),
-						'description'	=> __( 'Title')
+						'description'	=> __( 'Disable / enable title')
 				)
 			)
 		);

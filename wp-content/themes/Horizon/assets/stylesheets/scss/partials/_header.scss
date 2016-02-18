@@ -1,9 +1,9 @@
-/* HEADER STYLESHEET */
+// HEADER STYLESHEET
 
 @import "variables";
 @import "../vendor/compass/css3/border-radius";
 
-/* HEADER MENU */
+// HEADER MENU
 
 $header-image-margin: 40px;
 
@@ -78,7 +78,7 @@ header {
 }
 
 
-/* HEADER BREAKPOINTS */
+// HEADER BREAKPOINTS
 
 @media (max-width: map-get($grid-breakpoints, xl) ) {
 

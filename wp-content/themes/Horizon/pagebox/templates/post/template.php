@@ -8,7 +8,7 @@
 
 <div class="post container">
 
-		<div class="top col-md-12">
+		<div class="top container-fluid">
 			<?php foreach ($this->get_variable( 'post-100-up_modules' ) as $module): ?>
 				<?php $module->display(); ?>
 			<?php endforeach ?>

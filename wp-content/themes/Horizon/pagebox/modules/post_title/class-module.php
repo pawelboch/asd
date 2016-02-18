@@ -56,7 +56,12 @@ class Module extends Abstract_Module {
 						'group'			=> __( 'Main', 'pagebox'),
 						'name'			=> 'bgc_image',
 						'label'			=> __( 'Background image' ),
-						'description'	=> __( 'Select background image')
+						'description'	=> __( 'Select background image'),
+
+						'sass'          => true,
+						'sass_filter'   => function( $value ) {
+						return wp_get_attachment_url( $value );
+						}
 				),
 				array(
 						'type'			=> 'switch',

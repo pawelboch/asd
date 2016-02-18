@@ -1,0 +1,49 @@
+@import "module-variables";
+
+// Default values
+
+
+#{$module} {
+  padding-top: 40px;
+  font-family: "Georgia";
+  font-size: 1.25rem;
+
+  .author,
+  .published {
+    border-bottom: 1px solid #bcbcbc;
+  }
+
+  .author {
+    padding-bottom: 20px;
+    .name {
+      color: #ffc83f;
+
+    }
+
+    .description{
+
+    }
+
+  }
+
+  .published,
+  .share {
+    font-size: 1rem;
+    padding: 20px 0;
+    color: #737373;
+
+  }
+
+  .published {
+    .text {
+      font-weight: bold;
+    }
+  }
+
+  .share {
+
+  }
+
+
+}
+

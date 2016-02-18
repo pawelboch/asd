@@ -54,6 +54,14 @@ class Module extends Abstract_Module {
 				array(
 						'type'			=> 'switch',
 						'group'			=> __( 'Post settings', 'pagebox'),
+						'name'			=> 'category',
+						'option'		=> 'yes',
+						'label'			=> __( 'Category' ),
+						'description'	=> __( 'Category')
+				),
+				array(
+						'type'			=> 'switch',
+						'group'			=> __( 'Post settings', 'pagebox'),
 						'name'			=> 'title',
 						'option'		=> 'yes',
 						'label'			=> __( 'Title' ),

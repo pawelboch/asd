@@ -106,11 +106,11 @@ class Sass {
 			$out = '';
 		} else {
 			$out = <<<EOD
-// !!! Attention !!!
 // This document is generated automatically when post is updated.
 // Content will be overwritten.
 EOD;
-			$out .= PHP_EOL . PHP_EOL;
+			$user = wp_get_current_user();
+			$out .= PHP_EOL . '// Generated: ' . date("r") . ' by ' . $user->display_name . PHP_EOL . PHP_EOL;
 		}
 		foreach( $map as $key => $value ) {
 			if( !is_array( $value ) && !is_object( $value )) {

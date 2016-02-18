@@ -62,22 +62,6 @@ class Module extends Abstract_Module {
 						'sass_filter'   => function( $value ) {
 						return wp_get_attachment_url( $value );
 						}
-				),
-				array(
-						'type'			=> 'switch',
-						'group'			=> __( 'Switches', 'pagebox'),
-						'name'			=> 'category',
-						'option'		=> 'yes',
-						'label'			=> __( 'Category' ),
-						'description'	=> __( 'Disable / enable category')
-				),
-				array(
-						'type'			=> 'switch',
-						'group'			=> __( 'Switches', 'pagebox'),
-						'name'			=> 'title',
-						'option'		=> 'yes',
-						'label'			=> __( 'Title' ),
-						'description'	=> __( 'Disable / enable title')
 				)
 			)
 		);

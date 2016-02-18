@@ -52,12 +52,11 @@ class Module extends Abstract_Module {
 			// WPGeeks_Forms
 			'fields'      => array(
 				array(
-						'type'			=> 'switch',
-						'group'			=> __( 'Switches', 'pagebox'),
-						'name'			=> 'switch',
-						'option'		=> 'yes',
-						'label'			=> __( 'Title' ),
-						'description'	=> __( 'Disable / enable title')
+						'type'			=> 'hidden',
+						'group'			=> __( 'Post Info', 'pagebox'),
+						'name'			=> 'Post Info',
+						'label'			=> __( 'Post info module' ),
+						'description'	=> __( 'Remove this module to disable' )
 				)
 			)
 		);

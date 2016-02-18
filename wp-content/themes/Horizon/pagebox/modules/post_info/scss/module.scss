@@ -1,57 +1,49 @@
 @import "module-variables";
 
 // Default values
-$bgc_image: '../../../../assets/images/full.png';
+
 
 #{$module} {
-  
-  &.background {
-    background-size: cover;
+  padding-top: 40px;
+  font-family: "Georgia";
+  font-size: 1.25rem;
+
+  .author,
+  .published {
+    border-bottom: 1px solid #bcbcbc;
   }
 
-  .transparency {
-    min-height: 788px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, #ecf3ef 100%);
-  }
+  .author {
+    padding-bottom: 20px;
+    .name {
+      color: #ffc83f;
 
-  .container {
-    padding-top: 132px + 123px;
-
-    .category {
-      display: inline;
-      padding: 5px;
-      font-family: "Avenir Next";
-      font-size: 1.25rem;
-
-      &.assets {
-        background-color: red;
-
-      }
     }
 
-    .title {
-      color: #fff;
-      font-family: "Georgia";
-      width: 50%;
+    .description{
+
+    }
+
+  }
+
+  .published,
+  .share {
+    font-size: 1rem;
+    padding: 20px 0;
+    color: #737373;
+
+  }
+
+  .published {
+    .text {
+      font-weight: bold;
     }
   }
 
-  .title {
-    color: #000;
-    padding: 5px;
-    font-size: 2.5rem;
+  .share {
+
   }
 
-  @each $id, $vars in $ids {
-    &.#{$id} {
-      // Styles for concrete module, by id
 
-      &.background {
-        background-image: url(map-get($vars, bgc_image));
-      }
-
-      // END Styles for concrete module, by id
-    }
-  }
 }
 

@@ -7,7 +7,7 @@
  * Call to action module with slider
  */
 
-namespace HorizonInvestments\Pagebox\Modules\Post_info;
+namespace HorizonInvestments\Pagebox\Modules\Post_text;
 
 use \Pagebox\Modules\Module as Abstract_Module;
 use \WPGeeks_HTML;
@@ -32,10 +32,10 @@ class Module extends Abstract_Module {
 		$this->config = array(
 			// Name of the box for plugin use. Only alphanumeric charactes 
 			// and underscores are allowed
-			'slug'        => 'post_info',
+			'slug'        => 'post_text',
 			// Human readable title of box. It will be displayed in all
 			// backend functionalities
-			'title'       => __(  'Post Info', 'pagebox_blocks' ),
+			'title'       => __(  'Post Text', 'pagebox_blocks' ),
 			// Short description about what box outputs. It will be displayed
 			// below the title in new box modal window.
 			'description' => __(  '', 'pagebox_blocks' ),

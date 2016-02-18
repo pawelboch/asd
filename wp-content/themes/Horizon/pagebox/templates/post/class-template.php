@@ -42,13 +42,28 @@ class Post extends Template_Abstract {
 				'size'  => 100, // size in %
 				'limit' => -1 // limit of modules which can be added to this section. 0 for no limit.
 			),
-			'post-30' => array( // template slug
-				'label' => 'post-30', // label
+			'post-30-1' => array( // template slug
+				'label' => 'post-30-1', // label
 				'size'  => 29, // size in %
 				'limit' => -1 // limit of modules which can be added to this section. 0 for no limit.
 			),
-			'post-70' => array( // template slug
-				'label' => 'post-70', // label
+			'post-70-1' => array( // template slug
+				'label' => 'post-70-1', // label
+				'size'  => 70, // size in %
+				'limit' => -1 // limit of modules which can be added to this section. 0 for no limit.
+			),
+			'post-center' => array( // template slug
+				'label' => 'post-center', // label
+				'size'  => 100, // size in %
+				'limit' => -1 // limit of modules which can be added to this section. 0 for no limit.
+			),
+			'post-30-2' => array( // template slug
+				'label' => 'post-30-2', // label
+				'size'  => 29, // size in %
+				'limit' => -1 // limit of modules which can be added to this section. 0 for no limit.
+			),
+			'post-70-2' => array( // template slug
+				'label' => 'post-70-2', // label
 				'size'  => 70, // size in %
 				'limit' => -1 // limit of modules which can be added to this section. 0 for no limit.
 			),

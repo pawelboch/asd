@@ -18,13 +18,30 @@
 		<div class="container">
 			<div class="row">
 				<div class="left col-md-2">
-					<?php foreach ($this->get_variable( 'post-30_modules' ) as $module): ?>
+					<?php foreach ($this->get_variable( 'post-30-1_modules' ) as $module): ?>
 						<?php $module->display(); ?>
 					<?php endforeach ?>
 				</div>
 
 				<div class="right col-md-10">
-					<?php foreach ($this->get_variable( 'post-70_modules' ) as $module): ?>
+					<?php foreach ($this->get_variable( 'post-70-1_modules' ) as $module): ?>
+						<?php $module->display(); ?>
+					<?php endforeach ?>
+				</div>
+				<div class="center col-md12">
+					<?php foreach ($this->get_variable( 'post-center_modules' ) as $module): ?>
+						<?php $module->display(); ?>
+					<?php endforeach ?>
+				</div>
+
+				<div class="left col-md-2">
+					<?php foreach ($this->get_variable( 'post-30-2_modules' ) as $module): ?>
+						<?php $module->display(); ?>
+					<?php endforeach ?>
+				</div>
+
+				<div class="right col-md-10">
+					<?php foreach ($this->get_variable( 'post-70-2_modules' ) as $module): ?>
 						<?php $module->display(); ?>
 					<?php endforeach ?>
 				</div>

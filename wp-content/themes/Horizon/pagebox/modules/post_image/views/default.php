@@ -1,6 +1,6 @@
 <?php
 /**
- * Post_info view
+ * Post_image view
  */
 ?>
 

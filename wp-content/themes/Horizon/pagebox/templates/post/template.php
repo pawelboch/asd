@@ -5,7 +5,7 @@
  * @author Pagebox Generator
  */
 ?>
-
+<?php global $post; ?>
 <div class="post">
 
 		<div class="top">
@@ -21,6 +21,9 @@
 					<?php foreach ($this->get_variable( 'post-30_modules' ) as $module): ?>
 						<?php $module->display(); ?>
 					<?php endforeach ?>
+					<?php $author = get_user_meta( $post->post_author )["nickname"][0];
+					echo $author;
+					?>
 				</div>
 
 				<div class="right col-md-10">

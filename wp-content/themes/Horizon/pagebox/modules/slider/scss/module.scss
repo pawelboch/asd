@@ -14,8 +14,6 @@ $h2_color: #fff !default;
 
   .slides {
 
-    margin-top: -150px;
-
     .background {
       @include background-size(cover);
     }

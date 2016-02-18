@@ -7,7 +7,11 @@ $bgc_image: '../../../../assets/images/full.png';
   
   &.background {
     background-size: cover;
+  }
+
+  .transparency {
     min-height: 788px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, #ecf3ef 100%);
   }
 
   .container {

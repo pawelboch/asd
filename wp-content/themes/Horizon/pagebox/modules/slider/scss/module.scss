@@ -45,9 +45,10 @@ $h2_color: #fff !default;
             position: absolute;
             width: 181px;
             height: 196px;
-            background-image: url($template-url + "/assets/images/square.png");
+            background-image: url($template-url + "/assets/images/blue_frame.svg");
+            background-repeat: no-repeat;
             left: -2px;
-            top: -73px;
+            top: -67px;
           }
         }
       }

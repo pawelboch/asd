@@ -67,6 +67,14 @@ class Module extends Abstract_Module {
 						'label'			=> __( 'Title' ),
 						'description'	=> __( 'Title')
 				),
+				array(
+						'type'			=> 'text',
+						'group'			=> __( 'Title', 'pagebox'),
+						'name'			=> 'test',
+						'value'		  	=> 'test',
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Title'),
+				),
 			)
 		);
 	}

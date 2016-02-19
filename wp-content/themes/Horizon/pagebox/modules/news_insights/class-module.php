@@ -68,12 +68,19 @@ class Module extends Abstract_Module {
 						'description'	=> __( 'Title')
 				),
 				array(
+						'type'			=> 'colorpicker',
+						'group'			=> __( 'Border', 'pagebox'),
+						'name'			=> 'border_color',
+						'label'			=> __( 'Border color' ),
+						'description'	=> __( 'Select border color'),
+						'sass'			=> true,
+				),
+				array(
 						'type'			=> 'text',
-						'group'			=> __( 'Title', 'pagebox'),
-						'name'			=> 'test',
-						'value'		  	=> 'test',
-						'label'			=> __( 'Title' ),
-						'description'	=> __( 'Title'),
+						'group'			=> __( 'Border', 'pagebox'),
+						'name'			=> 'border_weight',
+						'label'			=> __( 'Border weight' ),
+						'description'	=> __( 'Type border weight'),
 						'sass'			=> true,
 				),
 			)

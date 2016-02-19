@@ -28,10 +28,12 @@
 						<?php $module->display(); ?>
 					<?php endforeach ?>
 				</div>
-				<div class="center col-md12">
-					<?php foreach ($this->get_variable( 'post-center_modules' ) as $module): ?>
-						<?php $module->display(); ?>
-					<?php endforeach ?>
+				<div class="center col-md-12">
+					<div class="row">
+						<?php foreach ($this->get_variable( 'post-center_modules' ) as $module): ?>
+							<?php $module->display(); ?>
+						<?php endforeach ?>
+					</div>
 				</div>
 
 				<div class="left col-md-2">

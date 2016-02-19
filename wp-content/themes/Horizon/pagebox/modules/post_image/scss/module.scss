@@ -4,7 +4,15 @@
 
 
 #{$module} {
-  padding-top: 40px;
+  padding-top: 5px;
+
+  .content {
+    .row {
+      img {
+        object-fit: cover;
+      }
+    }
+  }
 
 }
 

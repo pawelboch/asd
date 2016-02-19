@@ -53,10 +53,36 @@ class Module extends Abstract_Module {
 			'fields'      => array(
 				array(
 						'type'			=> 'image',
-						'group'			=> __( 'Post content', 'pagebox'),
+						'group'			=> __( 'Post image', 'pagebox'),
 						'name'			=> 'image',
 						'label'			=> __( 'Post info module' ),
 						'description'	=> __( 'Remove this module to disable' )
+				),
+				array(
+						'type'			=> 'text',
+						'group'			=> __( 'Post image', 'pagebox'),
+						'name'			=> 'alt',
+						'label'			=> __( 'Post image alt' ),
+						'description'	=> __( 'Set post image alt' )
+				),
+				array(
+						'type'			=> 'text',
+						'group'			=> __( 'Post image', 'pagebox'),
+						'name'			=> 'height',
+						'label'			=> __( 'Post image height' ),
+						'description'	=> __( 'Set image height' ),
+						'sass'          => true,
+						'sass_filter'   => function( $value ) {
+							return  ( $value ) ;
+						}
+				),
+				array(
+						'type'			=> 'text',
+						'group'			=> __( 'Post image', 'pagebox'),
+						'name'			=> 'width',
+						'label'			=> __( 'Post image width' ),
+						'value'			=> '100%',
+						'description'	=> __( 'Set image width' )
 				)
 			)
 		);

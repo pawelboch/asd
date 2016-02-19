@@ -37,10 +37,10 @@
 
     <div class="share">
         <span class="social">
-            social
+            Social
         </span>
         <span class="print">
-            print
+            Print
         </span>
     </div>
 </div>

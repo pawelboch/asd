@@ -135,7 +135,10 @@ Waiting...
 	public function getVariablesFromModule( $module, $data ) {
 		if( $module !== false ) {
 
-			$variables = array();
+			$ID = get_the_ID();
+			$variables = array(
+				'_comment' => ucfirst( get_post_type( $ID )) . '('.$ID.'): ' . get_the_title( $ID )
+			);
 
 			$config = $module->get_config( 'fields' );
 			if( $config !== false ) {
@@ -193,6 +196,10 @@ EOD;
 			} else if( $key === 'ids' && is_array( $value )) {
 				$out .= '$ids: (' . PHP_EOL;
 				foreach( $value as $id => $values ) {
+					if( isset( $values['_comment']) ) {
+						$out .= "\t// " . $values['_comment'] . PHP_EOL;
+						unset( $values['_comment'] );
+					}
 					$out .= "\t" . $id . ': (' . PHP_EOL;
 					$out .= $this->parseMapToScss( $values, "\t\t", true );
 					$out .= "\t" . '),' . PHP_EOL;

@@ -45,7 +45,7 @@ $posts_array = get_posts( $args ); ?>
 						</a>
 					</h2>
 					<p class="content">
-						<?php echo wpautop( wppb_excerpt(26, 25) ); ;?>
+						<?php echo wpautop( wppb_excerpt($post->ID, 25) );?>
 					</p>
 				</div>
 

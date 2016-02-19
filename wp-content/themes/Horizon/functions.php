@@ -155,8 +155,8 @@ function wppb_excerpt( $id, $words = 55) {
 				$module_decode = json_decode($module);
 			}
 			//echo '<pre>'; print_r( $module_decode ); echo '</pre>';
-			if($module_decode->slug =='text'){
-				$content = $module_decode->settings->text;
+			if($module_decode->slug =='post_text'){
+				$content = $module_decode->settings->post_content;
 				$break = true;
 				break;
 			}

@@ -210,10 +210,6 @@ EOD;
 				$module = $this->pagebox->modules->get_module( $data->slug );
 				$path   = $module->get_path();
 
-				d( $module );
-				d( $data );
-				d( $path );
-
 				$map = $this->loadMap( $path );
 				$map['module'] = '.pagebox-' . $data->slug . '-module';
 				$map['template-url'] = get_template_directory_uri();

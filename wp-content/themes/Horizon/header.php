@@ -29,6 +29,7 @@
 								)
 							);
 							?>
+							<span></span>
 						</nav>
 					</div>
 					<div class="nav-toggle hidden-md-up pull-right col-sm-4 col-xs-4">

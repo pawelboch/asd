@@ -119,3 +119,61 @@ function cc_mime_types( $mimes ) {
 }
 
 add_filter( 'upload_mimes', 'cc_mime_types' );
+
+/**
+ * Pagebox get excerpt
+ */
+
+function wppb_excerpt( $id, $words = 55) {
+	//global $boxes;
+
+	$post = get_post($id);
+
+	if ($post->post_type == 'fund')
+		return $post->post_content;
+
+
+	//Do naprawienia
+	//print_r(get_post_meta($post->ID, 'pagebox_modules', true));
+
+
+	$sections = get_post_meta($post->ID, 'pagebox_modules', true);
+
+	if ( !empty( $post->post_content ) ){
+		return wp_trim_words( $post->post_content, $words);
+	}
+
+	if (empty($sections)){
+		return $post->post_excerpt;
+	}
+
+	$break = false;
+	foreach ($sections as $id => $modules) {
+		foreach($modules as $module){
+			$module_decode = json_decode(stripslashes($module));
+			if(!$module_decode){
+				$module_decode = json_decode($module);
+			}
+			//echo '<pre>'; print_r( $module_decode ); echo '</pre>';
+			if($module_decode->slug =='text'){
+				$content = $module_decode->settings->text;
+				$break = true;
+				break;
+			}
+		}
+		//print_r($content);
+		if($break) break;
+
+
+	}
+
+	if( isset( $content ) ){
+		return wp_trim_words($content, $words);
+	}else{
+		return $post->post_excerpt;
+	}
+
+	return '';
+}
+
+//echo wpautop( wppb_excerpt(26, 25) );

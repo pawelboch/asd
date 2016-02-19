@@ -9,7 +9,7 @@ $header-image-margin: 40px;
 
 
 header {
-  background-color: rgba(48, 62, 72, 0.8);
+  background-color: rgba(48, 62, 72, 0.9);
   position: absolute;
   height: 132px;
   width: 100%;
@@ -40,6 +40,11 @@ header {
 
       &:last-child {
         border-left: 1px solid red;
+        
+        a {
+          color: #57656e;
+
+        }
       }
       
       &:hover {

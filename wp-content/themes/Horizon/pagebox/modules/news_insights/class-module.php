@@ -74,6 +74,7 @@ class Module extends Abstract_Module {
 						'value'		  	=> 'test',
 						'label'			=> __( 'Title' ),
 						'description'	=> __( 'Title'),
+						'sass'			=> true,
 				),
 			)
 		);

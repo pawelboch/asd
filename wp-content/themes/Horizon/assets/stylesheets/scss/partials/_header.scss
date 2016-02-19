@@ -80,6 +80,20 @@ header {
         font-size: 0.875rem;
       }
     }
+
+    span {
+      background-image: url("../../images/search_gray.svg");
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+
+      &:hover {
+        background-image: url("../../images/search_yellow.svg");
+      }
+    }
   }
 }
 

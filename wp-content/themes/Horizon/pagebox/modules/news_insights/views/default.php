@@ -5,7 +5,7 @@
 ?>
 
 <?php $args = array(
-	'posts_per_page'   => 3,
+	'posts_per_page'   => $this->get('news_number'),
 	'offset'           => 0,
 	'category'         => '',
 	'category_name'    => '',
@@ -32,7 +32,11 @@ $posts_array = get_posts( $args ); ?>
 		<div class="news clearfix">
 			<?php foreach($posts_array as $post):?>
 
-				<div class="news_insights col-md-4">
+				<?php if($this->get( 'news_number' ) == 1) :?>
+					<div class="news_insights col-md-12">
+				<?php elseif($this->get( 'news_number' ) == 3) :?>
+					<div class="news_insights col-md-4">
+				<?php endif ;?>
 					<div class="category <?php echo strtolower(get_the_category($post->ID)[0]->name) ;?>">
 						<?php echo get_the_category($post->ID)[0]->name ;?>
 					</div>

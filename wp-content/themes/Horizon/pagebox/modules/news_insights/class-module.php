@@ -53,7 +53,7 @@ class Module extends Abstract_Module {
 			'fields'      => array(
 				array(
 						'type'			=> 'text',
-						'group'			=> __( 'Title', 'pagebox'),
+						'group'			=> __( 'News', 'pagebox'),
 						'name'			=> 'title',
 						'value'		  	=> 'News & Insights',
 						'label'			=> __( 'Title' ),
@@ -61,11 +61,18 @@ class Module extends Abstract_Module {
 				),
 				array(
 						'type'			=> 'text',
-						'group'			=> __( 'Title', 'pagebox'),
+						'group'			=> __( 'News', 'pagebox'),
 						'name'			=> 'learn_more',
 						'value'		  	=> 'view all articles',
 						'label'			=> __( 'Title' ),
 						'description'	=> __( 'Title')
+				),
+				array(
+						'type'			=> 'text',
+						'group'			=> __( 'News', 'pagebox'),
+						'name'			=> 'news_number',
+						'label'			=> __( 'Border weight' ),
+						'description'	=> __( 'Type border weight'),
 				),
 				array(
 						'type'			=> 'colorpicker',

@@ -16,6 +16,73 @@ class Sass {
 
 	public function __construct( WPG_Pagebox $pagebox ) {
 		$this->pagebox = $pagebox;
+
+		add_action( 'admin_bar_menu', array( $this, 'addMenuBar' ), 999 );
+		add_action( 'admin_menu', array( $this, 'addAdminPage' ) );
+	}
+
+	public function addMenuBar( $wp_admin_bar ) {
+		if ( !is_super_admin() || !is_admin_bar_showing() )
+			return;
+
+		$wp_admin_bar->add_node( array(
+			'id'    => 'pagebox_sass_menu',
+			'title' => '<span class="ab-icon dashicons dashicons-update" style="padding:6px 0;font-size:20px"></span><span class="ab-label">Recompile Scss</span>',
+			'href'  => ''
+		));
+		$wp_admin_bar->add_node( array(
+			'parent' => 'pagebox_sass_menu',
+			'id'    => 'pagebox_sass_menu_theme',
+			'title' => 'Recompile theme',
+			'href'  => ''
+		));
+		$wp_admin_bar->add_node( array(
+			'parent' => 'pagebox_sass_menu',
+			'id'    => 'pagebox_sass_menu_modules',
+			'title' => 'Recompile modules',
+			'href'  => ''
+		));
+	}
+
+	public function addAdminPage() {
+		add_submenu_page(
+			'pagebox',
+			'Sass Compiler',
+			'Sass Compiler',
+			'manage_options',
+			'pagebox-sass-compiler',
+			array( $this, 'sassCompilePage' )
+		);
+	}
+
+	public function sassCompilePage() {
+	?>
+	<div class="wrap">
+
+		<h2>Pagebox Sass Compiler</h2>
+
+		<form method="post">
+			<p class="submit">
+				<input type="submit" name="save" id="save" class="button button-primary" value="Recompile all styles">
+				<input type="submit" name="save" id="save" class="button" value="Recompile theme (with bootstrap)">
+				<input type="submit" name="save" id="save" class="button" value="Recompile pagebox modules">
+			</p>
+		</form>
+
+		<textarea readonly style="width:100%;font-size:12px;font-family:monospace;background:#23282d;color:#eee" rows="24">
+Running "watch" task
+Waiting...
+>> File "pagebox\modules\title_three_sections\scss\_module-variables.scss" changed.
+>> File "pagebox\modules\two_images\scss\_module-variables.scss" changed.
+>> File "pagebox\modules\tables\scss\_module-variables.scss" changed.
+>> File "pagebox\modules\contact\scss\_module-variables.scss" changed.
+>> File "pagebox\modules\news_insights\scss\_module-variables.scss" changed.
+>> File "pagebox\modules\slider\scss\_module-variables.scss" changed.
+>> File "pagebox\modules\text\scss\_module-variables.scss" changed.
+		</textarea>
+
+	</div>
+	<?php
 	}
 
 	public function loadMap( $path ) {
@@ -118,7 +185,7 @@ class Sass {
 // Content will be overwritten.
 EOD;
 			$user = wp_get_current_user();
-			$out .= PHP_EOL . '// Generated: ' . date("r") . ' by ' . $user->display_name . PHP_EOL . PHP_EOL;
+			$out .= PHP_EOL . '// Generated: ' . date("r") . ' by ' . $user->nickname . PHP_EOL . PHP_EOL;
 		}
 		foreach( $map as $key => $value ) {
 			if( !is_array( $value ) && !is_object( $value )) {
@@ -136,18 +203,23 @@ EOD;
 		return $out;
 	}
 
-	public function compile( $modules ) {
-		foreach( current( $modules ) as $data ) {
-			$data = json_decode( stripslashes( $data ));
-			$module = $this->pagebox->modules->get_module( $data->slug );
-			$path = $module->get_path();
+	public function compile( array $sections ) {
+		foreach( $sections as $section ) {
+			foreach ( $section as $data ) {
+				$data   = json_decode( stripslashes( $data ) );
+				$module = $this->pagebox->modules->get_module( $data->slug );
+				$path   = $module->get_path();
 
-			$map = $this->loadMap( $path );
-			$map['module'] = '.pagebox-' . $data->slug . '-module';
-			$map['template-url'] = get_template_directory_uri();
-			$map['ids'][ 'pagebox-module-' . $data->id ] = $this->getVariablesFromModule( $module, $data );
-			$this->saveMap( $path, $map );
-			$this->saveModuleVariables( $path, $map );
+				d( $module );
+				d( $data );
+				d( $path );
+
+				$map = $this->loadMap( $path );
+				$map['module'] = '.pagebox-' . $data->slug . '-module';
+				$map['template-url'] = get_template_directory_uri();
+				$map['ids'][ 'pagebox-module-' . $data->id ] = $this->getVariablesFromModule( $module, $data );
+				$this->saveMap( $path, $map );
+				$this->saveModuleVariables( $path, $map );
 
 //			try {
 //				$scss = $this->getCompiler();
@@ -160,7 +232,9 @@ EOD;
 //			} catch( \Exception $e ) {
 //				d( $e->getMessage() );
 //			}
+			}
 		}
+		die;
 	}
 
 }

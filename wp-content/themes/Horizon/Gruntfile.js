@@ -49,6 +49,12 @@ module.exports = function( grunt ) {
             options: {
                 spawn: false
             },
+            gruntfile: {
+                files: 'Gruntfile.js',
+                options: {
+                    reload: true
+                }
+            },
             sass: {
                 files: [
                     'assets/stylesheets/scss/style.scss',
@@ -144,7 +150,6 @@ module.exports = function( grunt ) {
     ] );
 
     grunt.registerTask( 'default', 'Watch scss files and compile after change', [
-        'compile',
         'watch'
     ] );
 

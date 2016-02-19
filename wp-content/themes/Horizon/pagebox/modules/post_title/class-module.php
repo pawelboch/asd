@@ -57,10 +57,9 @@ class Module extends Abstract_Module {
 						'name'			=> 'bgc_image',
 						'label'			=> __( 'Background image' ),
 						'description'	=> __( 'Select background image'),
-
 						'sass'          => true,
 						'sass_filter'   => function( $value ) {
-						return wp_get_attachment_url( $value );
+							return wp_get_attachment_url( $value );
 						}
 				)
 			)

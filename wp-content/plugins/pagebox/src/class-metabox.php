@@ -372,13 +372,10 @@ class Metabox {
 
 	    if ( isset( $_REQUEST[ 'pagebox_modules' ] ) ) {
 			$modules = $_REQUEST[ 'pagebox_modules' ];
+		    $this->pagebox->sass->compile( $modules );
 	    }
 
 	    update_post_meta( $post_id, 'pagebox_modules', $modules );
-
-		$sass = new Sass( $this->pagebox );
-		$sass->compile( $modules );
-
 	}
 
 	/**

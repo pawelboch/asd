@@ -1,8 +1,9 @@
 .idea
-/assets/stylesheets/css
+/assets/stylesheets/css/*
+!/assets/stylesheets/css/style.min.css
 /assets/bower_components
 /node_modules
 npm-debug.log
-pagebox/modules/**/css
+pagebox/modules/**/css/*
 pagebox/modules/**/compiler.map
 pagebox/modules/**/scss/_module-variables.scss

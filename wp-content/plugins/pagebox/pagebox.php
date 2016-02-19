@@ -137,7 +137,7 @@ class WPG_Pagebox {
 
         $this->modules   = new Pagebox\Modules\Modules( $this );
         $this->templates = new Pagebox\Templates\Templates( $this );
-
+        $this->sass = new Pagebox\Sass( $this );
         $this->frontend = new Pagebox\Frontend( $this->templates, $this->modules );
 
     }

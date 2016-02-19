@@ -175,5 +175,3 @@ function wppb_excerpt( $id, $words = 55) {
 
 	return '';
 }
-
-//echo wpautop( wppb_excerpt(26, 25) );

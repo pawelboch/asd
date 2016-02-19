@@ -45,7 +45,7 @@ $posts_array = get_posts( $args ); ?>
 						</a>
 					</h2>
 					<p class="content">
-						<?php echo $post->post_content ;?>
+						<?php echo wpautop( wppb_excerpt(26, 25) ); ;?>
 					</p>
 				</div>
 
@@ -55,7 +55,6 @@ $posts_array = get_posts( $args ); ?>
 		<div class="col-md-12">
 			<a class="col-xs-12 col-md-3 learn-more-btn article" href="#"><?php echo $this->get( 'learn_more' ) ;?> <span> > </span></a>
 		</div>
-
 
 
 	</div>

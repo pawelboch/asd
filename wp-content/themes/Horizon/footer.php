@@ -24,16 +24,16 @@
 									</div>
 									<div class="media">
 										<div class="facebook">
-											<span>ico</span> fb
+											<span></span> fb
 										</div>
 										<div class="twitter">
-											<span>ico</span> twitter
+											<span></span> twitter
 										</div>
 										<div class="google">
-											<span>ico</span> google plus
+											<span></span> google plus
 										</div>
 										<div class="youtube">
-											<span>ico</span> youtube
+											<span></span> youtube
 										</div>
 									</div>
 								</div>

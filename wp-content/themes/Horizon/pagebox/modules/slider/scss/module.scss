@@ -1,11 +1,8 @@
 @import "module-variables";
 @import "mixins/compact";
-@import "vendor/compass/css3";
+@import "mixins/utils";
 @import "mixins/background-opacity";
-
-@function is_color( $color ) {
-  @return if( type_of( $color ) == 'color', true, false );
-}
+@import "vendor/compass/css3";
 
 // Default values
 $h2_bgc: #303e48 !default;
@@ -83,37 +80,25 @@ $h2_color: #fff !default;
     &.#{$id} {
       // Styles for concrete module, by id
 
-
-
       .background {
-        @for $i from 1 through length(map-get($vars, slider-h2_bgc)) {
+        @for $i from 1 through length( get( $vars, slider-h2_bgc )) {
           &.slide-#{$i} {
-            background-image: url(nth(map-get($vars, slider-image), $i));
+            @include add('background-image', url( get( $vars, slider-image, $i )));
 
             .container {
 
-              @if nth(map-get($vars, slider-btn_switch), $i) == yes {
-                .learn-more-btn {
+              .learn-more-btn {
+                @if get($vars, slider-btn_switch, $i) == yes {
                   display: block;
-                  @include background-opacity(nth(map-get($vars, slider-btn_color), $i), nth(map-get($vars, slider-btn_opacity), $i));
-                }
-              } @else {
-                .learn-more-btn {
+                  @include background-opacity(get($vars, slider-btn_color, $i), get($vars, slider-btn_opacity, $i));
+                } @else {
                   display: none;
                 }
               }
 
-              //@debug nth(map-get($vars, slider-learn_switch), $i);
-
               h2 {
-                @include background-opacity((nth(map-get($vars, slider-h2_bgc), $i)), (nth(map-get($vars, slider-h2_opacity), $i)));
-                //@debug (nth(map-get($vars, slider-h2_opacity), $i));
-                $color: nth(map-get($vars, slider-h2_color), $i);
-                @if is_color( $color ) {
-                  color: $color;
-
-                  }
-                }
+                @include background-opacity( get( $vars, slider-h2_bgc, $i ), 0.5 );
+                @include add('color', get( $vars, slider-h2_color, $i ));
               }
             }
           }
@@ -123,3 +108,4 @@ $h2_color: #fff !default;
       // END Styles for concrete module, by id
     }
   }
+}

@@ -32,6 +32,7 @@ class Sass {
 	}
 
 	public function cronTask() {
+		if( ! is_admin() ) return;
 		update_option( 'pagebox-sass-permission-test', $this->permissionsTest( false ) );
 	}
 

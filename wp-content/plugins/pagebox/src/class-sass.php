@@ -13,6 +13,7 @@ use WPG_Pagebox;
 class Sass {
 
 	private $pagebox;
+	private $console = '';
 
 	public function __construct( WPG_Pagebox $pagebox ) {
 		$this->pagebox = $pagebox;
@@ -55,34 +56,123 @@ class Sass {
 		);
 	}
 
+	private function permissionsTest() {
+		$start = microtime( true );
+		$path = get_template_directory();
+		$test = true;
+
+		$this->addConsoleHeader( 'Permission tests' );
+
+		$file = '/assets/stylesheets/css/';
+		if( Permission::dir( $path . $file ) ) {
+			$this->addConsoleString( $file . ' <span>is writable.</span>', 'success' );
+		} else {
+			$this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
+			$test = false;
+		}
+
+		$file = '/assets/stylesheets/css/style.css';
+		$p = Permission::file( $path . $file );
+		if( $p === 1 ) {
+			$this->addConsoleString( $file . ' <span>is exist and writable.</span>', 'success' );
+		} else if( $p == -1 ) {
+			$this->addConsoleString( $file . ' <span>is not exists jet.</span>', 'warning' );
+		} else {
+			$this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
+			$test = false;
+		}
+
+		$file = '/assets/stylesheets/css/bootstrap.css';
+		$p = Permission::file( $path . $file );
+		if( $p === 1 ) {
+			$this->addConsoleString( $file . ' <span>is exist and writable.</span>', 'success' );
+		} else if( $p == -1 ) {
+			$this->addConsoleString( $file . ' <span>is not exists jet.</span>', 'warning' );
+		} else {
+			$this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
+			$test = false;
+		}
+
+		$file = '/assets/stylesheets/css/style.min.css';
+		$p = Permission::file( $path . $file );
+		if( $p === 1 ) {
+			$this->addConsoleString( $file . ' <span>is exist and writable.</span>', 'success' );
+		} else if( $p == -1 ) {
+			$this->addConsoleString( $file . ' <span>is not exists jet.</span>', 'warning' );
+		} else {
+			$this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
+			$test = false;
+		}
+
+		$path_length = strlen( $path );
+		foreach( glob( $path . "/pagebox/modules/*", GLOB_ONLYDIR ) as $dir ) {
+			$basename = basename( $dir );
+			$dir_name = str_replace( $basename, '<b>'.$basename.'</b>', substr( $dir, $path_length ));
+			$dir_test = true;
+			if( ! Permission::dir( $dir ) ) {
+				$this->addConsoleString( $dir_name . '/ <span>is not writable.</span>', 'error' );
+				$test = false;
+				$dir_test = false;
+			}
+			if( ! Permission::dir( $dir . '/css' ) ) {
+				$this->addConsoleString( $dir_name . '/css/ <span>is not writable.</span>', 'error' );
+				$test = false;
+				$dir_test = false;
+			}
+			if( ! Permission::dir( $dir . '/scss' ) ) {
+				$this->addConsoleString( $dir_name . '/scss/ <span>is not writable.</span>', 'error' );
+				$test = false;
+				$dir_test = false;
+			}
+			$p = Permission::file( $dir . '/compiler.map' );
+			if( $p == -1 ) {
+				$this->addConsoleString( $dir_name . '/compiler.map <span>is not exists jet.</span>', 'warning' );
+			} else if( $p === 0 ) {
+				$this->addConsoleString( $dir_name . '/compiler.map <span>is not writable.</span>', 'error' );
+				$dir_test = false;
+				$test = false;
+			}
+			$p = Permission::file( $dir . '/css/module.css' );
+			if( $p == -1 ) {
+				$this->addConsoleString( $dir_name . '/css/module.css <span>is not exists jet.</span>', 'warning' );
+			} else if( $p === 0 ) {
+				$this->addConsoleString( $dir_name . '/css/module.css <span>is not writable.</span>', 'error' );
+				$dir_test = false;
+				$test = false;
+			}
+			$p = Permission::file( $dir . '/scss/_module-variables.scss' );
+			if( $p == -1 ) {
+				$this->addConsoleString( $dir_name . '/scss/_module-variables.scss <span>is not exists jet.</span>', 'warning' );
+			} else if( $p === 0 ) {
+				$this->addConsoleString( $dir_name . '/scss/_module-variables.scss <span>is not writable.</span>', 'error' );
+				$dir_test = false;
+				$test = false;
+			}
+			if( $dir_test ) {
+				$this->addConsoleString( $dir_name . '/ <span>is writable.</span>', 'success' );
+			}
+		}
+
+		$this->addConsoleRaw(sprintf('Total %dms', (microtime(true) - $start)*1000));
+		return $test;
+	}
+
 	public function sassCompilePage() {
-	?>
-	<div class="wrap">
+		$permission_test = $this->permissionsTest();
 
-		<h2>Pagebox Sass Compiler</h2>
+		include( plugin_dir_path( __DIR__ ) . 'src/public/partials/sass/compiler.php' );
+	}
 
-		<form method="post">
-			<p class="submit">
-				<input type="submit" name="save" id="save" class="button button-primary" value="Recompile all styles">
-				<input type="submit" name="save" id="save" class="button" value="Recompile theme (with bootstrap)">
-				<input type="submit" name="save" id="save" class="button" value="Recompile pagebox modules">
-			</p>
-		</form>
+	public function addConsoleHeader( $string ) {
+		$this->console .= '<u>' . $string . ':</u><br>';
+	}
 
-		<textarea readonly style="width:100%;font-size:12px;font-family:monospace;background:#23282d;color:#eee" rows="24">
-Running "watch" task
-Waiting...
->> File "pagebox\modules\title_three_sections\scss\_module-variables.scss" changed.
->> File "pagebox\modules\two_images\scss\_module-variables.scss" changed.
->> File "pagebox\modules\tables\scss\_module-variables.scss" changed.
->> File "pagebox\modules\contact\scss\_module-variables.scss" changed.
->> File "pagebox\modules\news_insights\scss\_module-variables.scss" changed.
->> File "pagebox\modules\slider\scss\_module-variables.scss" changed.
->> File "pagebox\modules\text\scss\_module-variables.scss" changed.
-		</textarea>
+	public function addConsoleRaw( $string ) {
+		$this->console .= $string . '<br>';
+	}
 
-	</div>
-	<?php
+	public function addConsoleString( $string, $class = '' ) {
+		$this->console .= '<span class="'.$class.'"><span>&gt;&gt; </span>' . $string . '</span><br>';
 	}
 
 	public function loadMap( $path ) {
@@ -129,7 +219,7 @@ Waiting...
 		if( is_array( $fields ) && isset( $fields['sass_filter'] ) && is_callable( $fields['sass_filter'] )) {
 			$value = $fields['sass_filter']( $value );
 		}
-		return $this->autoQuote( $value );
+		return $value ? $this->autoQuote( $value ) : null;
 	}
 
 	public function getVariablesFromModule( $module, $data ) {
@@ -152,7 +242,7 @@ Waiting...
 						} else if( isset( $field['value'] )) {
 							$variables[ $name ] = $this->filter( $field, $field['value'] );
 						} else {
-							$variables[ $name ] = null;
+							$variables[ $name ] = $this->filter( $field, null );
 						}
 					} else if( $field['type'] === 'repeater' ) {
 						if( isset( $field['fields'] ) && is_array( $field['fields'] )) {
@@ -191,7 +281,7 @@ EOD;
 			$out .= PHP_EOL . '// Generated: ' . date("r") . ' by ' . $user->nickname . PHP_EOL . PHP_EOL;
 		}
 		foreach( $map as $key => $value ) {
-			if( !is_array( $value ) && !is_object( $value )) {
+			if( !is_array( $value ) && !is_object( $value ) && !is_null( $value )) {
 				$out .= $offset . ($flat ? '' : '$') . $key . ': ' . ( $flat ? $value : $this->autoQuote( $value )) . ($flat ? ',' : ';') . PHP_EOL;
 			} else if( $key === 'ids' && is_array( $value )) {
 				$out .= '$ids: (' . PHP_EOL;

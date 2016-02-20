@@ -37,7 +37,7 @@
 
 		<?php else: ?>
 
-			<div class="full col-md-12" style="background-image: url(<?php echo wp_get_attachment_url($this->get('background')) ;?>); border-bottom: <?php echo $this->get('border_left') ;?>">
+			<div class="full col-md-12">
 				<div class="row">
 					<h2 class="title">
 						<?php echo $this->get( 'title_left' ) ;?>

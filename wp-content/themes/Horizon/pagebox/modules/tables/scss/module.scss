@@ -21,9 +21,11 @@ $border-bottom: 2px solid #c2c2c2;
             font-family: "Arial";
             padding: 12px 5px;
             text-align: center;
-            color: #000;
             min-height: 41px;
+            line-height: 1.938;
+            color: rgb(48, 62, 72);
             @include user-select(none);
+
           }
 
           background-color: #e5aa0e;
@@ -53,11 +55,12 @@ $border-bottom: 2px solid #c2c2c2;
         min-height: 210px;
 
         p {
-          font-size: 2em;
+          font-size: 1.8125em;
           font-family: "Georgia";
           padding: 33px;
           color: #787878;
           margin-bottom: 0;
+          line-height: 1.276;
 
         }
       }

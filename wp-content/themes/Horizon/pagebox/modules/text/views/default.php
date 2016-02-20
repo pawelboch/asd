@@ -5,13 +5,7 @@
 ?>
 
 <div class="container <?php echo $this->get('css_class'); ?>">
-
-<?php $border = $this->get('border_switch');
-	if($border !== false) : ?>
-		<div class="border clearfix" style="border-bottom: <?php echo $this->get('border_style') ;?>">
-	<?php else: ;?>
-		<div class="border clearfix" style="border: none">
-	<?php endif ;?>
+	<div class="border clearfix">
 
 		<div class="col-md-12">
 

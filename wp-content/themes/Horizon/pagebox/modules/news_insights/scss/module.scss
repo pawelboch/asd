@@ -52,8 +52,11 @@ $padding_top_title: 0 !default;
     &.#{$id} {
       // Styles for concrete module, by id
 
-
+      @if map-get($vars, border_switch) == yes {
         border-top: map-get($vars, border_weight) solid map-get($vars, border_color);
+      } @else {
+        // Border-top disabled
+      }
 
 
       >.title {

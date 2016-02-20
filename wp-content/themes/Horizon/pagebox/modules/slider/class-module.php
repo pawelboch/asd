@@ -68,14 +68,14 @@ class Module extends Abstract_Module {
 							'group'			=> __( 'Slides', 'pagebox' ),
 							'name'			=> 'title',
 							'label'			=> __( 'Title' ),
-							'description'	=> __( 'description' )
+							'description'	=> __( 'Top title' )
 						),
 						array(
 							'type'			=> 'text',
 							'group'			=> __( 'Slides', 'pagebox' ),
 							'name'			=> 'title_highlight',
-							'label'			=> __( 'Title highlighted word' ),
-							'description'	=> __( 'description' )
+							'label'			=> __( 'Title' ),
+							'description'	=> __( 'Highlighted word' )
 						),
 						array(
 							'type'			=> 'colorpicker',
@@ -90,7 +90,7 @@ class Module extends Abstract_Module {
 							'group'			=> __( 'Style', 'pagebox' ),
 							'name'			=> 'h2_opacity',
 							'label'			=> __( 'Title background opacity' ),
-							'description' 	=> __( '0-100' ),
+							'description' 	=> __( '0-100 (color must be selected if you want opacity)' ),
 							'sass'          => true
 						),
 						array(
@@ -106,40 +106,57 @@ class Module extends Abstract_Module {
 							'group'			=> __( 'Slides', 'pagebox' ),
 							'name'			=> 'description',
 							'label'			=> __( 'Description' ),
-							'description' 	=> __( 'description' )
-						),
-						array(
-							'type'			=> 'SinglePage',
-							'group'			=> __( 'Slides', 'pagebox' ),
-							'name'			=> 'button',
-							'label'			=> __( 'btn' ),
-							'description' 	=> __( 'btn' )
-						),
-						array(
-							'type'			=> 'text',
-							'group'			=> __( 'Slides', 'pagebox' ),
-							'name'			=> 'learn_more',
-							'label'			=> __( 'Learn more' ),
-							'description' 	=> __( 'btn' )
+							'description' 	=> __( 'Description under title' )
 						),
 						array(
 							'type'			=> 'switch',
 							'group'			=> __( 'Slides', 'pagebox' ),
-							'name'			=> 'learn_switch',
+							'name'			=> 'btn_switch',
 							'option'		=> 'yes',
-							'label'			=> __( 'Learn more button' ),
-							'description' 	=> __( 'Disable or enable learn more button' ),
+							'label'			=> __( 'Button' ),
+							'description' 	=> __( 'OFF / ON button' ),
 							'sass'			=> true,
 							'sass_filter'   => function( $value ) {
 								return $value ? 'yes' : 'no';
 							}
 						),
 						array(
+							'type'			=> 'SinglePage',
+							'group'			=> __( 'Slides', 'pagebox' ),
+							'name'			=> 'btn',
+							'label'			=> __( 'Page' ),
+							'description' 	=> __( 'Select page for button' )
+						),
+						array(
+							'type'			=> 'text',
+							'group'			=> __( 'Slides', 'pagebox' ),
+							'name'			=> 'btn_text',
+							'value'			=> 'button',
+							'label'			=> __( 'Button text' ),
+							'description' 	=> __( 'Button text' )
+						),
+						array(
+							'type'			=> 'colorpicker',
+							'group'			=> __( 'Style', 'pagebox' ),
+							'name'			=> 'btn_color',
+							'label'			=> __( 'Button color' ),
+							'description' 	=> __( '0-100 (color must be selected if you want opacity)' ),
+							'sass'          => true
+						),
+						array(
+							'type'			=> 'text',
+							'group'			=> __( 'Style', 'pagebox' ),
+							'name'			=> 'btn_opacity',
+							'label'			=> __( 'Button opacity' ),
+							'description' 	=> __( '0-100 (color must be selected if you want opacity)' ),
+							'sass'          => true
+						),
+						array(
 							'type'			=> 'image',
 							'group'			=> __( 'Slides', 'pagebox' ),
 							'name'			=> 'image',
-							'label'			=> __( 'img' ),
-							'description' 	=> __( 'img' ),
+							'label'			=> __( 'Image' ),
+							'description' 	=> __( 'Select image from media or upload new' ),
 							'sass'          => true,
 							'sass_filter'   => function( $value ) {
 								return wp_get_attachment_url( $value );

@@ -15,7 +15,7 @@
 							<p class="col-xs-12 col-sm-8 col-md-10 col-lg-7"> <?php echo $slide->description  ;?> </p>
 
 
-							<a class="col-xs-12 learn-more-btn" href="<?php echo $slide->button ;?>" class="btn-2"><?php echo $slide->learn_more ;?> <span> > </span></a>
+							<a class="col-xs-12 learn-more-btn" href="<?php echo $slide->btn ;?>" class="btn-2"><?php echo $slide->btn_text ;?> <span> > </span></a>
 
 						</div>
 					</div>

@@ -92,9 +92,10 @@ $h2_color: #fff !default;
 
             .container {
 
-              @if nth(map-get($vars, slider-learn_switch), $i) == yes {
+              @if nth(map-get($vars, slider-btn_switch), $i) == yes {
                 .learn-more-btn {
                   display: block;
+                  @include background-opacity(nth(map-get($vars, slider-btn_color), $i), nth(map-get($vars, slider-btn_opacity), $i));
                 }
               } @else {
                 .learn-more-btn {

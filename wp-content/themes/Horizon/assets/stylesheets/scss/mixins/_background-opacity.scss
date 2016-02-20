@@ -2,7 +2,7 @@
   @if type_of( $color ) == 'color' {
     @if type_of( $opacity ) == 'number' {
       background: $color; /* The Fallback */
-      background: rgba($color, $opacity);
+      background: rgba($color, $opacity/100);
     }
   }
 }

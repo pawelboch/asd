@@ -23,7 +23,20 @@ class Sass {
 		add_action( 'admin_bar_menu', array( $this, 'addMenuBar' ), 999 );
 		add_action( 'admin_menu', array( $this, 'addAdminPage' ) );
 		add_action( 'admin_print_scripts', array( $this, 'addStyles' ) );
-		//jquery-ui-tooltip
+
+		if ( ! wp_next_scheduled( 'pagebox-sass-permission-test' ) ) {
+			wp_schedule_event( time(), 'daily', 'pagebox-sass-permission-test' );
+		}
+
+		add_action( 'pagebox-sass-permission-test', array( $this, 'cronTask' ));
+	}
+
+	public function cronTask() {
+		update_option( 'pagebox-sass-permission-test', $this->permissionsTest( false ) );
+	}
+
+	public function getPermissionTestStatus() {
+		return (bool) get_option( 'pagebox-sass-permission-test', false );
 	}
 
 	public function addStyles() {
@@ -34,12 +47,17 @@ class Sass {
 		if ( !is_super_admin() || !is_admin_bar_showing() )
 			return;
 
+		$class = '';
+		if( $this->getPermissionTestStatus() === false ) {
+			$class = ' blink-error';
+		}
+
 		$wp_admin_bar->add_node( array(
 			'id'    => 'pagebox_sass_menu',
 			'title' => '<span class="ab-icon dashicons dashicons-update" style="padding:6px 0;font-size:20px"></span><span class="ab-label">Recompile Scss</span>',
 			'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile' ),
 			'meta'  => array(
-				'class' => 'pagebox-sass-compiler-bar',
+				'class' => 'pagebox-sass-compiler-bar' . $class,
 				'onclick' => 'return confirm("Are You sure?");'
 			)
 		));
@@ -82,51 +100,51 @@ class Sass {
 		return $cache;
 	}
 
-	private function permissionsTest() {
+	private function permissionsTest( $debug = true ) {
 		$start = microtime( true );
 		$path = $this->template_directory;
 		$test = true;
 
-		$this->addConsoleHeader( 'Permission tests' );
+		if( $debug ) $this->addConsoleHeader( 'Permission tests' );
 
 		$file = '/assets/stylesheets/css/';
 		if( Permission::dir( $path . $file ) ) {
-			$this->addConsoleString( $file . ' <span>is writable.</span>', 'success' );
+			if( $debug ) $this->addConsoleString( $file . ' <span>is writable.</span>', 'success' );
 		} else {
-			$this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
+			if( $debug ) $this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
 			$test = false;
 		}
 
 		$file = '/assets/stylesheets/css/style.css';
 		$p = Permission::file( $path . $file );
 		if( $p === 1 ) {
-			$this->addConsoleString( $file . ' <span>is exist and writable.</span>', 'success' );
+			if( $debug ) $this->addConsoleString( $file . ' <span>is exist and writable.</span>', 'success' );
 		} else if( $p == -1 ) {
-			$this->addConsoleString( $file . ' <span>is not exists jet.</span>', 'warning' );
+			if( $debug ) $this->addConsoleString( $file . ' <span>is not exists jet.</span>', 'warning' );
 		} else {
-			$this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
+			if( $debug ) $this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
 			$test = false;
 		}
 
 		$file = '/assets/stylesheets/css/bootstrap.css';
 		$p = Permission::file( $path . $file );
 		if( $p === 1 ) {
-			$this->addConsoleString( $file . ' <span>is exist and writable.</span>', 'success' );
+			if( $debug ) $this->addConsoleString( $file . ' <span>is exist and writable.</span>', 'success' );
 		} else if( $p == -1 ) {
-			$this->addConsoleString( $file . ' <span>is not exists jet.</span>', 'warning' );
+			if( $debug ) $this->addConsoleString( $file . ' <span>is not exists jet.</span>', 'warning' );
 		} else {
-			$this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
+			if( $debug ) $this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
 			$test = false;
 		}
 
 		$file = '/assets/stylesheets/css/style.min.css';
 		$p = Permission::file( $path . $file );
 		if( $p === 1 ) {
-			$this->addConsoleString( $file . ' <span>is exist and writable.</span>', 'success' );
+			if( $debug ) $this->addConsoleString( $file . ' <span>is exist and writable.</span>', 'success' );
 		} else if( $p == -1 ) {
-			$this->addConsoleString( $file . ' <span>is not exists jet.</span>', 'warning' );
+			if( $debug ) $this->addConsoleString( $file . ' <span>is not exists jet.</span>', 'warning' );
 		} else {
-			$this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
+			if( $debug ) $this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
 			$test = false;
 		}
 
@@ -136,46 +154,46 @@ class Sass {
 			$dir_name = str_replace( $basename, '<b>'.$basename.'</b>', substr( $dir, $path_length ));
 			$dir_test = true;
 			if( ! Permission::dir( $dir ) ) {
-				$this->addConsoleString( $dir_name . '/ <span>is not writable.</span>', 'error' );
+				if( $debug ) $this->addConsoleString( $dir_name . '/ <span>is not writable.</span>', 'error' );
 				$dir_test = false;
 			}
 			if( ! Permission::dir( $dir . '/css' ) ) {
-				$this->addConsoleString( $dir_name . '/css/ <span>is not writable.</span>', 'error' );
+				if( $debug ) $this->addConsoleString( $dir_name . '/css/ <span>is not writable.</span>', 'error' );
 				$dir_test = false;
 			}
 			if( ! Permission::dir( $dir . '/scss' ) ) {
-				$this->addConsoleString( $dir_name . '/scss/ <span>is not writable.</span>', 'error' );
+				if( $debug ) $this->addConsoleString( $dir_name . '/scss/ <span>is not writable.</span>', 'error' );
 				$dir_test = false;
 			}
 			$p = Permission::file( $dir . '/compiler.map' );
 			if( $p == -1 ) {
-				$this->addConsoleString( $dir_name . '/compiler.map <span>is not exists jet.</span>', 'warning' );
+				if( $debug ) $this->addConsoleString( $dir_name . '/compiler.map <span>is not exists jet.</span>', 'warning' );
 			} else if( $p === 0 ) {
-				$this->addConsoleString( $dir_name . '/compiler.map <span>is not writable.</span>', 'error' );
+				if( $debug ) $this->addConsoleString( $dir_name . '/compiler.map <span>is not writable.</span>', 'error' );
 				$dir_test = false;
 			}
 			$p = Permission::file( $dir . '/css/module.css' );
 			if( $p == -1 ) {
-				$this->addConsoleString( $dir_name . '/css/module.css <span>is not exists jet.</span>', 'warning' );
+				if( $debug ) $this->addConsoleString( $dir_name . '/css/module.css <span>is not exists jet.</span>', 'warning' );
 			} else if( $p === 0 ) {
-				$this->addConsoleString( $dir_name . '/css/module.css <span>is not writable.</span>', 'error' );
+				if( $debug ) $this->addConsoleString( $dir_name . '/css/module.css <span>is not writable.</span>', 'error' );
 				$dir_test = false;
 			}
 			$p = Permission::file( $dir . '/scss/_module-variables.scss' );
 			if( $p == -1 ) {
-				$this->addConsoleString( $dir_name . '/scss/_module-variables.scss <span>is not exists jet.</span>', 'warning' );
+				if( $debug ) $this->addConsoleString( $dir_name . '/scss/_module-variables.scss <span>is not exists jet.</span>', 'warning' );
 			} else if( $p === 0 ) {
-				$this->addConsoleString( $dir_name . '/scss/_module-variables.scss <span>is not writable.</span>', 'error' );
+				if( $debug ) $this->addConsoleString( $dir_name . '/scss/_module-variables.scss <span>is not writable.</span>', 'error' );
 				$dir_test = false;
 			}
 			if( $dir_test ) {
-				$this->addConsoleString( $dir_name . '/ <span>is writable.</span>', 'success' );
+				if( $debug ) $this->addConsoleString( $dir_name . '/ <span>is writable.</span>', 'success' );
 			} else {
 				$test = false;
 			}
 		}
 
-		$this->addConsoleRaw(sprintf('Total %dms', (microtime(true) - $start)*1000));
+		if( $debug ) $this->addConsoleRaw(sprintf('Total %dms', (microtime(true) - $start)*1000));
 		return $test;
 	}
 
@@ -276,10 +294,11 @@ class Sass {
 
 									if( isset( $data->settings->{ $field['name'] } )) {
 										foreach( $data->settings->{$field['name']} as $f ) {
-											$tmp[] = isset( $f->{ $field2['name'] } ) ? $this->filter( $field2, $f->{ $field2['name'] }) : "''";
+											$val = $this->filter( $field2, $f->{ $field2['name'] });
+											$tmp[] = $val ? $val : "''";
 										}
 									}
-									$variables[ $name ] = '(' . implode(', ', $tmp) . ')';
+									$variables[ $name ] = '(' . implode( ', ', $tmp ) . ')';
 								}
 							}
 						}

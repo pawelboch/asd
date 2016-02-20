@@ -8,7 +8,7 @@
     50% { background: rgba(255,0,0,0); }
     100% { background: rgba(255,0,0,0.5); }
 }
-.pagebox-sass-compiler-bar > a {
+.pagebox-sass-compiler-bar.blink-error > a {
     -webkit-animation-direction: normal;
     -webkit-animation-duration: 3s;
     -webkit-animation-iteration-count: infinite;

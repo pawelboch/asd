@@ -97,7 +97,7 @@ $h2_color: #fff !default;
               }
 
               h2 {
-                @include background-opacity( get( $vars, slider-h2_bgc, $i ), 0.5 );
+                @include background-opacity( get( $vars, slider-h2_bgc, $i ), get($vars, slider-h2_opacity, $i));
                 @include add('color', get( $vars, slider-h2_color, $i ));
               }
             }

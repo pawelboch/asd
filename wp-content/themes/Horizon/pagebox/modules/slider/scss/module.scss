@@ -90,14 +90,11 @@ $h2_color: #fff !default;
 
             .container {
               h2 {
-                @include background-opacity((nth(map-get($vars, slider-h2_bgc), $i)), 0.5);
-                $color: nth(map-get($vars, slider-h2_bgc), $i);
+                @include background-opacity(nth(map-get($vars, slider-h2_bgc), $i), 0.5);
+                $color: nth(map-get($vars, slider-h2_color), $i);
                 @if is_color( $color ) {
                   color: $color;
                 }
-
-
-                color: nth(map-get($vars, slider-h2_color), $i);
               }
             }
           }

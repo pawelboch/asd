@@ -115,6 +115,18 @@ class Module extends Abstract_Module {
 							'description' 	=> __( 'btn' )
 						),
 						array(
+							'type'			=> 'switch',
+							'group'			=> __( 'Slides', 'pagebox' ),
+							'name'			=> 'learn_switch',
+							'option'		=> 'yes',
+							'label'			=> __( 'Learn more button' ),
+							'description' 	=> __( 'Disable or enable learn more button' ),
+							'sass'			=> true,
+							'sass_filter'   => function( $value ) {
+								return $value ? 'yes' : 'no';
+							}
+						),
+						array(
 							'type'			=> 'image',
 							'group'			=> __( 'Slides', 'pagebox' ),
 							'name'			=> 'image',
@@ -126,14 +138,6 @@ class Module extends Abstract_Module {
 							}
 						),
 					)
-				),
-				array(
-					'type'			=> 'switch',
-					'group'			=> __( 'Style', 'pagebox' ),
-					'name'			=> 'learn_switch',
-					'option'		=> 'yes',
-					'label'			=> __( 'Learn more button' ),
-					'description' 	=> __( 'Disable or enable learn more button' )
 				),
 			)
 		);

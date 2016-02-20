@@ -8,13 +8,24 @@
 
   .border {
     width: 100%;
-    border-bottom: 12px solid #ffc425;
     padding-bottom: 51px;
   }
 
   p {
     font-family: 'Arial';
     line-height: 1.722;
+  }
+
+  @each $id, $vars in $ids {
+    &.#{$id} {
+      // Styles for border in text module!
+
+      @if map-get($vars, border_switch) == yes {
+        .border {
+          border-bottom: map-get($vars, border_weight) solid map-get($vars, border_color);
+        }
+      }
+    }
   }
 
 }

@@ -59,6 +59,14 @@ class Module extends Abstract_Module {
 						'description'	=> __( 'Type your text')
 				),
 				array(
+						'type'			=> 'switch',
+						'group'			=> __( 'Main', 'pagebox' ),
+						'name'			=> 'btn_switch',
+						'option'		=> 'yes',
+						'label'			=> __( 'Button switch' ),
+						'description'	=> __( 'Off / On switch')
+				),
+				array(
 						'type'			=> 'SinglePage',
 						'group'			=> __( 'Main', 'pagebox'),
 						'name'			=> 'button',
@@ -75,25 +83,30 @@ class Module extends Abstract_Module {
 				array(
 						'type'			=> 'switch',
 						'group'			=> __( 'Style', 'pagebox' ),
-						'name'			=> 'btn_switch',
-						'option'		=> 'yes',
-						'label'			=> __( 'learn more btn switch' ),
-						'description'	=> __( 'lrn mor btn')
-				),
-				array(
-						'type'			=> 'switch',
-						'group'			=> __( 'Style', 'pagebox' ),
 						'name'			=> 'border_switch',
 						'option'		=> 'yes',
-						'label'			=> __( 'border switch' ),
-						'description'	=> __( 'border')
+						'label'			=> __( 'Border bottom' ),
+						'description'	=> __( 'OFF / ON switch'),
+						'sass'			=> true,
+						'sass_filter'   => function( $value ) {
+							return $value ? 'yes' : 'no';
+						}
 				),
 				array(
 						'type'			=> 'text',
 						'group'			=> __( 'Style', 'pagebox' ),
-						'name'			=> 'border_style',
-						'label'			=> __( 'Border style' ),
-						'description'	=> __( 'Leave empty for default border style')
+						'name'			=> 'border_weight',
+						'label'			=> __( 'Border weight' ),
+						'description'	=> __( 'Border weight in px'),
+						'sass'			=> true
+				),
+				array(
+						'type'			=> 'colorpicker',
+						'group'			=> __( 'Style', 'pagebox' ),
+						'name'			=> 'border_color',
+						'label'			=> __( 'Border color' ),
+						'description'	=> __( 'Select color for border'),
+						'sass'			=> true
 				),
 			)
 		);

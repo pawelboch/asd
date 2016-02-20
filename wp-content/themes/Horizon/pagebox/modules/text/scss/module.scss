@@ -1,5 +1,10 @@
 @import "module-variables";
 
+@mixin background-opacity($color, $opacity: 0.3) {
+  background: $color; /* The Fallback */
+  background: rgba($color, $opacity);
+}
+
 #{$module} {
 
   background-color: #fff;
@@ -21,7 +26,10 @@
       // Styles for border in text module!
 
       @if map-get($vars, border_switch) == yes {
+        //@include background-opacity(#333333, 0.5);
+
         .border {
+
           border-bottom: map-get($vars, border_weight) solid map-get($vars, border_color);
         }
       }

@@ -2,6 +2,11 @@
 @import "mixins/compact";
 @import "vendor/compass/css3";
 
+@mixin background-opacity($color, $opacity: 0.3) {
+  background: $color; /* The Fallback */
+  background: rgba($color, $opacity);
+}
+
 // Default values
 $h2_bgc: #303e48 !default;
 $h2_color: #fff !default;
@@ -85,7 +90,9 @@ $h2_color: #fff !default;
 
             .container {
               h2 {
-                background-color: nth(map-get($vars, slider-h2_bgc), $i);
+                @debug (nth(map-get($vars, slider-h2_bgc), $i));
+                @include background-opacity((nth(map-get($vars, slider-h2_bgc), $i)), 0.5);
+
                 color: nth(map-get($vars, slider-h2_color), $i);
               }
             }

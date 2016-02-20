@@ -83,17 +83,34 @@ $h2_color: #fff !default;
     &.#{$id} {
       // Styles for concrete module, by id
 
+
+
       .background {
         @for $i from 1 through length(map-get($vars, slider-h2_bgc)) {
           &.slide-#{$i} {
             background-image: url(nth(map-get($vars, slider-image), $i));
 
             .container {
+
+              @if nth(map-get($vars, slider-learn_switch), $i) == yes {
+                .learn-more-btn {
+                  display: block;
+                }
+              } @else {
+                .learn-more-btn {
+                  display: none;
+                }
+              }
+
+              //@debug nth(map-get($vars, slider-learn_switch), $i);
+
               h2 {
                 @include background-opacity(nth(map-get($vars, slider-h2_bgc), $i), 0.5);
                 $color: nth(map-get($vars, slider-h2_color), $i);
                 @if is_color( $color ) {
                   color: $color;
+
+                  }
                 }
               }
             }
@@ -104,4 +121,3 @@ $h2_color: #fff !default;
       // END Styles for concrete module, by id
     }
   }
-}

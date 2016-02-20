@@ -82,6 +82,9 @@ class Module extends Abstract_Module {
 						'label'			=> __( 'Border switch' ),
 						'description'	=> __( 'Border switch' ),
 						'sass'			=> true,
+						'sass_filter'   => function( $value ) {
+							return $value ? 'yes' : 'no';
+						}
 				),
 				array(
 						'type'			=> 'colorpicker',

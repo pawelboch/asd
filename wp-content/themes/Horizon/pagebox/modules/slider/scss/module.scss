@@ -9,6 +9,10 @@
   }
 }
 
+@function is_color( $color ) {
+  @return if( type_of( $color ) == 'color', true, false );
+}
+
 // Default values
 $h2_bgc: #303e48 !default;
 $h2_color: #fff !default;
@@ -94,7 +98,7 @@ $h2_color: #fff !default;
               h2 {
                 @include background-opacity(nth(map-get($vars, slider-h2_bgc), $i), 0.5);
                 $color: nth(map-get($vars, slider-h2_color), $i);
-                @if type_of( $color ) == 'color' {
+                @if is_color( $color ) {
                   color: $color;
                 }
               }

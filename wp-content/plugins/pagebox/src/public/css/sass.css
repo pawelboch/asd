@@ -1,0 +1,37 @@
+@-webkit-keyframes blink {
+    0% { background: rgba(255,0,0,0.5); }
+    50% { background: rgba(255,0,0,0); }
+    100% { background: rgba(255,0,0,0.5); }
+}
+@keyframes blink {
+    0% { background: rgba(255,0,0,0.5); }
+    50% { background: rgba(255,0,0,0); }
+    100% { background: rgba(255,0,0,0.5); }
+}
+.pagebox-sass-compiler-bar > a {
+    -webkit-animation-direction: normal;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: blink;
+    -webkit-animation-timing-function: ease;
+    animation-direction: normal;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-name: blink;
+    animation-timing-function: ease;
+}
+.pagebox-sass-compiler #console {
+    width: 100%;
+    max-height: 405px;
+    background-color: #23282d;
+    color: #ddd;
+    font-size: 12px;
+    font-family: monospace;
+    padding: 6px 10px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+.pagebox-sass-compiler #console span.success span { color: limegreen; }
+.pagebox-sass-compiler #console span.error span { color: red; }
+.pagebox-sass-compiler #console span.warning span { color: orange; }
+.pagebox-sass-compiler #console span b { color: #fff; }

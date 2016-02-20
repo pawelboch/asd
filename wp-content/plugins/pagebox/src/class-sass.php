@@ -14,12 +14,20 @@ class Sass {
 
 	private $pagebox;
 	private $console = '';
+	private $template_directory;
 
 	public function __construct( WPG_Pagebox $pagebox ) {
 		$this->pagebox = $pagebox;
+		$this->template_directory = get_template_directory();
 
 		add_action( 'admin_bar_menu', array( $this, 'addMenuBar' ), 999 );
 		add_action( 'admin_menu', array( $this, 'addAdminPage' ) );
+		add_action( 'admin_print_scripts', array( $this, 'addStyles' ) );
+		//jquery-ui-tooltip
+	}
+
+	public function addStyles() {
+		wp_enqueue_style( 'pagebox-sass', plugin_dir_url( __DIR__ ) . 'src/public/css/sass.css');
 	}
 
 	public function addMenuBar( $wp_admin_bar ) {
@@ -29,19 +37,29 @@ class Sass {
 		$wp_admin_bar->add_node( array(
 			'id'    => 'pagebox_sass_menu',
 			'title' => '<span class="ab-icon dashicons dashicons-update" style="padding:6px 0;font-size:20px"></span><span class="ab-label">Recompile Scss</span>',
-			'href'  => ''
+			'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile' ),
+			'meta'  => array(
+				'class' => 'pagebox-sass-compiler-bar',
+				'onclick' => 'return confirm("Are You sure?");'
+			)
 		));
 		$wp_admin_bar->add_node( array(
 			'parent' => 'pagebox_sass_menu',
 			'id'    => 'pagebox_sass_menu_theme',
 			'title' => 'Recompile theme',
-			'href'  => ''
+			'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile_theme' ),
+			'meta'  => array(
+				'onclick' => 'return confirm("Are You sure?");'
+			)
 		));
 		$wp_admin_bar->add_node( array(
 			'parent' => 'pagebox_sass_menu',
 			'id'    => 'pagebox_sass_menu_modules',
 			'title' => 'Recompile modules',
-			'href'  => ''
+			'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile_modules' ),
+			'meta'  => array(
+				'onclick' => 'return confirm("Are You sure?");'
+			)
 		));
 	}
 
@@ -56,9 +74,17 @@ class Sass {
 		);
 	}
 
+	public function getModulesPathsArray() {
+		static $cache = null;
+		if( $cache === null ) {
+			$cache = glob( $this->template_directory . '/pagebox/modules/*', GLOB_ONLYDIR );
+		}
+		return $cache;
+	}
+
 	private function permissionsTest() {
 		$start = microtime( true );
-		$path = get_template_directory();
+		$path = $this->template_directory;
 		$test = true;
 
 		$this->addConsoleHeader( 'Permission tests' );
@@ -105,23 +131,20 @@ class Sass {
 		}
 
 		$path_length = strlen( $path );
-		foreach( glob( $path . "/pagebox/modules/*", GLOB_ONLYDIR ) as $dir ) {
+		foreach( $this->getModulesPathsArray() as $dir ) {
 			$basename = basename( $dir );
 			$dir_name = str_replace( $basename, '<b>'.$basename.'</b>', substr( $dir, $path_length ));
 			$dir_test = true;
 			if( ! Permission::dir( $dir ) ) {
 				$this->addConsoleString( $dir_name . '/ <span>is not writable.</span>', 'error' );
-				$test = false;
 				$dir_test = false;
 			}
 			if( ! Permission::dir( $dir . '/css' ) ) {
 				$this->addConsoleString( $dir_name . '/css/ <span>is not writable.</span>', 'error' );
-				$test = false;
 				$dir_test = false;
 			}
 			if( ! Permission::dir( $dir . '/scss' ) ) {
 				$this->addConsoleString( $dir_name . '/scss/ <span>is not writable.</span>', 'error' );
-				$test = false;
 				$dir_test = false;
 			}
 			$p = Permission::file( $dir . '/compiler.map' );
@@ -130,7 +153,6 @@ class Sass {
 			} else if( $p === 0 ) {
 				$this->addConsoleString( $dir_name . '/compiler.map <span>is not writable.</span>', 'error' );
 				$dir_test = false;
-				$test = false;
 			}
 			$p = Permission::file( $dir . '/css/module.css' );
 			if( $p == -1 ) {
@@ -138,7 +160,6 @@ class Sass {
 			} else if( $p === 0 ) {
 				$this->addConsoleString( $dir_name . '/css/module.css <span>is not writable.</span>', 'error' );
 				$dir_test = false;
-				$test = false;
 			}
 			$p = Permission::file( $dir . '/scss/_module-variables.scss' );
 			if( $p == -1 ) {
@@ -146,10 +167,11 @@ class Sass {
 			} else if( $p === 0 ) {
 				$this->addConsoleString( $dir_name . '/scss/_module-variables.scss <span>is not writable.</span>', 'error' );
 				$dir_test = false;
-				$test = false;
 			}
 			if( $dir_test ) {
 				$this->addConsoleString( $dir_name . '/ <span>is writable.</span>', 'success' );
+			} else {
+				$test = false;
 			}
 		}
 

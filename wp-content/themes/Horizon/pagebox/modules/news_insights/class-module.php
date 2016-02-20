@@ -75,15 +75,6 @@ class Module extends Abstract_Module {
 						'description'	=> __( 'News number - 1, 3, 6'),
 				),
 				array(
-						'type'			=> 'switch',
-						'group'			=> __( 'Border', 'pagebox' ),
-						'name'			=> 'border_switch',
-						'option'		=> 'yes',
-						'label'			=> __( 'Border switch' ),
-						'description'	=> __( 'Border switch' ),
-						'sass'			=> true,
-				),
-				array(
 						'type'			=> 'colorpicker',
 						'group'			=> __( 'Border', 'pagebox'),
 						'name'			=> 'border_color',

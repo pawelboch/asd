@@ -294,8 +294,12 @@ class Sass {
 									$tmp = array();
 
 									if( isset( $data->settings->{ $field['name'] } )) {
-										foreach( $data->settings->{$field['name']} as $f ) {
-											$val = $this->filter( $field2, $f->{ $field2['name'] });
+										foreach( $data->settings->{ $field['name'] } as $f ) {
+											if( is_object( $f ) && property_exists( $f, $field2['name'] )) {
+												$val = $this->filter( $field2, $f->{$field2['name']} );
+											} else {
+												$val = null;
+											}
 											$tmp[] = $val ? $val : "''";
 										}
 									}

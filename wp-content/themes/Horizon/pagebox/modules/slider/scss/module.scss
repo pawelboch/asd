@@ -3,6 +3,10 @@
 @import "vendor/compass/css3";
 @import "mixins/background-opacity";
 
+@function is_color( $color ) {
+  @return if( type_of( $color ) == 'color', true, false );
+}
+
 // Default values
 $h2_bgc: #303e48 !default;
 $h2_color: #fff !default;

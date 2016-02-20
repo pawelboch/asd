@@ -3,8 +3,10 @@
 @import "vendor/compass/css3";
 
 @mixin background-opacity($color, $opacity: 0.3) {
-  background: $color; /* The Fallback */
-  background: rgba($color, $opacity);
+  @if type_of( $color ) == 'color' {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+  }
 }
 
 // Default values
@@ -90,9 +92,7 @@ $h2_color: #fff !default;
 
             .container {
               h2 {
-                @debug (nth(map-get($vars, slider-h2_bgc), $i));
-                @include background-opacity((nth(map-get($vars, slider-h2_bgc), $i)), 0.5);
-
+                @include background-opacity(nth(map-get($vars, slider-h2_bgc), $i), 0.5);
                 color: nth(map-get($vars, slider-h2_color), $i);
               }
             }

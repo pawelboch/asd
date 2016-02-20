@@ -1,6 +1,8 @@
 @mixin background-opacity($color, $opacity: 0.3) {
   @if type_of( $color ) == 'color' {
-    background: $color; /* The Fallback */
-    background: rgba($color, $opacity);
+    @if type_of( $opacity ) == 'number' {
+      background: $color; /* The Fallback */
+      background: rgba($color, $opacity);
+    }
   }
 }

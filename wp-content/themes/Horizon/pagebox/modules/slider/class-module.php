@@ -86,6 +86,14 @@ class Module extends Abstract_Module {
 							'sass'          => true
 						),
 						array(
+							'type'			=> 'text',
+							'group'			=> __( 'Style', 'pagebox' ),
+							'name'			=> 'h2_opacity',
+							'label'			=> __( 'Title background opacity' ),
+							'description' 	=> __( '0-100' ),
+							'sass'          => true
+						),
+						array(
 							'type'			=> 'colorpicker',
 							'group'			=> __( 'Style', 'pagebox' ),
 							'name'			=> 'h2_color',

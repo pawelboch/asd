@@ -105,7 +105,8 @@ $h2_color: #fff !default;
               //@debug nth(map-get($vars, slider-learn_switch), $i);
 
               h2 {
-                @include background-opacity(nth(map-get($vars, slider-h2_bgc), $i), 0.5);
+                @include background-opacity((nth(map-get($vars, slider-h2_bgc), $i)), (nth(map-get($vars, slider-h2_opacity), $i)));
+                //@debug (nth(map-get($vars, slider-h2_opacity), $i));
                 $color: nth(map-get($vars, slider-h2_color), $i);
                 @if is_color( $color ) {
                   color: $color;

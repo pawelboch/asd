@@ -17,13 +17,10 @@ footer {
       }
     }
 
-    .footer-nav {
-
-    }
-
 
     #nav-footer {
       float: left;
+      
       li {
         float: left;
         position: relative;
@@ -36,6 +33,57 @@ footer {
           color: #000;
         }
       }
+
+      // Social media StyleSheet
+      li:last-child {
+        .sub-menu {
+          .facebook,
+          .twitter,
+          .google,
+          .youtube {
+            a {
+              padding-left: 30px;
+              position: relative;
+
+              &:before {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                left: 0;
+              }
+            }
+          }
+          .facebook {
+            a {
+              &:before {
+                background-image: url("../../images/facebookico.svg");
+              }
+            }
+          }
+          .twitter {
+            a {
+              &:before {
+                background-image: url("../../images/twitterico.svg");
+              }
+            }
+          }
+          .google {
+            a {
+              &:before {
+                background-image: url("../../images/googleico.svg");
+              }
+            }
+          }
+          .youtube {
+            a {
+              &:before {
+                background-image: url("../../images/youtubeico.svg");
+              }
+            }
+          }
+        }
+      }
       .sub-menu {
         padding-left: 0;
 
@@ -46,54 +94,37 @@ footer {
         }
       }
     }
+  }
+}
 
-    .social-media {
-      float: left;
+// FOOTER BREAKPOINTS
 
-      .head {
-        font-weight: bold;
+// md = 768px
+@media (max-width: map-get($grid-breakpoints, md) ) {
+  footer {
+    .container {
+      #nav-footer {
+        padding-left: 0;
+        padding-top: 20px;
+
+        li {
+          padding-left: 0;
+        }
       }
+    }
+  }
+}
 
-      .media {
-        .facebook,
-        .twitter,
-        .google,
-        .youtube {
-          position: relative;
+// sm = 544px
+@media (max-width: map-get($grid-breakpoints, sm) ) {
+  footer {
+    .container {
+      #nav-footer {
+        text-align: center;
 
-          p {
-            margin-bottom: 0;
-            margin-left: 30px;
-          }
-
-          div {
-            width: 100%;
-            height: 100%;
-            background-repeat: no-repeat;
-            position: absolute;
-          }
-
-        }
-
-        .facebook {
-          div {
-            background-image: url("../../images/facebookico.svg");
-          }
-        }
-        .twitter {
-          div {
-            background-image: url("../../images/twitterico.svg");
-          }
-        }
-        .google {
-          div {
-            background-image: url("../../images/googleico.svg");
-          }
-        }
-        .youtube {
-          div {
-            background-image: url("../../images/youtubeico.svg");
-          }
+        >li {
+          width: 100%;
+          padding-bottom: 20px;
         }
       }
     }

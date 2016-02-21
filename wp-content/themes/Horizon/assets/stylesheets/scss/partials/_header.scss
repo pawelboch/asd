@@ -119,7 +119,7 @@ header {
   }
 }
 
-@media (max-width: 992px ) {
+@media (max-width: map-get($grid-breakpoints, lg) ) {
 
   header {
     .main-nav {
@@ -138,7 +138,7 @@ header {
   }
 }
 
-@media (max-width: $breakpoint-tablet) {
+@media (max-width: map-get($grid-breakpoints, md) ) {
   header {
 
     .display-on {

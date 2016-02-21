@@ -1,7 +1,6 @@
 @import "module-variables";
+@import "mixins/utils";
 
-// Default values
-$bgc_image: '../../../../assets/images/full.png';
 
 #{$module} {
   
@@ -45,8 +44,8 @@ $bgc_image: '../../../../assets/images/full.png';
     &.#{$id} {
       // Styles for concrete module, by id
 
-      &.background {
-        background-image: url(map-get($vars, bgc_image));
+      .category {
+        @include add('background-color', get($vars, cat_color) );
       }
 
       // END Styles for concrete module, by id

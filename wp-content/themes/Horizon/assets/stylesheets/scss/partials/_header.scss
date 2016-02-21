@@ -15,84 +15,122 @@ header {
   width: 100%;
   z-index: 1;
 
-  .main-nav,
   .logo {
-
+    float: left;
     text-transform: uppercase;
-  }
 
-
-  .logo {
     img {
-
-      margin-top: $logo-margin;
-
+      width: 230px;
     }
   }
 
-  .main-nav {
-    margin-top: 62px;
+  .navigation {
+    margin-top: 35px;
 
-    li {
-      display: inline;
-      padding: $main-nav-li;
-      position: relative;
+    .main-nav {
+      margin-top: 10px;
+      text-transform: uppercase;
+      float: left;
 
-      &:last-child {
-        border-left: 1px solid red;
-        
-        a {
-          color: #57656e;
+      li {
+        display: inline;
+        padding: $main-nav-li;
+        position: relative;
 
+        &:last-child {
+          border-left: 1px solid red;
+
+          a {
+            color: #57656e;
+
+          }
         }
-      }
-      
-      &:hover {
-        > .sub-menu {
-          display: block;
-          position: absolute;
-          left: $submenu-left;
-          padding-left: $submenu-padding;
-          background-color: $submenu-bgc;
-          top: $submenu-top;
-          width: $submenu-width;
 
-          li {
-            border-left: none;
-            padding: 0;
+        &:hover {
+          > .sub-menu {
+            display: block;
+            position: absolute;
+            left: $submenu-left;
+            padding-left: $submenu-padding;
+            background-color: $submenu-bgc;
+            top: $submenu-top;
+            width: $submenu-width;
 
-            a {
-              color: #000;
+            li {
+              border-left: none;
+              padding: 0;
+
+              a {
+                color: #000;
+              }
             }
           }
         }
-      }
 
-      .sub-menu {
-        display: none;
-        min-height: 300px;
-      }
+        .sub-menu {
+          display: none;
+          min-height: 300px;
+        }
 
-      a {
-        color: $color;
-        text-decoration: none;
-        font-family: "Montserrat";
-        font-size: 0.875rem;
+        a {
+          color: $color;
+          text-decoration: none;
+          font-family: "Montserrat";
+          font-size: 0.875rem;
+        }
       }
     }
+  }
 
-    span {
+  .search {
+    position: relative;
+
+    .search-ico {
       background-image: url("../../images/search_gray.svg");
       position: absolute;
       width: 20px;
       height: 20px;
-      top: 0;
-      right: 0;
       cursor: pointer;
+      margin-top: 10px;
 
       &:hover {
         background-image: url("../../images/search_yellow.svg");
       }
+    }
+    .search-input {
+      display: none;
+      color: #000;
+      float: right;
+      margin-top: 30px;
+      padding-left: 20px;
+      width: 200px;
+      height: 40px;
+      background-color: #fff;
+      border: 1px solid #c2c2c2;
+    }
+  }
+  .display-on {
+    display: block !important;
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    left: 0;
+  }
+
+  .nav-toggle {
+    cursor: pointer;
+    width: 40px;
+    padding: 0;
+    float: right;
+
+    .icon-bar {
+      height: 4px;
+      background-color: #fff;
+      margin-bottom: 5px;
+    }
+
+    &:hover .icon-bar {
+      background-color: #c2c2c2;
     }
   }
 }
@@ -119,7 +157,7 @@ header {
   }
 }
 
-@media (max-width: 992px ) {
+@media (max-width: map-get($grid-breakpoints, lg) ) {
 
   header {
     .main-nav {
@@ -138,36 +176,8 @@ header {
   }
 }
 
-@media (max-width: $breakpoint-tablet) {
+@media (max-width: map-get($grid-breakpoints, md) ) {
   header {
 
-    .display-on {
-      display: block !important;
-      position: absolute;
-      top: 80px;
-      width: 100%;
-      left: 0;
-    }
-
-    .nav-toggle {
-      width: 40px;
-      height: 40px;
-      padding: 0;
-      float: right;
-      margin-top: 70px;
-
-      .icon-bar {
-        height: 10px;
-        width: 100%;
-        background-color: red;
-        margin: 2px;
-        border: 2px solid red;
-        border-radius: 10px;
-      }
-
-      &:hover .icon-bar {
-        background-color: yellow;
-      }
-    }
   }
 }

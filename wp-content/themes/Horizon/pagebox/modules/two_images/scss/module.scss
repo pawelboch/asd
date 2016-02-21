@@ -1,4 +1,5 @@
 @import "module-variables";
+@import "mixins/background-opacity";
 
 $margin-between: 1%;
 
@@ -29,23 +30,21 @@ $margin-between: 1%;
     width: 50% - (2 * $margin-between);
 
     &.left {
-      background-image: url($template-url + "/assets/images/image-right.png");
-      border-color: #ff9f29;
+
       margin-right: $margin-between * 2;
 
       .title {
-        background-color: rgba(255, 159, 41, 0.8);
+        //background-color: rgba(255, 159, 41, 0.8);
       }
 
     }
 
     &.right {
-      background-image: url($template-url + "/assets/images/image-right.png");
       border-color: #0093bc;
       margin-left: $margin-between * 2;
 
       .title {
-        background-color: rgba(0, 147, 188, 0.8);
+        //background-color: rgba(0, 147, 188, 0.8);
       }
     }
   }
@@ -57,18 +56,38 @@ $margin-between: 1%;
       font-family: "Avenir Next";
     }
 
-    //.description {
-    //  margin-left: 20px;
-    //}
-
-    //.learn-more-btn {
-    //  margin-left: 11px;
-    //}
-
     .description {
       margin-top: 78px;
       font-size: 32px;
       font-family: "Georgia";
+    }
+
+
+    @each $id, $vars in $ids {
+      &.#{$id} {
+        // Style for left background image
+
+
+          .left,
+          .full {
+            background-image: url(map-get($vars, bg_left_image));
+            border-bottom: map_get($vars, border_left_weight) solid map-get($vars, border_left_color);
+
+            .title {
+              @include background-opacity(map_get($vars, border_left_color), 50);
+            }
+          }
+
+          .right {
+            background-image: url(map-get($vars, bg_right_image));
+            border-bottom: map_get($vars, border_right_weight) solid map_get($vars, border_right_color);
+
+            .title {
+              @include background-opacity(map_get($vars, border_right_color), 50);
+            }
+          }
+
+      }
     }
   }
 

@@ -53,81 +53,105 @@ class Module extends Abstract_Module {
 			'fields'      => array(
 				array(
 						'type'			=> 'switch',
-						'group'			=> __( '2/3 columns', 'pagebox'),
+						'group'			=> __( 'Two / Three columns', 'pagebox'),
 						'name'			=> 'switch',
 						'option'		=> 'yes',
 						'label'			=> __( 'Switch' ),
-						'description'	=> __( 'Switch between 2 or 3 columns')
+						'description'	=> __( 'Two / Three columns')
 				),
 				array(
 						'type'			=> 'text',
 						'group'			=> __( 'Title', 'pagebox'),
 						'name'			=> 'title',
 						'label'			=> __( 'Title' ),
-						'description'	=> __( 'Title')
+						'description'	=> __( 'Title at the top center')
 				),
 				array(
 						'type'			=> 'image',
 						'group'			=> __( 'First part', 'pagebox'),
 						'name'			=> 'first_image',
 						'label'			=> __( 'Image' ),
-						'description'	=> __( 'Image')
+						'description'	=> __( 'Select first image from media or upload new')
 				),
 				array(
 						'type'			=> 'text',
 						'group'			=> __( 'First part', 'pagebox'),
 						'name'			=> 'first_title',
 						'label'			=> __( 'Title' ),
-						'description'	=> __( 'Title under icon')
+						'description'	=> __( 'Title under first image')
+				),
+				array(
+						'type'			=> 'colorpicker',
+						'group'			=> __( 'First part', 'pagebox'),
+						'name'			=> 'first_title_color',
+						'label'			=> __( 'Title color' ),
+						'description'	=> __( 'Title color under first image'),
+						'sass'			=> true,
 				),
 				array(
 						'type'			=> 'editor',
 						'group'			=> __( 'First part', 'pagebox'),
 						'name'			=> 'first_description',
-						'label'			=> __( 'Title' ),
-						'description'	=> __( 'Title under icon')
+						'label'			=> __( 'Description' ),
+						'description'	=> __( 'Description under first image')
 				),
 				array(
 						'type'			=> 'image',
 						'group'			=> __( 'Second part', 'pagebox'),
 						'name'			=> 'second_image',
 						'label'			=> __( 'Image' ),
-						'description'	=> __( 'Image')
+						'description'	=> __( 'Select second image from media or upload new')
 				),
 				array(
 						'type'			=> 'text',
 						'group'			=> __( 'Second part', 'pagebox'),
 						'name'			=> 'second_title',
 						'label'			=> __( 'Title' ),
-						'description'	=> __( 'Title under icon')
+						'description'	=> __( 'Title under second image')
+				),
+				array(
+						'type'			=> 'colorpicker',
+						'group'			=> __( 'Second part', 'pagebox'),
+						'name'			=> 'second_title_color',
+						'label'			=> __( 'Title color' ),
+						'description'	=> __( 'Title color under second image'),
+						'sass'			=> true,
 				),
 				array(
 						'type'			=> 'editor',
 						'group'			=> __( 'Second part', 'pagebox'),
 						'name'			=> 'second_description',
 						'label'			=> __( 'Title' ),
-						'description'	=> __( 'Title under icon')
+						'description'	=> __( 'Description under second image')
 				),
 				array(
 						'type'			=> 'image',
 						'group'			=> __( 'Third part', 'pagebox'),
 						'name'			=> 'third_image',
 						'label'			=> __( 'Image' ),
-						'description'	=> __( 'Image')
+						'description'	=> __( 'Select third image from media or upload new')
 				),
 				array(
 						'type'			=> 'text',
 						'group'			=> __( 'Third part', 'pagebox'),
 						'name'			=> 'third_title',
 						'label'			=> __( 'Title' ),
-						'description'	=> __( 'Title under icon')
+						'description'	=> __( 'Title under third image')
+				),
+				array(
+						'type'			=> 'colorpicker',
+						'group'			=> __( 'Third part', 'pagebox'),
+						'name'			=> 'third_title_color',
+						'label'			=> __( 'Title color' ),
+						'description'	=> __( 'Title color under third image'),
+						'sass'			=> true,
 				),
 				array(
 						'type'			=> 'editor',
 						'group'			=> __( 'Third part', 'pagebox'),
 						'name'			=> 'third_description',
 						'label'			=> __( 'Title' ),
-						'description'	=> __( 'Title under icon')
+						'description'	=> __( 'Description under third image')
 				),
 				array(
 						'type'			=> 'text',

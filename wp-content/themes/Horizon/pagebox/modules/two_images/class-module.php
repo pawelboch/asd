@@ -57,7 +57,7 @@ class Module extends Abstract_Module {
 						'name'			=> 'switch',
 						'option'	  	=> 'yes',
 						'label'			=> __( 'Switch' ),
-						'description'	=> __( 'Switch between one or two images')
+						'description'	=> __( 'One / Two images - complete only left if one image selected')
 				),
 				array(
 						'type'			=> 'text',
@@ -76,16 +76,29 @@ class Module extends Abstract_Module {
 				array(
 						'type'			=> 'image',
 						'group'			=> __( 'Left part', 'pagebox'),
-						'name'			=> 'background',
+						'name'			=> 'bg_left_image',
 						'label'			=> __( 'Left description' ),
-						'description'	=> __( 'Left description')
+						'description'	=> __( 'Left description'),
+						'sass'			=> true,
+						'sass_filter'	=> function ( $value ) {
+							return wp_get_attachment_url( $value );
+						}
 				),
 				array(
 						'type'			=> 'text',
 						'group'			=> __( 'Left part', 'pagebox'),
-						'name'			=> 'border_left',
-						'label'			=> __( 'Border' ),
-						'description'	=> __( 'Border uder image')
+						'name'			=> 'border_left_weight',
+						'label'			=> __( 'Border weight' ),
+						'description'	=> __( 'Border weight under image'),
+						'sass'			=> true,
+				),
+				array(
+						'type'			=> 'colorpicker',
+						'group'			=> __( 'Left part', 'pagebox'),
+						'name'			=> 'border_left_color',
+						'label'			=> __( 'Border color' ),
+						'description'	=> __( 'Border color under image'),
+						'sass'			=> true,
 				),
 				array(
 						'type'			=> 'text',
@@ -100,6 +113,33 @@ class Module extends Abstract_Module {
 						'name'			=> 'description_right',
 						'label'			=> __( 'Left description' ),
 						'description'	=> __( 'Left description')
+				),
+				array(
+						'type'			=> 'image',
+						'group'			=> __( 'Right part', 'pagebox'),
+						'name'			=> 'bg_right_image',
+						'label'			=> __( 'Right description' ),
+						'description'	=> __( 'Right description'),
+						'sass'			=> true,
+						'sass_filter'	=> function ( $value ) {
+							return wp_get_attachment_url( $value );
+						}
+				),
+				array(
+						'type'			=> 'text',
+						'group'			=> __( 'Right part', 'pagebox'),
+						'name'			=> 'border_right_weight',
+						'label'			=> __( 'Border weight' ),
+						'description'	=> __( 'Border weight under image'),
+						'sass'			=> true,
+				),
+				array(
+						'type'			=> 'colorpicker',
+						'group'			=> __( 'Right part', 'pagebox'),
+						'name'			=> 'border_right_color',
+						'label'			=> __( 'Border color' ),
+						'description'	=> __( 'Border color under image'),
+						'sass'			=> true,
 				),
 			)
 		);

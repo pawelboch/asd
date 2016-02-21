@@ -24,10 +24,16 @@
   text-transform: $learn-more-text-transform;
   font-size: $learn-more-font-size;
   width: $learn-more-width;
+  padding-right: 30px;
 
   span {
 
-    font-size: $learn-more-span-font-size;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
+    background-repeat: no-repeat;
+    background-image: url("../../images/white_chevons.svg");
 
   }
 

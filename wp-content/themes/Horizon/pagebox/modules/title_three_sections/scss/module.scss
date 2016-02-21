@@ -38,4 +38,26 @@
     }
   }
 
+  @each $id, $vars in $ids {
+    &.#{$id} {
+      // Style color under images
+
+      .first {
+        h3 {
+          color: map-get($vars, first_title_color);
+        }
+      }
+      .second {
+        h3 {
+          color: map-get($vars, second_title_color);
+        }
+      }
+      .third {
+        h3 {
+          color: map-get($vars, third_title_color);
+        }
+      }
+    }
+  }
+
 }

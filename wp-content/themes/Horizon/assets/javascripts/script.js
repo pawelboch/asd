@@ -9,7 +9,8 @@ jQuery( document ).ready(function( $ ) {
     // Search input toggle
 
     $( '.search-ico' ).click(function() {
-       $( '.search-ico > .search-input' ).toggle(300);
+       $( '.search-input' ).toggle(300);
+
     });
 
     // Slick slider enable

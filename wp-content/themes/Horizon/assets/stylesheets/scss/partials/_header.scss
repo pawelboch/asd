@@ -81,30 +81,34 @@ header {
       }
     }
 
-    span {
-      background-image: url("../../images/search_gray.svg");
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      top: 0;
-      right: 0;
-      cursor: pointer;
+    .search {
+      position: relative;
+      margin-top: -40px;
 
-      &:hover {
-        background-image: url("../../images/search_yellow.svg");
+      .search-ico {
+        background-image: url("../../images/search_gray.svg");
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+
+        &:hover {
+          background-image: url("../../images/search_yellow.svg");
+        }
       }
-    }
-    .search-input {
-      display: none;
-      color: #000;
-      padding-left: 10px;
-      position: absolute;
-      width: 200px;
-      height: 40px;
-      background-color: #fff;
-      border: 1px solid #c2c2c2;
-      top: 30px;
-      left: -170px;
+      .search-input {
+        display: none;
+        color: #000;
+        float: right;
+        margin-top: 30px;
+        padding-left: 20px;
+        width: 200px;
+        height: 40px;
+        background-color: #fff;
+        border: 1px solid #c2c2c2;
+      }
     }
   }
 }
@@ -162,23 +166,21 @@ header {
     }
 
     .nav-toggle {
+      cursor: pointer;
       width: 40px;
-      height: 40px;
       padding: 0;
       float: right;
       margin-top: 70px;
 
       .icon-bar {
-        height: 10px;
-        width: 100%;
-        background-color: red;
-        margin: 2px;
-        border: 2px solid red;
-        border-radius: 10px;
+        height: 5px;
+        background-color: #fff;
+        margin-bottom: 4px;
+        border-bottom: 1px solid #464a46;
       }
 
       &:hover .icon-bar {
-        background-color: yellow;
+        background-color: #c2c2c2;
       }
     }
   }

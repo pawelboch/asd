@@ -6,6 +6,12 @@ jQuery( document ).ready(function( $ ) {
         $( '.main-nav' ).toggleClass( "display-on" );
     });
 
+    // Search input toggle
+
+    $( '.search-ico').click(function() {
+       $( '.search-input' ).show(300);
+    });
+
     // Slick slider enable
 
     $('.slider').slick({

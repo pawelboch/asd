@@ -29,7 +29,8 @@
 								)
 							);
 							?>
-							<span></span>
+							<span class="search-ico"><input class="search-input" placeholder="Search..."></input></span>
+
 						</nav>
 					</div>
 					<div class="nav-toggle hidden-md-up pull-right col-sm-4 col-xs-4">

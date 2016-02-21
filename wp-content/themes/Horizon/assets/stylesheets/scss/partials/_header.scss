@@ -94,6 +94,16 @@ header {
         background-image: url("../../images/search_yellow.svg");
       }
     }
+    .search-input {
+      display: none;
+      position: absolute;
+      width: 200px;
+      height: 40px;
+      background-color: #fff;
+      border: 1px solid #c2c2c2;
+      top: 30px;
+      left: -170px;
+    }
   }
 }
 

@@ -6,44 +6,34 @@
   }
 }
 
+@function is_empty( $value ) {
+  @return if( type_of( $value ) == 'string' and str-length( $value ) == 0, false, $value );
+}
+
 @function get( $object, $a: null, $b: null ) {
+  @if $a == null {
+    @return is_empty( $object );
+  }
   @if type_of( $object ) == 'list' {
     @if type_of( $a ) == 'number' and $a > 0 {
       @if $a <= length( $object ) {
-        $val: nth( $object, $a );
-        @if type_of( $val ) == 'string' and str-length( $val ) == 0 {
-          @return false
-        } @else {
-          @return $val;
-        }
-      } @else {
-        @warn "Index out of bounds for `get( $list, $n )`";
+        @return is_empty( nth( $object, $a ));
       }
-    } @else {
-      @warn "Required parameter $n is missing in call to function `get( $list, $n )`";
     }
+    @return false;
   } @else if type_of( $object ) == 'map' {
     @if type_of( $a ) == 'string' {
       @if map_has_key( $object, $a ) {
         $val: map-get( $object, $a );
         @if type_of( $val ) == 'list' and type_of( $b ) == 'number' {
           @return get( $val, $b );
-        } @else if type_of( $val ) == 'string' and str-length( $val ) == 0 {
-          @return false;
         } @else {
-          @return $val;
+          @return is_empty( $val );
         }
       } @else {
-        @warn "Key `" + $a + "` is not exists in call to function `get( $map, $key )`";
+        @return false;
       }
-    } @else {
-      @warn "Required parameter $key is missing in call to function `get( $map, $key )`";
     }
-  } @else if $a == null and $b == null {
-    @if type_of( $object ) == 'string' and str-length( $object ) == 0 {
-      @return false;
-    }
-    @return $object;
   }
-  @return false;
+  @return is_empty( $object );
 }

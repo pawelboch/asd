@@ -38,7 +38,7 @@ header {
         position: relative;
 
         &:last-child {
-          border-left: 1px solid red;
+          border-left: 1px solid #fff;
 
           a {
             color: #57656e;
@@ -51,7 +51,7 @@ header {
             display: block;
             position: absolute;
             left: $submenu-left;
-            padding-left: $submenu-padding;
+            padding: $submenu-padding;
             background-color: $submenu-bgc;
             top: $submenu-top;
             width: $submenu-width;
@@ -62,6 +62,17 @@ header {
 
               a {
                 color: #000;
+                font-size: 1rem;
+                font-family: "Avenir Next";
+                
+                span {
+                  font-size: 0.8125rem;
+                  font-family: "Georgia";
+                  color: rgb(48, 62, 72);
+                  line-height: 1.25;
+                  width: 25%;
+                  display: block;
+                }
               }
             }
           }
@@ -101,7 +112,6 @@ header {
       display: none;
       color: #000;
       float: right;
-      margin-top: 30px;
       padding-left: 20px;
       width: 200px;
       height: 40px;
@@ -117,20 +127,30 @@ header {
     left: 0;
   }
 
-  .nav-toggle {
-    cursor: pointer;
-    width: 40px;
-    padding: 0;
-    float: right;
+  .mobile-nav {
+    .nav-toggle {
+      cursor: pointer;
+      width: 50px;
+      padding: 0;
+      float: right;
 
-    .icon-bar {
-      height: 4px;
-      background-color: #fff;
-      margin-bottom: 5px;
-    }
+      .separator {
+        height: 100%;
+        width: 100%;
+        padding-left: 10px;
+        border-left: 2px solid #fff;
 
-    &:hover .icon-bar {
-      background-color: #c2c2c2;
+        .icon-bar {
+          height: 4px;
+          background-color: #fff;
+          margin-top: 5px;
+
+        }
+
+        &:hover .icon-bar {
+          background-color: #c2c2c2;
+        }
+      }
     }
   }
 }
@@ -171,6 +191,32 @@ header {
 
           }
         }
+      }
+    }
+    .search {
+
+      .search-ico {
+        background-image: url("../../images/search_gray.svg");
+        display: block;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        position: relative;
+        float: right;
+        margin-right: 15px;
+        margin-top: 5px;
+      }
+
+      .search-input {
+        right: 0;
+        margin-top: 0;
+        color: #000;
+        position: relative;
+        padding-left: 20px;
+        width: 100%;
+        height: 40px;
+        background-color: #fff;
+        border: 1px solid #c2c2c2;
       }
     }
   }

@@ -22,26 +22,37 @@
 						<div class="main-nav hidden-md-down">
 							<nav role="navigation" class="nav-main">
 								<?php
+								$walker = new Menu_With_Description;
 								wp_nav_menu( array(
 										'theme_location' => 'primary',
 										'container' => false,
 										'menu_class' => 'nav',
-										'menu_id' => 'nav'
+										'menu_id' => 'nav',
+										'walker' => $walker
 									)
 								);
 								?>
 							</nav>
 						</div> <!-- main-nav -->
-						<div class="search">
+						<div class="search hidden-md-down">
 							<span class="search-ico"></span>
 							<input class="search-input" placeholder="Search..."> </input>
 						</div>
 					</div> <!-- navigation -->
-					<div class="nav-toggle hidden-lg-up">
-						<div class="icon-bar"></div>
-						<div class="icon-bar"></div>
-						<div class="icon-bar"></div>
+					<div class="mobile-nav hidden-lg-up">
+						<div class="nav-toggle">
+							<div class="separator">
+								<div class="icon-bar"></div>
+								<div class="icon-bar"></div>
+								<div class="icon-bar"></div>
+							</div>
+						</div>
+						<div class="search">
+							<span class="search-ico"></span>
+							<input class="search-input" placeholder="Search..."> </input>
+						</div>
 					</div>
+
 				</div>
 			</div>
 		</header>

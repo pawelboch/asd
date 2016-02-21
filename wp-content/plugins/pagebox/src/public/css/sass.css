@@ -22,14 +22,14 @@
 }
 .pagebox-sass-compiler #console {
     width: 100%;
-    max-height: 405px;
+    /*max-height: 405px;*/
     background-color: #23282d;
     color: #ddd;
     font-size: 12px;
     font-family: monospace;
     padding: 6px 10px;
     box-sizing: border-box;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 .pagebox-sass-compiler #console span.success span { color: limegreen; }
 .pagebox-sass-compiler #console span.error span { color: red; }

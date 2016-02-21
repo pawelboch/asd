@@ -29,19 +29,29 @@
 										'menu_id' => 'nav'
 									)
 								);
+								var_dump(wp_nav_menu);
 								?>
 							</nav>
 						</div> <!-- main-nav -->
-						<div class="search">
+						<div class="search hidden-md-down">
 							<span class="search-ico"></span>
 							<input class="search-input" placeholder="Search..."> </input>
 						</div>
 					</div> <!-- navigation -->
-					<div class="nav-toggle hidden-lg-up">
-						<div class="icon-bar"></div>
-						<div class="icon-bar"></div>
-						<div class="icon-bar"></div>
+					<div class="mobile-nav hidden-lg-up">
+						<div class="nav-toggle">
+							<div class="separator">
+								<div class="icon-bar"></div>
+								<div class="icon-bar"></div>
+								<div class="icon-bar"></div>
+							</div>
+						</div>
+						<div class="search">
+							<span class="search-ico"></span>
+							<input class="search-input" placeholder="Search..."> </input>
+						</div>
 					</div>
+
 				</div>
 			</div>
 		</header>

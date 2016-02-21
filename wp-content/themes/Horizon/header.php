@@ -15,27 +15,29 @@
 		<header class="banner-header" role="banner">
 			<div class="top-header">
 				<div class="container">
-					<div class="logo col-md-4 col-sm-8 col-xs-8">
+					<div class="logo">
 						<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/horizon_logo.svg" /></a>
 					</div>
-					<div class="main-nav col-md-8 hidden-sm-down">
-						<nav role="navigation" class="nav-main">
-							<?php
-							wp_nav_menu( array(
-									'theme_location' => 'primary',
-									'container' => false,
-									'menu_class' => 'nav',
-									'menu_id' => 'nav'
-								)
-							);
-							?>
-						</nav>
+					<div class="navigation">
+						<div class="main-nav hidden-md-down">
+							<nav role="navigation" class="nav-main">
+								<?php
+								wp_nav_menu( array(
+										'theme_location' => 'primary',
+										'container' => false,
+										'menu_class' => 'nav',
+										'menu_id' => 'nav'
+									)
+								);
+								?>
+							</nav>
+						</div> <!-- main-nav -->
 						<div class="search">
 							<span class="search-ico"></span>
 							<input class="search-input" placeholder="Search..."> </input>
 						</div>
-					</div>
-					<div class="nav-toggle hidden-md-up pull-right col-sm-4 col-xs-4">
+					</div> <!-- navigation -->
+					<div class="nav-toggle hidden-lg-up">
 						<div class="icon-bar"></div>
 						<div class="icon-bar"></div>
 						<div class="icon-bar"></div>

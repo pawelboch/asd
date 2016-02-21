@@ -6,4 +6,5 @@
 npm-debug.log
 pagebox/modules/**/css/*
 pagebox/modules/**/compiler.map
+/assets/stylesheets/scss/debug.*
 pagebox/modules/**/scss/_module-variables.scss

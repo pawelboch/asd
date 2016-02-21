@@ -22,14 +22,15 @@
 						<div class="main-nav hidden-md-down">
 							<nav role="navigation" class="nav-main">
 								<?php
+								$walker = new Menu_With_Description;
 								wp_nav_menu( array(
 										'theme_location' => 'primary',
 										'container' => false,
 										'menu_class' => 'nav',
-										'menu_id' => 'nav'
+										'menu_id' => 'nav',
+										'walker' => $walker
 									)
 								);
-								var_dump(wp_nav_menu);
 								?>
 							</nav>
 						</div> <!-- main-nav -->

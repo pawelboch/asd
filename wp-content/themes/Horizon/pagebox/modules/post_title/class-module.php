@@ -52,15 +52,19 @@ class Module extends Abstract_Module {
 			// WPGeeks_Forms
 			'fields'      => array(
 				array(
-						'type'			=> 'image',
-						'group'			=> __( 'Main', 'pagebox'),
+						'type'			=> 'hidden',
+						'group'			=> __( 'Main', 'pagebox' ),
 						'name'			=> 'bgc_image',
-						'label'			=> __( 'Background image' ),
-						'description'	=> __( 'Select background image'),
-						'sass'          => true,
-						'sass_filter'   => function( $value ) {
-							return wp_get_attachment_url( $value );
-						}
+						'label'			=> __( 'Post title' ),
+						'description'	=> __( 'Post title will be automatically get from post title'),
+				),
+				array(
+						'type'			=> 'colorpicker',
+						'group'			=> __( 'Main', 'pagebox' ),
+						'name'			=> 'cat_color',
+						'label'			=> __( 'Category color' ),
+						'description'	=> __( 'Select background color ' ),
+						'sass'			=> true,
 				)
 			)
 		);

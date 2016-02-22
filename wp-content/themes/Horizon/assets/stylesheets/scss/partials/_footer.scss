@@ -3,7 +3,7 @@
 @import "variables";
 
 footer {
-  padding-bottom: 150px;
+  padding-bottom: 50px;
 
   .container {
     background-color: $container-background-color;
@@ -94,6 +94,15 @@ footer {
           font-weight: normal;
         }
       }
+    }
+  }
+  .rights {
+    .container {
+      background-color: transparent;
+      padding-top: 20px;
+      min-height: 10px;
+      font-size: 0.75rem;
+      font-family: "Arial";
     }
   }
 }

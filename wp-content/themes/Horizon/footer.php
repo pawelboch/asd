@@ -25,11 +25,14 @@
 
 									</nav>
 								</div>
-							</div>
+							</div> <!-- /footer-nav -->
 						</div>
 					</div>
-
-
+				</div> <!-- /container -->
+				<div class="rights">
+					<div class="container">
+						© 2015 Horizon Investments, LLC. All Rights Reserved.
+					</div>
 				</div>
 				<?php wp_footer(); ?>
 			</footer>

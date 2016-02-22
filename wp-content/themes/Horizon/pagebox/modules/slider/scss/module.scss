@@ -3,6 +3,7 @@
 @import "mixins/utils";
 @import "mixins/background-opacity";
 @import "vendor/compass/css3";
+@import "assets/stylesheets/scss/theme-config";
 
 // Default values
 $h2_bgc: #303e48 !default;
@@ -51,6 +52,7 @@ $h2_color: #fff !default;
             background-repeat: no-repeat;
             left: -2px;
             top: -67px;
+
           }
         }
       }
@@ -108,4 +110,22 @@ $h2_color: #fff !default;
       // END Styles for concrete module, by id
     }
   }
+
+  // 544px
+  @media (max-width: map-get($grid-breakpoints, sm) ) {
+    .slides {
+      .container {
+        h2 {
+          span {
+            padding: 0;
+
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
 }

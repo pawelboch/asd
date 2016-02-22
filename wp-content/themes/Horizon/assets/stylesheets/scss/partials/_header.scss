@@ -32,10 +32,54 @@ header {
       text-transform: uppercase;
       float: left;
 
+      #nav{
+        > li:not(:last-child) {
+          a{
+            position: relative;
+            z-index: 2;
+          }
+
+          &:hover{
+            &:before,
+            &:after,
+            & > a:before,
+            & > a:after {
+              position:absolute;
+              width:5px;
+              height: 5px;
+              border-color: #fff;
+              border-style: solid;
+              content: ' ';
+            }
+            &:before {
+              top:-3px;
+              left:5px;
+              border-width: 2px 0 0 2px
+            }
+            &:after {
+              bottom: -3px;
+              left: 5px;
+              border-width: 0 0 2px 2px
+            }
+            & > a:after {
+              bottom:-3px;
+              right:-10px;
+              border-width: 0 2px 2px 0
+            }
+            & > a:before {
+              top:-3px;
+              right:-10px;
+              border-width: 2px 2px 0 0
+            }
+          }
+        }
+      }
+
       li {
         display: inline;
         padding: $main-nav-li;
         position: relative;
+
 
         &:last-child {
           border-left: 1px solid #fff;
@@ -47,40 +91,43 @@ header {
         }
 
         &:hover {
+
           > .sub-menu {
             display: block;
             position: absolute;
-            left: $submenu-left;
-            padding: $submenu-padding;
-            background-color: $submenu-bgc;
-            top: $submenu-top;
-            width: $submenu-width;
+            padding: 0;
+            padding-top: 5px;
+            left: 0;
+            top: 1rem;
+            margin-top: 5px;
+
 
             li {
               border-left: none;
-              padding: 0;
+              background-color: #ffc425;
+              padding: 5px 10px;
+              display: block;
+
+              &:hover {
+                background-color: #ffb41a;
+              }
 
               a {
-                color: #000;
+                color: #fff;
                 font-size: 1rem;
                 font-family: "Avenir Next";
-                
-                span {
-                  font-size: 0.8125rem;
-                  font-family: "Georgia";
-                  color: rgb(48, 62, 72);
-                  line-height: 1.25;
-                  width: 25%;
-                  display: block;
-                }
               }
+            }
+            .sub-menu {
+              left: 100%;
+              top: 0;
+              margin-top: 0;
             }
           }
         }
 
         .sub-menu {
           display: none;
-          min-height: 300px;
         }
 
         a {
@@ -165,13 +212,13 @@ header {
 
       li {
 
-        &:hover {
-          > .sub-menu {
-            left: $submenu-left + 67px;
-            width: $submenu-width - 200px;
-
-          }
-        }
+        //&:hover {
+        //  > .sub-menu {
+        //    left: $submenu-left + 67px;
+        //    width: $submenu-width - 200px;
+        //
+        //  }
+        //}
       }
     }
   }
@@ -184,13 +231,13 @@ header {
 
       li {
 
-        &:hover {
-          > .sub-menu {
-            left: $submenu-left + 140px;
-            width: $submenu-width - 420px;
-
-          }
-        }
+        //&:hover {
+        //  > .sub-menu {
+        //    left: $submenu-left + 140px;
+        //    width: $submenu-width - 420px;
+        //
+        //  }
+        //}
       }
     }
     .search {

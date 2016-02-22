@@ -33,7 +33,7 @@ header {
       float: left;
 
       #nav{
-        > li {
+        > li:not(:last-child) {
           a{
             position: relative;
             z-index: 2;

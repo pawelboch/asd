@@ -32,6 +32,49 @@ header {
       text-transform: uppercase;
       float: left;
 
+      #nav{
+        > li {
+          a{
+            position: relative;
+            z-index: 2;
+          }
+
+          &:hover{
+            &:before,
+            &:after,
+            & > a:before,
+            & > a:after {
+              position:absolute;
+              width:5px;
+              height: 5px;
+              border-color: #fff;
+              border-style: solid;
+              content: ' ';
+            }
+            &:before {
+              top:-3px;
+              left:5px;
+              border-width: 2px 0 0 2px
+            }
+            &:after {
+              bottom: -3px;
+              left: 5px;
+              border-width: 0 0 2px 2px
+            }
+            & > a:after {
+              bottom:-3px;
+              right:-10px;
+              border-width: 0 2px 2px 0
+            }
+            & > a:before {
+              top:-3px;
+              right:-10px;
+              border-width: 2px 2px 0 0
+            }
+          }
+        }
+      }
+
       li {
         display: inline;
         padding: $main-nav-li;
@@ -53,6 +96,7 @@ header {
             display: block;
             position: absolute;
             padding: 0;
+            padding-top: 5px;
             left: 0;
             top: 1rem;
             margin-top: 5px;
@@ -72,8 +116,6 @@ header {
                 color: #fff;
                 font-size: 1rem;
                 font-family: "Avenir Next";
-                
-
               }
             }
             .sub-menu {
@@ -170,13 +212,13 @@ header {
 
       li {
 
-        &:hover {
-          > .sub-menu {
-            left: $submenu-left + 67px;
-            width: $submenu-width - 200px;
-
-          }
-        }
+        //&:hover {
+        //  > .sub-menu {
+        //    left: $submenu-left + 67px;
+        //    width: $submenu-width - 200px;
+        //
+        //  }
+        //}
       }
     }
   }
@@ -189,13 +231,13 @@ header {
 
       li {
 
-        &:hover {
-          > .sub-menu {
-            left: $submenu-left + 140px;
-            width: $submenu-width - 420px;
-
-          }
-        }
+        //&:hover {
+        //  > .sub-menu {
+        //    left: $submenu-left + 140px;
+        //    width: $submenu-width - 420px;
+        //
+        //  }
+        //}
       }
     }
     .search {

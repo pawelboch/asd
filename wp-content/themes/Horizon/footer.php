@@ -31,8 +31,10 @@
 				</div> <!-- /container -->
 				<div class="rights">
 					<div class="container">
-						© 2015 Horizon Investments, LLC. All Rights Reserved.
-					</div>
+						<span>
+							© 2015 Horizon Investments, LLC. All Rights Reserved.
+						</span>
+					</>
 				</div>
 				<?php wp_footer(); ?>
 			</footer>

@@ -13,6 +13,6 @@
 	</p>
 
 	<h3>Compiler console</h3>
-	<div id="console"><?php echo $this->console; ?></div>
+	<div id="console"><?php echo \Pagebox\Sass\Console::getInstance()->getHtml(); ?></div>
 
 </div>

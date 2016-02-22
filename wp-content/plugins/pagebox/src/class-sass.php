@@ -56,38 +56,44 @@ class Sass {
 		if ( !is_super_admin() || !is_admin_bar_showing() )
 			return;
 
-		$class = '';
-		if( $this->getPermissionTestStatus() === false ) {
-			$class = ' blink-error';
+		if( $this->getPermissionTestStatus() === false || $this->overallTest() === false ) {
+			$wp_admin_bar->add_node( array(
+				'id'    => 'pagebox_sass_menu',
+				'title' => '<span class="ab-icon dashicons dashicons-update" style="padding:6px 0;font-size:20px"></span><span class="ab-label">Go to Sass console</span>',
+				'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler' ),
+				'meta'  => array(
+					'class' => 'pagebox-sass-compiler-bar blink-error'
+				)
+			));
+		} else {
+			$wp_admin_bar->add_node( array(
+				'id'    => 'pagebox_sass_menu',
+				'title' => '<span class="ab-icon dashicons dashicons-update" style="padding:6px 0;font-size:20px"></span><span class="ab-label">Recompile Scss</span>',
+				'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile' ),
+				'meta'  => array(
+					'class'   => 'pagebox-sass-compiler-bar',
+					'onclick' => 'return confirm("Are You sure?");'
+				)
+			) );
+			$wp_admin_bar->add_node( array(
+				'parent' => 'pagebox_sass_menu',
+				'id'     => 'pagebox_sass_menu_theme',
+				'title'  => 'Recompile theme',
+				'href'   => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile_theme' ),
+				'meta'   => array(
+					'onclick' => 'return confirm("Are You sure?");'
+				)
+			) );
+			$wp_admin_bar->add_node( array(
+				'parent' => 'pagebox_sass_menu',
+				'id'     => 'pagebox_sass_menu_modules',
+				'title'  => 'Recompile modules',
+				'href'   => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile_modules' ),
+				'meta'   => array(
+					'onclick' => 'return confirm("Are You sure?");'
+				)
+			) );
 		}
-
-		$wp_admin_bar->add_node( array(
-			'id'    => 'pagebox_sass_menu',
-			'title' => '<span class="ab-icon dashicons dashicons-update" style="padding:6px 0;font-size:20px"></span><span class="ab-label">Recompile Scss</span>',
-			'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile' ),
-			'meta'  => array(
-				'class' => 'pagebox-sass-compiler-bar' . $class,
-				'onclick' => 'return confirm("Are You sure?");'
-			)
-		));
-		$wp_admin_bar->add_node( array(
-			'parent' => 'pagebox_sass_menu',
-			'id'    => 'pagebox_sass_menu_theme',
-			'title' => 'Recompile theme',
-			'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile_theme' ),
-			'meta'  => array(
-				'onclick' => 'return confirm("Are You sure?");'
-			)
-		));
-		$wp_admin_bar->add_node( array(
-			'parent' => 'pagebox_sass_menu',
-			'id'    => 'pagebox_sass_menu_modules',
-			'title' => 'Recompile modules',
-			'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile_modules' ),
-			'meta'  => array(
-				'onclick' => 'return confirm("Are You sure?");'
-			)
-		));
 	}
 
 	public function addAdminPage() {
@@ -107,6 +113,40 @@ class Sass {
 			$cache = glob( $this->template_directory . '/pagebox/modules/*', GLOB_ONLYDIR );
 		}
 		return $cache;
+	}
+
+	private function overallTest() {
+		$test = true;
+		if( $this->debug ) $this->console->time('overall')->addHeader('Production test');
+		if( defined('WP_DEBUG') ) {
+			if ( WP_DEBUG === false ) {
+				if ( $this->debug ) {
+					$this->console->add( 'Environment: <b>Production</b> (WP_DEBUG => false)' );
+				}
+				$file = $this->template_directory . '/assets/stylesheets/css/style.min.css';
+				if ( ! is_file( $file ) ) {
+					if ( $this->debug ) {
+						$this->console
+							->addError( $file, 'is not exists!' )
+							->add( 'To <b>repair</b> please run "<u>Recompile</u>" task immediately.' );
+					}
+					$test = false;
+				}
+			} else {
+				if ( $this->debug ) {
+					$this->console->add( 'Environment: <b>Development</b> (WP_DEBUG => true)' );
+				}
+			}
+		}
+		if( $this->debug ) {
+			if( $test ) {
+				$this->console->addStyled( '<span>All is OK</span>', 'success' );
+			} else {
+				$this->console->addStyled( '<span>Houston, we have a problem.</span>', 'error' );
+			}
+			$this->console->timeEnd('overall');
+		}
+		return $test;
 	}
 
 	private function permissionsTest() {
@@ -326,6 +366,7 @@ class Sass {
 	public function sassCompilePage() {
 		$this->debug = true;
 		$this->console->time('all');
+		$this->overallTest();
 		$permission_test = $this->permissionsTest();
 
 		if( $permission_test ) {

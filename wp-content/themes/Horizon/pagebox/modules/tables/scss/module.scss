@@ -1,5 +1,6 @@
 @import "module-variables";
 @import "vendor/compass/css3/user-interface";
+@import "assets/stylesheets/scss/theme-config";
 
 $border-bottom: 2px solid #c2c2c2;
 
@@ -12,6 +13,8 @@ $border-bottom: 2px solid #c2c2c2;
   .tabs {
     .row {
       .head {
+        position: relative;
+
         .title {
 
           h2 {
@@ -44,6 +47,19 @@ $border-bottom: 2px solid #c2c2c2;
             }
           }
         }
+
+        .navigation-arrows {
+          display: none;
+          position: absolute;
+          right: 40px;
+          top: 10px;
+
+          .arrow {
+            display: block;
+            width: 10px;
+          }
+
+        }
       }
 
       .content {
@@ -70,6 +86,21 @@ $border-bottom: 2px solid #c2c2c2;
 
       }
 
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, sm) ) {
+    .tabs {
+      .row {
+        .head {
+          .title:not(.active) {
+            display: none;
+          }
+          .navigation-arrows{
+            display: block;
+          }
+        }
+      }
     }
   }
 }

@@ -1,19 +1,20 @@
 <?php
-/**
- *
- * @since 1.0.0
- *
- * @package pagebox
- */
 
-namespace Pagebox;
+namespace Pagebox\Sass;
 
 /**
- * Permission class
+ * Class Permission
+ * @package Pagebox\Sass
  * @author Piotr Grzesiak
  */
 class Permission {
 
+	/**
+	 * Check file is exists and writable.
+	 *
+	 * @param string $path File path
+	 * @return int status
+	 */
 	public static function file( $path ) {
 		if ( is_file( $path ) ) {
 			if ( is_writable( $path ) ) {
@@ -26,6 +27,13 @@ class Permission {
 		}
 	}
 
+	/**
+	 * Check dir is exists and writable.
+	 * If not exists, try to create.
+	 *
+	 * @param string $path Dir path
+	 * @return bool
+	 */
 	public static function dir( $path ) {
 		if ( is_dir( $path ) ) {
 			if ( is_writable( $path ) ) {

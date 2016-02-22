@@ -9,6 +9,8 @@
 namespace Pagebox;
 
 use Leafo\ScssPhp\Compiler;
+use Pagebox\Sass\Console;
+use Pagebox\Sass\Permission;
 use WPG_Pagebox;
 
 class Sass {
@@ -23,6 +25,8 @@ class Sass {
 		$this->pagebox = $pagebox;
 		$this->template_directory = get_template_directory();
 
+		$this->console = Console::getInstance();
+
 		add_action( 'admin_bar_menu', array( $this, 'addMenuBar' ), 999 );
 		add_action( 'admin_menu', array( $this, 'addAdminPage' ) );
 		add_action( 'admin_print_scripts', array( $this, 'addStyles' ) );
@@ -36,7 +40,8 @@ class Sass {
 
 	public function cronTask() {
 		if( ! is_admin() ) return;
-		update_option( 'pagebox-sass-permission-test', $this->permissionsTest( false ) );
+		$this->debug = false;
+		update_option( 'pagebox-sass-permission-test', $this->permissionsTest() );
 	}
 
 	public function getPermissionTestStatus() {
@@ -51,38 +56,44 @@ class Sass {
 		if ( !is_super_admin() || !is_admin_bar_showing() )
 			return;
 
-		$class = '';
-		if( $this->getPermissionTestStatus() === false ) {
-			$class = ' blink-error';
+		if( $this->getPermissionTestStatus() === false || $this->overallTest() === false ) {
+			$wp_admin_bar->add_node( array(
+				'id'    => 'pagebox_sass_menu',
+				'title' => '<span class="ab-icon dashicons dashicons-update" style="padding:6px 0;font-size:20px"></span><span class="ab-label">Go to Sass console</span>',
+				'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler' ),
+				'meta'  => array(
+					'class' => 'pagebox-sass-compiler-bar blink-error'
+				)
+			));
+		} else {
+			$wp_admin_bar->add_node( array(
+				'id'    => 'pagebox_sass_menu',
+				'title' => '<span class="ab-icon dashicons dashicons-update" style="padding:6px 0;font-size:20px"></span><span class="ab-label">Recompile Scss</span>',
+				'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile' ),
+				'meta'  => array(
+					'class'   => 'pagebox-sass-compiler-bar',
+					'onclick' => 'return confirm("Are You sure?");'
+				)
+			) );
+			$wp_admin_bar->add_node( array(
+				'parent' => 'pagebox_sass_menu',
+				'id'     => 'pagebox_sass_menu_theme',
+				'title'  => 'Recompile theme',
+				'href'   => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile_theme' ),
+				'meta'   => array(
+					'onclick' => 'return confirm("Are You sure?");'
+				)
+			) );
+			$wp_admin_bar->add_node( array(
+				'parent' => 'pagebox_sass_menu',
+				'id'     => 'pagebox_sass_menu_modules',
+				'title'  => 'Recompile modules',
+				'href'   => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile_modules' ),
+				'meta'   => array(
+					'onclick' => 'return confirm("Are You sure?");'
+				)
+			) );
 		}
-
-		$wp_admin_bar->add_node( array(
-			'id'    => 'pagebox_sass_menu',
-			'title' => '<span class="ab-icon dashicons dashicons-update" style="padding:6px 0;font-size:20px"></span><span class="ab-label">Recompile Scss</span>',
-			'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile' ),
-			'meta'  => array(
-				'class' => 'pagebox-sass-compiler-bar' . $class,
-				'onclick' => 'return confirm("Are You sure?");'
-			)
-		));
-		$wp_admin_bar->add_node( array(
-			'parent' => 'pagebox_sass_menu',
-			'id'    => 'pagebox_sass_menu_theme',
-			'title' => 'Recompile theme',
-			'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile_theme' ),
-			'meta'  => array(
-				'onclick' => 'return confirm("Are You sure?");'
-			)
-		));
-		$wp_admin_bar->add_node( array(
-			'parent' => 'pagebox_sass_menu',
-			'id'    => 'pagebox_sass_menu_modules',
-			'title' => 'Recompile modules',
-			'href'  => admin_url( 'admin.php?page=pagebox-sass-compiler&task=recompile_modules' ),
-			'meta'  => array(
-				'onclick' => 'return confirm("Are You sure?");'
-			)
-		));
 	}
 
 	public function addAdminPage() {
@@ -104,149 +115,163 @@ class Sass {
 		return $cache;
 	}
 
-	private function permissionsTest( $debug = true ) {
-		$start = microtime( true );
+	private function overallTest() {
+		$test = true;
+		if( $this->debug ) $this->console->time('overall')->addHeader('Production test');
+		if( defined('WP_DEBUG') ) {
+			if ( WP_DEBUG === false ) {
+				if ( $this->debug ) {
+					$this->console->add( 'Environment: <b>Production</b> (WP_DEBUG => false)' );
+				}
+				$file = $this->template_directory . '/assets/stylesheets/css/style.min.css';
+				if ( ! is_file( $file ) ) {
+					if ( $this->debug ) {
+						$this->console
+							->addError( $file, 'is not exists!' )
+							->add( 'To <b>repair</b> please run "<u>Recompile</u>" task immediately.' );
+					}
+					$test = false;
+				}
+			} else {
+				if ( $this->debug ) {
+					$this->console->add( 'Environment: <b>Development</b> (WP_DEBUG => true)' );
+				}
+			}
+		}
+		if( $this->debug ) {
+			if( $test ) {
+				$this->console->addStyled( '<span>All is OK</span>', 'success' );
+			} else {
+				$this->console->addStyled( '<span>Houston, we have a problem.</span>', 'error' );
+			}
+			$this->console->timeEnd('overall');
+		}
+		return $test;
+	}
+
+	private function permissionsTest() {
 		$path = $this->template_directory;
 		$test = true;
 
-		if( $debug ) $this->addConsoleHeader( 'Permission tests' );
+		if( $this->debug ) {
+			$this->console->time('permission')->addHeader( 'Permission tests' );
+		}
 
-		$file = '/assets/stylesheets/css/';
-		if( Permission::dir( $path . $file ) ) {
-			if( $debug ) $this->addConsoleString( $file . ' <span>is writable.</span>', 'success' );
+		$file = $path . '/assets/stylesheets/css/';
+		if( Permission::dir( $file ) ) {
+			if( $this->debug ) $this->console->addSuccess( $file, 'is writable.' );
 		} else {
-			if( $debug ) $this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
+			if( $this->debug ) $this->console->addError( $file, 'is not writable.' );
 			$test = false;
 		}
 
-		$file = '/assets/stylesheets/css/style.css';
-		$p = Permission::file( $path . $file );
-		if( $p === 1 ) {
-			if( $debug ) $this->addConsoleString( $file . ' <span>is exist and writable.</span>', 'success' );
-		} else if( $p == -1 ) {
-			if( $debug ) $this->addConsoleString( $file . ' <span>is not exists jet.</span>', 'warning' );
-		} else {
-			if( $debug ) $this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
-			$test = false;
+		function checkFile( Console $console, $debug, $file, $test ) {
+			$p = Permission::file( $file );
+			if( $p === 1 ) {
+				if( $debug ) $console->addSuccess( $file, 'is exist and writable.' );
+			} else if( $p == -1 ) {
+				if( $debug ) $console->addWarning( $file, 'is not exists jet.' );
+			} else {
+				if( $debug ) $console->addError( $file, 'is not writable.' );
+				$test = false;
+			}
+			return $test;
 		}
 
-		$file = '/assets/stylesheets/css/bootstrap.css';
-		$p = Permission::file( $path . $file );
-		if( $p === 1 ) {
-			if( $debug ) $this->addConsoleString( $file . ' <span>is exist and writable.</span>', 'success' );
-		} else if( $p == -1 ) {
-			if( $debug ) $this->addConsoleString( $file . ' <span>is not exists jet.</span>', 'warning' );
-		} else {
-			if( $debug ) $this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
-			$test = false;
-		}
+		$test = checkFile( $this->console, $this->debug, $path . '/assets/stylesheets/css/style.css', $test );
+		$test = checkFile( $this->console, $this->debug, $path . '/assets/stylesheets/css/bootstrap.css', $test );
+		$test = checkFile( $this->console, $this->debug, $path . '/assets/stylesheets/css/style.min.css', $test );
 
-		$file = '/assets/stylesheets/css/style.min.css';
-		$p = Permission::file( $path . $file );
-		if( $p === 1 ) {
-			if( $debug ) $this->addConsoleString( $file . ' <span>is exist and writable.</span>', 'success' );
-		} else if( $p == -1 ) {
-			if( $debug ) $this->addConsoleString( $file . ' <span>is not exists jet.</span>', 'warning' );
-		} else {
-			if( $debug ) $this->addConsoleString( $file . ' <span>is not writable.</span>', 'error' );
-			$test = false;
-		}
-
-		$path_length = strlen( $path );
 		foreach( $this->getModulesPathsArray() as $dir ) {
-			$basename = basename( $dir );
-			$dir_name = str_replace( $basename, '<b>'.$basename.'</b>', substr( $dir, $path_length ));
 			$dir_test = true;
 			if( ! Permission::dir( $dir ) ) {
-				if( $debug ) $this->addConsoleString( $dir_name . '/ <span>is not writable.</span>', 'error' );
+				if( $this->debug ) $this->console->addError( $dir, 'is not writable.' );
 				$dir_test = false;
 			}
 			if( ! Permission::dir( $dir . '/css' ) ) {
-				if( $debug ) $this->addConsoleString( $dir_name . '/css/ <span>is not writable.</span>', 'error' );
+				if( $this->debug ) $this->console->addError( $dir . '/css', 'is not writable.' );
 				$dir_test = false;
 			}
 			if( ! Permission::dir( $dir . '/scss' ) ) {
-				if( $debug ) $this->addConsoleString( $dir_name . '/scss/ <span>is not writable.</span>', 'error' );
+				if( $this->debug ) $this->console->addError( $dir . '/scss', 'is not writable.' );
 				$dir_test = false;
 			}
 			$p = Permission::file( $dir . '/compiler.map' );
 			if( $p == -1 ) {
-				if( $debug ) $this->addConsoleString( $dir_name . '/compiler.map <span>is not exists jet.</span>', 'warning' );
+				if( $this->debug ) $this->console->addWarning( $dir . '/compiler.map', 'is not exists jet.' );
 			} else if( $p === 0 ) {
-				if( $debug ) $this->addConsoleString( $dir_name . '/compiler.map <span>is not writable.</span>', 'error' );
+				if( $this->debug ) $this->console->addError( $dir . '/compiler.map', 'is not writable.' );
 				$dir_test = false;
 			}
 			$p = Permission::file( $dir . '/css/module.css' );
 			if( $p == -1 ) {
-				if( $debug ) $this->addConsoleString( $dir_name . '/css/module.css <span>is not exists jet.</span>', 'warning' );
+				if( $this->debug ) $this->console->addWarning( $dir . '/css/module.css', 'is not exists jet.' );
 			} else if( $p === 0 ) {
-				if( $debug ) $this->addConsoleString( $dir_name . '/css/module.css <span>is not writable.</span>', 'error' );
+				if( $this->debug ) $this->console->addError( $dir . '/css/module.css', 'is not writable.' );
 				$dir_test = false;
 			}
 			$p = Permission::file( $dir . '/scss/_module-variables.scss' );
 			if( $p == -1 ) {
-				if( $debug ) $this->addConsoleString( $dir_name . '/scss/_module-variables.scss <span>is not exists jet.</span>', 'warning' );
+				if( $this->debug ) $this->console->addWarning( $dir . '/scss/_module-variables.scss', 'is not exists jet.' );
 			} else if( $p === 0 ) {
-				if( $debug ) $this->addConsoleString( $dir_name . '/scss/_module-variables.scss <span>is not writable.</span>', 'error' );
+				if( $this->debug ) $this->console->addError( $dir . '/scss/_module-variables.scss', 'is not writable.' );
 				$dir_test = false;
 			}
 			if( $dir_test ) {
-				if( $debug ) $this->addConsoleString( $dir_name . '/ <span>is writable.</span>', 'success' );
+				if( $this->debug ) $this->console->addSuccess( $dir, 'is writable.' );
 			} else {
 				$test = false;
 			}
 		}
 
-		if( $debug ) $this->addConsoleRaw(sprintf('Total %dms', (microtime(true) - $start)*1000));
+		if( $this->debug ) $this->console->timeEnd('permission');
 		return $test;
 	}
 
 	private function compileTo( Compiler $sass, $from, $to ) {
-		$this->addConsoleHeader('Compile ' . str_replace( $this->template_directory, '', $from ));
+		if( $this->debug ) $this->console->time('compile')->addHeader( 'Compile ' . str_replace( $this->template_directory, '', $from ));
 		if( ! is_file( $from ) ) {
-			$this->addConsoleString( $from . ' <span>not exists!</span>', 'error' );
+			if( $this->debug ) $this->console->addError( $from, 'not exists!' );
 			return;
 		}
 		if( ! is_readable( $from ) ) {
-			$this->addConsoleString( $from . ' <span>is not readable!</span>', 'error' );
+			if( $this->debug ) $this->console->addError( $from, 'is not readable!' );
 			return;
 		}
 		$source = file_get_contents( $from );
 		if( $source === false ) {
-			$this->addConsoleString( $from . ' <span>read error!</span>', 'error' );
+			if( $this->debug ) $this->console->addError( $from, 'read error!' );
 			return;
 		}
 		$error = false;
-		$start = microtime( true );
 		try {
 			ob_start();
 			$output = $sass->compile( $source );
 			$error_output = ob_get_clean();
 		} catch ( \Exception $e ) {
 			$error = true;
-			$this->addConsoleString( $e->getMessage(), 'error' );
+			if( $this->debug ) $this->console->addStyled( $e->getMessage(), 'error' );
 		}
 		if( $error_output ) {
 			foreach( explode( "\n", $error_output ) as $warning ) {
 				if( strlen( $warning) > 0 )
-					$this->addConsoleString( $warning, 'warning' );
+					if( $this->debug ) $this->console->addStyled( $warning, 'warning' );
 			}
 		}
 		if( $error ) {
-			$this->addConsoleString( '<span>Compilation failed.</span>', 'error' );
+			if( $this->debug ) $this->console->addStyled( '<span>Compilation failed.</span>', 'error' );
 		} else {
-			$this->addConsoleString( '<span>Compilation success.</span>', 'success' );
+			if( $this->debug ) $this->console->addStyled( '<span>Compilation success.</span>', 'success' );
 			if( file_put_contents( $to, $output, LOCK_EX )) {
-				$this->addConsoleString( str_replace( $this->template_directory, '', $to ) . ' <span>saved successfully.</span>', 'success' );
+				if( $this->debug ) $this->console->addSuccess( $to, 'saved successfully.' );
 			} else {
-				$this->addConsoleString( str_replace( $this->template_directory, '', $to ) . ' <span>error when saving!</span>', 'error' );
+				if( $this->debug ) $this->console->addError( $to, 'error when saving!' );
 			}
 		}
-		$this->addConsoleRaw( sprintf('Total in %.2fs', microtime(true) - $start) );
+		if( $this->debug ) $this->console->timeEnd('compile');
 	}
 
 	public function compileTheme() {
-		$this->debug = true;
 		$path = $this->template_directory;
 		$sass = $this->getCompiler();
 		$sass->addImportPath( $path . '/assets/stylesheets/scss' );
@@ -260,59 +285,51 @@ class Sass {
 			$path . '/assets/stylesheets/scss/style.scss',
 			$path . '/assets/stylesheets/css/style.css'
 		);
-		$this->debug = false;
 	}
 
 	public function compileModules() {
-		$this->debug = true;
-		$total = microtime(true);
 		$path = $this->template_directory;
-		$path_length = strlen( $path );
 
-		$this->addConsoleHeader('Clear compiler cache');
-		$start = microtime( true );
+		$this->console->time('clear_cache')->addHeader('Clear compiler cache');
 		foreach( $this->getModulesPathsArray() as $dir ) {
 			$file = $dir . '/compiler.map';
 			if( is_file( $file )) {
 				if( unlink( $file )) {
-					$this->addConsoleString( substr( $file, $path_length ) . ' <span>removed successfully.</span>', 'success' );
+					$this->console->addSuccess( $file, 'removed successfully.' );
 				} else {
-					$this->addConsoleString( substr( $file, $path_length ) . ' <span>error when removing!</span>', 'error' );
+					$this->console->addError( $file, 'error when removing!' );
 				}
 			} else {
-				$this->addConsoleString( substr( $file, $path_length ) . ' <span>not exists.</span>', 'warning' );
+				$this->console->addWarning( $file, 'not exists.' );
 			}
 		}
-		$this->addConsoleRaw( sprintf( 'Total in %.2fs', microtime( true ) - $start ));
+		$this->console->timeEnd('clear_cache');
 
-		$this->addConsoleHeader('Search for posts and pages');
-		$start = microtime( true );
+		$this->console->time('search')->addHeader('Search for posts and pages');
 		$settings = get_option( 'pagebox_settings' );
 		$posts = get_posts( array(
 			'posts_per_page'    => -1,
 			'post_type'         => $settings['post_types'],
 			'post_status'       => 'any'
 		));
-		$all_posts = count( $posts );
-		$this->addConsoleString( 'Finded <span>' . $all_posts . '</span>', 'success' );
-		$this->addConsoleRaw( sprintf( 'Total in %.2fs', microtime( true ) - $start ));
+		$this->console->addStyled( 'Finded <span>' . count( $posts ) . '</span>', 'success' )->timeEnd('search');
 
 		foreach( $posts as $post ) {
-			$start = microtime( true );
+			$this->console->time('regenerate');
 			$modules = get_post_meta( $post->ID, 'pagebox_modules' )[0];
 			if( is_array( $modules )) {
 				$this->last_post_id = $post->ID;
-				$this->addConsoleHeader( sprintf('%s (%d): "%s"', ucfirst($post->post_type), $post->ID, $post->post_title ) );
+				$this->console->addHeader( sprintf('%s (%d): "%s"', ucfirst($post->post_type), $post->ID, $post->post_title ) );
 				$this->regenerateCompilerCache( $modules );
-				$this->addConsoleRaw( sprintf( 'Total in %.2fs', microtime( true ) - $start ));
+				$this->console->timeEnd('regenerate');
 			}
 		}
 
-		$this->addConsoleHeader( 'Generate module variables file for Sass' );
+		$this->console->time('module_variables')->addHeader( 'Generate module variables file for Sass' );
 		foreach( $this->getModulesPathsArray() as $dir ) {
 			$this->saveModuleVariables( $dir, $this->loadMap( $dir ));
 		}
-		$this->addConsoleRaw( sprintf( 'Total in %.2fs', microtime( true ) - $start ));
+		$this->console->timeEnd('module_variables');
 
 		$sass = $this->getCompiler();
 		foreach( $this->getModulesPathsArray() as $dir ) {
@@ -326,9 +343,6 @@ class Sass {
 				$dir . '/css/module.css'
 			);
 		}
-
-		$this->addConsoleRaw( sprintf( '<br>All in %.2fs', microtime( true ) - $total ));
-		$this->debug = false;
 	}
 
 	public function router( $task ) {
@@ -350,6 +364,9 @@ class Sass {
 	}
 
 	public function sassCompilePage() {
+		$this->debug = true;
+		$this->console->time('all');
+		$this->overallTest();
 		$permission_test = $this->permissionsTest();
 
 		if( $permission_test ) {
@@ -360,35 +377,13 @@ class Sass {
 					'minify'
 				) )
 			) {
-				$this->clearConsole();
-				$this->addConsoleString( 'Permission tests: <span>OK</span>', 'success' );
+				$this->console->clear()->addStyled( 'Permission tests: <span>OK</span>', 'success' );
 				$this->router( $_GET['task'] );
 			}
 		}
-
+		$this->console->addHeader('Summary')->timeEnd('all');
+		$this->debug = false;
 		include( plugin_dir_path( __DIR__ ) . 'src/public/partials/sass/compiler.php' );
-	}
-
-	public function clearConsole() {
-		$this->console = '';
-	}
-
-	public function addConsoleHeader( $string ) {
-		if( ! $this->debug ) return;
-		if( strlen( $this->console ) > 0 ) {
-			$this->console .= '<br>';
-		}
-		$this->console .= '<u>' . $string . ':</u><br>';
-	}
-
-	public function addConsoleRaw( $string ) {
-		if( ! $this->debug ) return;
-		$this->console .= $string . '<br>';
-	}
-
-	public function addConsoleString( $string, $class = '' ) {
-		if( ! $this->debug ) return;
-		$this->console .= '<span class="'.$class.'"><span>&gt;&gt; </span>' . $string . '</span><br>';
 	}
 
 	public function loadMap( $path ) {
@@ -403,14 +398,9 @@ class Sass {
 		);
 	}
 
-	public function saveMap( $path, array $array, $force = false ) {
+	public function saveMap( $path, array $array ) {
 		$file = $path . DIRECTORY_SEPARATOR . 'compiler.map';
-		$len = strlen( $this->template_directory );
-		if ( file_put_contents( $file, serialize( $array ), LOCK_EX ) ) {
-			//$this->addConsoleString( substr( $file, $len ) . ' <span>saved successfully.</span>', 'success' );
-		} else {
-			//$this->addConsoleString( substr( $file, $len ) . ' <span>error when saving!</span>', 'error' );
-		}
+		file_put_contents( $file, serialize( $array ), LOCK_EX );
 	}
 
 	public function saveModuleVariables( $path, array $map ) {
@@ -420,9 +410,9 @@ class Sass {
 			$this->parseMapToScss( $map ),
 			LOCK_EX
 		)) {
-			$this->addConsoleString( str_replace( $this->template_directory, '', $path ) . ' <span>saved successfully.</span>', 'success' );
+			$this->console->addSuccess( $path, 'saved successfully.' );
 		} else {
-			$this->addConsoleString( str_replace( $this->template_directory, '', $path ) . ' <span>error when saving!</span>', 'error' );
+			$this->console->addError( $path, 'error when saving!' );
 		}
 	}
 
@@ -557,7 +547,7 @@ EOD;
 				$data = $this->json_safe_decode( $data );
 				$module = $this->pagebox->modules->get_module( $data->slug );
 				if( $module ) {
-					$this->addConsoleString( $data->slug . ' <span>module added.</span>', 'success' );
+					$this->console->addStyled( $data->slug . ' <span>module added.</span>', 'success' );
 					$path = $module->get_path();
 
 					$map = $this->loadMap( $path );

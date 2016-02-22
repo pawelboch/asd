@@ -2,12 +2,13 @@
 /**
  * @author   Piotr Grzesiak
  * @since    1.0.0
- * 
+ *
  * @package  pagebox
  */
 
 namespace Pagebox;
 
+use Leafo\ScssPhp\Compiler;
 use WPG_Pagebox;
 
 class Sass {
@@ -15,6 +16,8 @@ class Sass {
 	private $pagebox;
 	private $console = '';
 	private $template_directory;
+	private $debug = false;
+	private $last_post_id = 0;
 
 	public function __construct( WPG_Pagebox $pagebox ) {
 		$this->pagebox = $pagebox;
@@ -198,21 +201,193 @@ class Sass {
 		return $test;
 	}
 
+	private function compileTo( Compiler $sass, $from, $to ) {
+		$this->addConsoleHeader('Compile ' . str_replace( $this->template_directory, '', $from ));
+		if( ! is_file( $from ) ) {
+			$this->addConsoleString( $from . ' <span>not exists!</span>', 'error' );
+			return;
+		}
+		if( ! is_readable( $from ) ) {
+			$this->addConsoleString( $from . ' <span>is not readable!</span>', 'error' );
+			return;
+		}
+		$source = file_get_contents( $from );
+		if( $source === false ) {
+			$this->addConsoleString( $from . ' <span>read error!</span>', 'error' );
+			return;
+		}
+		$error = false;
+		$start = microtime( true );
+		try {
+			ob_start();
+			$output = $sass->compile( $source );
+			$error_output = ob_get_clean();
+		} catch ( \Exception $e ) {
+			$error = true;
+			$this->addConsoleString( $e->getMessage(), 'error' );
+		}
+		if( $error_output ) {
+			foreach( explode( "\n", $error_output ) as $warning ) {
+				if( strlen( $warning) > 0 )
+					$this->addConsoleString( $warning, 'warning' );
+			}
+		}
+		if( $error ) {
+			$this->addConsoleString( '<span>Compilation failed.</span>', 'error' );
+		} else {
+			$this->addConsoleString( '<span>Compilation success.</span>', 'success' );
+			if( file_put_contents( $to, $output, LOCK_EX )) {
+				$this->addConsoleString( str_replace( $this->template_directory, '', $to ) . ' <span>saved successfully.</span>', 'success' );
+			} else {
+				$this->addConsoleString( str_replace( $this->template_directory, '', $to ) . ' <span>error when saving!</span>', 'error' );
+			}
+		}
+		$this->addConsoleRaw( sprintf('Total in %.2fs', microtime(true) - $start) );
+	}
+
+	public function compileTheme() {
+		$this->debug = true;
+		$path = $this->template_directory;
+		$sass = $this->getCompiler();
+		$sass->addImportPath( $path . '/assets/stylesheets/scss' );
+		$this->compileTo(
+			$sass,
+			$path . '/assets/stylesheets/scss/bootstrap.scss',
+			$path . '/assets/stylesheets/css/bootstrap.css'
+		);
+		$this->compileTo(
+			$sass,
+			$path . '/assets/stylesheets/scss/style.scss',
+			$path . '/assets/stylesheets/css/style.css'
+		);
+		$this->debug = false;
+	}
+
+	public function compileModules() {
+		$this->debug = true;
+		$total = microtime(true);
+		$path = $this->template_directory;
+		$path_length = strlen( $path );
+
+		$this->addConsoleHeader('Clear compiler cache');
+		$start = microtime( true );
+		foreach( $this->getModulesPathsArray() as $dir ) {
+			$file = $dir . '/compiler.map';
+			if( is_file( $file )) {
+				if( unlink( $file )) {
+					$this->addConsoleString( substr( $file, $path_length ) . ' <span>removed successfully.</span>', 'success' );
+				} else {
+					$this->addConsoleString( substr( $file, $path_length ) . ' <span>error when removing!</span>', 'error' );
+				}
+			} else {
+				$this->addConsoleString( substr( $file, $path_length ) . ' <span>not exists.</span>', 'warning' );
+			}
+		}
+		$this->addConsoleRaw( sprintf( 'Total in %.2fs', microtime( true ) - $start ));
+
+		$this->addConsoleHeader('Search for posts and pages');
+		$start = microtime( true );
+		$settings = get_option( 'pagebox_settings' );
+		$posts = get_posts( array(
+			'posts_per_page'    => -1,
+			'post_type'         => $settings['post_types'],
+			'post_status'       => 'any'
+		));
+		$all_posts = count( $posts );
+		$this->addConsoleString( 'Finded <span>' . $all_posts . '</span>', 'success' );
+		$this->addConsoleRaw( sprintf( 'Total in %.2fs', microtime( true ) - $start ));
+
+		foreach( $posts as $post ) {
+			$start = microtime( true );
+			$modules = get_post_meta( $post->ID, 'pagebox_modules' )[0];
+			if( is_array( $modules )) {
+				$this->last_post_id = $post->ID;
+				$this->addConsoleHeader( sprintf('%s (%d): "%s"', ucfirst($post->post_type), $post->ID, $post->post_title ) );
+				$this->regenerateCompilerCache( $modules );
+				$this->addConsoleRaw( sprintf( 'Total in %.2fs', microtime( true ) - $start ));
+			}
+		}
+
+		$this->addConsoleHeader( 'Generate module variables file for Sass' );
+		foreach( $this->getModulesPathsArray() as $dir ) {
+			$this->saveModuleVariables( $dir, $this->loadMap( $dir ));
+		}
+		$this->addConsoleRaw( sprintf( 'Total in %.2fs', microtime( true ) - $start ));
+
+		$sass = $this->getCompiler();
+		foreach( $this->getModulesPathsArray() as $dir ) {
+			$sass->setImportPaths( array(
+				$dir . '/scss',
+				$path . '/assets/stylesheets/scss'
+			));
+			$this->compileTo(
+				$sass,
+				$dir . '/scss/module.scss',
+				$dir . '/css/module.css'
+			);
+		}
+
+		$this->addConsoleRaw( sprintf( '<br>All in %.2fs', microtime( true ) - $total ));
+		$this->debug = false;
+	}
+
+	public function router( $task ) {
+		switch( $task ) {
+			case 'recompile':
+				$this->compileTheme();
+				$this->compileModules();
+				break;
+			case 'recompile_theme':
+				$this->compileTheme();
+				break;
+			case 'recompile_modules':
+				$this->compileModules();
+				break;
+			case 'minify':
+
+				break;
+		}
+	}
+
 	public function sassCompilePage() {
 		$permission_test = $this->permissionsTest();
+
+		if( $permission_test ) {
+			if ( isset( $_GET['task'] ) && in_array( $_GET['task'], array(
+					'recompile',
+					'recompile_theme',
+					'recompile_modules',
+					'minify'
+				) )
+			) {
+				$this->clearConsole();
+				$this->addConsoleString( 'Permission tests: <span>OK</span>', 'success' );
+				$this->router( $_GET['task'] );
+			}
+		}
 
 		include( plugin_dir_path( __DIR__ ) . 'src/public/partials/sass/compiler.php' );
 	}
 
+	public function clearConsole() {
+		$this->console = '';
+	}
+
 	public function addConsoleHeader( $string ) {
+		if( ! $this->debug ) return;
+		if( strlen( $this->console ) > 0 ) {
+			$this->console .= '<br>';
+		}
 		$this->console .= '<u>' . $string . ':</u><br>';
 	}
 
 	public function addConsoleRaw( $string ) {
+		if( ! $this->debug ) return;
 		$this->console .= $string . '<br>';
 	}
 
 	public function addConsoleString( $string, $class = '' ) {
+		if( ! $this->debug ) return;
 		$this->console .= '<span class="'.$class.'"><span>&gt;&gt; </span>' . $string . '</span><br>';
 	}
 
@@ -228,21 +403,36 @@ class Sass {
 		);
 	}
 
-	public function saveMap( $path, array $array ) {
-		file_put_contents( $path . DIRECTORY_SEPARATOR . 'compiler.map', serialize( $array ), LOCK_EX );
+	public function saveMap( $path, array $array, $force = false ) {
+		$file = $path . DIRECTORY_SEPARATOR . 'compiler.map';
+		$len = strlen( $this->template_directory );
+		if ( file_put_contents( $file, serialize( $array ), LOCK_EX ) ) {
+			//$this->addConsoleString( substr( $file, $len ) . ' <span>saved successfully.</span>', 'success' );
+		} else {
+			//$this->addConsoleString( substr( $file, $len ) . ' <span>error when saving!</span>', 'error' );
+		}
 	}
 
 	public function saveModuleVariables( $path, array $map ) {
-		file_put_contents(
-			$path . DIRECTORY_SEPARATOR . 'scss' . DIRECTORY_SEPARATOR . '_module-variables.scss',
+		$path = $path . '/scss/_module-variables.scss';
+		if( file_put_contents(
+			$path,
 			$this->parseMapToScss( $map ),
 			LOCK_EX
-		);
+		)) {
+			$this->addConsoleString( str_replace( $this->template_directory, '', $path ) . ' <span>saved successfully.</span>', 'success' );
+		} else {
+			$this->addConsoleString( str_replace( $this->template_directory, '', $path ) . ' <span>error when saving!</span>', 'error' );
+		}
 	}
 
 	public function getCompiler() {
 		require_once( 'libs/scssphp/scss.inc.php' );
-		return new \Leafo\ScssPhp\Compiler();
+		$scss = new \Leafo\ScssPhp\Compiler();
+		$scss->setNumberPrecision( 10 );
+		$scss->setEncoding( 'UTF-8' );
+		$scss->setFormatter( 'Leafo\ScssPhp\Formatter\Expanded' );
+		return $scss;
 	}
 
 	private function autoQuote( $value ) {
@@ -263,10 +453,14 @@ class Sass {
 		return $value ? $this->autoQuote( $value ) : null;
 	}
 
+	private function getPostID() {
+		return $this->last_post_id > 0 ? $this->last_post_id : get_the_ID();
+	}
+
 	public function getVariablesFromModule( $module, $data ) {
 		if( $module !== false ) {
 
-			$ID = get_the_ID();
+			$ID = $this->getPostID();
 			$variables = array(
 				'_comment' => ucfirst( get_post_type( $ID )) . '('.$ID.'): ' . get_the_title( $ID )
 			);
@@ -346,31 +540,51 @@ EOD;
 		return $out;
 	}
 
+	public function json_safe_decode( $string ) {
+		if( is_array( $string ) || is_object( $string ) ) {
+			return $string;
+		}
+		$decoded = json_decode( $string );
+		if( json_last_error() !== JSON_ERROR_NONE ) {
+			$decoded = json_decode( stripslashes( $string ));
+		}
+		return $decoded;
+	}
+
+	public function regenerateCompilerCache( array $sections ) {
+		foreach( $sections as $section ) {
+			foreach ( $section as $data ) {
+				$data = $this->json_safe_decode( $data );
+				$module = $this->pagebox->modules->get_module( $data->slug );
+				if( $module ) {
+					$this->addConsoleString( $data->slug . ' <span>module added.</span>', 'success' );
+					$path = $module->get_path();
+
+					$map = $this->loadMap( $path );
+					$map['module'] = '.pagebox-' . $data->slug . '-module';
+					$map['template-url'] = get_template_directory_uri();
+					$map['ids'][ 'pagebox-module-' . $data->id ] = $this->getVariablesFromModule( $module, $data );
+					$this->saveMap( $path, $map );
+				}
+			}
+		}
+	}
+
 	public function compile( array $sections ) {
 		foreach( $sections as $section ) {
 			foreach ( $section as $data ) {
-				$data   = json_decode( stripslashes( $data ) );
+				$data = $this->json_safe_decode( $data );
 				$module = $this->pagebox->modules->get_module( $data->slug );
-				$path   = $module->get_path();
+				if( $module ) {
+					$path = $module->get_path();
 
-				$map = $this->loadMap( $path );
-				$map['module'] = '.pagebox-' . $data->slug . '-module';
-				$map['template-url'] = get_template_directory_uri();
-				$map['ids'][ 'pagebox-module-' . $data->id ] = $this->getVariablesFromModule( $module, $data );
-				$this->saveMap( $path, $map );
-				$this->saveModuleVariables( $path, $map );
-
-//			try {
-//				$scss = $this->getCompiler();
-//				$scss->setNumberPrecision( 10 );
-//				$scss->setVariables( $variables );
-//				$scss->setFormatter('Leafo\ScssPhp\Formatter\Expanded');
-//
-//				$css = $scss->compile( file_get_contents( $module->get_path() . '/scss/module.scss' ));
-//				file_put_contents( $module->get_path() . '/css/module-'.$data->id.'.css', $css );
-//			} catch( \Exception $e ) {
-//				d( $e->getMessage() );
-//			}
+					$map = $this->loadMap( $path );
+					$map['module'] = '.pagebox-' . $data->slug . '-module';
+					$map['template-url'] = get_template_directory_uri();
+					$map['ids'][ 'pagebox-module-' . $data->id ] = $this->getVariablesFromModule( $module, $data );
+					$this->saveMap( $path, $map );
+					$this->saveModuleVariables( $path, $map );
+				}
 			}
 		}
 	}

@@ -50,8 +50,8 @@
         }
       }
       .second {
-        border-left: solid +' '+ get($vars,border) +' '+ get($vars,border_color);
-        border-right: solid +' '+ get($vars,border) +' '+ get($vars,border_color);
+        @include add('border-left',(get($vars,border) solid get($vars,border_color)));
+        @include add('border-right',(get($vars,border) solid get($vars,border_color)));
 
         h3 {
           color: map-get($vars, second_title_color);

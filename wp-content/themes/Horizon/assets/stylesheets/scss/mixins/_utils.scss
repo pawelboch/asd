@@ -1,13 +1,26 @@
-@mixin add( $key, $value, $default: false ) {
-  @if $value {
-    #{$key}: #{$value};
-  } @else if $default {
-    #{$key}: #{$default};
-  }
-}
-
 @function is_empty( $value ) {
   @return if( type_of( $value ) == 'string' and str-length( $value ) == 0, false, $value );
+}
+
+@mixin add( $key, $value, $default: false ) {
+  @if type_of( $value ) == 'list' {
+    $out: (); $test: true;
+    @each $var in $value {
+      @if not is_empty( $var ) { $test: false; }
+      $out: join( $out, $var, space );
+    }
+    @if $test {
+      #{$key}: #{$out};
+    } @else if $default {
+      #{$key}: #{$default};
+    }
+  } @else {
+    @if $value {
+      #{$key}: #{$value};
+    } @else if $default {
+      #{$key}: #{$default};
+    }
+  }
 }
 
 @function get( $object, $a: null, $b: null ) {

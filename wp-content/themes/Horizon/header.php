@@ -16,7 +16,7 @@
 			<div class="top-header">
 				<div class="container">
 					<div class="logo">
-						<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/horizon_logo.svg" /></a>
+						<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/header_logo.svg" /></a>
 					</div>
 					<div class="navigation">
 						<div class="main-nav hidden-md-down">

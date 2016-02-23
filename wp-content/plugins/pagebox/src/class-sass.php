@@ -244,6 +244,8 @@ class Sass {
 			return;
 		}
 		$error = false;
+		$output = '';
+		$error_output = '';
 		try {
 			ob_start();
 			$output = $sass->compile( $source );
@@ -252,7 +254,7 @@ class Sass {
 			$error = true;
 			if( $this->debug ) $this->console->addStyled( $e->getMessage(), 'error' );
 		}
-		if( $error_output ) {
+		if( strlen($error_output) > 0 ) {
 			foreach( explode( "\n", $error_output ) as $warning ) {
 				if( strlen( $warning) > 0 )
 					if( $this->debug ) $this->console->addStyled( $warning, 'warning' );
@@ -482,7 +484,7 @@ class Sass {
 											if( is_object( $f ) && property_exists( $f, $field2['name'] )) {
 												$val = $this->filter( $field2, $f->{$field2['name']} );
 											} else {
-												$val = null;
+												$val = $this->filter( $field2, null );
 											}
 											$tmp[] = $val ? $val : "''";
 										}

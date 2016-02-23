@@ -2,9 +2,11 @@
 @import "mixins/utils";
 @import 'theme-config';
 
+$pagebox_bgc_color: #e8e8e8 !default;
+
 #{$module} {
 
-  background-color: #e8e8e8;
+
   padding: 30px 0.9375rem;
 
   .single {
@@ -45,8 +47,12 @@
 
   @each $id, $vars in $ids {
     &.#{$id} {
+      @include add('background-color', get($vars, pagebox_bgc_color));
+
       .single {
         @include add('background-color', get($vars, bgc_color));
+        @include add('border-right-color', get($vars, pagebox_bgc_color));
+        @include add('border-left-color', get($vars, pagebox_bgc_color));
       }
     }
   }

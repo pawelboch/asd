@@ -86,6 +86,15 @@ class Module extends Abstract_Module {
 				array(
 						'type'			=> 'colorpicker',
 						'group'			=> __( 'Style', 'pagebox'),
+						'name'			=> 'pagebox_bgc_color',
+						'value'			=> '#e8e8e8',
+						'label'			=> __( 'Background color' ),
+						'description'	=> __( 'Title'),
+						'sass'			=> true,
+				),
+				array(
+						'type'			=> 'colorpicker',
+						'group'			=> __( 'Style', 'pagebox'),
 						'name'			=> 'bgc_color',
 						'value'			=> '#2c3842',
 						'label'			=> __( 'Background color' ),

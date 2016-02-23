@@ -55,24 +55,19 @@ class Module extends Abstract_Module {
 						'type'			=> 'text',
 						'group'			=> __( 'Main', 'pagebox'),
 						'name'			=> 'title',
-						'value'			=> 'get in touch',
+						'value'			=> 'Title',
 						'label'			=> __( 'Title' ),
-						'description'	=> __( 'Title')
+						'description'	=> __( 'Title'),
 				),
 				array(
-						'type'			=> 'editor',
+						'type'			=> 'colorpicker',
 						'group'			=> __( 'Main', 'pagebox'),
-						'name'			=> 'description',
-						'label'			=> __( 'Description' ),
-						'description'	=> __( 'Description' )
+						'name'			=> 'bgc_color',
+						'value'			=> '#2c3842',
+						'label'			=> __( 'Background color' ),
+						'description'	=> __( 'Title'),
+						'sass'			=> true,
 				),
-				array(
-						'type'			=> 'text',
-						'group'			=> __('Contact form', 'pagebox'),
-						'name'			=> 'contact_form',
-						'label'			=> __( 'Contact' ),
-						'description'	=> __( 'Contact form shortcode' )
-				)
 			)
 		);
 	}

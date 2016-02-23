@@ -7,7 +7,7 @@
  * Call to action module with slider
  */
 
-namespace HorizonInvestments\Pagebox\Modules\PDF;
+namespace HorizonInvestments\Pagebox\Modules\Whitepaper;
 
 use \Pagebox\Modules\Module as Abstract_Module;
 use \WPGeeks_HTML;
@@ -32,10 +32,10 @@ class Module extends Abstract_Module {
 		$this->config = array(
 			// Name of the box for plugin use. Only alphanumeric charactes 
 			// and underscores are allowed
-			'slug'        => 'pdf',
+			'slug'        => 'whitepaper',
 			// Human readable title of box. It will be displayed in all
 			// backend functionalities
-			'title'       => __(  'pdf', 'pagebox_blocks' ),
+			'title'       => __(  'Whitepaper', 'pagebox_blocks' ),
 			// Short description about what box outputs. It will be displayed
 			// below the title in new box modal window.
 			'description' => __(  '', 'pagebox_blocks' ),

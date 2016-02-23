@@ -11,7 +11,9 @@ get_header() ;?>
 
 <div class="container-fluid head">
     <div class="transparency">
-        <h2>ERROR 404</h2>
+        <div class="container">
+            <h2>ERROR 404</h2>
+        </div>
     </div>
 </div>
 

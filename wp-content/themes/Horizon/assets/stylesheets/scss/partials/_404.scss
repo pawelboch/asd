@@ -6,34 +6,43 @@
   .content {
     .container-fluid {
       &.head {
-        padding-top: 293px;
-        padding-bottom: 220px;
         text-align: center;
         background-image: url("../../images/background-pictures-13.jpg");
 
-        h2 {
-          display: inline;
-          background-color: #ffc425;
-          padding: 25px 35px;
-          position: relative;
-          font-size: 36px;
-          font-family: "Avenir Next";
-          color: rgb(255, 255, 255);
-          text-transform: uppercase;
-          line-height: 0.499;
-          font-weight: 100;
+        .transparency {
+          background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, #ecf3ef 100%);
+          margin-left: -0.9375rem;
+          margin-right: -0.9375rem;
+        }
 
-          &:before {
-            content: '';
-            position: absolute;
-            width: 181px;
-            height: 196px;
-            background-image: url("../../images/blue_frame.svg");
-            background-repeat: no-repeat;
-            //left: -2px;
-            top: -41px;
-          }
-        } // h2
+        .container {
+          padding-top: 293px;
+          padding-bottom: 220px;
+
+          h2 {
+            display: inline;
+            background-color: #ffc425;
+            padding: 25px 35px;
+            position: relative;
+            font-size: 36px;
+            font-family: "Avenir Next";
+            color: rgb(255, 255, 255);
+            text-transform: uppercase;
+            line-height: 0.499;
+            font-weight: 100;
+
+            &:before {
+              content: '';
+              position: absolute;
+              width: 181px;
+              height: 196px;
+              background-image: url("../../images/blue_frame.svg");
+              background-repeat: no-repeat;
+              //left: -2px;
+              top: -41px;
+            }
+          } // h2
+        }
       } // .container-fluid.head
     } // .container-fluid
 

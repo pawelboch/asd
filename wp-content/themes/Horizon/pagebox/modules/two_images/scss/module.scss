@@ -1,5 +1,6 @@
 @import "module-variables";
 @import "mixins/background-opacity";
+@import "theme-config";
 
 $margin-between: 1%;
 
@@ -89,7 +90,12 @@ $margin-between: 1%;
 
       }
     }
+
+  @media (max-width: map-get($grid-breakpoints, sm) ) {
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
+}
 
 
 @media (max-width: 768px) {

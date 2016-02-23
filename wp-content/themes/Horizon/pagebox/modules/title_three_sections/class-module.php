@@ -157,9 +157,19 @@ class Module extends Abstract_Module {
 						'type'			=> 'text',
 						'group'			=> __( 'Style', 'pagebox'),
 						'name'			=> 'border',
-						'value'			=> '1px solid #c2c2c2',
-						'label'			=> __( 'Border' ),
-						'description'	=> __( 'Border style (default: 1px solid #c2c2c2)')
+						'value'			=> '1px',
+						'label'			=> __( 'Border size' ),
+						'description'	=> __( 'Border style (default: 1px solid #c2c2c2)'),
+						'sass'			=> true,
+				),
+				array(
+					'type'			=> 'colorpicker',
+					'group'			=> __( 'Style', 'pagebox' ),
+					'name'			=> 'border_color',
+					'value'			=> '#c2c2c2',
+					'label'			=> __( 'Border color' ),
+					'description' 	=> __( '0-100 (color must be selected if you want opacity)' ),
+					'sass'          => true,
 				),
 			)
 		);

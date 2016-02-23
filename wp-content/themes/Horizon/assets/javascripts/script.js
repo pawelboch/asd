@@ -20,4 +20,27 @@ jQuery( document ).ready(function( $ ) {
         arrows: true,
     });
 
+    // Header mobile menu
+    var nav = $('#nav');
+    if($(window).width() <= 992){
+        nav.find('li:has(".sub-menu")').append('<span class="expand">+</span>');
+    }
+
+    nav.find('li .expand').on('click',function(){
+        var subMenu = $(this).siblings('.sub-menu');
+
+        if($(this).hasClass('expanded')) {
+            $(this).siblings('a').removeClass('expanded');
+            $(this).removeClass('expanded').text('+');
+
+            subMenu.fadeOut('fast');
+        } else {
+            $(this).siblings('a').addClass('expanded');
+            $(this).addClass('expanded').text('-');
+
+            subMenu.fadeIn('slow');
+        }
+
+    });
+
 });

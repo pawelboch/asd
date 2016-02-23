@@ -1,0 +1,51 @@
+@import "module-variables";
+
+#{$module} {
+
+  background-color: #e8e8e8;
+  color: #000;
+  padding-top: 60px;
+  padding-bottom: 54px;
+  border-bottom: 1px solid #c2c2c2;
+
+  .left-part {
+
+    text-transform: uppercase;
+
+    .title {
+
+      font-size: 28px;
+      font-family: "Avenir Next";
+    }
+
+    .description {
+      font-size: 18px;
+      font-family: "Arial";
+    }
+  }
+
+  .contact-form {
+
+    input, button, select, textarea {
+      padding: 15px;
+      width: 100%;
+    }
+
+    input::-webkit-input-placeholder {
+      color: #cbcbcb;
+    }
+
+    select {
+      font-size: 30px;
+      color: #cbcbcb;
+    }
+
+
+    input[type="submit"] {
+      color: #fff;
+      background-color: #ffc600;
+      border: none;
+    }
+  } // .contact-form
+} // module
+

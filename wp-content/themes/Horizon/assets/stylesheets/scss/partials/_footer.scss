@@ -131,6 +131,9 @@ footer {
 // sm = 544px
 @media (max-width: map-get($grid-breakpoints, sm) ) {
   footer {
+    margin-left: 1.1rem;
+    margin-right: 1.1rem;
+
     .container {
       .footer-logo {
         max-width: 205px;

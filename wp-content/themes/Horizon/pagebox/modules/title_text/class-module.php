@@ -70,14 +70,16 @@ class Module extends Abstract_Module {
 						'group'			=> __( 'Style', 'pagebox'),
 						'name'			=> 'title_color',
 						'label'			=> __( 'Title color' ),
-						'description'	=> __( 'Type your text')
+						'description'	=> __( 'Type your text'),
+						'sass'			=> true,
 				),
 				array(
 						'type'			=> 'colorpicker',
 						'group'			=> __( 'Style', 'pagebox'),
 						'name'			=> 'text_color',
 						'label'			=> __( 'Text color' ),
-						'description'	=> __( 'Type your text')
+						'description'	=> __( 'Type your text'),
+						'sass'			=> true,
 				),
 			)
 		);

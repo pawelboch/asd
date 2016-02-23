@@ -1,4 +1,5 @@
 @import "module-variables";
+@import "mixins/utils";
 
 #{$module} {
 
@@ -22,6 +23,20 @@
     font-size: 1.815rem;
     font-family: "Georgia";
     margin-bottom: 58px;
+  }
+
+  @each $id, $vars in $ids {
+    &.#{$id} {
+      // Style color for description
+
+      .title {
+        @include add('color', get($vars, title_color) );
+      }
+
+      .description {
+        @include add('color', get($vars, text_color) );
+      }
+    }
   }
 
 }

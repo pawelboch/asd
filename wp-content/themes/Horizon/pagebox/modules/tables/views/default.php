@@ -20,6 +20,10 @@
 					<div id="fourth" class="title col-md-3 col-sm-3 col-xs-12">
 						<h2><?php echo $this->get( 'fourth_tab_title' ) ;?></h2>
 					</div>
+					<div class="navigation-arrows">
+						<img class="arrow navigation-up" src="<?php echo get_template_directory_uri(); ?>/assets/images/dropDownArrow.svg" alt="">
+						<img class="arrow navigation-down" src="<?php echo get_template_directory_uri(); ?>/assets/images/dropDownArrow.svg" alt="">
+					</div>
 				</div>
 				<div class="content first active">
 					<?php echo $this->get( 'first_tab_content' ) ;?>

@@ -7,6 +7,14 @@
       margin-top: -344px;
       color: #000;
     }
+
+    .top {
+
+      >div {
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+    }
   }
 
 }

@@ -31,112 +31,6 @@ header {
       margin-top: 10px;
       text-transform: uppercase;
       float: left;
-
-      #nav{
-        > li:not(:last-child) {
-          a{
-            position: relative;
-            z-index: 2;
-          }
-
-          &:hover{
-            &:before,
-            &:after,
-            & > a:before,
-            & > a:after {
-              position:absolute;
-              width:5px;
-              height: 5px;
-              border-color: #fff;
-              border-style: solid;
-              content: ' ';
-            }
-            &:before {
-              top:-3px;
-              left:5px;
-              border-width: 2px 0 0 2px
-            }
-            &:after {
-              bottom: -3px;
-              left: 5px;
-              border-width: 0 0 2px 2px
-            }
-            & > a:after {
-              bottom:-3px;
-              right:-10px;
-              border-width: 0 2px 2px 0
-            }
-            & > a:before {
-              top:-3px;
-              right:-10px;
-              border-width: 2px 2px 0 0
-            }
-          }
-        }
-      }
-
-      li {
-        display: inline;
-        padding: $main-nav-li;
-        position: relative;
-
-
-        &:last-child {
-          border-left: 1px solid #fff;
-
-          a {
-            color: #57656e;
-
-          }
-        }
-
-        &:hover {
-
-          > .sub-menu {
-            display: block;
-            position: absolute;
-            padding: 0;
-            padding-top: 5px;
-            left: 0;
-            top: 1rem;
-            margin-top: 5px;
-
-
-            li {
-              border-left: none;
-              background-color: #ffc425;
-              padding: 5px 10px;
-              display: block;
-
-              &:hover {
-                background-color: #ffb41a;
-              }
-
-              a {
-                color: #fff;
-                font-size: 1rem;
-                font-family: "Avenir Next";
-              }
-            }
-            .sub-menu {
-              left: 100%;
-              top: 0;
-              margin-top: 0;
-            }
-          }
-        }
-
-        .sub-menu {
-          display: none;
-        }
-
-        a {
-          color: $color;
-          text-decoration: none;
-          font-family: "Montserrat";
-          font-size: 0.875rem;
-        }
-      }
     }
   }
 
@@ -224,6 +118,123 @@ header {
   }
 }
 
+@media (min-width: map-get($grid-breakpoints, lg) ) {
+  header {
+    .navigation {
+
+      .main-nav {
+
+        #nav{
+          > li:not(:last-child) {
+            a{
+              position: relative;
+              z-index: 2;
+            }
+
+            &:hover{
+              &:before,
+              &:after,
+              & > a:before,
+              & > a:after {
+                position:absolute;
+                width:5px;
+                height: 5px;
+                border-color: #fff;
+                border-style: solid;
+                content: ' ';
+              }
+              &:before {
+                top:-3px;
+                left:5px;
+                border-width: 2px 0 0 2px
+              }
+              &:after {
+                bottom: -3px;
+                left: 5px;
+                border-width: 0 0 2px 2px
+              }
+              & > a:after {
+                bottom:-3px;
+                right:-10px;
+                border-width: 0 2px 2px 0
+              }
+              & > a:before {
+                top:-3px;
+                right:-10px;
+                border-width: 2px 2px 0 0
+              }
+            }
+          }
+        }
+
+        li {
+          display: inline;
+          padding: $main-nav-li;
+          position: relative;
+
+
+          &:last-child {
+            border-left: 1px solid #fff;
+
+            a {
+              color: #57656e;
+
+            }
+          }
+
+          &:hover {
+
+            > .sub-menu {
+              display: block;
+              position: absolute;
+              padding: 0;
+              padding-top: 5px;
+              left: 0;
+              top: 1rem;
+              margin-top: 5px;
+
+
+              li {
+                border-left: none;
+                background-color: #ffc425;
+                padding: 5px 10px;
+                display: block;
+
+                &:hover {
+                  background-color: #ffb41a;
+                }
+
+                a {
+                  color: #fff;
+                  font-size: 1rem;
+                  font-family: "Avenir Next";
+                }
+              }
+              .sub-menu {
+                left: 100%;
+                top: 0;
+                margin-top: 0;
+              }
+            }
+          }
+
+          .sub-menu {
+            display: none;
+          }
+
+          a {
+            color: $color;
+            text-decoration: none;
+            font-family: "Montserrat";
+            font-size: 0.875rem;
+          }
+        }
+      }
+    }
+
+  }
+}
+
 @media (max-width: map-get($grid-breakpoints, lg) ) {
 
   header {
@@ -240,6 +251,50 @@ header {
         //}
       }
     }
+    .navigation {
+      .main-nav {
+        #nav {
+          margin-top: 40px;
+        }
+        li {
+          display: block;
+          padding: 0 0 0 15px;
+          position: relative;
+          background-color: #ffc425;
+
+          &:hover {
+            background-color: #ffb41a;
+          }
+
+          .sub-menu {
+            border-top: 1px solid #ffb41a;
+            border-bottom: 1px solid #ffb41a;
+            display: none;
+            padding-left: 0;
+          }
+
+          .expand{
+            position: absolute;
+            right: 15px;
+            top: 0px;
+            font-size: large;
+            font-weight: bold;
+          }
+
+          a.expanded{
+            color: #57656e;
+          }
+
+          a {
+            color: $color;
+            text-decoration: none;
+            font-family: "Montserrat";
+            font-size: 0.875rem;
+          }
+        }
+      }
+    }
+
     .search {
 
       .search-ico {

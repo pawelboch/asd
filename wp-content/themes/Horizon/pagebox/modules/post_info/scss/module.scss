@@ -44,6 +44,20 @@
 
   .share {
 
+    .print {
+      cursor: pointer;
+    }
+    .social {
+      cursor: pointer;
+    }
+    .social-toggle {
+      display: none;
+      margin-top: 15px;
+
+      img {
+        width: 20px;
+      }
+    }
   }
 
 

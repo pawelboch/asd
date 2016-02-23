@@ -35,12 +35,18 @@
         </div>
     </div>
 
-    <div class="share">
-        <span class="social">
+    <div class="share col-md-12">
+        <span class="social col-md-6">
             Social
         </span>
-        <span class="print">
+        <span class="print col-md-6">
             Print
+        </span>
+        <span class="social-toggle">
+                <img src="<?php echo get_template_directory_uri ()?>/assets/images/facebookico.svg" alt="">
+                <img src="<?php echo get_template_directory_uri ()?>/assets/images/twitterico.svg" alt="">
+                <img src="<?php echo get_template_directory_uri ()?>/assets/images/googleico.svg" alt="">
+                <img src="<?php echo get_template_directory_uri ()?>/assets/images/youtubeico.svg" alt="">
         </span>
     </div>
 </div>

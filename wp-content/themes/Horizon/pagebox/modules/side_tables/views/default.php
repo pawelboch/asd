@@ -30,12 +30,17 @@
 					<?php echo $this->get( 'first_tab_content' ) ;?>
 				</div>
 				<div class="left col-md-8">
-					<?php echo $this->get('first_left_content') ;?>
+					<?php $sub_nav = $this->get( 'sub_nav' );
+					foreach($sub_nav as $i => $sub): ?>
+						<?php echo $sub->sub ;?>
+					<?php endforeach ;?>
+
+					<?php echo $this->get( 'first_left_content' ) ;?>
 				</div>
 
 				<div class="sidebar col-md-4">
 					<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-					<?php echo $this->get('first_sidebar') ;?>
+					<?php echo $this->get( 'first_sidebar' ) ;?>
 				</div>
 			</div>
 			<div class="content second">
@@ -44,12 +49,12 @@
 				</div>
 
 				<div class="left col-md-8">
-					<?php echo $this->get('first_left_content') ;?>
+					<?php echo $this->get( 'first_left_content' ) ;?>
 				</div>
 
 				<div class="sidebar col-md-4">
 					<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-					<?php echo $this->get('first_sidebar') ;?>
+					<?php echo $this->get( 'first_sidebar' ) ;?>
 				</div>
 			</div>
 			<div class="content third">
@@ -58,7 +63,7 @@
 				</div>
 
 				<div class="left col-md-8">
-					<?php echo $this->get('first_left_content') ;?>
+					<?php echo $this->get( 'first_left_content' ) ;?>
 				</div>
 
 				<div class="sidebar col-md-4">

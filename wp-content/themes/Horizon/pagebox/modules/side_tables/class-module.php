@@ -67,22 +67,48 @@ class Module extends Abstract_Module {
 				),
 				array(
 					'type'          => 'switch',
-					'group'         => __( 'First Tab', 'pagebox' ),
+					'group'         => __( 'First Tab Content', 'pagebox' ),
 					'name'          => 'first_switch',
 					'option'        => 'yes',
 					'label'         => __( 'First switch' ),
-					'description'   => __( 'select')
+					'description'   => __( 'OFF / ON'),
+					'sass'          => true,
+					'sass_filter'   => function ( $value ) {
+						return $value ? 'yes' : 'no';
+					}
+				),
+				array(
+					'type'		=> 'repeater',
+					'group'		=> __('First Tab Content', 'pagebox'),
+					'name'		=> 'sub_nav',
+					'labels'  => array(
+						'singular' => __('Menu'),
+						'plural'   => __('Menus'),
+					),
+					'buttons' => array(
+						'add'		=> __('Add another submenu', 'pagebox'),
+						'remove' => __('Remove this submenu', 'pagebox'),
+					),
+					'fields'	=> array(
+						array(
+							'type'          => 'text',
+							'group'         => __( 'First Tab Content', 'pagebox' ),
+							'name'          => 'sub',
+							'label'         => __( 'Name' ),
+							'description'   => __( 'Submenu navigation' )
+						),
+					),
 				),
 				array(
 					'type'			=> 'editor',
-					'group'			=> __( 'First Tab', 'pagebox' ),
+					'group'			=> __( 'First Tab Content', 'pagebox' ),
 					'name'			=> 'first_left_content',
 					'label'			=> __( 'First left content' ),
 					'description' 	=> __( 'Type first tab content' )
 				),
 				array(
 					'type'          => 'editor',
-					'group'         => __( 'First Tab', 'pagebox' ),
+					'group'         => __( 'First Tab Sidebar', 'pagebox' ),
 					'name'          => 'first_sidebar',
 					'label'         => __( 'First sidebar' ),
 					'description'   => __( 'Type first sidebar' )

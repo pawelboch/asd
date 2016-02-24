@@ -67,7 +67,7 @@ class Module extends Abstract_Module {
 				),
 				array(
 					'type'          => 'switch',
-					'group'         => __( 'First Tab Content', 'pagebox' ),
+					'group'         => __( 'First Tab', 'pagebox' ),
 					'name'          => 'first_switch',
 					'option'        => 'yes',
 					'label'         => __( 'First switch' ),
@@ -79,8 +79,8 @@ class Module extends Abstract_Module {
 				),
 				array(
 					'type'		=> 'repeater',
-					'group'		=> __('First Tab Content', 'pagebox'),
-					'name'		=> 'sub_nav',
+					'group'		=> __('First Tab', 'pagebox'),
+					'name'		=> 'first_sub_nav',
 					'labels'  => array(
 						'singular' => __('Menu'),
 						'plural'   => __('Menus'),
@@ -92,7 +92,7 @@ class Module extends Abstract_Module {
 					'fields'	=> array(
 						array(
 							'type'          => 'text',
-							'group'         => __( 'First Tab Content', 'pagebox' ),
+							'group'         => __( 'First Tab', 'pagebox' ),
 							'name'          => 'sub',
 							'label'         => __( 'Name' ),
 							'description'   => __( 'Submenu navigation' )
@@ -101,18 +101,24 @@ class Module extends Abstract_Module {
 				),
 				array(
 					'type'			=> 'editor',
-					'group'			=> __( 'First Tab Content', 'pagebox' ),
+					'group'			=> __( 'First Tab', 'pagebox' ),
 					'name'			=> 'first_left_content',
 					'label'			=> __( 'First left content' ),
 					'description' 	=> __( 'Type first tab content' )
 				),
 				array(
 					'type'          => 'editor',
-					'group'         => __( 'First Tab Sidebar', 'pagebox' ),
+					'group'         => __( 'First Tab', 'pagebox' ),
 					'name'          => 'first_sidebar',
 					'label'         => __( 'First sidebar' ),
 					'description'   => __( 'Type first sidebar' )
 				),
+
+
+
+
+
+
 				array(
 					'type'			=> 'text',
 					'group'			=> __( 'Second Tab', 'pagebox' ),
@@ -128,6 +134,59 @@ class Module extends Abstract_Module {
 					'description' 	=> __( 'Type second tab content' )
 				),
 				array(
+					'type'          => 'switch',
+					'group'         => __( 'Second Tab', 'pagebox' ),
+					'name'          => 'second_switch',
+					'option'        => 'yes',
+					'label'         => __( 'First switch' ),
+					'description'   => __( 'OFF / ON'),
+					'sass'          => true,
+					'sass_filter'   => function ( $value ) {
+						return $value ? 'yes' : 'no';
+					}
+				),
+				array(
+					'type'		=> 'repeater',
+					'group'		=> __('Second Tab', 'pagebox'),
+					'name'		=> 'second_sub_nav',
+					'labels'  => array(
+						'singular' => __('Menu'),
+						'plural'   => __('Menus'),
+					),
+					'buttons' => array(
+						'add'		=> __('Add another submenu', 'pagebox'),
+						'remove' => __('Remove this submenu', 'pagebox'),
+					),
+					'fields'	=> array(
+						array(
+							'type'          => 'text',
+							'group'         => __( 'Second Tab', 'pagebox' ),
+							'name'          => 'sub',
+							'label'         => __( 'Name' ),
+							'description'   => __( 'Submenu navigation' )
+						),
+					),
+				),
+				array(
+					'type'			=> 'editor',
+					'group'			=> __( 'Second Tab', 'pagebox' ),
+					'name'			=> 'second_left_content',
+					'label'			=> __( 'Second left content' ),
+					'description' 	=> __( 'Type second tab content' )
+				),
+				array(
+					'type'          => 'editor',
+					'group'         => __( 'Second Tab', 'pagebox' ),
+					'name'          => 'second_sidebar',
+					'label'         => __( 'Second sidebar' ),
+					'description'   => __( 'Type second sidebar' )
+				),
+
+
+
+
+
+				array(
 					'type'			=> 'text',
 					'group'			=> __( 'Third Tab', 'pagebox' ),
 					'name'			=> 'third_tab_title',
@@ -142,6 +201,60 @@ class Module extends Abstract_Module {
 					'description' 	=> __( 'Type third tab content' )
 				),
 				array(
+					'type'          => 'switch',
+					'group'         => __( 'Third Tab', 'pagebox' ),
+					'name'          => 'third_switch',
+					'option'        => 'yes',
+					'label'         => __( 'First switch' ),
+					'description'   => __( 'OFF / ON'),
+					'sass'          => true,
+					'sass_filter'   => function ( $value ) {
+						return $value ? 'yes' : 'no';
+					}
+				),
+				array(
+					'type'		=> 'repeater',
+					'group'		=> __('Third Tab', 'pagebox'),
+					'name'		=> 'third_sub_nav',
+					'labels'  => array(
+						'singular' => __('Menu'),
+						'plural'   => __('Menus'),
+					),
+					'buttons' => array(
+						'add'		=> __('Add another submenu', 'pagebox'),
+						'remove' => __('Remove this submenu', 'pagebox'),
+					),
+					'fields'	=> array(
+						array(
+							'type'          => 'text',
+							'group'         => __( 'Third Tab', 'pagebox' ),
+							'name'          => 'sub',
+							'label'         => __( 'Name' ),
+							'description'   => __( 'Submenu navigation' )
+						),
+					),
+				),
+				array(
+					'type'			=> 'editor',
+					'group'			=> __( 'Third Tab', 'pagebox' ),
+					'name'			=> 'third_left_content',
+					'label'			=> __( 'Third left content' ),
+					'description' 	=> __( 'Type Third tab content' )
+				),
+				array(
+					'type'          => 'editor',
+					'group'         => __( 'Third Tab', 'pagebox' ),
+					'name'          => 'third_sidebar',
+					'label'         => __( 'Third sidebar' ),
+					'description'   => __( 'Type third sidebar' )
+				),
+
+
+
+
+
+
+				array(
 					'type'			=> 'text',
 					'group'			=> __( 'Fourth Tab', 'pagebox' ),
 					'name'			=> 'fourth_tab_title',
@@ -154,6 +267,54 @@ class Module extends Abstract_Module {
 					'name'			=> 'fourth_tab_content',
 					'label'			=> __( 'Fourth tab content' ),
 					'description' 	=> __( 'Type fourth tab content' )
+				),
+				array(
+					'type'          => 'switch',
+					'group'         => __( 'Fourth Tab', 'pagebox' ),
+					'name'          => 'fourth_switch',
+					'option'        => 'yes',
+					'label'         => __( 'First switch' ),
+					'description'   => __( 'OFF / ON'),
+					'sass'          => true,
+					'sass_filter'   => function ( $value ) {
+						return $value ? 'yes' : 'no';
+					}
+				),
+				array(
+					'type'		=> 'repeater',
+					'group'		=> __('Fourth Tab', 'pagebox'),
+					'name'		=> 'fourth_sub_nav',
+					'labels'  => array(
+						'singular' => __('Menu'),
+						'plural'   => __('Menus'),
+					),
+					'buttons' => array(
+						'add'		=> __('Add another submenu', 'pagebox'),
+						'remove' => __('Remove this submenu', 'pagebox'),
+					),
+					'fields'	=> array(
+						array(
+							'type'          => 'text',
+							'group'         => __( 'Fourth Tab', 'pagebox' ),
+							'name'          => 'sub',
+							'label'         => __( 'Name' ),
+							'description'   => __( 'Submenu navigation' )
+						),
+					),
+				),
+				array(
+					'type'			=> 'editor',
+					'group'			=> __( 'Fourth Tab', 'pagebox' ),
+					'name'			=> 'fourth_left_content',
+					'label'			=> __( 'Fourth left content' ),
+					'description' 	=> __( 'Type Fourth tab content' )
+				),
+				array(
+					'type'          => 'editor',
+					'group'         => __( 'Fourth Tab', 'pagebox' ),
+					'name'          => 'fourth_sidebar',
+					'label'         => __( 'Fourth sidebar' ),
+					'description'   => __( 'Type fourth sidebar' )
 				),
 			)
 		);

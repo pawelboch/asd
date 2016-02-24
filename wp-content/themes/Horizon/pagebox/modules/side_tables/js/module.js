@@ -7,6 +7,13 @@ jQuery( document ).ready( function( $ ) {
            $('.'+$(this).attr('id')).fadeIn('fast');
        });
 
+    $('.pagebox-side_tables-module .left .sub-menu .single-menu').on('click',function(){
+        $('.pagebox-side_tables-module .left .sub-menu .single-menu').removeClass('active');
+        $(this).addClass('active');
+        $('.pagebox-side_tables-module .tabs .row .content .left .content').hide();
+        $('.'+$(this).attr('id')).fadeIn('fast');
+    });
+
     // Tab mobile toggle
         var tabAmount = $('.pagebox-side_tables-module .head .title').length;
         var actualTab = 1;

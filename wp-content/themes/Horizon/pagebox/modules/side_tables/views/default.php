@@ -30,12 +30,21 @@
 					<?php echo $this->get( 'first_tab_content' ) ;?>
 				</div>
 				<div class="left col-md-8">
-					<?php $sub_nav = $this->get( 'first_sub_nav' );
-					foreach($sub_nav as $i => $sub): ?>
-						<?php echo $sub->sub ;?>
-					<?php endforeach ;?>
+					<div class="sub-menu clearfix">
+						<?php $sub_nav = $this->get( 'first_sub_nav' );
+						foreach( $sub_nav as $i => $sub ): ?>
+							<div id="<?php echo $i ;?>-single" class="single-menu col-md-3">
+								<?php echo $sub->sub ;?>
+							</div>
+						<?php endforeach ;?>
 
-					<?php echo $this->get( 'first_left_content' ) ;?>
+						<?php $content = $this->get( 'first_sub_nav' );
+						foreach ( $content as $i => $cont ): ?>
+							<div class="content active <?php echo $i ;?>-single">
+								<?php echo $cont->content ;?>
+							</div>
+						<?php endforeach ;?>
+					</div>
 				</div>
 
 				<div class="sidebar col-md-4">

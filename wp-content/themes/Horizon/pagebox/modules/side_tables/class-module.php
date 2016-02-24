@@ -97,14 +97,14 @@ class Module extends Abstract_Module {
 							'label'         => __( 'Name' ),
 							'description'   => __( 'Submenu navigation' )
 						),
+						array(
+							'type'			=> 'editor',
+							'group'			=> __( 'First Tab', 'pagebox' ),
+							'name'			=> 'content',
+							'label'			=> __( 'First left content' ),
+							'description' 	=> __( 'Type first tab content' )
+						),
 					),
-				),
-				array(
-					'type'			=> 'editor',
-					'group'			=> __( 'First Tab', 'pagebox' ),
-					'name'			=> 'first_left_content',
-					'label'			=> __( 'First left content' ),
-					'description' 	=> __( 'Type first tab content' )
 				),
 				array(
 					'type'          => 'editor',

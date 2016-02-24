@@ -22,7 +22,7 @@ jQuery( document ).ready(function( $ ) {
 
     // Header mobile menu
     var nav = $('#nav');
-    if($(window).width() <= 992){
+    if($(window).width() < 992){
         nav.find('li:has(".sub-menu")').append('<span class="expand">+</span>');
     }
 

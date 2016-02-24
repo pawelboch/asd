@@ -46,12 +46,12 @@ $h2_color: #fff !default;
           &:before {
             content: '';
             position: absolute;
-            width: 181px;
-            height: 196px;
+            width: 230px;
+            height: 230px;
             background-image: url($template-url + "/assets/images/blue_frame.svg");
             background-repeat: no-repeat;
             left: -2px;
-            top: -57px;
+            top: -82px;
 
           }
         }

@@ -245,8 +245,12 @@ header {
 
     .navigation {
       .main-nav {
+
+        padding-right: 0;
         #nav {
-          margin-top: 40px;
+          margin-top: 42px;
+          float: right;
+          min-width: 200px
         }
         li {
           display: block;

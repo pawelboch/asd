@@ -66,6 +66,14 @@ class Module extends Abstract_Module {
 					'description' 	=> __( 'Type first tab content' )
 				),
 				array(
+					'type'          => 'switch',
+					'group'         => __( 'First Tab', 'pagebox' ),
+					'name'          => 'first_switch',
+					'option'        => 'yes',
+					'label'         => __( 'First switch' ),
+					'description'   => __( 'select')
+				),
+				array(
 					'type'			=> 'editor',
 					'group'			=> __( 'First Tab', 'pagebox' ),
 					'name'			=> 'first_left_content',

@@ -33,7 +33,8 @@
 					<?php echo $this->get('first_left_content') ;?>
 				</div>
 
-				<div class="right col-md-4">
+				<div class="sidebar col-md-4">
+					<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
 					<?php echo $this->get('first_sidebar') ;?>
 				</div>
 			</div>
@@ -46,7 +47,8 @@
 					<?php echo $this->get('first_left_content') ;?>
 				</div>
 
-				<div class="right col-md-4">
+				<div class="sidebar col-md-4">
+					<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
 					<?php echo $this->get('first_sidebar') ;?>
 				</div>
 			</div>
@@ -59,7 +61,8 @@
 					<?php echo $this->get('first_left_content') ;?>
 				</div>
 
-				<div class="right col-md-4">
+				<div class="sidebar col-md-4">
+					<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
 					<?php echo $this->get('first_sidebar') ;?>
 				</div>
 			</div>
@@ -72,7 +75,8 @@
 					<?php echo $this->get('first_left_content') ;?>
 				</div>
 
-				<div class="right col-md-4">
+				<div class="sidebar col-md-4">
+					<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
 					<?php echo $this->get('first_sidebar') ;?>
 				</div>
 			</div>

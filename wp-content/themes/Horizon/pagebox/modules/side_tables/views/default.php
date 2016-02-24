@@ -25,6 +25,8 @@
 					<img class="arrow navigation-down" src="<?php echo get_template_directory_uri(); ?>/assets/images/downArrow.svg" alt="">
 				</div>
 			</div>
+
+
 			<div class="content first active">
 				<div class="top">
 					<?php echo $this->get( 'first_tab_content' ) ;?>
@@ -52,17 +54,28 @@
 					<?php echo $this->get( 'first_sidebar' ) ;?>
 				</div>
 			</div>
+
+
 			<div class="content second">
 				<div class="top">
 					<?php echo $this->get( 'second_tab_content' ) ;?>
 				</div>
 				<div class="left col-md-8">
-					<?php $sub_nav = $this->get( 'second_sub_nav' );
-					foreach($sub_nav as $i => $sub): ?>
-						<?php echo $sub->sub ;?>
-					<?php endforeach ;?>
+					<div class="sub-menu clearfix">
+						<?php $sub_nav = $this->get( 'second_sub_nav' );
+						foreach( $sub_nav as $i => $sub ): ?>
+							<div id="<?php echo $i ;?>-single" class="single-menu col-md-3">
+								<?php echo $sub->sub ;?>
+							</div>
+						<?php endforeach ;?>
 
-					<?php echo $this->get( 'second_left_content' ) ;?>
+						<?php $content = $this->get( 'second_sub_nav' );
+						foreach ( $content as $i => $cont ): ?>
+							<div class="content active <?php echo $i ;?>-single">
+								<?php echo $cont->content ;?>
+							</div>
+						<?php endforeach ;?>
+					</div>
 				</div>
 
 				<div class="sidebar col-md-4">
@@ -70,6 +83,9 @@
 					<?php echo $this->get( 'second_sidebar' ) ;?>
 				</div>
 			</div>
+
+
+
 			<div class="content third">
 				<div class="top">
 					<?php echo $this->get( 'third_tab_content' ) ;?>
@@ -84,6 +100,9 @@
 					<?php echo $this->get('first_sidebar') ;?>
 				</div>
 			</div>
+
+
+
 			<div class="content fourth">
 				<div class="top">
 					<?php echo $this->get( 'fourth_tab_content' ) ;?>
@@ -99,6 +118,9 @@
 				</div>
 			</div>
 		</div>
+
+
+
 	</div>
 </div>
 

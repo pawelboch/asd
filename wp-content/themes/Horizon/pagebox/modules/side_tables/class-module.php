@@ -165,14 +165,14 @@ class Module extends Abstract_Module {
 							'label'         => __( 'Name' ),
 							'description'   => __( 'Submenu navigation' )
 						),
+						array(
+							'type'			=> 'editor',
+							'group'			=> __( 'Second Tab', 'pagebox' ),
+							'name'			=> 'content',
+							'label'			=> __( 'Second left content' ),
+							'description' 	=> __( 'Type second tab content' )
+						),
 					),
-				),
-				array(
-					'type'			=> 'editor',
-					'group'			=> __( 'Second Tab', 'pagebox' ),
-					'name'			=> 'second_left_content',
-					'label'			=> __( 'Second left content' ),
-					'description' 	=> __( 'Type second tab content' )
 				),
 				array(
 					'type'          => 'editor',

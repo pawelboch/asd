@@ -1,0 +1,131 @@
+@import "module-variables";
+@import "vendor/compass/css3/user-interface";
+@import "theme-config";
+
+$border-bottom: 2px solid #c2c2c2;
+
+
+#{$module} {
+
+  border-bottom: $border-bottom;
+  margin-top: -259px;
+
+  .tabs {
+    .row {
+      .head {
+        position: relative;
+
+        .title {
+
+          h2 {
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            font-family: "Arial";
+            padding: 12px 5px;
+            text-align: center;
+            min-height: 41px;
+            line-height: 1.938;
+            color: rgb(48, 62, 72);
+            @include user-select(none);
+            min-height: 55px;
+
+          }
+
+          background-color: #e5aa0e;
+
+          &.active {
+            background-color: #ffc425;
+
+            &:before {
+              content: '';
+              position: absolute;
+              height: 10px;
+              width: 100%;
+              left: 0;
+              top: -10px;
+              background-color: #ffc425;
+            }
+          }
+        }
+
+        .navigation-arrows {
+          display: none;
+          position: absolute;
+          right: 40px;
+          top: 15px;
+
+          .arrow {
+            display: block;
+            width: 0.8rem;
+            cursor: pointer;
+          }
+
+          .navigation-up {
+            margin-bottom: 5px;
+          }
+
+        }
+      }
+
+      .content {
+        display: none;
+        background-color: #e8e8e8;
+        clear: both;
+        width: 100%;
+        position: relative;
+        min-height: 210px;
+        font-size: 1.8125em;
+        font-family: "Georgia";
+        color: #787878;
+        margin-bottom: 0;
+        line-height: 1.276;
+
+        .top {
+          padding: 33px;
+        }
+
+
+        .left,
+        .right {
+          font-size: 1.125rem;
+
+        }
+
+        .left {
+          background-color: #fff;
+        }
+
+        .right {
+          background-color: #d6d9db;
+        }
+      }
+
+      .active {
+        display: block;
+
+      }
+
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, sm) ) {
+    border-bottom: none;
+
+    .tabs {
+      padding-left: 2rem;
+      padding-right: 2rem;
+
+      .row {
+        .head {
+          .title:not(.active) {
+            display: none;
+          }
+          .navigation-arrows{
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

@@ -41,6 +41,11 @@ module.exports = function( grunt ) {
                     'assets/stylesheets/css/style.css': 'assets/stylesheets/scss/style.scss'
                 }
             },
+            fonts: {
+                files: {
+                    'assets/stylesheets/css/fonts.css': 'assets/stylesheets/scss/fonts.scss'
+                }
+            },
             modules: {
                 files: modulesScssPaths
             }
@@ -66,6 +71,10 @@ module.exports = function( grunt ) {
             sassBootstrap: {
                 files: 'assets/stylesheets/scss/bootstrap.scss',
                 tasks: [ 'sass:bootstrap' ]
+            },
+            sassFonts: {
+                files: 'assets/stylesheets/scss/fonts.scss',
+                tasks: [ 'sass:fonts' ]
             },
             sassModules: {
                 files: 'pagebox/modules/**/scss/*.scss',
@@ -116,6 +125,7 @@ module.exports = function( grunt ) {
         concat: {
             css: {
                 src: [
+                    'assets/stylesheets/css/fonts.css',
                     'assets/stylesheets/css/bootstrap.css',
                     'assets/stylesheets/css/style.css',
                     'pagebox/modules/**/css/module.css'
@@ -125,6 +135,7 @@ module.exports = function( grunt ) {
         },
         cssmin: {
             options: {
+                processImport: false,
                 shorthandCompacting: true,
                 roundingPrecision: 10 // 10 is for bootstrap
             },

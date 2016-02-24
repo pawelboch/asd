@@ -69,6 +69,10 @@ $h2_color: #fff !default;
       a {
         height: 53px;
         margin-bottom: 60px;
+        
+        &:hover {
+          color: #fff;
+        }
       }
 
       .learn-more-btn {

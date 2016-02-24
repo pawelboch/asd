@@ -29,8 +29,9 @@ header {
 
     .main-nav {
       margin-top: 10px;
+      padding-right: 20px;
       text-transform: uppercase;
-      float: left;
+      float: right;
     }
   }
 
@@ -40,6 +41,7 @@ header {
     .search-ico {
       background-image: url("../../images/search_gray.svg");
       position: absolute;
+      right: 0;
       width: 20px;
       height: 20px;
       cursor: pointer;
@@ -187,11 +189,10 @@ header {
             > .sub-menu {
               display: block;
               position: absolute;
-              padding: 0;
-              padding-top: 5px;
+              padding: 10px 0 0;
               left: 0;
               top: 1rem;
-              margin-top: 5px;
+              margin-top: -3px;
 
 
               li {

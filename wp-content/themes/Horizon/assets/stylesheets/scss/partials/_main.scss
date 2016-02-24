@@ -14,6 +14,15 @@ body {
   background-color: $main-background-color;
 }
 
+a {
+  color: #000;
+
+  &:hover {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
 .slick-slider {
   margin-bottom: 0 !important;
 }

@@ -50,6 +50,14 @@ $padding_top_title: 0 !default;
     }
   }
 
+  .learn-more-btn {
+
+      &:hover {
+        color: #fff;
+      }
+
+  }
+
   @each $id, $vars in $ids {
     &.#{$id} {
       // Styles for concrete module, by id

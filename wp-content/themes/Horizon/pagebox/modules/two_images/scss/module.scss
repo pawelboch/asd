@@ -63,6 +63,12 @@ $margin-between: 1%;
       font-family: "Georgia";
     }
 
+  a {
+    &:hover {
+      color: #fff;
+    }
+  }
+
 
     @each $id, $vars in $ids {
       &.#{$id} {

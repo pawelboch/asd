@@ -33,6 +33,7 @@ function theme_enqueue_style() {
 	 */
 	if ( defined( 'WP_DEBUG' ) && WP_DEBUG === true ) {
 		$version_hash = uniqid();
+		wp_enqueue_style( 'fonts-sass', TEMPLATE_DIR_URI . '/assets/stylesheets/css/fonts.css', array(), $version_hash, false );
 		wp_enqueue_style( 'bootstrap', TEMPLATE_DIR_URI . '/assets/stylesheets/css/bootstrap.css', array(), $version_hash, false );
 		wp_enqueue_style( 'style-sass', TEMPLATE_DIR_URI . '/assets/stylesheets/css/style.css', array(), $version_hash, false );
 

@@ -30,7 +30,7 @@ jQuery( document ).ready( function( $ ) {
         var mapElement = document.getElementById('Horizon');
         var map = new google.maps.Map(mapElement, mapOptions);
         var locations = [
-            ['Horizon', 'undefined', 'undefined', 'undefined', 'undefined', 35.0559917, -80.8428217, 'http://www.horizon.kurtosysdev.com/wp-content/uploads/2016/02/pin.png']
+            ['Horizon', 'undefined', 'undefined', 'undefined', 'undefined', 35.0559917, -80.8428217, '/wp-content/uploads/2016/02/pin.png']
         ];
         for (i = 0; i < locations.length; i++) {
             if (locations[i][1] =='undefined'){ description ='';} else { description = locations[i][1];}

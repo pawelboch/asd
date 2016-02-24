@@ -125,6 +125,7 @@ module.exports = function( grunt ) {
         },
         cssmin: {
             options: {
+                processImport: false,
                 shorthandCompacting: true,
                 roundingPrecision: 10 // 10 is for bootstrap
             },

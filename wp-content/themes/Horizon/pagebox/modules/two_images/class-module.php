@@ -81,7 +81,7 @@ class Module extends Abstract_Module {
 						'description'	=> __( 'Left description'),
 						'sass'			=> true,
 						'sass_filter'	=> function ( $value ) {
-							return wp_get_attachment_url( $value );
+							return wp_make_link_relative( wp_get_attachment_url( $value ));
 						}
 				),
 				array(
@@ -122,7 +122,7 @@ class Module extends Abstract_Module {
 						'description'	=> __( 'Right description'),
 						'sass'			=> true,
 						'sass_filter'	=> function ( $value ) {
-							return wp_get_attachment_url( $value );
+							return wp_make_link_relative( wp_get_attachment_url( $value ));
 						}
 				),
 				array(

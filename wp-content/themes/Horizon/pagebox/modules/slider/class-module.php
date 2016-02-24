@@ -159,7 +159,7 @@ class Module extends Abstract_Module {
 							'description' 	=> __( 'Select image from media or upload new' ),
 							'sass'          => true,
 							'sass_filter'   => function( $value ) {
-								return wp_get_attachment_url( $value );
+								return wp_make_link_relative( wp_get_attachment_url( $value ));
 							}
 						),
 					)

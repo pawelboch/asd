@@ -18,12 +18,14 @@ class Sass {
 	private $pagebox;
 	private $console = '';
 	private $template_directory;
+	private $template_relative_url;
 	private $debug = false;
 	private $last_post_id = 0;
 
 	public function __construct( WPG_Pagebox $pagebox ) {
 		$this->pagebox = $pagebox;
 		$this->template_directory = get_template_directory();
+		$this->template_relative_url = wp_make_link_relative( get_template_directory_uri() );
 
 		$this->console = Console::getInstance();
 
@@ -554,7 +556,7 @@ EOD;
 
 					$map = $this->loadMap( $path );
 					$map['module'] = '.pagebox-' . $data->slug . '-module';
-					$map['template-url'] = get_template_directory_uri();
+					$map['template-url'] = $this->template_relative_url;
 					$map['ids'][ 'pagebox-module-' . $data->id ] = $this->getVariablesFromModule( $module, $data );
 					$this->saveMap( $path, $map );
 				}
@@ -572,7 +574,7 @@ EOD;
 
 					$map = $this->loadMap( $path );
 					$map['module'] = '.pagebox-' . $data->slug . '-module';
-					$map['template-url'] = get_template_directory_uri();
+					$map['template-url'] = $this->template_relative_url;
 					$map['ids'][ 'pagebox-module-' . $data->id ] = $this->getVariablesFromModule( $module, $data );
 					$this->saveMap( $path, $map );
 					$this->saveModuleVariables( $path, $map );

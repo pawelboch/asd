@@ -4,7 +4,7 @@
   "private": true,
   "description": "Pagebox template",
   "scripts": {
-    "watch": "npm install && grunt default",
+    "watch": "grunt default",
     "compile": "npm install && grunt compile"
   },
   "author": "WpGeeks",

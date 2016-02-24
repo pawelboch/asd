@@ -27,22 +27,54 @@
 			</div>
 			<div class="content first active">
 				<div class="top">
-
+					<?php echo $this->get( 'first_tab_content' ) ;?>
 				</div>
-				<?php echo $this->get( 'first_tab_content' ) ;?>
-				first
+				<div class="left col-md-8">
+					<?php echo $this->get('first_left_content') ;?>
+				</div>
+
+				<div class="right col-md-4">
+					<?php echo $this->get('first_sidebar') ;?>
+				</div>
 			</div>
 			<div class="content second">
-				<?php echo $this->get( 'second_tab_content' ) ;?>
-				2
+				<div class="top">
+					<?php echo $this->get( 'second_tab_content' ) ;?>
+				</div>
+
+				<div class="left col-md-8">
+					<?php echo $this->get('first_left_content') ;?>
+				</div>
+
+				<div class="right col-md-4">
+					<?php echo $this->get('first_sidebar') ;?>
+				</div>
 			</div>
 			<div class="content third">
-				<?php echo $this->get( 'third_tab_content' ) ;?>
-				3
+				<div class="top">
+					<?php echo $this->get( 'third_tab_content' ) ;?>
+				</div>
+
+				<div class="left col-md-8">
+					<?php echo $this->get('first_left_content') ;?>
+				</div>
+
+				<div class="right col-md-4">
+					<?php echo $this->get('first_sidebar') ;?>
+				</div>
 			</div>
 			<div class="content fourth">
-				<?php echo $this->get( 'fourth_tab_content' ) ;?>
-				4
+				<div class="top">
+					<?php echo $this->get( 'fourth_tab_content' ) ;?>
+				</div>
+
+				<div class="left col-md-8">
+					<?php echo $this->get('first_left_content') ;?>
+				</div>
+
+				<div class="right col-md-4">
+					<?php echo $this->get('first_sidebar') ;?>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -21,7 +21,7 @@
 		</div>
 
 		<?php if($this->get('border') !== ''): ?>
-		<div class="second col-md-4 text-sm-center text-xs-center" style="border-left: <?php echo $this->get('border') ;?>; border-right: <?php echo $this->get('border') ;?>">
+		<div class="second col-md-4 text-sm-center text-xs-center">
 
 		<?php else: ;?>
 		<div class="second col-md-4 text-sm-center text-xs-center">

@@ -1,4 +1,6 @@
 @import "module-variables";
+@import "theme-config";
+@import "mixins/utils";
 
 //Defaul values
 
@@ -67,4 +69,8 @@ $padding_top_title: 0 !default;
     }
   }
 
+  @media (max-width: get($grid-breakpoints, sm) ) {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }

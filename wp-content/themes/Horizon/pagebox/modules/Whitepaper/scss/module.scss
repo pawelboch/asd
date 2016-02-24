@@ -1,15 +1,21 @@
 @import "module-variables";
+@import "mixins/utils";
+@import 'theme-config';
+
+$pagebox_bgc_color: #e8e8e8 !default;
 
 #{$module} {
 
-  background-color: #e8e8e8;
+
   padding: 30px 0.9375rem;
 
   .single {
-    background-color: #2c3842;
+
     border-right: 0.9375rem solid #e8e8e8;
     border-left: 0.9375rem solid #e8e8e8;
     padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     min-height: 200px;
 
     .title {
@@ -38,5 +44,22 @@
       }
     }
   }
+
+  @each $id, $vars in $ids {
+    &.#{$id} {
+      @include add('background-color', get($vars, pagebox_bgc_color));
+
+      .single {
+        @include add('background-color', get($vars, bgc_color));
+        @include add('border-right-color', get($vars, pagebox_bgc_color));
+        @include add('border-left-color', get($vars, pagebox_bgc_color));
+      }
+    }
+  }
+
+  @media (max-width: get($grid-breakpoints, sm) ) {
+    margin-left: 2rem;
+    margin-right: 2rem; }
+
 } // module
 

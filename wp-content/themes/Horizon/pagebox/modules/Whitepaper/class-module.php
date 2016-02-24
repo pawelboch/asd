@@ -54,25 +54,53 @@ class Module extends Abstract_Module {
 				array(
 						'type'			=> 'text',
 						'group'			=> __( 'Main', 'pagebox'),
-						'name'			=> 'title',
-						'value'			=> 'get in touch',
+						'name'			=> 'title1',
+						'value'			=> 'Title',
 						'label'			=> __( 'Title' ),
-						'description'	=> __( 'Title')
-				),
-				array(
-						'type'			=> 'editor',
-						'group'			=> __( 'Main', 'pagebox'),
-						'name'			=> 'description',
-						'label'			=> __( 'Description' ),
-						'description'	=> __( 'Description' )
+						'description'	=> __( 'Title'),
 				),
 				array(
 						'type'			=> 'text',
-						'group'			=> __('Contact form', 'pagebox'),
-						'name'			=> 'contact_form',
-						'label'			=> __( 'Contact' ),
-						'description'	=> __( 'Contact form shortcode' )
-				)
+						'group'			=> __( 'Main', 'pagebox'),
+						'name'			=> 'title2',
+						'value'			=> 'Title',
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Title'),
+				),
+				array(
+						'type'			=> 'text',
+						'group'			=> __( 'Main', 'pagebox'),
+						'name'			=> 'title3',
+						'value'			=> 'Title',
+						'label'			=> __( 'Title' ),
+						'description'	=> __( 'Title'),
+				),
+				array(
+						'type'			=> 'text',
+						'group'			=> __( 'Main', 'pagebox'),
+						'name'			=> 'download_btn',
+						'value'			=> 'download',
+						'label'			=> __( 'Download button' ),
+						'description'	=> __( 'Title'),
+				),
+				array(
+						'type'			=> 'colorpicker',
+						'group'			=> __( 'Style', 'pagebox'),
+						'name'			=> 'pagebox_bgc_color',
+						'value'			=> '#e8e8e8',
+						'label'			=> __( 'Background color' ),
+						'description'	=> __( 'Title'),
+						'sass'			=> true,
+				),
+				array(
+						'type'			=> 'colorpicker',
+						'group'			=> __( 'Style', 'pagebox'),
+						'name'			=> 'bgc_color',
+						'value'			=> '#2c3842',
+						'label'			=> __( 'Background color' ),
+						'description'	=> __( 'Title'),
+						'sass'			=> true,
+				),
 			)
 		);
 	}

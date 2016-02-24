@@ -1,4 +1,6 @@
 @import "module-variables";
+@import "theme-config";
+@import "mixins/utils";
 
 #{$module} {
 
@@ -47,5 +49,10 @@
       border: none;
     }
   } // .contact-form
+
+  @media (max-width: get($grid-breakpoints, sm) ) {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 } // module
 

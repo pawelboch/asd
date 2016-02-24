@@ -232,14 +232,14 @@ class Module extends Abstract_Module {
 							'label'         => __( 'Name' ),
 							'description'   => __( 'Submenu navigation' )
 						),
+						array(
+							'type'			=> 'editor',
+							'group'			=> __( 'Third Tab', 'pagebox' ),
+							'name'			=> 'content',
+							'label'			=> __( 'Third left content' ),
+							'description' 	=> __( 'Type Third tab content' )
+						),
 					),
-				),
-				array(
-					'type'			=> 'editor',
-					'group'			=> __( 'Third Tab', 'pagebox' ),
-					'name'			=> 'third_left_content',
-					'label'			=> __( 'Third left content' ),
-					'description' 	=> __( 'Type Third tab content' )
 				),
 				array(
 					'type'          => 'editor',
@@ -300,14 +300,14 @@ class Module extends Abstract_Module {
 							'label'         => __( 'Name' ),
 							'description'   => __( 'Submenu navigation' )
 						),
+						array(
+							'type'			=> 'editor',
+							'group'			=> __( 'Fourth Tab', 'pagebox' ),
+							'name'			=> 'content',
+							'label'			=> __( 'Fourth left content' ),
+							'description' 	=> __( 'Type Fourth tab content' )
+						),
 					),
-				),
-				array(
-					'type'			=> 'editor',
-					'group'			=> __( 'Fourth Tab', 'pagebox' ),
-					'name'			=> 'fourth_left_content',
-					'label'			=> __( 'Fourth left content' ),
-					'description' 	=> __( 'Type Fourth tab content' )
 				),
 				array(
 					'type'          => 'editor',

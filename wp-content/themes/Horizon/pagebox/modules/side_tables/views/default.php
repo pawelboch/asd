@@ -42,7 +42,7 @@
 
 						<?php $content = $this->get( 'first_sub_nav' );
 						foreach ( $content as $i => $cont ): ?>
-							<div class="content active <?php echo $i ;?>-single">
+							<div class="content <?php echo $i ;?>-single">
 								<?php echo $cont->content ;?>
 							</div>
 						<?php endforeach ;?>
@@ -71,7 +71,7 @@
 
 						<?php $content = $this->get( 'second_sub_nav' );
 						foreach ( $content as $i => $cont ): ?>
-							<div class="content active <?php echo $i ;?>-single">
+							<div class="content <?php echo $i ;?>-single">
 								<?php echo $cont->content ;?>
 							</div>
 						<?php endforeach ;?>
@@ -90,14 +90,27 @@
 				<div class="top">
 					<?php echo $this->get( 'third_tab_content' ) ;?>
 				</div>
-
 				<div class="left col-md-8">
-					<?php echo $this->get( 'first_left_content' ) ;?>
+					<div class="sub-menu clearfix">
+						<?php $sub_nav = $this->get( 'third_sub_nav' );
+						foreach( $sub_nav as $i => $sub ): ?>
+							<div id="<?php echo $i ;?>-single" class="single-menu col-md-3">
+								<?php echo $sub->sub ;?>
+							</div>
+						<?php endforeach ;?>
+
+						<?php $content = $this->get( 'third_sub_nav' );
+						foreach ( $content as $i => $cont ): ?>
+							<div class="content <?php echo $i ;?>-single">
+								<?php echo $cont->content ;?>
+							</div>
+						<?php endforeach ;?>
+					</div>
 				</div>
 
 				<div class="sidebar col-md-4">
 					<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-					<?php echo $this->get('first_sidebar') ;?>
+					<?php echo $this->get( 'third_sidebar' ) ;?>
 				</div>
 			</div>
 
@@ -107,20 +120,32 @@
 				<div class="top">
 					<?php echo $this->get( 'fourth_tab_content' ) ;?>
 				</div>
-
 				<div class="left col-md-8">
-					<?php echo $this->get('first_left_content') ;?>
+					<div class="sub-menu clearfix">
+						<?php $sub_nav = $this->get( 'fourth_sub_nav' );
+						foreach( $sub_nav as $i => $sub ): ?>
+							<div id="<?php echo $i ;?>-single" class="single-menu col-md-3">
+								<?php echo $sub->sub ;?>
+							</div>
+						<?php endforeach ;?>
+
+						<?php $content = $this->get( 'fourth_sub_nav' );
+						foreach ( $content as $i => $cont ): ?>
+							<div class="content <?php echo $i ;?>-single">
+								<?php echo $cont->content ;?>
+							</div>
+						<?php endforeach ;?>
+					</div>
 				</div>
 
 				<div class="sidebar col-md-4">
 					<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-					<?php echo $this->get('first_sidebar') ;?>
+					<?php echo $this->get( 'fourth_sidebar' ) ;?>
 				</div>
 			</div>
+			
+			
 		</div>
-
-
-
 	</div>
 </div>
 

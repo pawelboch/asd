@@ -97,26 +97,7 @@ module.exports = function( grunt ) {
         },
         copy: {
             sassVendor: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'assets/bower_components/bootstrap/scss/',
-                        src: ['**'],
-                        dest: 'assets/stylesheets/scss/vendor/bootstrap/'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'assets/bower_components/compass-mixins/lib/',
-                        src: ['**'],
-                        dest: 'assets/stylesheets/scss/vendor/'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'assets/bower_components/slick-carousel/slick/',
-                        src: ['*.scss'],
-                        dest: 'assets/stylesheets/scss/vendor/slick/'
-                    }
-                ]
+                files: grunt.file.readJSON( 'assets/stylesheets/scss/vendor-config.json' )
             }
         },
         clean: {

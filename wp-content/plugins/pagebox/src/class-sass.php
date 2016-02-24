@@ -292,54 +292,13 @@ class Sass {
 	}
 
 	public function compileModules() {
-		$path = $this->template_directory;
-
-		$this->console->time('clear_cache')->addHeader('Clear compiler cache');
-		foreach( $this->getModulesPathsArray() as $dir ) {
-			$file = $dir . '/compiler.map';
-			if( is_file( $file )) {
-				if( unlink( $file )) {
-					$this->console->addSuccess( $file, 'removed successfully.' );
-				} else {
-					$this->console->addError( $file, 'error when removing!' );
-				}
-			} else {
-				$this->console->addWarning( $file, 'not exists.' );
-			}
-		}
-		$this->console->timeEnd('clear_cache');
-
-		$this->console->time('search')->addHeader('Search for posts and pages');
-		$settings = get_option( 'pagebox_settings' );
-		$posts = get_posts( array(
-			'posts_per_page'    => -1,
-			'post_type'         => $settings['post_types'],
-			'post_status'       => 'any'
-		));
-		$this->console->addStyled( 'Finded <span>' . count( $posts ) . '</span>', 'success' )->timeEnd('search');
-
-		foreach( $posts as $post ) {
-			$this->console->time('regenerate');
-			$modules = get_post_meta( $post->ID, 'pagebox_modules' )[0];
-			if( is_array( $modules )) {
-				$this->last_post_id = $post->ID;
-				$this->console->addHeader( sprintf('%s (%d): "%s"', ucfirst($post->post_type), $post->ID, $post->post_title ) );
-				$this->regenerateCompilerCache( $modules );
-				$this->console->timeEnd('regenerate');
-			}
-		}
-
-		$this->console->time('module_variables')->addHeader( 'Generate module variables file for Sass' );
-		foreach( $this->getModulesPathsArray() as $dir ) {
-			$this->saveModuleVariables( $dir, $this->loadMap( $dir ));
-		}
-		$this->console->timeEnd('module_variables');
+		$this->createVariables();
 
 		$sass = $this->getCompiler();
 		foreach( $this->getModulesPathsArray() as $dir ) {
 			$sass->setImportPaths( array(
 				$dir . '/scss',
-				$path . '/assets/stylesheets/scss'
+				$this->template_directory . '/assets/stylesheets/scss'
 			));
 			$this->compileTo(
 				$sass,
@@ -347,6 +306,58 @@ class Sass {
 				$dir . '/css/module.css'
 			);
 		}
+	}
+
+	public function createVariables() {
+		$this->console->time('posts')->addHeader('Scan posts and pages');
+		$settings = get_option( 'pagebox_settings' );
+		$posts = get_posts( array(
+			'posts_per_page'    => -1,
+			'post_type'         => $settings['post_types'],
+			'post_status'       => 'any'
+		));
+		$global = array();
+		foreach( $posts as $post ) {
+			$sections = get_post_meta( $post->ID, 'pagebox_modules' )[0];
+
+			if( is_array( $sections )) {
+				$post_name = sprintf('%s (%d): "%s"', ucfirst($post->post_type), $post->ID, $post->post_title );
+				$this->console->addHeader( $post_name );
+				foreach( $sections as $section ) {
+					if( is_array( $section )) {
+						foreach ( $section as $data ) {
+							$data = json_decode( $data );
+							$data->{'_comment'} = $post_name;
+							$global[ $data->slug ][] = $data;
+							$this->console->addStyled( '&gt;&gt; <span>' . $data->slug . '</span> ('. $data->id .')', 'success');
+						}
+					}
+				}
+			}
+		}
+		$this->console->space()->addStyled( 'Successfully scanned <span>' . count( $posts ) . '</span> posts.</span>', 'success' );
+		$this->console->timeEnd('posts');
+
+		$this->console->time('map')->addHeader('Create map and module variables');
+		foreach( $global as $module => $boxes ) {
+			$module = $this->pagebox->modules->get_module( $module );
+			if( $module ) {
+				$map = array(
+					'module'        => '.pagebox-' . $data->slug . '-module',
+					'template-url'  => $this->template_relative_url,
+					'ids'           => array()
+				);
+				$config = $module->get_config('fields');
+				foreach( $boxes as $box ) {
+					$map['ids'][ 'pagebox-module-' . $box->id ] = $this->getVariablesFromModule( $config, $box );
+				}
+				$path = $module->get_path();
+				$this->saveMap( $path, $map );
+				$this->saveModuleVariables( $path, $map );
+			}
+		}
+		$this->console->timeEnd('map');
+
 	}
 
 	public function router( $task ) {
@@ -364,6 +375,9 @@ class Sass {
 			case 'minify':
 
 				break;
+			case 'variables':
+				$this->createVariables();
+				break;
 		}
 	}
 
@@ -378,7 +392,8 @@ class Sass {
 					'recompile',
 					'recompile_theme',
 					'recompile_modules',
-					'minify'
+					'minify',
+					'variables'
 				) )
 			) {
 				$this->console->clear()->addStyled( 'Permission tests: <span>OK</span>', 'success' );
@@ -404,11 +419,15 @@ class Sass {
 
 	public function saveMap( $path, array $array ) {
 		$file = $path . DIRECTORY_SEPARATOR . 'compiler.map';
-		file_put_contents( $file, serialize( $array ), LOCK_EX );
+		if( file_put_contents( $file, serialize( $array ), LOCK_EX )) {
+			$this->console->addSuccess( $file, 'saved successfully.' );
+		} else {
+			$this->console->addError( $file, 'error when saving!' );
+		}
 	}
 
 	public function saveModuleVariables( $path, array $map ) {
-		$path = $path . '/scss/_module-variables.scss';
+		$path = $path . DIRECTORY_SEPARATOR . 'scss' . DIRECTORY_SEPARATOR . '_module-variables.scss';
 		if( file_put_contents(
 			$path,
 			$this->parseMapToScss( $map ),
@@ -451,56 +470,50 @@ class Sass {
 		return $this->last_post_id > 0 ? $this->last_post_id : get_the_ID();
 	}
 
-	public function getVariablesFromModule( $module, $data ) {
-		if( $module !== false ) {
+	public function getVariablesFromModule( $config, $data ) {
+		$variables = array();
+		if( isset( $data->_comment )) {
+			$variables['_comment'] = $data->_comment;
+		}
+		if( $config !== false ) {
+			foreach( $config as $field ) {
+				if( isset( $field['sass'] )) {
 
-			$ID = $this->getPostID();
-			$variables = array(
-				'_comment' => ucfirst( get_post_type( $ID )) . '('.$ID.'): ' . get_the_title( $ID )
-			);
+					$name = is_string( $field['sass'] ) ? $field['sass'] : $field['name'];
 
-			$config = $module->get_config( 'fields' );
-			if( $config !== false ) {
-				foreach( $config as $field ) {
-					if( isset( $field['sass'] )) {
+					if( isset( $data->settings->{ $field['name'] } ) && ! empty( $data->settings->{ $field['name'] } )) {
+						$variables[ $name ] = $this->filter( $field, $data->settings->{ $field['name'] } );
+					} else if( isset( $field['value'] )) {
+						$variables[ $name ] = $this->filter( $field, $field['value'] );
+					} else {
+						$variables[ $name ] = $this->filter( $field, null );
+					}
+				} else if( $field['type'] === 'repeater' ) {
+					if( isset( $field['fields'] ) && is_array( $field['fields'] )) {
+						foreach( $field['fields'] as $field2 ) {
+							if( isset( $field2['sass'] )) {
 
-						$name = is_string( $field['sass'] ) ? $field['sass'] : $field['name'];
+								$name = $field['name'] . '-' . (is_string( $field2['sass'] ) ? $field2['sass'] : $field2['name']);
+								$tmp = array();
 
-						if( isset( $data->settings->{ $field['name'] } ) && ! empty( $data->settings->{ $field['name'] } )) {
-							$variables[ $name ] = $this->filter( $field, $data->settings->{ $field['name'] } );
-						} else if( isset( $field['value'] )) {
-							$variables[ $name ] = $this->filter( $field, $field['value'] );
-						} else {
-							$variables[ $name ] = $this->filter( $field, null );
-						}
-					} else if( $field['type'] === 'repeater' ) {
-						if( isset( $field['fields'] ) && is_array( $field['fields'] )) {
-							foreach( $field['fields'] as $field2 ) {
-								if( isset( $field2['sass'] )) {
-
-									$name = $field['name'] . '-' . (is_string( $field2['sass'] ) ? $field2['sass'] : $field2['name']);
-									$tmp = array();
-
-									if( isset( $data->settings->{ $field['name'] } )) {
-										foreach( $data->settings->{ $field['name'] } as $f ) {
-											if( is_object( $f ) && property_exists( $f, $field2['name'] )) {
-												$val = $this->filter( $field2, $f->{$field2['name']} );
-											} else {
-												$val = $this->filter( $field2, null );
-											}
-											$tmp[] = $val ? $val : "''";
+								if( isset( $data->settings->{ $field['name'] } )) {
+									foreach( $data->settings->{ $field['name'] } as $f ) {
+										if( is_object( $f ) && property_exists( $f, $field2['name'] )) {
+											$val = $this->filter( $field2, $f->{$field2['name']} );
+										} else {
+											$val = $this->filter( $field2, null );
 										}
+										$tmp[] = $val ? $val : "''";
 									}
-									$variables[ $name ] = '(' . implode( ', ', $tmp ) . ')';
 								}
+								$variables[ $name ] = '(' . implode( ', ', $tmp ) . ')';
 							}
 						}
 					}
 				}
 			}
-			return $variables;
 		}
-		return false;
+		return $variables;
 	}
 
 	private function parseMapToScss( array $map, $offset = '', $flat = false ) {

@@ -30,7 +30,7 @@ $h2_color: #fff !default;
         background-color: $h2_bgc;
         color: $h2_color;
         font-family: "Avenir Next";
-        font-size: 2.25rem;
+        font-size: 3rem;
         padding: 15px;
         text-transform: uppercase;
         position: relative;
@@ -51,7 +51,7 @@ $h2_color: #fff !default;
             background-image: url($template-url + "/assets/images/blue_frame.svg");
             background-repeat: no-repeat;
             left: -2px;
-            top: -67px;
+            top: -57px;
 
           }
         }

@@ -71,7 +71,7 @@ class Module extends Abstract_Module {
 						'group'			=> __('Contact form', 'pagebox'),
 						'name'			=> 'contact_form',
 						'label'			=> __( 'Contact' ),
-						'description'	=> __( 'Contact form shortcode' )
+						'description'	=> __( 'Contact form shortcode - copy it from Contact plugin' )
 				)
 			)
 		);

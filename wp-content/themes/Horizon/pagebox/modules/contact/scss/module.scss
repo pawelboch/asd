@@ -17,7 +17,7 @@
     .title {
 
       font-size: 28px;
-      font-family: "Avenir Next";
+      font-family: "Avenir Next Medium";
     }
 
     .description {
@@ -31,6 +31,13 @@
     input, button, select, textarea {
       padding: 15px;
       width: 100%;
+      border: none;
+      font-family: 'Arial';
+      height: 57px;
+    }
+
+    textarea {
+      height: 137px;
     }
 
     input::-webkit-input-placeholder {

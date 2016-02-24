@@ -3,6 +3,11 @@
 
 @import "variables";
 
+@font-face {
+  font-family: Avenir Next;
+  src: ("../../font/AvenirNextLTPro-Regular.otf");
+}
+
 
 body {
   font: $font-stack;

@@ -10,9 +10,9 @@
 				<?php echo $this->get('title') ;?>
 			</h2>
 
-			<p class="description">
+			<div class="description">
 				<?php echo $this->get('description') ;?>
-			</p>
+			</div>
 
 		</div>
 		<div class="col-md-6 contact-form">

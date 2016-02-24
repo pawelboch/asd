@@ -71,6 +71,7 @@ class Module extends Abstract_Module {
 						'type'			=> 'text',
 						'group'			=> __( 'News', 'pagebox'),
 						'name'			=> 'news_number',
+						'value'			=> 3,
 						'label'			=> __( 'News number' ),
 						'description'	=> __( 'News number - 1, 3, 6'),
 				),

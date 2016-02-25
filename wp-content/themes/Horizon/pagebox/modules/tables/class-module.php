@@ -59,6 +59,13 @@ class Module extends Abstract_Module {
 					'description' 	=> __( 'Type first tab title' )
 				),
 				array(
+					'type'			=> 'text',
+					'group'			=> __( 'First Tab', 'pagebox' ),
+					'name'			=> 'first_tab_slug',
+					'label'			=> __( 'First tab slug' ),
+					'description' 	=> __( 'Type tab slug for links' )
+				),
+				array(
 					'type'			=> 'editor',
 					'group'			=> __( 'First Tab', 'pagebox' ),
 					'name'			=> 'first_tab_content',
@@ -71,6 +78,13 @@ class Module extends Abstract_Module {
 					'name'			=> 'second_tab_title',
 					'label'			=> __( 'Second tab title' ),
 					'description' 	=> __( 'Type second tab title' )
+				),
+				array(
+					'type'			=> 'text',
+					'group'			=> __( 'Second Tab', 'pagebox' ),
+					'name'			=> 'second_tab_slug',
+					'label'			=> __( 'Second tab slug' ),
+					'description' 	=> __( 'Type tab slug for links' )
 				),
 				array(
 					'type'			=> 'editor',
@@ -87,6 +101,13 @@ class Module extends Abstract_Module {
 					'description' 	=> __( 'Type third tab title' )
 				),
 				array(
+					'type'			=> 'text',
+					'group'			=> __( 'Third Tab', 'pagebox' ),
+					'name'			=> 'third_tab_slug',
+					'label'			=> __( 'Third tab slug' ),
+					'description' 	=> __( 'Type tab slug for links' )
+				),
+				array(
 					'type'			=> 'editor',
 					'group'			=> __( 'Third Tab', 'pagebox' ),
 					'name'			=> 'third_tab_content',
@@ -99,6 +120,13 @@ class Module extends Abstract_Module {
 					'name'			=> 'fourth_tab_title',
 					'label'			=> __( 'Fourth tab title' ),
 					'description' 	=> __( 'Type fourth tab title' )
+				),
+				array(
+					'type'			=> 'text',
+					'group'			=> __( 'Fourth Tab', 'pagebox' ),
+					'name'			=> 'fourth_tab_slug',
+					'label'			=> __( 'Fourth tab slug' ),
+					'description' 	=> __( 'Type tab slug for links' )
 				),
 				array(
 					'type'			=> 'editor',

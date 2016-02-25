@@ -317,6 +317,11 @@ class Sass {
 			'post_status'       => 'any'
 		));
 		$global = array();
+
+		foreach( $this->getModulesPathsArray() as $dir ) {
+			$global[ basename( $dir )] = array();
+		}
+
 		foreach( $posts as $post ) {
 			$sections = get_post_meta( $post->ID, 'pagebox_modules' )[0];
 
@@ -343,7 +348,7 @@ class Sass {
 			$module = $this->pagebox->modules->get_module( $module );
 			if( $module ) {
 				$map = array(
-					'module'        => '.pagebox-' . $data->slug . '-module',
+					'module'        => '.pagebox-' . $module->get_slug() . '-module',
 					'template-url'  => $this->template_relative_url,
 					'ids'           => array()
 				);

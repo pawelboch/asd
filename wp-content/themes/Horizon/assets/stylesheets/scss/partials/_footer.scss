@@ -116,6 +116,9 @@ footer {
 @media (max-width: map-get($grid-breakpoints, md) ) {
   footer {
     .container {
+      .footer-logo {
+        max-width: 270px;
+      }
       #nav-footer {
         padding-left: 0;
         padding-top: 35px;

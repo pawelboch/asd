@@ -18,11 +18,13 @@
 
       font-size: 28px;
       font-family: "Avenir Next Medium";
+
     }
 
     .description {
       font-size: 18px;
       font-family: "Arial";
+
     }
   }
 
@@ -34,19 +36,31 @@
       border: none;
       font-family: 'Arial';
       height: 57px;
+
     }
 
     textarea {
       height: 137px;
+      resize: none;
+
+      &::-webkit-input-placeholder {
+        color: #cbcbcb;
+
+      }
+
     }
 
-    input::-webkit-input-placeholder {
-      color: #cbcbcb;
+    input {
+      &::-webkit-input-placeholder {
+        color: #cbcbcb;
+
+      }
     }
 
     select {
       font-size: 30px;
       color: #cbcbcb;
+
     }
 
 
@@ -54,12 +68,28 @@
       color: #fff;
       background-color: #ffc600;
       border: none;
+
+    }
+
+    .submit-btn {
+      &:before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 19px;
+        width: 20px;
+        height: 20px;
+        background-image: url($template-url + "/assets/images/white_chevons.svg");
+        background-repeat: no-repeat;
+
+      }
     }
   } // .contact-form
 
   @media (max-width: get($grid-breakpoints, sm) ) {
     margin-left: 2rem;
     margin-right: 2rem;
+
   }
 } // module
 

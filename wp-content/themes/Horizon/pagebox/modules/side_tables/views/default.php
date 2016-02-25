@@ -35,14 +35,14 @@
 					<div class="sub-menu clearfix">
 						<?php $sub_nav = $this->get( 'first_sub_nav' );
 						foreach( $sub_nav as $i => $sub ): ?>
-							<div id="<?php echo $i ;?>-single" class="single-menu col-md-3">
+							<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
 								<?php echo $sub->sub ;?>
 							</div>
 						<?php endforeach ;?>
 
 						<?php $content = $this->get( 'first_sub_nav' );
 						foreach ( $content as $i => $cont ): ?>
-							<div class="content <?php echo $i ;?>-single">
+							<div class="content single-<?php echo $i ;?>">
 								<?php echo $cont->content ;?>
 							</div>
 						<?php endforeach ;?>
@@ -64,14 +64,14 @@
 					<div class="sub-menu clearfix">
 						<?php $sub_nav = $this->get( 'second_sub_nav' );
 						foreach( $sub_nav as $i => $sub ): ?>
-							<div id="<?php echo $i ;?>-single" class="single-menu col-md-3">
+							<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
 								<?php echo $sub->sub ;?>
 							</div>
 						<?php endforeach ;?>
 
 						<?php $content = $this->get( 'second_sub_nav' );
 						foreach ( $content as $i => $cont ): ?>
-							<div class="content <?php echo $i ;?>-single">
+							<div class="content single-<?php echo $i ;?>">
 								<?php echo $cont->content ;?>
 							</div>
 						<?php endforeach ;?>
@@ -94,14 +94,14 @@
 					<div class="sub-menu clearfix">
 						<?php $sub_nav = $this->get( 'third_sub_nav' );
 						foreach( $sub_nav as $i => $sub ): ?>
-							<div id="<?php echo $i ;?>-single" class="single-menu col-md-3">
+							<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
 								<?php echo $sub->sub ;?>
 							</div>
 						<?php endforeach ;?>
 
 						<?php $content = $this->get( 'third_sub_nav' );
 						foreach ( $content as $i => $cont ): ?>
-							<div class="content <?php echo $i ;?>-single">
+							<div class="content single-<?php echo $i ;?>">
 								<?php echo $cont->content ;?>
 							</div>
 						<?php endforeach ;?>
@@ -124,14 +124,14 @@
 					<div class="sub-menu clearfix">
 						<?php $sub_nav = $this->get( 'fourth_sub_nav' );
 						foreach( $sub_nav as $i => $sub ): ?>
-							<div id="<?php echo $i ;?>-single" class="single-menu col-md-3">
+							<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
 								<?php echo $sub->sub ;?>
 							</div>
 						<?php endforeach ;?>
 
 						<?php $content = $this->get( 'fourth_sub_nav' );
 						foreach ( $content as $i => $cont ): ?>
-							<div class="content <?php echo $i ;?>-single">
+							<div class="content single-<?php echo $i ;?>">
 								<?php echo $cont->content ;?>
 							</div>
 						<?php endforeach ;?>

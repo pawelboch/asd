@@ -78,6 +78,18 @@ class Module extends Abstract_Module {
 							'description'	=> __( 'Highlighted word' )
 						),
 						array(
+							'type'			=> 'switch',
+							'group'			=> __( 'Slides', 'pagebox' ),
+							'name'			=> 'bold_title',
+							'option'		=> '600',
+							'label'			=> __( 'Title font weight' ),
+							'description' 	=> __( 'OFF / ON bold on second word' ),
+							'sass'			=> true,
+							'sass_filter'   => function( $value ) {
+								return $value ? '600' : '500';
+							}
+						),
+						array(
 							'type'			=> 'colorpicker',
 							'group'			=> __( 'Style', 'pagebox' ),
 							'name'			=> 'h2_bgc',

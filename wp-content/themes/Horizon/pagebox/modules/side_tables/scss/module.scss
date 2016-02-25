@@ -109,6 +109,8 @@ $border-bottom: 2px solid #c2c2c2;
           .sub-menu {
             .single-menu {
               color: #000;
+              cursor: pointer;
+              @include user-select(none);
 
               &.active {
                 background-color: #303e48;

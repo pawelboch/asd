@@ -20,7 +20,6 @@ class Sass {
 	private $template_directory;
 	private $template_relative_url;
 	private $debug = false;
-	private $last_post_id = 0;
 
 	public function __construct( WPG_Pagebox $pagebox ) {
 		$this->pagebox = $pagebox;
@@ -28,6 +27,12 @@ class Sass {
 		$this->template_relative_url = wp_make_link_relative( get_template_directory_uri() );
 
 		$this->console = Console::getInstance();
+
+		if( defined('WP_DEBUG') && WP_DEBUG === false && defined('PAGEBOX_AUTOCOMPILE') && PAGEBOX_AUTOCOMPILE === true ) {
+			if( ! is_file( $this->template_directory . '/assets/stylesheets/css/style.min.css' )) {
+				$this->router('recompile');
+			}
+		}
 
 		add_action( 'admin_bar_menu', array( $this, 'addMenuBar' ), 999 );
 		add_action( 'admin_menu', array( $this, 'addAdminPage' ) );
@@ -331,7 +336,7 @@ class Sass {
 				foreach( $sections as $section ) {
 					if( is_array( $section )) {
 						foreach ( $section as $data ) {
-							$data = json_decode( $data );
+							$data = $this->json_safe_decode( $data );
 							$data->{'_comment'} = $post_name;
 							$global[ $data->slug ][] = $data;
 							$this->console->addStyled( '&gt;&gt; <span>' . $data->slug . '</span> ('. $data->id .')', 'success');
@@ -362,7 +367,96 @@ class Sass {
 			}
 		}
 		$this->console->timeEnd('map');
+	}
 
+	private function loadFile( $file ) {
+		if( is_file( $file )) {
+			$content = file_get_contents( $file );
+			if( $content ) {
+				return $content;
+			} else {
+				$this->console->addError( $file, 'error when opening!' );
+			}
+		} else {
+			$this->console->addError( $file, 'file not exists!' );
+		}
+		return false;
+	}
+
+	private function saveToFile( $path, $handle, $content ) {
+		if( $content ) {
+			if( fwrite( $handle, $content ) === false ) {
+				$this->console->addError( $path, 'error when saving!' );
+			} else {
+				$this->console->addSuccess( $path, 'successfully saved.' );
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public function minifyCss() {
+		$this->console->time('minify')->addHeader('CSS minify');
+		require_once 'libs/composer/autoload.php';
+		$path = $this->template_directory;
+		$file = $path . '/assets/stylesheets/css/pre-style.min.css';
+		$size = filesize( $file );
+		$test = true;
+		try {
+			$minifier = new \MatthiasMullie\Minify\CSS( $file );
+			$minifier->minify( $file );
+		} catch( \Exception $e ) {
+			$test = false;
+			$this->console->addStyled( '<span>&gt;&gt;</span>' . $e->getMessage(), 'error' );
+		}
+		if( $test ) {
+			$after = filesize( $file );
+			$this->console->addStyled( sprintf('<span>Minification success.</span> %.1fKB -> %.1fKB (%.1fKB)', $size / 1024, $after / 1024, ($after - $size) / 1024), 'success' );
+		} else {
+			$this->console->addStyled('<span>Minification fail!</span>', 'error');
+		}
+		$this->console->timeEnd('minify');
+		return $test;
+	}
+
+	public function concatenate() {
+		$this->console->time('concat')->addHeader('Concatenate files');
+		$path = $this->template_directory;
+		$file_path = $path . '/assets/stylesheets/css/pre-style.min.css';
+		$handle = fopen( $file_path, 'w' );
+		if( $handle ) {
+			$test = true;
+			foreach( array('fonts', 'bootstrap', 'style') as $style_name ) {
+				$file = $path . '/assets/stylesheets/css/'.$style_name.'.css';
+				if ( ! $this->saveToFile( $file, $handle, $this->loadFile( $file ) ) ) {
+					$test = false;
+				}
+			}
+			foreach( $this->getModulesPathsArray() as $dir ) {
+				$file = $dir . '/css/module.css';
+				if ( ! $this->saveToFile( $file, $handle, $this->loadFile( $file ) ) ) {
+					$test = false;
+				}
+			}
+			if( $test ) {
+				$this->console->addStyled('<span>Concatenation success</span>', 'success')->timeEnd('concat');
+				if( $this->minifyCss()) {
+					$this->console->time('rename')->addHeader('Update style.min.css');
+					$style_min_path = $path . '/assets/stylesheets/css/style.min.css';
+					if( copy( $file_path, $style_min_path )) {
+						$this->console->addSuccess( $style_min_path, 'successfully created.' );
+					} else {
+						$this->console->addError( $file_path, 'error when copying!' );
+					}
+					$this->console->timeEnd('rename');
+				}
+			} else {
+				$this->console->addStyled('<span>Concatenation fail!</span>', 'error')->timeEnd('concat');
+			}
+			fclose( $handle );
+		} else {
+			$this->console->addError( $file_path, 'error when open or create!' );
+		}
 	}
 
 	public function router( $task ) {
@@ -370,6 +464,7 @@ class Sass {
 			case 'recompile':
 				$this->compileTheme();
 				$this->compileModules();
+				$this->concatenate();
 				break;
 			case 'recompile_theme':
 				$this->compileTheme();
@@ -378,7 +473,7 @@ class Sass {
 				$this->compileModules();
 				break;
 			case 'minify':
-
+				$this->concatenate();
 				break;
 			case 'variables':
 				$this->createVariables();
@@ -471,10 +566,6 @@ class Sass {
 		return $value ? $this->autoQuote( $value ) : null;
 	}
 
-	private function getPostID() {
-		return $this->last_post_id > 0 ? $this->last_post_id : get_the_ID();
-	}
-
 	public function getVariablesFromModule( $config, $data ) {
 		$variables = array();
 		if( isset( $data->_comment )) {
@@ -563,41 +654,42 @@ EOD;
 		return $decoded;
 	}
 
-	public function regenerateCompilerCache( array $sections ) {
-		foreach( $sections as $section ) {
-			foreach ( $section as $data ) {
-				$data = $this->json_safe_decode( $data );
-				$module = $this->pagebox->modules->get_module( $data->slug );
-				if( $module ) {
-					$this->console->addStyled( $data->slug . ' <span>module added.</span>', 'success' );
-					$path = $module->get_path();
-
-					$map = $this->loadMap( $path );
-					$map['module'] = '.pagebox-' . $data->slug . '-module';
-					$map['template-url'] = $this->template_relative_url;
-					$map['ids'][ 'pagebox-module-' . $data->id ] = $this->getVariablesFromModule( $module, $data );
-					$this->saveMap( $path, $map );
-				}
-			}
-		}
-	}
-
 	public function compile( array $sections ) {
+		$updated = array();
 		foreach( $sections as $section ) {
 			foreach ( $section as $data ) {
 				$data = $this->json_safe_decode( $data );
 				$module = $this->pagebox->modules->get_module( $data->slug );
 				if( $module ) {
 					$path = $module->get_path();
-
 					$map = $this->loadMap( $path );
-					$map['module'] = '.pagebox-' . $data->slug . '-module';
-					$map['template-url'] = $this->template_relative_url;
-					$map['ids'][ 'pagebox-module-' . $data->id ] = $this->getVariablesFromModule( $module, $data );
+					$updated[] = $module->get_slug();
+					if( ! isset( $map[ 'module' ])) $map['module'] = '.pagebox-' . $module->get_slug() . '-module';
+					if( ! isset( $map[ 'template-url' ])) $map['template-url'] = $this->template_relative_url;
+					$map['ids'][ 'pagebox-module-' . $data->id ] = $this->getVariablesFromModule( $module->get_config('fields'), $data );
 					$this->saveMap( $path, $map );
 					$this->saveModuleVariables( $path, $map );
 				}
 			}
+		}
+		if( defined('WP_DEBUG') && WP_DEBUG === false ) {
+			ob_start();
+			$sass = $this->getCompiler();
+			foreach ( array_unique( $updated ) as $module ) {
+				$module = $this->pagebox->modules->get_module( $module );
+				$path   = $module->get_path();
+				$sass->setImportPaths( array(
+					$path . '/scss',
+					$this->template_directory . '/assets/stylesheets/scss'
+				) );
+				$this->compileTo(
+					$sass,
+					$path . '/scss/module.scss',
+					$path . '/css/module.css'
+				);
+			}
+			$this->concatenate();
+			ob_clean();
 		}
 	}
 

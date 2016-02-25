@@ -18,6 +18,7 @@ jQuery( document ).ready( function( $ ) {
     $('.pagebox-side_tables-module .left .sub-menu .single-menu').on('click',function(){
             $('.pagebox-side_tables-module .left .sub-menu .single-menu').removeClass('active');
             $(this).addClass('active');
+            $('.pagebox-side_tables-module .tabs .row .content .sidebar').hide();
             $('.pagebox-side_tables-module .tabs .row .content .left .content').hide();
             $('.'+$(this).attr('id')).fadeIn('fast');
     });

@@ -46,7 +46,10 @@ $posts_array = get_posts( $args ); ?>
 						<?php echo get_the_category($post->ID)[0]->name ;?>
 					</div>
 					<div class="date">
-						<?php echo $post->post_date ;?>
+						<?php
+							$date=date_create($post->post_date);
+							echo date_format($date,"Y-m-d");
+						?>
 					</div>
 					<h2 class="title">
 						<a href="<?php echo $post->guid ; ?>">

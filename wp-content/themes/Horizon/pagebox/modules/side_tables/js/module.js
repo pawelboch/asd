@@ -40,11 +40,11 @@ jQuery( document ).ready( function( $ ) {
 
             $('.pagebox-side_tables-module .head .title').removeClass('active');
 
-            var showTab = $('.pagebox-tables-module .head .title:nth-child('+actualTab+')');
+            var showTab = $('.pagebox-side_tables-module .head .title:nth-child('+actualTab+')');
 
             showTab.addClass('active');
 
-            $('.pagebox-side_tables-module .tabs .row .content').hide();
+            $('.pagebox-side_tables-module .tabs .row > .content').hide();
 
             $('.'+showTab.attr('id')).fadeIn('fast');
         });

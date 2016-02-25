@@ -28,6 +28,12 @@ class Sass {
 
 		$this->console = Console::getInstance();
 
+		if( defined('WP_DEBUG') && WP_DEBUG === false && defined('PAGEBOX_AUTOCOMPILE') && PAGEBOX_AUTOCOMPILE === true ) {
+			if( ! is_file( $this->template_directory . '/assets/stylesheets/css/style.min.css' )) {
+				$this->router('recompile');
+			}
+		}
+
 		add_action( 'admin_bar_menu', array( $this, 'addMenuBar' ), 999 );
 		add_action( 'admin_menu', array( $this, 'addAdminPage' ) );
 		add_action( 'admin_print_scripts', array( $this, 'addStyles' ) );

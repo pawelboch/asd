@@ -35,10 +35,12 @@
 								?>
 							</nav>
 						</div> <!-- main-nav -->
-						<div class="search hidden-md-down">
-							<span class="search-ico"></span>
-							<input class="search-input" placeholder="Search..."> </input>
-						</div>
+						<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+							<div class="search hidden-md-down">
+								<span class="search-ico"></span>
+								<input class="search-input" placeholder="Search..." name="s" id="s"> </input>
+							</div>
+						</form>
 					</div> <!-- navigation -->
 					<div class="mobile-nav hidden-lg-up">
 						<div class="nav-toggle">
@@ -47,10 +49,6 @@
 								<div class="icon-bar"></div>
 								<div class="icon-bar"></div>
 							</div>
-						</div>
-						<div class="search">
-							<span class="search-ico"></span>
-							<input class="search-input" placeholder="Search..."> </input>
 						</div>
 					</div>
 

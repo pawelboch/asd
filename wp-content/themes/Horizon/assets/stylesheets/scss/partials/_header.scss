@@ -2,6 +2,7 @@
 
 @import "variables";
 @import "../vendor/compass/css3/border-radius";
+@import "mixins/utils";
 
 // HEADER MENU
 
@@ -104,13 +105,13 @@ header {
 
 // HEADER BREAKPOINTS
 
-@media (max-width: map-get($grid-breakpoints, xl) ) {
+@media (max-width: get($grid-breakpoints, xl) ) {
 
   // Breakpoint
 
 }
 
-@media (min-width: map-get($grid-breakpoints, lg) ) {
+@media (min-width: get($grid-breakpoints, lg) ) {
   header {
     .navigation {
       .main-nav {
@@ -237,7 +238,7 @@ header {
   }
 }
 
-@media (max-width: map-get($grid-breakpoints, lg) ) {
+@media (max-width: (get($grid-breakpoints, lg) - 1px) ) {
 
   header {
     .navigation {

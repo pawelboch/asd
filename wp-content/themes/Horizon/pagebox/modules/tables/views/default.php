@@ -30,19 +30,15 @@
 
 				</div>
 				<?php echo $this->get( 'first_tab_content' ) ;?>
-				first
 			</div>
 			<div class="content second">
 				<?php echo $this->get( 'second_tab_content' ) ;?>
-				2
 			</div>
 			<div class="content third">
 				<?php echo $this->get( 'third_tab_content' ) ;?>
-				3
 			</div>
 			<div class="content fourth">
 				<?php echo $this->get( 'fourth_tab_content' ) ;?>
-				4
 			</div>
 		</div>
 	</div>

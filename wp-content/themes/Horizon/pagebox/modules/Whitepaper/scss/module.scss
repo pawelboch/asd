@@ -43,6 +43,10 @@ $pagebox_bgc_color: #e8e8e8 !default;
         padding-left: 30px;
       }
     }
+    
+    a {
+      color: #fff;
+    }
   }
 
   @each $id, $vars in $ids {

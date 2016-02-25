@@ -17,6 +17,8 @@ $border-bottom: 2px solid #c2c2c2;
 
         .title {
 
+          background-color: #e5aa0e;
+
           h2 {
             cursor: pointer;
             font-size: 1rem;
@@ -33,8 +35,6 @@ $border-bottom: 2px solid #c2c2c2;
 
           }
 
-          background-color: #e5aa0e;
-
           &.active {
             background-color: #ffc425;
 
@@ -46,6 +46,7 @@ $border-bottom: 2px solid #c2c2c2;
               left: 0;
               top: -10px;
               background-color: #ffc425;
+
             }
           }
         }
@@ -60,10 +61,13 @@ $border-bottom: 2px solid #c2c2c2;
             display: block;
             width: 0.8rem;
             cursor: pointer;
+            @include user-select(none);
+
           }
 
           .navigation-up {
             margin-bottom: 5px;
+
           }
 
         }
@@ -90,6 +94,7 @@ $border-bottom: 2px solid #c2c2c2;
             object-fit: cover;
             height: 100%;
             width: 100%;
+
           }
         }
 
@@ -107,21 +112,39 @@ $border-bottom: 2px solid #c2c2c2;
           background-color: #fff;
 
           .sub-menu {
+            .single-menu {
+              color: #000;
+              cursor: pointer;
+              @include user-select(none);
 
+              &.active {
+                background-color: #303e48;
+                color: #fff;
+
+              }
+            }
+
+            .content {
+              color: #303e48;
+
+            }
           }
         }
 
         .sidebar {
           background-color: #d6d9db;
+          color: #000;
 
           img {
             padding-bottom: 25px;
+
           }
 
           h3 {
             font-size: 1.6875rem;
             line-height: 2.3125rem;
             font-family: 'Georgia';
+
           }
         }
       }
@@ -145,9 +168,11 @@ $border-bottom: 2px solid #c2c2c2;
         .head {
           .title:not(.active) {
             display: none;
+
           }
           .navigation-arrows{
             display: block;
+
           }
         }
       }

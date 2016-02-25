@@ -43,4 +43,22 @@ jQuery( document ).ready(function( $ ) {
 
     });
 
+    // Header menu resizing
+
+    $( window ).resize(function() {
+        var expand = $('.expand');
+        if($(window).width() >= 992){
+            $('.main-nav').removeClass('display-on');
+            if(expand.length > 0) {
+                expand.hide();
+            }
+        } else {
+            if(expand.length <= 0 ) {
+                nav.find('li:has(".sub-menu")').append('<span class="expand">+</span>');
+            } else {
+                expand.show();
+            }
+        }
+    });
+
 });

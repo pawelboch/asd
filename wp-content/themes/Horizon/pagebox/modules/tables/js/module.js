@@ -11,7 +11,6 @@ jQuery( document ).ready( function( $ ) {
         var tabAmount = $('.pagebox-tables-module .head .title').length;
         var actualTab = 1;
         $('.arrow').on('click', function() {
-
             if($(this).hasClass('.navigation-up')) {
                 actualTab++;
 
@@ -22,7 +21,7 @@ jQuery( document ).ready( function( $ ) {
                 actualTab--;
 
                 if(actualTab < 1){
-                    actualTab = 4;
+                    actualTab = tabAmount;
                 }
             }
 

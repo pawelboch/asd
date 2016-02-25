@@ -34,7 +34,7 @@ jQuery( document ).ready( function( $ ) {
                 actualTab--;
 
                 if(actualTab < 1){
-                    actualTab = 4;
+                    actualTab = tabAmount;
                 }
             }
 

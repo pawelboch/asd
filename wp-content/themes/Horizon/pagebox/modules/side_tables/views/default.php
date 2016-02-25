@@ -35,32 +35,47 @@
 				<div class="top">
 					<?php echo $this->get( 'first_tab_content' ) ;?>
 				</div>
+				<?php
+					$sub_nav = $this->get( 'first_sub_nav' );
+					if ($sub_nav):
+				?>
 				<div class="left col-md-8">
 					<div class="sub-menu clearfix">
-						<?php $sub_nav = $this->get( 'first_sub_nav' );
-						if ($sub_nav):
-						foreach( $sub_nav as $i => $sub ): ?>
-							<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
-								<?php echo $sub->sub ;?>
-							</div>
-						<?php endforeach;
-						endif ;?>
-
-						<?php $content = $this->get( 'first_sub_nav' );
-						if ($content):
-						foreach ( $content as $i => $cont ): ?>
-							<div class="content single-<?php echo $i ;?>">
-								<?php echo $cont->content ;?>
-							</div>
-						<?php endforeach;
-						endif ;?>
+						<?php
+							foreach( $sub_nav as $i => $sub ):
+								if(!empty($sub->sub) && !empty($sub->content)) :
+						?>
+								<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
+									<?php echo $sub->sub ;?>
+								</div>
+							<?php
+								endif;
+							endforeach;
+							foreach ( $sub_nav as $i => $cont ):
+								if(!empty($cont->sub) && !empty($cont->content)) :
+							?>
+								<div class="content single-<?php echo $i ;?>">
+									<?php echo $cont->content ;?>
+								</div>
+						<?php
+								endif;
+							endforeach;
+						?>
 					</div>
 				</div>
-
-				<div class="sidebar col-md-4">
-					<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-					<?php echo $this->get( 'first_sidebar' ) ;?>
-				</div>
+				<?php
+						foreach ( $sub_nav as $i => $side ):
+							if(!empty($side->sub) && !empty($side->content)) :
+				?>
+								<div class="sidebar col-md-4 single-<?php echo $i ;?>">
+									<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
+									<?php echo ($side->sidebar) ? $side->sidebar : ''?>
+								</div>
+				<?php
+							endif;
+						endforeach;
+					endif;
+				?>
 			</div>
 
 
@@ -68,32 +83,47 @@
 				<div class="top">
 					<?php echo $this->get( 'second_tab_content' ) ;?>
 				</div>
-				<div class="left col-md-8">
-					<div class="sub-menu clearfix">
-						<?php $sub_nav = $this->get( 'second_sub_nav' );
-						if ($sub_nav):
-						foreach( $sub_nav as $i => $sub ): ?>
-							<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
-								<?php echo $sub->sub ;?>
-							</div>
-						<?php endforeach;
-						endif ;?>
-
-						<?php $content = $this->get( 'second_sub_nav' );
-						if ($content):
-						foreach ( $content as $i => $cont ): ?>
-							<div class="content single-<?php echo $i ;?>">
-								<?php echo $cont->content ;?>
-							</div>
-						<?php endforeach;
-						endif ;?>
+				<?php
+				$sub_nav = $this->get( 'second_sub_nav' );
+				if ($sub_nav):
+					?>
+					<div class="left col-md-8">
+						<div class="sub-menu clearfix">
+							<?php
+							foreach( $sub_nav as $i => $sub ):
+								if(!empty($sub->sub) && !empty($sub->content)) :
+									?>
+									<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
+										<?php echo $sub->sub ;?>
+									</div>
+									<?php
+								endif;
+							endforeach;
+							foreach ( $sub_nav as $i => $cont ):
+								if(!empty($cont->sub) && !empty($cont->content)) :
+									?>
+									<div class="content single-<?php echo $i ;?>">
+										<?php echo $cont->content ;?>
+									</div>
+									<?php
+								endif;
+							endforeach;
+							?>
+						</div>
 					</div>
-				</div>
-
-				<div class="sidebar col-md-4">
-					<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-					<?php echo $this->get( 'second_sidebar' ) ;?>
-				</div>
+					<?php
+					foreach ( $sub_nav as $i => $side ):
+						if(!empty($side->sub) && !empty($side->content)) :
+							?>
+							<div class="sidebar col-md-4 single-<?php echo $i ;?>">
+								<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
+								<?php echo ($side->sidebar) ? $side->sidebar : '';?>
+							</div>
+							<?php
+						endif;
+					endforeach;
+				endif;
+				?>
 			</div>
 
 
@@ -102,32 +132,47 @@
 				<div class="top">
 					<?php echo $this->get( 'third_tab_content' ) ;?>
 				</div>
-				<div class="left col-md-8">
-					<div class="sub-menu clearfix">
-						<?php $sub_nav = $this->get( 'third_sub_nav' );
-						if ($sub_nav):
-						foreach( $sub_nav as $i => $sub ): ?>
-							<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
-								<?php echo $sub->sub ;?>
-							</div>
-						<?php endforeach;
-						endif ;?>
-
-						<?php $content = $this->get( 'third_sub_nav' );
-						if ($content):
-						foreach ( $content as $i => $cont ): ?>
-							<div class="content single-<?php echo $i ;?>">
-								<?php echo $cont->content ;?>
-							</div>
-						<?php endforeach;
-						endif ;?>
+				<?php
+				$sub_nav = $this->get( 'third_sub_nav' );
+				if ($sub_nav):
+					?>
+					<div class="left col-md-8">
+						<div class="sub-menu clearfix">
+							<?php
+							foreach( $sub_nav as $i => $sub ):
+								if(!empty($sub->sub) && !empty($sub->content)) :
+									?>
+									<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
+										<?php echo $sub->sub ;?>
+									</div>
+									<?php
+								endif;
+							endforeach;
+							foreach ( $sub_nav as $i => $cont ):
+								if(!empty($cont->sub) && !empty($cont->content)) :
+									?>
+									<div class="content single-<?php echo $i ;?>">
+										<?php echo $cont->content ;?>
+									</div>
+									<?php
+								endif;
+							endforeach;
+							?>
+						</div>
 					</div>
-				</div>
-
-				<div class="sidebar col-md-4">
-					<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-					<?php echo $this->get( 'third_sidebar' ) ;?>
-				</div>
+					<?php
+					foreach ( $sub_nav as $i => $side ):
+						if(!empty($side->sub) && !empty($side->content)) :
+							?>
+							<div class="sidebar col-md-4 single-<?php echo $i ;?>">
+								<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
+								<?php echo ($side->sidebar) ? $side->sidebar : ''?>
+							</div>
+							<?php
+						endif;
+					endforeach;
+				endif;
+				?>
 			</div>
 
 
@@ -136,32 +181,47 @@
 				<div class="top">
 					<?php echo $this->get( 'fourth_tab_content' ) ;?>
 				</div>
-				<div class="left col-md-8">
-					<div class="sub-menu clearfix">
-						<?php $sub_nav = $this->get( 'fourth_sub_nav' );
-						if ($sub_nav):
-						foreach( $sub_nav as $i => $sub ): ?>
-							<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
-								<?php echo $sub->sub ;?>
-							</div>
-						<?php endforeach;
-						endif ;?>
-
-						<?php $content = $this->get( 'fourth_sub_nav' );
-						if ($content):
-						foreach ( $content as $i => $cont ): ?>
-							<div class="content single-<?php echo $i ;?>">
-								<?php echo $cont->content ;?>
-							</div>
-						<?php endforeach;
-						endif ;?>
+				<?php
+				$sub_nav = $this->get( 'fourth_sub_nav' );
+				if ($sub_nav):
+					?>
+					<div class="left col-md-8">
+						<div class="sub-menu clearfix">
+							<?php
+							foreach( $sub_nav as $i => $sub ):
+								if(!empty($sub->sub) && !empty($sub->content)) :
+									?>
+									<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
+										<?php echo $sub->sub ;?>
+									</div>
+									<?php
+								endif;
+							endforeach;
+							foreach ( $sub_nav as $i => $cont ):
+								if(!empty($cont->sub) && !empty($cont->content)) :
+									?>
+									<div class="content single-<?php echo $i ;?>">
+										<?php echo $cont->content ;?>
+									</div>
+									<?php
+								endif;
+							endforeach;
+							?>
+						</div>
 					</div>
-				</div>
-
-				<div class="sidebar col-md-4">
-					<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-					<?php echo $this->get( 'fourth_sidebar' ) ;?>
-				</div>
+					<?php
+					foreach ( $sub_nav as $i => $side ):
+						if(!empty($side->sub) && !empty($side->content)) :
+							?>
+							<div class="sidebar col-md-4 single-<?php echo $i ;?>">
+								<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
+								<?php echo ($side->sidebar) ? $side->sidebar : ''?>
+							</div>
+							<?php
+						endif;
+					endforeach;
+				endif;
+				?>
 			</div>
 			
 			

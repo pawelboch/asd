@@ -111,14 +111,14 @@ class Module extends Abstract_Module {
 							'label'			=> __( 'First left content' ),
 							'description' 	=> __( 'Type first tab content' )
 						),
+						array(
+							'type'          => 'editor',
+							'group'         => __( 'First Tab', 'pagebox' ),
+							'name'          => 'sidebar',
+							'label'         => __( 'First sidebar' ),
+							'description'   => __( 'Type first sidebar' )
+						),
 					),
-				),
-				array(
-					'type'          => 'editor',
-					'group'         => __( 'First Tab', 'pagebox' ),
-					'name'          => 'first_sidebar',
-					'label'         => __( 'First sidebar' ),
-					'description'   => __( 'Type first sidebar' )
 				),
 
 
@@ -186,15 +186,16 @@ class Module extends Abstract_Module {
 							'label'			=> __( 'Second left content' ),
 							'description' 	=> __( 'Type second tab content' )
 						),
+						array(
+							'type'          => 'editor',
+							'group'         => __( 'Second Tab', 'pagebox' ),
+							'name'          => 'sidebar',
+							'label'         => __( 'Second sidebar' ),
+							'description'   => __( 'Type second sidebar' )
+						),
 					),
 				),
-				array(
-					'type'          => 'editor',
-					'group'         => __( 'Second Tab', 'pagebox' ),
-					'name'          => 'second_sidebar',
-					'label'         => __( 'Second sidebar' ),
-					'description'   => __( 'Type second sidebar' )
-				),
+
 
 
 
@@ -260,14 +261,15 @@ class Module extends Abstract_Module {
 							'label'			=> __( 'Third left content' ),
 							'description' 	=> __( 'Type Third tab content' )
 						),
+						array(
+							'type'          => 'editor',
+							'group'         => __( 'Third Tab', 'pagebox' ),
+							'name'          => 'sidebar',
+							'label'         => __( 'Third sidebar' ),
+							'description'   => __( 'Type third sidebar' )
+						),
+
 					),
-				),
-				array(
-					'type'          => 'editor',
-					'group'         => __( 'Third Tab', 'pagebox' ),
-					'name'          => 'third_sidebar',
-					'label'         => __( 'Third sidebar' ),
-					'description'   => __( 'Type third sidebar' )
 				),
 
 
@@ -335,15 +337,16 @@ class Module extends Abstract_Module {
 							'label'			=> __( 'Fourth left content' ),
 							'description' 	=> __( 'Type Fourth tab content' )
 						),
+						array(
+							'type'          => 'editor',
+							'group'         => __( 'Fourth Tab', 'pagebox' ),
+							'name'          => 'sidebar',
+							'label'         => __( 'Fourth sidebar' ),
+							'description'   => __( 'Type fourth sidebar' )
+						),
 					),
 				),
-				array(
-					'type'          => 'editor',
-					'group'         => __( 'Fourth Tab', 'pagebox' ),
-					'name'          => 'fourth_sidebar',
-					'label'         => __( 'Fourth sidebar' ),
-					'description'   => __( 'Type fourth sidebar' )
-				),
+
 			)
 		);
 	}

@@ -9,7 +9,7 @@ jQuery( document ).ready(function( $ ) {
     // Search input toggle
 
     $( '.search-ico' ).click(function() {
-       $( '.search-input' ).toggle(300);
+       $( '.search-input-cont' ).toggle(300);
 
     });
 

@@ -38,7 +38,9 @@
 						<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 							<div class="search hidden-md-down">
 								<span class="search-ico"></span>
-								<input class="search-input" placeholder="Search..." name="s" id="s"> </input>
+								<div class="search-input-cont">
+									<input class="search-input" placeholder="Search..." name="s" id="s"> </input>
+								</div>
 							</div>
 						</form>
 					</div> <!-- navigation -->

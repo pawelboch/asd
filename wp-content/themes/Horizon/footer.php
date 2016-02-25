@@ -5,12 +5,12 @@
 				<div class="container">
 					<div class="col-md-12">
 						<div class="row">
-							<div class="footer-logo pull-sm-left col-md-2 col-xs-12">
+							<div class="footer-logo pull-sm-left col-md-3 col-xs-12">
 								<div class="row">
 									<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/footer_logo.svg" /></a>
 								</div>
 							</div>
-							<div class="footer-nav col-md-10 col-xs-12">
+							<div class="footer-nav col-md-9 col-xs-12">
 								<div class="row">
 									<nav role="navigation" class="nav-footer pull-md-left">
 										<?php

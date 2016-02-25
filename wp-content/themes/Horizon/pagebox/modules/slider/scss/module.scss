@@ -118,13 +118,56 @@ $h2_color: #fff !default;
     }
   }
 
+  // 768px
+  @media (max-width: get($grid-breakpoints, md) ) {
+    .slides {
+      .container {
+        h2 {
+          font-size: 2.2rem;
+
+          span {
+
+            &:before {
+              width: 180px;
+              height: 180px;
+              left: 63%;
+              top: -69px;
+            }
+          }
+        }
+      }
+    }
+  }
+
   // 544px
-  @media (max-width: map-get($grid-breakpoints, sm) ) {
+  @media (max-width: get($grid-breakpoints, sm) ) {
+    .slides {
+      .container {
+        h2 {
+          font-size: 2rem;
+
+          span {
+            padding: 0;
+            margin-right: 30px;
+
+            &:before {
+              width: 160px;
+              height: 160px;
+              left: 87%;
+              top: -62px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 420px
+  @media (max-width: get($grid-breakpoints, xs) ) {
     .slides {
       .container {
         h2 {
           span {
-            padding: 0;
 
             &:before {
               display: none;

@@ -48,7 +48,7 @@ $h2_color: #fff !default;
           &:before {
             content: '';
             position: absolute;
-            width: 100%;
+            width: 230px;
             height: 230px;
             background-image: url($template-url + "/assets/images/blue_frame.svg");
             background-repeat: no-repeat;

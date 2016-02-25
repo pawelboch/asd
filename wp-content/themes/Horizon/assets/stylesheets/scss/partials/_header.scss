@@ -106,37 +106,23 @@ header {
 
 @media (max-width: map-get($grid-breakpoints, xl) ) {
 
-  header {
-    .main-nav {
+  // Breakpoint
 
-      li {
-
-        //&:hover {
-        //  > .sub-menu {
-        //    left: $submenu-left + 67px;
-        //    width: $submenu-width - 200px;
-        //
-        //  }
-        //}
-      }
-    }
-  }
 }
 
 @media (min-width: map-get($grid-breakpoints, lg) ) {
   header {
     .navigation {
-
       .main-nav {
-
-        #nav{
+        #nav {
           > li:not(:last-child) {
-            a{
+            a {
               position: relative;
               z-index: 2;
+
             }
 
-            &:hover{
+            &:hover {
               &:before,
               &:after,
               & > a:before,
@@ -146,27 +132,36 @@ header {
                 height: 5px;
                 border-color: #fff;
                 border-style: solid;
-                content: ' ';
+                content: '';
+
               }
+
               &:before {
                 top:-3px;
                 left:5px;
-                border-width: 2px 0 0 2px
+                border-width: 2px 0 0 2px;
+
               }
+
               &:after {
                 bottom: -3px;
                 left: 5px;
-                border-width: 0 0 2px 2px
+                border-width: 0 0 2px 2px;
+
               }
+
               & > a:after {
                 bottom:-3px;
                 right:-10px;
-                border-width: 0 2px 2px 0
+                border-width: 0 2px 2px 0;
+
               }
+
               & > a:before {
                 top:-3px;
                 right:-10px;
-                border-width: 2px 2px 0 0
+                border-width: 2px 2px 0 0;
+
               }
             }
           }
@@ -176,7 +171,6 @@ header {
           display: inline;
           padding: $main-nav-li;
           position: relative;
-
 
           &:last-child {
             border-left: 1px solid #fff;
@@ -196,7 +190,7 @@ header {
               left: 0;
               top: 1rem;
               margin-top: -3px;
-
+              white-space: nowrap;
 
               li {
                 border-left: none;
@@ -206,24 +200,28 @@ header {
 
                 &:hover {
                   background-color: #ffb41a;
+
                 }
 
                 a {
                   color: #fff;
                   font-size: 1rem;
                   font-family: "Avenir Next";
+
                 }
               }
               .sub-menu {
                 left: 100%;
                 top: 0;
                 margin-top: 0;
+
               }
             }
           }
 
           .sub-menu {
             display: none;
+
           }
 
           a {
@@ -231,35 +229,38 @@ header {
             text-decoration: none;
             font-family: "Montserrat";
             font-size: 0.875rem;
+
           }
         }
       }
     }
-
   }
 }
 
 @media (max-width: map-get($grid-breakpoints, lg) ) {
 
   header {
-
     .navigation {
       .main-nav {
 
         padding-right: 0;
+
         #nav {
           margin-top: 42px;
           float: right;
           min-width: 200px
+
         }
+
         li {
           display: block;
-          padding: 5px 0 5px 15px;
+          padding: 5px 5px 5px 15px;
           position: relative;
           background-color: #ffc425;
 
           &:hover {
             background-color: #ffb41a;
+
           }
 
           .sub-menu {
@@ -267,6 +268,7 @@ header {
             border-bottom: 1px solid #ffb41a;
             display: none;
             padding-left: 0;
+
           }
 
           .expand {
@@ -275,10 +277,12 @@ header {
             top: 0px;
             font-size: large;
             font-weight: bold;
+
           }
 
           a.expanded {
             color: #57656e;
+
           }
 
           a {
@@ -286,13 +290,13 @@ header {
             text-decoration: none;
             font-family: "Montserrat";
             font-size: 0.875rem;
+
           }
         }
       }
     }
 
     .search {
-
       .search-ico {
 
         display: block;
@@ -300,15 +304,14 @@ header {
         float: right;
         margin-right: 15px;
         margin-top: 5px;
+
       }
-
-
     }
   }
 }
 
 @media (max-width: map-get($grid-breakpoints, md) ) {
-  header {
 
-  }
+  // Breakpoint
+
 }

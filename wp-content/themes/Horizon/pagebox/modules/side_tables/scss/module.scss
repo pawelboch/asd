@@ -24,6 +24,7 @@ $border-bottom: 2px solid #c2c2c2;
             font-family: "Arial";
             padding: 12px 5px;
             text-align: center;
+            text-transform: capitalize;
             min-height: 41px;
             line-height: 1.938;
             color: rgb(48, 62, 72);
@@ -70,7 +71,7 @@ $border-bottom: 2px solid #c2c2c2;
 
       .content {
         display: none;
-        background-color: #e8e8e8;
+        background-color: #fff;
         clear: both;
         width: 100%;
         position: relative;
@@ -79,25 +80,49 @@ $border-bottom: 2px solid #c2c2c2;
         font-family: "Georgia";
         color: #787878;
         margin-bottom: 0;
-        line-height: 1.276;
+        line-height: 2.3125rem;
 
         .top {
           padding: 33px;
+          background-color: #e8e8e8;
+
+          img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+          }
         }
 
 
         .left,
-        .right {
+        .sidebar {
           font-size: 1.125rem;
+          line-height: 1.9375rem;
+          padding: 33px;
+          font-family: 'Arial';
 
         }
 
         .left {
           background-color: #fff;
+
+          .sub-menu {
+
+          }
         }
 
-        .right {
+        .sidebar {
           background-color: #d6d9db;
+
+          img {
+            padding-bottom: 25px;
+          }
+
+          h3 {
+            font-size: 1.6875rem;
+            line-height: 2.3125rem;
+            font-family: 'Georgia';
+          }
         }
       }
 

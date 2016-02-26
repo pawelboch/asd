@@ -118,7 +118,6 @@ $border-bottom: 2px solid #c2c2c2;
             .single-menu {
               color: #000;
               cursor: pointer;
-              margin-bottom: 70px;
               @include user-select(none);
               font-size: 1.125rem;
               padding: 0 12px;
@@ -138,6 +137,7 @@ $border-bottom: 2px solid #c2c2c2;
 
             .content {
               color: #303e48;
+              padding-top: 70px;
 
             }
           }
@@ -175,6 +175,31 @@ $border-bottom: 2px solid #c2c2c2;
 
       }
 
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, md) ) {
+
+    .tabs {
+      .row {
+        .content {
+          .left {
+            padding: 35px 24px;
+
+            .sub-menu {
+              .content {
+                padding-top: 40px;
+
+              }
+            }
+          }
+
+          .top{
+            padding: 33px 22px 21px;
+
+          }
+        }
+      }
     }
   }
 

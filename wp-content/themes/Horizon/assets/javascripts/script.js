@@ -61,4 +61,51 @@ jQuery( document ).ready(function( $ ) {
         }
     });
 
+    var actWindow = $(window);
+    var headerBanner = $('header.banner-header');
+    var previousScroll = 0;
+
+    // Header menu compress on load
+
+    if(actWindow.scrollTop() > 10) {
+        headerBanner.css({
+            'position': 'fixed',
+            'box-shadow': '0 0 5px rgba(0,0,0,.5)'
+        });
+        if ($(this).scrollTop() >= 300) {
+            headerBanner.addClass('smaller');
+        } else {
+            headerBanner.removeClass('smaller');
+        }
+    }
+
+    // Header menu on scroll animation
+
+    actWindow.scroll(function() {
+        if(actWindow.scrollTop() > 10) {
+            headerBanner.css({
+                'position' : 'fixed',
+                'box-shadow' : '0 0 5px rgba(0,0,0,.5)'
+            });
+            var currentScroll = $(this).scrollTop();
+            if (currentScroll > previousScroll) {
+                if ($(this).scrollTop() >= 300) {
+                    headerBanner.addClass('smaller');
+                }
+            } else {
+                if ($(this).scrollTop() < 300) {
+                    headerBanner.removeClass('smaller');
+                }
+            }
+            previousScroll = currentScroll;
+        } else {
+            headerBanner.css({
+                'position' : 'absolute',
+                'box-shadow' : 'none'
+            });
+        }
+    });
+
+
+
 });

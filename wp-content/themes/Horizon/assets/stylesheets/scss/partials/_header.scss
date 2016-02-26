@@ -1,13 +1,13 @@
 // HEADER STYLESHEET
 
 @import "variables";
-@import "../vendor/compass/css3/border-radius";
+@import "vendor/compass/css3";
 @import "mixins/utils";
+@import "mixins/compact";
 
 // HEADER MENU
 
 $header-image-margin: 40px;
-
 
 header {
   background-color: rgba(48, 62, 72, 0.9);
@@ -15,6 +15,7 @@ header {
   height: 132px;
   width: 100%;
   z-index: 1;
+  @include transition(all, 0.4s, ease);
 
   .logo {
     float: left;
@@ -22,17 +23,20 @@ header {
 
     img {
       width: 230px;
+      @include transition(all, 0.4s, ease);
     }
   }
 
   .navigation {
     margin-top: 35px;
+    @include transition(all, 0.4s, ease);
 
     .main-nav {
       margin-top: 17px;
       padding-right: 20px;
       text-transform: uppercase;
       float: right;
+      @include transition(all, 0.4s, ease);
     }
   }
 
@@ -47,6 +51,7 @@ header {
       height: 20px;
       cursor: pointer;
       margin-top: 17px;
+      @include transition(all, 0.4s, ease);
 
       &:hover {
         background-image: url("../../images/search_yellow.svg");
@@ -116,6 +121,33 @@ header {
       }
     }
   }
+
+  &.smaller {
+    animation-name: example;
+    animation-duration: 4s;
+    height: 50px;
+
+    .navigation {
+      margin-top: 0;
+
+      .main-nav {
+        margin-top: 11px;
+      }
+    }
+    .logo {
+      img {
+        width: 120px;
+        margin-top: 10px;
+      }
+    }
+    .search {
+      .search-ico {
+        margin-top: 13px;
+
+      }
+    }
+  }
+
 }
 
 

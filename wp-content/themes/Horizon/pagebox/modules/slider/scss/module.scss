@@ -155,25 +155,6 @@ $h2_color: #fff !default;
             margin-right: 30px;
 
             &:before {
-              width: 160px;
-              height: 160px;
-              left: 87%;
-              top: -62px;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // 420px
-  @media (max-width: get($grid-breakpoints, xs) ) {
-    .slides {
-      .container {
-        h2 {
-          span {
-
-            &:before {
               display: none;
             }
           }

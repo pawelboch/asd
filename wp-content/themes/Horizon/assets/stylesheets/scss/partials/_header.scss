@@ -132,7 +132,7 @@ header {
     .navigation {
       .main-nav {
         #nav {
-          > li:not(:last-child) {
+          > li {
             a {
               position: relative;
               z-index: 2;
@@ -189,14 +189,14 @@ header {
           padding: $main-nav-li;
           position: relative;
 
-          &:last-child {
-            border-left: 1px solid #fff;
-
-            a {
-              color: #57656e;
-
-            }
-          }
+          //&:last-child {
+          //  //border-left: 1px solid #fff;
+          //
+          //  a {
+          //    color: #57656e;
+          //
+          //  }
+          //}
 
           &:hover {
 

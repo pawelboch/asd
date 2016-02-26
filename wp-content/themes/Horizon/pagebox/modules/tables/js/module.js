@@ -37,14 +37,14 @@ jQuery( document ).ready( function( $ ) {
         });
 
 
-    //On load
+    // When eneter from external link
     if(window.location.hash != "") {
         var hash = window.location.hash.substring(1);
 
         $('.'+hash).trigger('click');
     }
 
-    //On change hash trigger correct title click
+    // On change hash trigger correct title click
     window.onhashchange = function () {
             var hash = window.location.hash.substring(1);
 

@@ -13,22 +13,33 @@ get_header(); ?>
 
     <div class="search-content" role="main">
         <div class="container-fluid">
-            <div class="container">
-                <h1><?php printf( __( 'Search Results for: %s', 'shape' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-
-                <?php if ( have_posts() ) : ?>
-                    <?php while ( have_posts() ) : the_post(); ?>
-                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                    <?php endwhile; ?>
-                <?php else : ?>
-
-                    <div class="no-resoult">
-                        nothing to show.
+            <div class="transparency"></div>
+                <div class="container">
+                    <div class="search-results-title clearfix">
+                        <h2 class="col-xs-12 col-sm-8 col-md-10 col-lg-8 auto-position"> search results </h2>
                     </div>
+                    <div class="search-results-cont">
+                        <?php if ( have_posts() ) : ?>
+                            <ol>
+                                <?php while ( have_posts() ) : the_post(); ?>
+                                    <li class="title">
+                                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                    </li>
+                                    <p class="excerpt">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda consequuntur corporis debitis dignissimos ducimus id inventore ipsa nesciunt quod reprehenderit sit soluta, temporibus voluptate voluptatibus. Aliquam blanditiis iste repellat?
+                                    </p>
+                                <?php endwhile; ?>
+                                <?php else : ?>
 
-                <?php endif; ?>
+                                    <div class="no-resoult">
+                                        nothing to show.
+                                    </div>
 
-            </div><!-- /.container -->
+                                <?php endif; ?>
+                            </ol>
+                    </div>
+                </div><!-- /.container -->
+
         </div> <!-- /.search-content -->
         </div>
 

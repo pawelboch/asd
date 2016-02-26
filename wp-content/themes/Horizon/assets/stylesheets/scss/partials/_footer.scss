@@ -1,6 +1,7 @@
 // FOOTER STYLESHEET
 
 @import "variables";
+@import "mixins/utils";
 
 footer {
   padding-bottom: 50px;
@@ -113,7 +114,7 @@ footer {
 // FOOTER BREAKPOINTS
 
 // md = 768px
-@media (max-width: map-get($grid-breakpoints, md) ) {
+@media (max-width: (get($grid-breakpoints, md) - 1px) ) {
   footer {
     .container {
       .footer-logo {
@@ -132,7 +133,7 @@ footer {
 }
 
 // sm = 544px
-@media (max-width: map-get($grid-breakpoints, sm) ) {
+@media (max-width: get($grid-breakpoints, sm) ) {
   footer {
     margin-left: 1.1rem;
     margin-right: 1.1rem;

@@ -36,6 +36,14 @@ jQuery( document ).ready( function( $ ) {
             $('.'+showTab.attr('id')).fadeIn('fast');
         });
 
+
+    //On load
+    if(window.location.hash != "") {
+        var hash = window.location.hash.substring(1);
+
+        $('.'+hash).trigger('click');
+    }
+
     //On change hash trigger correct title click
     window.onhashchange = function () {
             var hash = window.location.hash.substring(1);

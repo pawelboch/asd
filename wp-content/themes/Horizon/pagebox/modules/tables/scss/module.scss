@@ -22,13 +22,13 @@ $border-bottom: 2px solid #c2c2c2;
           h2 {
             cursor: pointer;
             font-size: 1rem;
-            font-weight: bold;
+            font-weight: normal;
             font-family: "Arial";
-            padding: 12px 5px;
+            padding: 16px 5px 8px;
             text-align: center;
             min-height: 41px;
             line-height: 1.938;
-            color: rgb(48, 62, 72);
+            color: #896808;
             @include user-select(none);
 
           }
@@ -38,6 +38,13 @@ $border-bottom: 2px solid #c2c2c2;
           &.active {
             background-color: #ffc425;
 
+            h2 {
+                font-weight: bold;
+                color: rgb(48, 62, 72);
+                padding: 12px 5px;
+
+            }
+
             &:before {
               content: '';
               position: absolute;
@@ -46,6 +53,7 @@ $border-bottom: 2px solid #c2c2c2;
               left: 0;
               top: -10px;
               background-color: #ffc425;
+
             }
           }
         }

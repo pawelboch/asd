@@ -54,7 +54,7 @@
 							foreach ( $sub_nav as $i => $cont ):
 								if(!empty($cont->sub) && !empty($cont->content)) :
 							?>
-								<div class="content single-<?php echo $i ;?>">
+								<div class="content sub-content single-<?php echo $i ;?>">
 									<?php echo $cont->content ;?>
 								</div>
 						<?php
@@ -65,7 +65,7 @@
 				</div>
 				<?php
 						foreach ( $sub_nav as $i => $side ):
-							if(!empty($side->sub) && !empty($side->content)) :
+							if(!empty($side->sub) && !empty($side->content) && !empty($side->sidebar)) :
 				?>
 								<div class="sidebar col-md-4 single-<?php echo $i ;?>">
 									<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
@@ -102,7 +102,7 @@
 							foreach ( $sub_nav as $i => $cont ):
 								if(!empty($cont->sub) && !empty($cont->content)) :
 									?>
-									<div class="content single-<?php echo $i ;?>">
+									<div class="content sub-content single-<?php echo $i ;?>">
 										<?php echo $cont->content ;?>
 									</div>
 									<?php
@@ -113,7 +113,7 @@
 					</div>
 					<?php
 					foreach ( $sub_nav as $i => $side ):
-						if(!empty($side->sub) && !empty($side->content)) :
+						if(!empty($side->sub) && !empty($side->content) && !empty($side->sidebar)) :
 							?>
 							<div class="sidebar col-md-4 single-<?php echo $i ;?>">
 								<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
@@ -151,7 +151,7 @@
 							foreach ( $sub_nav as $i => $cont ):
 								if(!empty($cont->sub) && !empty($cont->content)) :
 									?>
-									<div class="content single-<?php echo $i ;?>">
+									<div class="content sub-content single-<?php echo $i ;?>">
 										<?php echo $cont->content ;?>
 									</div>
 									<?php
@@ -162,7 +162,7 @@
 					</div>
 					<?php
 					foreach ( $sub_nav as $i => $side ):
-						if(!empty($side->sub) && !empty($side->content)) :
+						if(!empty($side->sub) && !empty($side->content) && !empty($side->sidebar)) :
 							?>
 							<div class="sidebar col-md-4 single-<?php echo $i ;?>">
 								<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
@@ -200,7 +200,7 @@
 							foreach ( $sub_nav as $i => $cont ):
 								if(!empty($cont->sub) && !empty($cont->content)) :
 									?>
-									<div class="content single-<?php echo $i ;?>">
+									<div class="content sub-content single-<?php echo $i ;?>">
 										<?php echo $cont->content ;?>
 									</div>
 									<?php
@@ -211,7 +211,7 @@
 					</div>
 					<?php
 					foreach ( $sub_nav as $i => $side ):
-						if(!empty($side->sub) && !empty($side->content)) :
+						if(!empty($side->sub) && !empty($side->content) && !empty($side->sidebar)) :
 							?>
 							<div class="sidebar col-md-4 single-<?php echo $i ;?>">
 								<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">

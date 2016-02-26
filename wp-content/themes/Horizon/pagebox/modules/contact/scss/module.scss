@@ -48,9 +48,18 @@
 
       }
 
+      &::-moz-placeholder{
+        color: #8e8e8e;
+
+      }
+
     }
 
     input {
+      &::-moz-placeholder{
+        color: #8e8e8e;
+
+      }
       &::-webkit-input-placeholder {
         color: #cbcbcb;
 
@@ -58,7 +67,7 @@
     }
 
     select {
-      font-size: 30px;
+      font-size: 18px;
       color: #cbcbcb;
 
     }

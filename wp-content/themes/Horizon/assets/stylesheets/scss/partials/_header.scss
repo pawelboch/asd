@@ -93,6 +93,8 @@ header {
     top: 80px;
     width: 100%;
     left: 0;
+
+    @include transition(all, 0.4s, ease);
   }
 
   .mobile-nav {
@@ -152,6 +154,10 @@ header {
       .nav-toggle {
         padding: 10px 0 0;
       }
+    }
+
+    .display-on {
+      top: 4px;
     }
   }
 

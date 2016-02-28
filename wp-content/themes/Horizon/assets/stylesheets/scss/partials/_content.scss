@@ -28,7 +28,9 @@
   font-weight: bold;
 
   &:focus {
-    color: #ffffff;
+    color: #fff;
+    text-decoration: none;
+    outline: none;
   }
 
   span {

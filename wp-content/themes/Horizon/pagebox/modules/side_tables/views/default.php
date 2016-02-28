@@ -85,18 +85,24 @@
 
 
 			<div class="content second">
+
+				<?php if(!empty($this->get( 'second_tab_content' ))): ?>
+
 				<div class="top">
 					<?php echo $this->get( 'second_tab_content' ) ;?>
 				</div>
-				<?php
-				$sub_nav = $this->get( 'second_sub_nav' );
-				if ($sub_nav):
-					?>
+
+				<?php endif;
+					$sub_nav = $this->get( 'second_sub_nav' );
+					if ($sub_nav):
+
+					foreach( $sub_nav as $i => $sub ):
+					if(!empty($sub->sub) && !empty($sub->content)): ?>
+
 					<div class="left col-md-8">
 						<div class="sub-menu clearfix">
 							<?php
-							foreach( $sub_nav as $i => $sub ):
-								if(!empty($sub->sub) && !empty($sub->content)) :
+
 									?>
 									<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
 										<?php echo $sub->sub ;?>

@@ -7,7 +7,7 @@
 <div class="container <?php echo $this->get('css_class'); ?>">
 	<div class="border clearfix">
 
-		<div class="col-md-12">
+		<div class="border-container col-md-12">
 
 			<?php echo $this->get( 'text' ) ;?>
 

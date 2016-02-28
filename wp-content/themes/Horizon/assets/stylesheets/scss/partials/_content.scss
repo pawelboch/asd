@@ -23,15 +23,16 @@
   color: $learn-more-color;
   text-transform: $learn-more-text-transform;
   font-size: $learn-more-font-size;
+  line-height: $learn-more-font-size;
   width: $learn-more-width;
-  padding-right: 30px;
+  font-weight: bold;
 
   span {
 
     position: absolute;
-    height: 20px;
-    width: 20px;
-    margin-left: 5px;
+    height: 16px;
+    width: 10px;
+    margin-left: 19px;
     background-repeat: no-repeat;
     background-image: url("../../images/white_chevons.svg");
 

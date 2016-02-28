@@ -86,7 +86,7 @@ class Module extends Abstract_Module {
 							'description' 	=> __( 'OFF / ON bold on second word' ),
 							'sass'			=> true,
 							'sass_filter'   => function( $value ) {
-								return $value ? '600' : '500';
+								return $value ? '600' : '100';
 							}
 						),
 						array(

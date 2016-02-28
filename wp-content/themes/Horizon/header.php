@@ -45,16 +45,17 @@
 								</div>
 							</form>
 						</div> <!-- navigation -->
-					</div>
-					<div class="mobile-nav hidden-lg-up">
-						<div class="nav-toggle">
-							<div class="separator">
-								<div class="icon-bar"></div>
-								<div class="icon-bar"></div>
-								<div class="icon-bar"></div>
+						<div class="mobile-nav hidden-lg-up">
+							<div class="nav-toggle">
+								<div class="separator">
+									<div class="icon-bar"></div>
+									<div class="icon-bar"></div>
+									<div class="icon-bar"></div>
+								</div>
 							</div>
 						</div>
 					</div>
+
 
 				</div>
 			</div>

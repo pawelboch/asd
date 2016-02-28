@@ -83,16 +83,36 @@ $border-bottom: 2px solid #c2c2c2;
         clear: both;
         width: 100%;
         position: relative;
+        padding: 33px;
         min-height: 210px;
 
-        p {
+        h3 {
           font-size: 1.8125em;
           font-family: "Georgia";
-          padding: 33px;
           color: #787878;
+          padding-bottom: 40px;
           margin-bottom: 0;
           line-height: 1.276;
+        }
 
+        p {
+          //font-size: 1.8125em;
+          //font-family: "Georgia";
+          //padding: 33px;
+          //color: #787878;
+          //margin-bottom: 0;
+          //line-height: 1.276;
+          font-size: 1.125rem;
+          font-family: "Arial";
+          color: rgb(48, 62, 72);
+          line-height: 1.722;
+        }
+
+        ul {
+          font-size: 1.125rem;
+          font-family: "Arial";
+          color: rgb(48, 62, 72);
+          line-height: 1.722;
         }
 
         img {

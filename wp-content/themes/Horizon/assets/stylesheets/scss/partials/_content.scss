@@ -27,6 +27,10 @@
   width: $learn-more-width;
   font-weight: bold;
 
+  &:focus {
+    color: #ffffff;
+  }
+
   span {
 
     position: absolute;

@@ -21,14 +21,21 @@ get_header(); ?>
                     <div class="search-results-cont">
                         <?php if ( have_posts() ) : ?>
                             <ol>
-                                <?php while ( have_posts() ) : the_post(); ?>
+                                <?php
+
+                                    $i = 1;
+                                    while ( have_posts() ) : the_post();
+                                ?>
                                     <li class="title">
-                                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                        <?php echo numberResultPagination($paged,$i); ?><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                     </li>
                                     <p class="excerpt">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda consequuntur corporis debitis dignissimos ducimus id inventore ipsa nesciunt quod reprehenderit sit soluta, temporibus voluptate voluptatibus. Aliquam blanditiis iste repellat?
                                     </p>
-                                <?php endwhile; ?>
+                                <?php
+                                    $i++;
+                                    endwhile;
+                                ?>
                                 <?php else : ?>
 
                                     <div class="no-resoult">

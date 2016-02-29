@@ -287,3 +287,13 @@ function pagination($pages = '', $range = 4, $ajax = false, $paged = '')
 		}
 	}
 }
+
+function numberResultPagination($paged, $i)
+{
+	$perPage = get_option('posts_per_page ');
+	if( $paged < 2 ) {
+		return $i . '. ';
+	} else {
+		return ($i + (($paged-1) * $perPage)) . '. ';
+	}
+}

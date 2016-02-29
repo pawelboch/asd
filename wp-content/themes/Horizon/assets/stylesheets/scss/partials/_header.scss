@@ -120,6 +120,7 @@ header {
 
         &:hover .icon-bar {
           background-color: #c2c2c2;
+
         }
       }
     }
@@ -135,12 +136,15 @@ header {
 
       .main-nav {
         margin-top: 11px;
+
       }
     }
+
     .logo {
       img {
         width: 120px;
         margin-top: 10px;
+
       }
     }
     .search {
@@ -153,11 +157,13 @@ header {
     .mobile-nav {
       .nav-toggle {
         padding: 10px 0 0;
+
       }
     }
 
     .display-on {
       top: 4px;
+
     }
   }
 
@@ -234,17 +240,7 @@ header {
           padding: $main-nav-li;
           position: relative;
 
-          //&:last-child {
-          //  //border-left: 1px solid #fff;
-          //
-          //  a {
-          //    color: #57656e;
-          //
-          //  }
-          //}
-
           &:hover {
-
             > .sub-menu {
               display: block;
               position: absolute;
@@ -275,6 +271,7 @@ header {
               .sub-menu {
                 left: 100%;
                 top: 0;
+                padding: 0;
                 margin-top: 0;
 
               }
@@ -304,7 +301,6 @@ header {
   header {
     .navigation {
       .main-nav {
-
         padding-right: 0;
 
         #nav {
@@ -360,7 +356,6 @@ header {
 
     .search {
       .search-ico {
-
         display: block;
         position: relative;
         float: right;

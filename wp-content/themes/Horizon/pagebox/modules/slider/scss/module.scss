@@ -156,8 +156,15 @@ $h2_color: #fff !default;
 
             &:before {
               display: none;
+
             }
           }
+        }
+
+        >.row {
+          margin-left: 0;
+          margin-right: 0;
+
         }
       }
     }

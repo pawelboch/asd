@@ -178,6 +178,10 @@ function wppb_excerpt( $id, $words = 55) {
 	return '';
 }
 
+// Add post thumbnails support
+
+add_theme_support( 'post-thumbnails' );
+
 /**
  * Enable description in menu
  */

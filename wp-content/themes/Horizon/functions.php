@@ -243,7 +243,7 @@ function pagination($pages = '', $range = 4, $ajax = false, $paged = '')
 				echo "<div class=\"block-prev\"><a href='".get_pagenum_link($paged - 1)."'>previous</a></div>";
 			}
 
-			echo '<div>';
+			echo '<div class="pages">';
 
 			for( $i=1; $i <= $pages; $i++ ) {
 				if( $pages != 1 && ( !($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showItems) ) {

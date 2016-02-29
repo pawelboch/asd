@@ -147,8 +147,11 @@ header {
 
     .logo {
       img {
-        width: 120px;
         margin-top: 10px;
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        object-position: 0%;
 
       }
     }

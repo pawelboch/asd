@@ -37,6 +37,11 @@ header {
       text-transform: uppercase;
       float: right;
       @include transition(all, 0.4s, ease);
+
+      .sub-menu {
+        text-transform: capitalize;
+
+      }
     }
   }
 

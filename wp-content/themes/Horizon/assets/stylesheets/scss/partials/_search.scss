@@ -7,6 +7,8 @@
     padding-top: 900px;
     background-image: url("../../images/image-2.png");
     position: relative;
+    background-size: cover;
+    background-position: 50%;
 
     .transparency {
       background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, #ecf3ef 100%);
@@ -20,6 +22,8 @@
 
     .container {
       margin-top: -630px;
+      padding-left: 0;
+      padding-right: 0;
       color: #000;
       z-index: 2;
       position: relative;
@@ -75,6 +79,60 @@
           margin-left: -30px;
           padding: 20px 93px 63px 0px;
 
+        }
+
+        hr {
+          width: 110%;
+          margin-left: -5%;
+          margin-bottom: 37px;
+        }
+
+        .wpg-filter-by-pager {
+          .other-pages,
+          .block-next,
+          .block-prev {
+            display: inline-block;
+            width: 100px;
+            height: 36px;
+            border: 1px solid #a1a1a1;
+            font-family: "Roboto";
+            color: rgba(79, 79, 79, 0.6);
+            line-height: 0.8325rem;;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 10px 15px;
+
+            a {
+              font-size: 0.8325rem;
+              color: inherit;
+            }
+          }
+
+          .pages {
+            display: inline-block;
+
+            .other-pages {
+              width: 37px;
+            }
+
+            .actual-page {
+              display: inline-block;
+              border: 1px solid #a1a1a1;
+              font-family: "Roboto";
+              color: #ffffff;
+              padding: 10px 15px;
+              width: 37px;
+              height: 36px;
+              line-height: 0.8325rem;
+              text-align: center;
+              background-color: #ffc425;
+
+              a {
+                font-size: 0.8325rem;
+                color: inherit;
+              }
+            }
+          }
         }
       }
     }

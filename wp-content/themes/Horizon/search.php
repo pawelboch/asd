@@ -37,10 +37,11 @@ get_header(); ?>
 
                                 <?php endif; ?>
                             </ol>
+                        <hr>
+                        <?php pagination(); ?>
                     </div>
                 </div><!-- /.container -->
-
-        </div> <!-- /.search-content -->
+            </div> <!-- /.search-content -->
         </div>
 
 

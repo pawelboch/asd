@@ -211,3 +211,75 @@ function wppb_excerpt( $id, $words = 55) {
 //		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 //	}
 //}
+/**
+ * @param string $pages
+ * @param int $range
+ * @param bool $ajax
+ * @param string $paged
+ */
+function pagination($pages = '', $range = 4, $ajax = false, $paged = '')
+{
+	$showItems = ($range * 2 ) + 1;
+
+	if( $paged == '' ) {
+		global $paged;
+		if( empty($paged)) $paged = 1;
+	}
+
+	if( $pages == '') {
+		global $wp_query;
+		$pages = $wp_query->max_num_pages;
+
+		if( !$pages ) {
+			$pages = 1;
+		}
+	}
+
+	if( $pages != 1 ) {
+		if( $ajax ) {
+			echo '<div class="wpg-filter-by-pager ajax-pagination">';
+
+			if( $paged > 1 ) {
+				echo "<div class=\"block-prev\"><a href='".get_pagenum_link($paged - 1)."'>previous</a></div>";
+			}
+
+			echo '<div>';
+
+			for( $i=1; $i <= $pages; $i++ ) {
+				if( $pages != 1 && ( !($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showItems) ) {
+					echo ($paged == $i)? "<div class='actual-page'>".$i."</div>":"<div class='other-pages'><a href='#' data-page='".$i."' class=\"inactive\">".$i."</a></div>";
+				}
+			}
+
+			echo '</div>';
+
+			if ($paged < $pages) {
+				echo "<div class=\"block-next\"><a href=\"".get_pagenum_link($paged + 1)."\">next</a></div>";
+			}
+
+			echo '</div>';
+		} else {
+			echo '<div class="wpg-filter-by-pager">';
+
+			if( $paged > 1 ) {
+				echo "<div class=\"block-prev\"><a href='".get_pagenum_link($paged - 1)."'>previous</a></div>";
+			}
+
+			echo '<div class="pages">';
+
+			for ( $i=1; $i <= $pages; $i++ ) {
+				if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showItems ) ) {
+					echo ($paged == $i)? "<div class='actual-page'>".$i."</div>":"<div class='other-pages'><a href='".get_pagenum_link($i)."' class=\"inactive\">".$i."</a></div>";
+				}
+			}
+
+			echo '</div>';
+
+			if( $paged < $pages ) {
+				echo "<div class=\"block-next\"><a href=\"".get_pagenum_link($paged + 1)."\">next</a></div>";
+			}
+
+			echo '</div> ';
+		}
+	}
+}

@@ -121,32 +121,33 @@ $border-bottom: 2px solid #c2c2c2;
           background-color: #fff;
           padding: 35px 36px;
 
-          .sub-menu {
-            .single-menu {
-              color: #000;
-              cursor: pointer;
-              @include user-select(none);
-              font-size: 1.125rem;
-              padding: 0 12px;
+          .single-menu {
+            color: #000;
+            cursor: pointer;
+            @include user-select(none);
+            font-size: 1.125rem;
+            padding: 0 12px;
 
-              &.active {
-                background-color: #303e48;
-                color: #fff;
+            &.active {
+              background-color: #303e48;
+              color: #fff;
+
+            }
+          }
+
+          .left-inner {
+
+              .sub-content {
+                font-size: 1.125rem;
+                line-height: 1.722;
 
               }
-            }
 
-            .sub-content {
-              font-size: 1.125rem;
-              line-height: 1.722;
+              .content {
+                color: #303e48;
+                padding-top: 70px;
 
-            }
-
-            .content {
-              color: #303e48;
-              padding-top: 70px;
-
-            }
+              }
           }
         }
 
@@ -154,6 +155,9 @@ $border-bottom: 2px solid #c2c2c2;
           background-color: #d6d9db;
           color: #303e48;
           padding: 35px 26px;
+          position: absolute;
+          top: 0px;
+          right: 0px;
 
           img {
             padding-bottom: 25px;

@@ -6,17 +6,17 @@ jQuery( document ).ready( function( $ ) {
            $(this).addClass('active');
            $('.pagebox-side_tables-module .tabs .row .content').hide();
            $('.pagebox-side_tables-module .tabs .row .content .sidebar').hide();
-           $('.pagebox-side_tables-module .tabs .row .content .left .sub-menu > .single-0').show();
-           $('.pagebox-side_tables-module .tabs .row .content .left .sub-menu > #single-0').addClass('active');
+           $('.pagebox-side_tables-module .tabs .row .content .left .single-0').show();
+           $('.pagebox-side_tables-module .tabs .row .content .left #single-0').addClass('active');
            $('.pagebox-side_tables-module .tabs .row .content .sidebar.single-0').show();
            $('.'+$(this).attr('id')).fadeIn('fast');
        });
 
-    $('.pagebox-side_tables-module .tabs .row .content .left .sub-menu > .single-0').show();
-    $('.pagebox-side_tables-module .tabs .row .content .left .sub-menu > #single-0').addClass('active');
+    $('.pagebox-side_tables-module .tabs .row .content .left .single-0').show();
+    $('.pagebox-side_tables-module .tabs .row .content .left #single-0').addClass('active');
 
-    $('.pagebox-side_tables-module .left .sub-menu .single-menu').on('click',function(){
-            $('.pagebox-side_tables-module .left .sub-menu .single-menu').removeClass('active');
+    $('.pagebox-side_tables-module .left .single-menu').on('click',function(){
+            $('.pagebox-side_tables-module .left .single-menu').removeClass('active');
             $(this).addClass('active');
             $('.pagebox-side_tables-module .tabs .row .content .sidebar').hide();
             $('.pagebox-side_tables-module .tabs .row .content .left .content').hide();

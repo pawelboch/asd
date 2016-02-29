@@ -193,12 +193,12 @@
 				},
 				hideRemove  = function() {
 
-					// hide remove button if there is only one item
-					if (jQuery(repeater).find('.iterator table').length == 1) {
-						jQuery('.pagebox[data-action="repeater_remove"]').hide();
-					} else {
-						jQuery('.pagebox[data-action="repeater_remove"]').show();
-					}
+					//// hide remove button if there is only one item
+					//if (jQuery(repeater).find('.iterator table').length == 1) {
+					//	jQuery('.pagebox[data-action="repeater_remove"]').hide();
+					//} else {
+					//	jQuery('.pagebox[data-action="repeater_remove"]').show();
+					//}
 
 				};
 

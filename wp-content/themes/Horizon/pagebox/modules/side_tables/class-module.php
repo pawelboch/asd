@@ -73,18 +73,6 @@ class Module extends Abstract_Module {
 					'description' 	=> __( 'Type first tab content' )
 				),
 				array(
-					'type'          => 'switch',
-					'group'         => __( 'First Tab', 'pagebox' ),
-					'name'          => 'first_switch',
-					'option'        => 'yes',
-					'label'         => __( 'First switch' ),
-					'description'   => __( 'OFF / ON'),
-					'sass'          => true,
-					'sass_filter'   => function ( $value ) {
-						return $value ? 'yes' : 'no';
-					}
-				),
-				array(
 					'type'		=> 'repeater',
 					'group'		=> __('First Tab', 'pagebox'),
 					'name'		=> 'first_sub_nav',
@@ -148,18 +136,6 @@ class Module extends Abstract_Module {
 					'description' 	=> __( 'Type second tab content' )
 				),
 				array(
-					'type'          => 'switch',
-					'group'         => __( 'Second Tab', 'pagebox' ),
-					'name'          => 'second_switch',
-					'option'        => 'yes',
-					'label'         => __( 'First switch' ),
-					'description'   => __( 'OFF / ON'),
-					'sass'          => true,
-					'sass_filter'   => function ( $value ) {
-						return $value ? 'yes' : 'no';
-					}
-				),
-				array(
 					'type'		=> 'repeater',
 					'group'		=> __('Second Tab', 'pagebox'),
 					'name'		=> 'second_sub_nav',
@@ -221,18 +197,6 @@ class Module extends Abstract_Module {
 					'name'			=> 'third_tab_content',
 					'label'			=> __( 'Third tab content' ),
 					'description' 	=> __( 'Type third tab content' )
-				),
-				array(
-					'type'          => 'switch',
-					'group'         => __( 'Third Tab', 'pagebox' ),
-					'name'          => 'third_switch',
-					'option'        => 'yes',
-					'label'         => __( 'First switch' ),
-					'description'   => __( 'OFF / ON'),
-					'sass'          => true,
-					'sass_filter'   => function ( $value ) {
-						return $value ? 'yes' : 'no';
-					}
 				),
 				array(
 					'type'		=> 'repeater',
@@ -299,18 +263,6 @@ class Module extends Abstract_Module {
 					'description' 	=> __( 'Type fourth tab content' )
 				),
 				array(
-					'type'          => 'switch',
-					'group'         => __( 'Fourth Tab', 'pagebox' ),
-					'name'          => 'fourth_switch',
-					'option'        => 'yes',
-					'label'         => __( 'First switch' ),
-					'description'   => __( 'OFF / ON'),
-					'sass'          => true,
-					'sass_filter'   => function ( $value ) {
-						return $value ? 'yes' : 'no';
-					}
-				),
-				array(
 					'type'		=> 'repeater',
 					'group'		=> __('Fourth Tab', 'pagebox'),
 					'name'		=> 'fourth_sub_nav',
@@ -344,7 +296,7 @@ class Module extends Abstract_Module {
 							'label'         => __( 'Fourth sidebar' ),
 							'description'   => __( 'Type fourth sidebar' )
 						),
-					),
+					)
 				),
 
 			)

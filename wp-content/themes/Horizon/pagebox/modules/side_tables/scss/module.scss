@@ -135,19 +135,26 @@ $border-bottom: 2px solid #c2c2c2;
             }
           }
 
+          .sub-menu-tabs {
+            padding-left: 0;
+            padding-right: 0;
+          }
+
           .left-inner {
+            padding-left: 0;
+            padding-right: 0;
 
-              .sub-content {
-                font-size: 1.125rem;
-                line-height: 1.722;
+            .sub-content {
+              font-size: 1.125rem;
+              line-height: 1.722;
 
-              }
+            }
 
-              .content {
-                color: #303e48;
-                padding-top: 70px;
+            .content {
+              color: #303e48;
+              padding-top: 70px;
 
-              }
+            }
           }
         }
 

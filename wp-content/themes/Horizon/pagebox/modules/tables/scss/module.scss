@@ -16,15 +16,18 @@ $border-bottom: 2px solid #c2c2c2;
         position: relative;
         background-color: #e5aa0e;
         height: 63px;
+        display: flex;
 
         .title {
+          padding-right: 5px;
+          padding-left: 5px;
 
           h2 {
             cursor: pointer;
             font-size: 1rem;
             font-weight: normal;
             font-family: "Arial";
-            padding: 16px 5px 8px;
+            padding: 16px 0 8px;
             text-align: center;
             min-height: 41px;
             line-height: 1.938;
@@ -41,7 +44,7 @@ $border-bottom: 2px solid #c2c2c2;
             h2 {
                 font-weight: bold;
                 color: rgb(48, 62, 72);
-                padding: 12px 5px;
+                //padding: 12px 5px;
 
             }
 
@@ -129,7 +132,7 @@ $border-bottom: 2px solid #c2c2c2;
     }
   }
 
-  @media (max-width: map-get($grid-breakpoints, sm) ) {
+  @media (max-width: map-get($grid-breakpoints, sm) - 1px ) {
     border-bottom: none;
 
     .tabs {

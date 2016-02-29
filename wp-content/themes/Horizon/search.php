@@ -30,7 +30,7 @@ get_header(); ?>
                                         <?php echo numberResultPagination($paged,$i); ?><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                     </li>
                                     <p class="excerpt">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda consequuntur corporis debitis dignissimos ducimus id inventore ipsa nesciunt quod reprehenderit sit soluta, temporibus voluptate voluptatibus. Aliquam blanditiis iste repellat?
+                                        <?php echo wppb_excerpt(get_the_ID()); ?>
                                     </p>
                                 <?php
                                     $i++;

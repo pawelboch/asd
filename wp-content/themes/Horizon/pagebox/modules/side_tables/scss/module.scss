@@ -1,6 +1,7 @@
 @import "module-variables";
 @import "vendor/compass/css3/user-interface";
 @import "theme-config";
+@import "mixins/utils";
 
 $border-bottom: 2px solid #c2c2c2;
 
@@ -193,6 +194,41 @@ $border-bottom: 2px solid #c2c2c2;
 
       }
 
+    }
+  }
+
+  @each $id, $vars in $ids {
+    &.#{$id} {
+      .tabs {
+        .row {
+          .content {
+            &.first {
+              .top {
+                @include add('background-color', get( $vars, first_tab_color ));
+              }
+            }
+
+            &.second {
+              .top {
+                @include add('background-color', get( $vars, second_tab_color ));
+              }
+            }
+
+            &.third {
+              .top {
+                @include add('background-color', get( $vars, third_tab_color ));
+              }
+            }
+
+            &.fourth {
+              .top {
+                @include add('background-color', get( $vars, fourth_tab_color ));
+              }
+            }
+
+          }
+        }
+      }
     }
   }
 

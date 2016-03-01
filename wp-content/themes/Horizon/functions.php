@@ -215,7 +215,10 @@ add_theme_support( 'post-thumbnails' );
 //		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 //	}
 //}
+
 /**
+ * Display pagination - used in search page
+ *
  * @param string $pages
  * @param int $range
  * @param bool $ajax
@@ -288,6 +291,13 @@ function pagination($pages = '', $range = 4, $ajax = false, $paged = '')
 	}
 }
 
+/**
+ * Return number for post in results with pagination
+ *
+ * @param $paged
+ * @param $i
+ * @return string
+ */
 function numberResultPagination($paged, $i)
 {
 	$perPage = get_option('posts_per_page ');
@@ -298,6 +308,9 @@ function numberResultPagination($paged, $i)
 	}
 }
 
+/**
+ * Add team taxonomy - Team Departmen and Team Web Departmen
+ */
 function team_taxonomy() {
 	register_taxonomy(
 		't_category',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces).
@@ -329,6 +342,9 @@ function team_taxonomy() {
 add_action( 'init', 'team_taxonomy', 1);
 
 
+/**
+ * Add custom post type 'Team'
+ */
 add_action( 'init', 'create_team_member_type', 1 );
 function create_team_member_type() {
 	register_post_type( 'team_member',

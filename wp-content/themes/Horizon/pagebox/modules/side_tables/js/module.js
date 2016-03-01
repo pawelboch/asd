@@ -9,7 +9,7 @@ jQuery( document ).ready( function( $ ) {
            $('.pagebox-side_tables-module .tabs .row .content .left .single-0').show();
            $('.pagebox-side_tables-module .tabs .row .content .left #single-0').addClass('active');
            $('.pagebox-side_tables-module .tabs .row .content .sidebar.single-0').show();
-           $('.'+$(this).attr('id')).fadeIn('fast');
+           $('.'+$(this).attr('id')).show();
            window.location.hash = $(this).attr('data-hash');
        });
 
@@ -21,7 +21,7 @@ jQuery( document ).ready( function( $ ) {
             $(this).addClass('active');
             $('.pagebox-side_tables-module .tabs .row .content .sidebar').hide();
             $('.pagebox-side_tables-module .tabs .row .content .left .content').hide();
-            $('.'+$(this).attr('id')).fadeIn('fast');
+            $('.'+$(this).attr('id')).show();
     });
 
     // Tab mobile toggle

@@ -13,26 +13,29 @@ $border-bottom: 2px solid #c2c2c2;
 
   .tabs {
     .row {
-
       img {
         height: 100%;
         width: 100%;
+
       }
+
       .head {
         position: relative;
         background-color: #e5aa0e;
         height: 63px;
+        display: flex;
 
         .title {
-
           background-color: #e5aa0e;
+          flex: 1;
 
           h2 {
             cursor: pointer;
             font-size: 1rem;
             font-weight: normal;
             font-family: "Arial";
-            padding: 16px 5px 8px;
+            //padding: 16px 5px 8px;
+            padding: 0;
             text-align: center;
             text-transform: capitalize;
             min-height: 41px;
@@ -40,6 +43,7 @@ $border-bottom: 2px solid #c2c2c2;
             color: #896808;
             @include user-select(none);
             min-height: 55px;
+            line-height: 1;
 
           }
 
@@ -49,7 +53,7 @@ $border-bottom: 2px solid #c2c2c2;
             h2 {
               font-weight: bold;
               color: rgb(48, 62, 72);
-              padding: 12px 5px;
+              //padding: 12px 5px;
 
             }
 
@@ -84,7 +88,6 @@ $border-bottom: 2px solid #c2c2c2;
             margin-bottom: 5px;
 
           }
-
         }
       }
 
@@ -143,6 +146,7 @@ $border-bottom: 2px solid #c2c2c2;
           .sub-menu-tabs {
             padding-left: 0;
             padding-right: 0;
+
           }
 
           .left-inner {
@@ -201,7 +205,6 @@ $border-bottom: 2px solid #c2c2c2;
         display: block;
 
       }
-
     }
   }
 

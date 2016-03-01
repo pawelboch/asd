@@ -141,11 +141,23 @@ $border-bottom: 2px solid #c2c2c2;
 
       .row {
         .head {
-          .title:not(.active) {
-            display: none;
+          .title {
+            width: 100%;
+
+            &:not(.active) {
+              display: none;
+
+            }
+
+            h2 {
+              text-align: left;
+              padding-left: 33px;
+
+            }
           }
           .navigation-arrows{
             display: block;
+
           }
         }
       }

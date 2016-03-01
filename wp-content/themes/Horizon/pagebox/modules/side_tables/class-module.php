@@ -73,6 +73,15 @@ class Module extends Abstract_Module {
 					'description' 	=> __( 'Type first tab content' )
 				),
 				array(
+					'type'			=> 'colorpicker',
+					'group'			=> __( 'First Tab', 'pagebox' ),
+					'value'			=> '#E8E8E8',
+					'name'			=> 'first_tab_color',
+					'label'			=> __( 'First tab background color' ),
+					'description' 	=> __( '0-100 (color must be selected if you want opacity)' ),
+					'sass'          => true
+				),
+				array(
 					'type'		=> 'repeater',
 					'group'		=> __('First Tab', 'pagebox'),
 					'name'		=> 'first_sub_nav',
@@ -134,6 +143,15 @@ class Module extends Abstract_Module {
 					'name'			=> 'second_tab_content',
 					'label'			=> __( 'Second tab content' ),
 					'description' 	=> __( 'Type second tab content' )
+				),
+				array(
+					'type'			=> 'colorpicker',
+					'group'			=> __( 'Second Tab', 'pagebox' ),
+					'value'			=> '#E8E8E8',
+					'name'			=> 'second_tab_color',
+					'label'			=> __( 'Second tab background color' ),
+					'description' 	=> __( '0-100 (color must be selected if you want opacity)' ),
+					'sass'          => true
 				),
 				array(
 					'type'		=> 'repeater',
@@ -199,6 +217,15 @@ class Module extends Abstract_Module {
 					'description' 	=> __( 'Type third tab content' )
 				),
 				array(
+					'type'			=> 'colorpicker',
+					'group'			=> __( 'Third Tab', 'pagebox' ),
+					'value'			=> '#E8E8E8',
+					'name'			=> 'third_tab_color',
+					'label'			=> __( 'Third tab background color' ),
+					'description' 	=> __( '0-100 (color must be selected if you want opacity)' ),
+					'sass'          => true
+				),
+				array(
 					'type'		=> 'repeater',
 					'group'		=> __('Third Tab', 'pagebox'),
 					'name'		=> 'third_sub_nav',
@@ -261,6 +288,15 @@ class Module extends Abstract_Module {
 					'name'			=> 'fourth_tab_content',
 					'label'			=> __( 'Fourth tab content' ),
 					'description' 	=> __( 'Type fourth tab content' )
+				),
+				array(
+					'type'			=> 'colorpicker',
+					'group'			=> __( 'Fourth Tab', 'pagebox' ),
+					'value'			=> '#E8E8E8',
+					'name'			=> 'fourth_tab_color',
+					'label'			=> __( 'Fourth tab background color' ),
+					'description' 	=> __( '0-100 (color must be selected if you want opacity)' ),
+					'sass'          => true
 				),
 				array(
 					'type'		=> 'repeater',

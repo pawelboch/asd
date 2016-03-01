@@ -40,24 +40,18 @@
 			// add chosen support
 			post_id.chosen({
 				allow_single_deselect : true,
-				width : '100%',
-			});
-
-			page_id.chosen({
-				allow_single_deselect : true,
-				width : '100%',
+				width : '100%'
 			});
 
 			category.chosen({
-				width : '100%',
+				width : '100%'
 			});
 
 			tag.chosen({
-				width : '100%',
+				width : '100%'
 			});
 
-			var post = jQuery(this),
-			    typeSelect = function() {
+			var typeSelect = function() {
 
 			    	// display only elements connected to selected post type
 
@@ -162,94 +156,94 @@
 
 	jQuery.fn.pagebox_repeater = function() {
 
-		return this.each(function() {
+		return this.each( function() {
 
 			// prevent multiple instances on one element
-			if (jQuery.data(this, 'pagebox_repeater')) {
+			if( $.data( this, 'pagebox_repeater' )) {
 				return;
 			}
 
-			jQuery.data(this, 'pagebox_repeater', true);
+			$.data( this, 'pagebox_repeater', true );
 
 			// start fn logic
-			var repeater    = jQuery(this),
+			var repeater    = $( this ),
+				iterator 	= repeater.find( '.iterator' ),
 				updateIndex = function() {
 
 					hideRemove();
 
 					// update groups indexes to display them in right order in the future
-					jQuery(repeater).find('.iterator > table').each(function(i) {
-						var re     = /([a-zA-Z0-9-_]+)\[(\d{0,3})\]\[([a-zA-Z0-9-_]+)\]/gm,
-					    	substr = '$1[' + i + '][$3]';
+					var re     = /([a-zA-Z0-9-_]+)\[(\d{0,3})\]\[([a-zA-Z0-9-_]+)\]/gm;
+					iterator.children('table').each( function( i ) {
+						var substr = '$1[' + i + '][$3]';
 
-					    jQuery(this).find('.subelement').each(function(){
-					    	var name = jQuery(this).attr('name').replace(re, substr);
-
-					    	jQuery(this).attr('name', name);
+					    $( this ).find('.subelement').each( function() {
+							var self = $( this );
+					    	var name = self.attr( 'name' ).replace( re, substr );
+					    	self.attr( 'name', name );
 					    });
 
 					});
 
 				},
 				hideRemove  = function() {
-
-					//// hide remove button if there is only one item
-					//if (jQuery(repeater).find('.iterator table').length == 1) {
-					//	jQuery('.pagebox[data-action="repeater_remove"]').hide();
-					//} else {
-					//	jQuery('.pagebox[data-action="repeater_remove"]').show();
-					//}
-
+					// hide remove button if there is only one item
+					if( iterator.children('table').length === 1) {
+						iterator.find('[data-action="repeater_remove"]').hide();
+					} else {
+						iterator.find('[data-action="repeater_remove"]').show();
+					}
 				};
 
 			// make items sortable
-			jQuery(repeater).find('.iterator').sortable({
+			iterator.sortable({
 				items : '> table',
 				update : function(event, ui) {
 					updateIndex();
-					jQuery(repeater).parents('form').pagebox_form();
+					repeater.parents('form').pagebox_form();
 				},
 				start: function(event, ui) {
-			        ui.placeholder.height(ui.item.height());
+			        ui.placeholder.height( ui.item.height() );
 			    }
 			});
 
 			hideRemove();
 
 			// enable add button
-			jQuery(repeater).on('click', '.pagebox[data-action="repeater_add"]', function(e){
+			repeater.on('click', '[data-action="repeater_add"]', function( e ) {
 
 				e.preventDefault();
 
-				var boilerplate = jQuery(this).parents('.element-repeater').find('.pagebox[data-action="repeater_boilerplate"]'),
-				    group       = jQuery.parseJSON(jQuery(boilerplate).val()),
-					count       = jQuery(repeater).find('.iterator > table').length;
+				var self = $( this ),
+					boilerplate = self.parents('.element-repeater').find('[data-action="repeater_boilerplate"]'),
+				    group       = $.parseJSON( $( boilerplate ).val() ),
+					count       = iterator.children('table').length;
 
 
 				var re     = /([a-zA-Z0-9-_]+)\[(\d{0,3})\]\[([a-zA-Z0-9-_]+)\]/gm,
 				    substr = '$1[' + count + '][$3]';
 
-				group = group.replace(re, substr);
+				group = group.replace( re, substr );
 
-				jQuery(this).parents().eq(3).after('<table>' + group + '</table>');
+				self.parents().eq(3).after('<table>' + group + '</table>');
 
 				updateIndex();
 
-                                jQuery('.my-color-field').wpColorPicker();
+				$('.my-color-field').wpColorPicker();
 
-				jQuery(repeater).find('.iterator').sortable('refresh');
+				iterator.sortable('refresh');
 
-				jQuery(repeater).parents('form').pagebox_form();
+				repeater.parents('form').pagebox_form();
 
 			});
 
 			// enable remove button
-			jQuery(repeater).on('click', '.pagebox[data-action="repeater_remove"]', function(e){
+			repeater.on('click', '[data-action="repeater_remove"]', function( e ) {
 
 				e.preventDefault();
 
-				jQuery(this).parents().eq(3).wrap('<div style="display: block;" />').parent().slideUp('slow', function() {
-					jQuery(this).remove();
+				$(this).parents().eq(3).wrap('<div style="display: block;" />').parent().slideUp('slow', function() {
+					$(this).remove();
 
 					updateIndex();
 				});
@@ -260,9 +254,9 @@
 
 	}
 	jQuery.fn.pagebox_file = function() {
-		console.log('0.1');
+		//console.log('0.1');
 		return this.each(function() {
-			console.log('1');
+			//console.log('1');
 			// prevent multiple instances on one element
 			if (jQuery.data(this, 'pagebox_file')) {
 				return;

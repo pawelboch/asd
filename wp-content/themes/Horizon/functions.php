@@ -297,3 +297,52 @@ function numberResultPagination($paged, $i)
 		return ($i + (($paged-1) * $perPage)) . '. ';
 	}
 }
+
+function team_taxonomy() {
+	register_taxonomy(
+		't_category',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces).
+		'team',   		 //post type name
+		$team_category = array(
+			'hierarchical' 		=> true,
+			'label' 			=> 'Team Department',  //Display name
+			'query_var' 		=> true,
+			'rewrite'			=> array(
+				'slug' 			=> 'Team', // This controls the base slug that will display before each term
+				'with_front' 	=> false // Don't display the category base before
+			)
+		)
+	);
+	register_taxonomy(
+		't_category_web',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces).
+		'team',   		 //post type name
+		$team_category = array(
+			'hierarchical' 		=> true,
+			'label' 			=> 'Team Web Department',  //Display name
+			'query_var' 		=> true,
+			'rewrite'			=> array(
+				'slug' 			=> 'team_web', // This controls the base slug that will display before each term
+				'with_front' 	=> false // Don't display the category base before
+			)
+		)
+	);
+}
+add_action( 'init', 'team_taxonomy', 1);
+
+
+add_action( 'init', 'create_team_member_type', 1 );
+function create_team_member_type() {
+	register_post_type( 'team_member',
+		array(
+			'labels' => array(
+				'name' => __( 'Team' ),
+				'singular_name' => __( 'Team' )
+			),
+			'taxonomies' => array('t_category','t_category_web'),
+			'public' => false,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'publicly_queryable' => false,
+			'supports'    => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
+		)
+	);
+}

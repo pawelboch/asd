@@ -46,7 +46,7 @@
 
       .first {
         h3 {
-          color: map-get($vars, first_title_color);
+          color: get($vars, first_title_color);
         }
       }
       .second {
@@ -54,27 +54,54 @@
         @include add('border-right',(get($vars,border) solid get($vars,border_color)));
 
         h3 {
-          color: map-get($vars, second_title_color);
+          color: get($vars, second_title_color);
         }
       }
       .third {
         h3 {
-          color: map-get($vars, third_title_color);
-        }
-      }
-    }
-  }
-
-  @media (max-width: map-get($grid-breakpoints, sm) ) {
-    margin-left: 2rem;
-    margin-right: 2rem;
-
-    @each $id, $vars in $ids {
-      &.#{$id} {
-        .second {
-          border: none;
+          color: get($vars, third_title_color);
         }
       }
     }
   }
 }
+
+
+@media (max-width: get($grid-breakpoints, md) ) {
+
+  #{$module} {
+    .title {
+      margin-bottom: 0;
+
+    }
+
+    .part {
+      padding-top: 75px;
+    }
+  }
+}
+
+// sm = 544px
+@media (max-width: get($grid-breakpoints, sm) ) {
+
+  #{$module} {
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+    .title {
+      padding: 0 32px - 15px;
+
+    }
+
+
+    @each $id, $vars in $ids {
+      &.#{$id} {
+        .second {
+          border: none;
+
+        }
+      }
+    }
+  }
+}
+

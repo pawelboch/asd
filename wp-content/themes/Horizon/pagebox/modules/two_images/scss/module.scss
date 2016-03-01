@@ -83,54 +83,67 @@ $margin-between: 1%;
   }
 
 
-    @each $id, $vars in $ids {
-      &.#{$id} {
-        // Style for left background image
+  @each $id, $vars in $ids {
+    &.#{$id} {
+      // Style for left background image
 
 
-          .left,
-          .full {
-            background-image: url(map-get($vars, bg_left_image));
-            border-bottom: map_get($vars, border_left_weight) solid map-get($vars, border_left_color);
+        .left,
+        .full {
+          background-image: url(map-get($vars, bg_left_image));
+          border-bottom: map_get($vars, border_left_weight) solid map-get($vars, border_left_color);
 
-            .title {
-              @include background-opacity(map_get($vars, border_left_color), 50);
-            }
+          .title {
+            @include background-opacity(map_get($vars, border_left_color), 50);
           }
+        }
 
-          .right {
-            background-image: url(map-get($vars, bg_right_image));
-            border-bottom: map_get($vars, border_right_weight) solid map_get($vars, border_right_color);
+        .right {
+          background-image: url(map-get($vars, bg_right_image));
+          border-bottom: map_get($vars, border_right_weight) solid map_get($vars, border_right_color);
 
-            .title {
-              @include background-opacity(map_get($vars, border_right_color), 50);
-            }
+          .title {
+            @include background-opacity(map_get($vars, border_right_color), 50);
           }
+        }
 
-      }
     }
-
-  @media (max-width: map-get($grid-breakpoints, sm) ) {
-    margin-left: 2rem;
-    margin-right: 2rem;
   }
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: map-get($grid-breakpoints, md) ) {
 
-    #{$module} {
+  #{$module} {
 
-      .half-part {
-        width: auto;
-        padding-top: 1px;
+    .half-part {
+      width: auto;
+      padding-top: 1px;
 
-        &.left,
-        &.right {
-          margin-right: 0;
-          margin-left: 0;
-        }
+      &.left,
+      &.right {
+        margin-right: 0;
+        margin-left: 0;
       }
-
     }
+  }
+}
+
+@media (max-width: map-get($grid-breakpoints, sm) ) {
+  $distance-from-top: 15px;
+
+  #{$module} {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-top: $distance-from-top;
+
+    .half-part {
+      margin-top: $distance-from-top;
+
+      &:first-child {
+        margin-top: 0;
+
+      }
+    }
+  }
 }

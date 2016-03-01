@@ -56,7 +56,6 @@ header {
       height: 20px;
       cursor: pointer;
       margin-top: 17px;
-      @include transition(all, 0.4s, ease);
 
       &:hover {
         background-image: url("../../images/search_yellow.svg");

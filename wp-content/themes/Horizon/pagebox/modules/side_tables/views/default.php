@@ -14,7 +14,7 @@
 				foreach( $tabSlug as $tab ):
 					if( $this->get( $tab.'_tab_title' )): ?>
 
-						<div id="<?php echo $tab; ?>" class="title col-md-3 col-sm-3 col-xs-12 <?php echo ((!$active) ? 'active' : '') .' '.$this->get( $tab.'_tab_slug' )?>" data-hash="<?php echo $this->get( $tab.'_tab_slug' ); ?>">
+						<div id="<?php echo $tab; ?>" class="title col-xs-12 <?php echo ((!$active) ? 'active' : '') .' '.$this->get( $tab.'_tab_slug' )?>" data-hash="<?php echo $this->get( $tab.'_tab_slug' ); ?>">
 							<h2><?php echo $this->get( $tab.'_tab_title' ) ;?></h2>
 						</div>
 

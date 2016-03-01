@@ -13,6 +13,11 @@ $border-bottom: 2px solid #c2c2c2;
 
   .tabs {
     .row {
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
       .head {
         position: relative;
         background-color: #e5aa0e;
@@ -104,8 +109,6 @@ $border-bottom: 2px solid #c2c2c2;
 
           img {
             object-fit: cover;
-            height: 100%;
-            width: 100%;
 
           }
         }
@@ -169,22 +172,27 @@ $border-bottom: 2px solid #c2c2c2;
 
           img {
             padding-bottom: 25px;
+            width: 25%;
+
           }
 
           h3 {
             font-size: 1.6875rem;
             line-height: 2.3125rem;
             font-family: 'Georgia';
+
           }
 
           ul {
             padding-left: 0;
             font-weight: 600;
             list-style: none;
+
           }
           ul li:before {
             content: ">";
             padding-right: 5px;
+
           }
         }
       }

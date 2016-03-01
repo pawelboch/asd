@@ -21,10 +21,9 @@
 
     }
 
-    .description{
+    .description {
 
     }
-
   }
 
   .published,
@@ -39,27 +38,26 @@
   .published {
     .text {
       font-weight: bold;
+
     }
   }
 
   .share {
-
-    .print {
-      cursor: pointer;
-    }
+    .print,
     .social {
       cursor: pointer;
+
     }
+
     .social-toggle {
       display: none;
       margin-top: 15px;
 
       img {
         width: 20px;
+
       }
     }
   }
-
-
 }
 

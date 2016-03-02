@@ -109,9 +109,38 @@ jQuery( document ).ready(function( $ ) {
 
     // Display description
 
-    $('.expand').click(function() {
-        $('.team-desc').hide();
-        $(this).parents('.person').next().toggle();
+    $('.expand').click(function(e) {
+        e.preventDefault();
+
+        if($(this).text() == 'Expand'){
+            $('.expand').text('Expand');
+            $(this).text('Collapse');
+            $('.person').removeClass('active');
+            $(this).parent().addClass('active');
+            $('.team-desc').hide();
+            $('.description-' + $(this).parents('.person').attr('data-description')).show();
+        }else {
+            $(this).parent().removeClass('active');
+            $(this).text('Expand');
+            $('.description-' + $(this).parents('.person').attr('data-description')).hide();
+        }
+    });
+
+    jQuery('.ex').click(function (e) {
+        e.preventDefault();
+
+        if(jQuery(this).text() == 'Expand'){
+            jQuery('.ccd .ex').text('Expand');
+            jQuery(this).text('Collapse');
+            jQuery('.ccd div').removeClass('active');
+            jQuery(this).parent().addClass('active');
+            jQuery('.team_capt').hide();
+            jQuery(this).parents('.ccd').next().show();
+        }else{
+            jQuery(this).parent().removeClass('active');
+            jQuery(this).text('Expand');
+            jQuery(this).parents('.ccd').next().hide();
+        }
     });
 
 

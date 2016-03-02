@@ -385,9 +385,8 @@ function team_member_func( $atts )
 		$taxonomy_objects = get_the_terms( $team->ID, 't_category' );
 		$taxonomy_objects_web = get_the_terms( $team->ID, 't_category_web' );
 
-
 		$returnString .= '<div class="person"><div class="picture"><img src="'.((get_post_thumbnail_id($team->ID)) ? wp_get_attachment_image_src( get_post_thumbnail_id($team->ID), 'medium')[0] : 'https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=284&h=398').'" alt=""></div>';
-		$returnString .= '<div class="description"><h2>'.$team->post_title.'</h2><p>'.$taxonomy_objects[0]->name.'</p></div><div class="expand">Expand</div></div>';
+		$returnString .= '<div class="description"><h2>'.$team->post_title.'</h2><p>'.(($taxonomy_objects) ? $taxonomy_objects[0]->name : '').'</p></div><div class="expand">Expand</div></div>';
 		$returnString .= '<div class="team-desc">'.$team->post_content.'</div>';
 	}
 

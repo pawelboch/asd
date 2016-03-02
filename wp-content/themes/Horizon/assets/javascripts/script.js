@@ -107,5 +107,11 @@ jQuery( document ).ready(function( $ ) {
     });
 
 
+    // Display description
+
+    //$('.expand').click(function() {
+    //    $(this).parents('.person').next().toggle();
+    //});
+
 
 });

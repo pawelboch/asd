@@ -109,9 +109,10 @@ jQuery( document ).ready(function( $ ) {
 
     // Display description
 
-    //$('.expand').click(function() {
-    //    $(this).parents('.person').next().toggle();
-    //});
+    $('.expand').click(function() {
+        $('.team-desc').hide();
+        $(this).parents('.person').next().toggle();
+    });
 
 
 });

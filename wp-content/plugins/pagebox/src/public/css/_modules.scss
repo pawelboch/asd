@@ -27,7 +27,7 @@
 
 	&:nth-child(2n) {
 		margin-left: 0;
-	}	
+	}
 
 	&:after {
 		content: '';
@@ -63,6 +63,15 @@
 
 		.icon:before {
 			content: "\f044";
+		}
+	}
+
+	@media (min-width: 1300px) {
+		width: 30%;
+		margin-left: 0;
+
+		&:nth-child(3n+1) {
+			margin: 0 2% 2% 3%;
 		}
 	}
 }

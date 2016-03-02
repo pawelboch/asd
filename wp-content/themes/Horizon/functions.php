@@ -378,13 +378,20 @@ function team_member_func( $atts )
 	);
 
 	$teamMembers = get_posts( $args );
-	$returnString ='';
-//	var_dump($teamMembers);
+
+	$returnString ='<div class="team-module"><div class="persons">';
 
 	foreach($teamMembers as $team) {
-		$returnString .= '<img style="width:100px;height:200px;" src="'.((get_post_thumbnail_id($team->ID)) ? wp_get_attachment_image_src( get_post_thumbnail_id($team->ID), 'medium')[0] : 'https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=284&h=398').'" alt="">';
-		$returnString .= '<h2>'.$team->post_title.'</h2>';
+		$taxonomy_objects = get_the_terms( $team->ID, 't_category' );
+		$taxonomy_objects_web = get_the_terms( $team->ID, 't_category_web' );
+
+		$returnString .= '<div class="person"><div class="picture"><img src="'.((get_post_thumbnail_id($team->ID)) ? wp_get_attachment_image_src( get_post_thumbnail_id($team->ID), 'medium')[0] : 'https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=284&h=398').'" alt=""></div>';
+		$returnString .= '<div class="description"><h2>'.$team->post_title.'</h2><p>'.(($taxonomy_objects) ? $taxonomy_objects[0]->name : '').'</p></div><div class="expand">Expand</div></div>';
+		$returnString .= '<div class="team-desc"><div class="left"><h2>'.$team->post_title.'</h2><p>'.(($taxonomy_objects) ? $taxonomy_objects[0]->name : '').'</p><p>'.(($taxonomy_objects_web) ? $taxonomy_objects_web[0]->name : '').'</p></div><div class="right">'.$team->post_content.'</div></div>';
 	}
+
+	$returnString .= '</div></div>';
+
 	return $returnString;
 }
 add_shortcode( 'team_member', 'team_member_func' );

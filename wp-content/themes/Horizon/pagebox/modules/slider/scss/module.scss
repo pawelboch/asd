@@ -33,7 +33,7 @@ $h2_color: #fff !default;
         color: $h2_color;
         font-family: "Avenir Next";
         font-size: 3rem;
-        padding: 15px;
+        padding: 15px 15px 10px 15px;
         text-transform: uppercase;
         position: relative;
         font-weight: 300;
@@ -176,8 +176,10 @@ $h2_color: #fff !default;
     .slides {
       h2 {
         span {
+          padding: 0;
+
           &:before {
-            left: -15%;
+            left: -90%;
 
           }
         }

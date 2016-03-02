@@ -45,10 +45,11 @@
 
 				$sub_nav = $this->get( 'first_sub_nav' );
 				?>
-					<div class="left col-md-12">
+
 				<?php
 				if (count((array)$sub_nav) > 1 ):
 				?>
+				<div class="left col-md-12">
 					<div class="sub-menu-tabs col-md-8">
 				<?php
 					foreach( $sub_nav as $i => $sub ):
@@ -90,7 +91,14 @@
 								</div>
 							<?php endif;
 					endforeach; // $sub_nav as $i => $sub
+				?>
+				 </div>
+				<?php
 				else:
+					if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))):
+					?>
+				<div class="left col-md-12">
+				<?php
 					if( $sub_nav ):
 						if(!empty( $sub_nav->{0}->sub)): ?>
 								<div class="sub-menu-tabs col-md-8">
@@ -123,14 +131,17 @@
 									<?php echo $sub_nav->{0}->sidebar; ?>
 								</div>
 							<?php endif;
+					endif; ?>
+				</div>
+					<?php
 					endif;
 				endif; // !empty($sub->sub) && !empty($sub->content)
 				?>
-			</div>
+
 			</div>
 
 
-			<div class="content second">
+			<div class="content second ">
 
 				<?php if(!empty($this->get( 'second_tab_content' ))): ?>
 
@@ -142,10 +153,11 @@
 
 				$sub_nav = $this->get( 'second_sub_nav' );
 				?>
-				<div class="left col-md-12">
-					<?php
-					if (count((array)$sub_nav) > 1 ):
-						?>
+
+				<?php
+				if (count((array)$sub_nav) > 1 ):
+					?>
+					<div class="left col-md-12">
 						<div class="sub-menu-tabs col-md-8">
 							<?php
 							foreach( $sub_nav as $i => $sub ):
@@ -187,46 +199,56 @@
 								</div>
 							<?php endif;
 						endforeach; // $sub_nav as $i => $sub
-					else:
-						if( $sub_nav ):
-							if(!empty( $sub_nav->{0}->sub)): ?>
-								<div class="sub-menu-tabs col-md-8">
-									<div id="single-0" class="single-menu col-md-3 active">
-										<?php echo $sub_nav->{0}->sub ;?>
+						?>
+					</div>
+					<?php
+				else:
+					if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))):
+						?>
+						<div class="left col-md-12">
+							<?php
+							if( $sub_nav ):
+								if(!empty( $sub_nav->{0}->sub)): ?>
+									<div class="sub-menu-tabs col-md-8">
+										<div id="single-0" class="single-menu col-md-3 active">
+											<?php echo $sub_nav->{0}->sub ;?>
+										</div>
+									</div>
+									<?php
+								endif;
+								?>
+								<div class="left-inner <?php echo (empty($sub_nav->{0}->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
+									<div class="sub-menu clearfix">
+										<?php
+										if(!empty($sub_nav->{0}->content)): ?>
+
+											<div class="content sub-content single-0 active">
+												<?php echo $sub_nav->{0}->content ;?>
+											</div>
+
+										<?php endif;// !empty($cont->sub) && !empty($cont->content)
+										?>
+
 									</div>
 								</div>
 								<?php
-							endif;
-							?>
-							<div class="left-inner <?php echo (empty($sub_nav->{0}->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
-								<div class="sub-menu clearfix">
-									<?php
-									if(!empty($sub_nav->{0}->content)): ?>
-
-										<div class="content sub-content single-0 active">
-											<?php echo $sub_nav->{0}->content ;?>
-										</div>
-
-									<?php endif;// !empty($cont->sub) && !empty($cont->content)
+								if(!empty($sub_nav->{0}->sidebar)):
 									?>
+									<div class="sidebar col-md-4 single-0">
+										<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
+										<?php echo $sub_nav->{0}->sidebar; ?>
+									</div>
+								<?php endif;
+							endif; ?>
+						</div>
+						<?php
+					endif;
+				endif; // !empty($sub->sub) && !empty($sub->content)
+				?>
 
-								</div>
-							</div>
-							<?php
-							if(!empty($sub_nav->{0}->sidebar)):
-								?>
-								<div class="sidebar col-md-4 single-0">
-									<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-									<?php echo $sub_nav->{0}->sidebar; ?>
-								</div>
-							<?php endif;
-						endif;
-					endif; // !empty($sub->sub) && !empty($sub->content)
-					?>
-				</div>
 			</div>
 
-			<div class="content third">
+			<div class="content third ">
 
 				<?php if(!empty($this->get( 'third_tab_content' ))): ?>
 
@@ -238,10 +260,11 @@
 
 				$sub_nav = $this->get( 'third_sub_nav' );
 				?>
-				<div class="left col-md-12">
-					<?php
-					if (count((array)$sub_nav) > 1 ):
-						?>
+
+				<?php
+				if (count((array)$sub_nav) > 1 ):
+					?>
+					<div class="left col-md-12">
 						<div class="sub-menu-tabs col-md-8">
 							<?php
 							foreach( $sub_nav as $i => $sub ):
@@ -283,46 +306,56 @@
 								</div>
 							<?php endif;
 						endforeach; // $sub_nav as $i => $sub
-					else:
-						if( $sub_nav ):
-							if(!empty( $sub_nav->{0}->sub)): ?>
-								<div class="sub-menu-tabs col-md-8">
-									<div id="single-0" class="single-menu col-md-3 active">
-										<?php echo $sub_nav->{0}->sub ;?>
+						?>
+					</div>
+					<?php
+				else:
+					if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))):
+						?>
+						<div class="left col-md-12">
+							<?php
+							if( $sub_nav ):
+								if(!empty( $sub_nav->{0}->sub)): ?>
+									<div class="sub-menu-tabs col-md-8">
+										<div id="single-0" class="single-menu col-md-3 active">
+											<?php echo $sub_nav->{0}->sub ;?>
+										</div>
+									</div>
+									<?php
+								endif;
+								?>
+								<div class="left-inner <?php echo (empty($sub_nav->{0}->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
+									<div class="sub-menu clearfix">
+										<?php
+										if(!empty($sub_nav->{0}->content)): ?>
+
+											<div class="content sub-content single-0 active">
+												<?php echo $sub_nav->{0}->content ;?>
+											</div>
+
+										<?php endif;// !empty($cont->sub) && !empty($cont->content)
+										?>
+
 									</div>
 								</div>
 								<?php
-							endif;
-							?>
-							<div class="left-inner <?php echo (empty($sub_nav->{0}->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
-								<div class="sub-menu clearfix">
-									<?php
-									if(!empty($sub_nav->{0}->content)): ?>
-
-										<div class="content sub-content single-0 active">
-											<?php echo $sub_nav->{0}->content ;?>
-										</div>
-
-									<?php endif;// !empty($cont->sub) && !empty($cont->content)
+								if(!empty($sub_nav->{0}->sidebar)):
 									?>
+									<div class="sidebar col-md-4 single-0">
+										<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
+										<?php echo $sub_nav->{0}->sidebar; ?>
+									</div>
+								<?php endif;
+							endif; ?>
+						</div>
+						<?php
+					endif;
+				endif; // !empty($sub->sub) && !empty($sub->content)
+				?>
 
-								</div>
-							</div>
-							<?php
-							if(!empty($sub_nav->{0}->sidebar)):
-								?>
-								<div class="sidebar col-md-4 single-0">
-									<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-									<?php echo $sub_nav->{0}->sidebar; ?>
-								</div>
-							<?php endif;
-						endif;
-					endif; // !empty($sub->sub) && !empty($sub->content)
-					?>
-				</div>
 			</div>
 
-			<div class="content fourth">
+			<div class="content fourth ">
 
 				<?php if(!empty($this->get( 'fourth_tab_content' ))): ?>
 
@@ -334,10 +367,11 @@
 
 				$sub_nav = $this->get( 'fourth_sub_nav' );
 				?>
-				<div class="left col-md-12">
-					<?php
-					if (count((array)$sub_nav) > 1 ):
-						?>
+
+				<?php
+				if (count((array)$sub_nav) > 1 ):
+					?>
+					<div class="left col-md-12">
 						<div class="sub-menu-tabs col-md-8">
 							<?php
 							foreach( $sub_nav as $i => $sub ):
@@ -379,43 +413,53 @@
 								</div>
 							<?php endif;
 						endforeach; // $sub_nav as $i => $sub
-					else:
-						if( $sub_nav ):
-							if(!empty( $sub_nav->{0}->sub)): ?>
-								<div class="sub-menu-tabs col-md-8">
-									<div id="single-0" class="single-menu col-md-3 active">
-										<?php echo $sub_nav->{0}->sub ;?>
+						?>
+					</div>
+					<?php
+				else:
+					if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))):
+						?>
+						<div class="left col-md-12">
+							<?php
+							if( $sub_nav ):
+								if(!empty( $sub_nav->{0}->sub)): ?>
+									<div class="sub-menu-tabs col-md-8">
+										<div id="single-0" class="single-menu col-md-3 active">
+											<?php echo $sub_nav->{0}->sub ;?>
+										</div>
+									</div>
+									<?php
+								endif;
+								?>
+								<div class="left-inner <?php echo (empty($sub_nav->{0}->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
+									<div class="sub-menu clearfix">
+										<?php
+										if(!empty($sub_nav->{0}->content)): ?>
+
+											<div class="content sub-content single-0 active">
+												<?php echo $sub_nav->{0}->content ;?>
+											</div>
+
+										<?php endif;// !empty($cont->sub) && !empty($cont->content)
+										?>
+
 									</div>
 								</div>
 								<?php
-							endif;
-							?>
-							<div class="left-inner <?php echo (empty($sub_nav->{0}->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
-								<div class="sub-menu clearfix">
-									<?php
-									if(!empty($sub_nav->{0}->content)): ?>
-
-										<div class="content sub-content single-0 active">
-											<?php echo $sub_nav->{0}->content ;?>
-										</div>
-
-									<?php endif;// !empty($cont->sub) && !empty($cont->content)
+								if(!empty($sub_nav->{0}->sidebar)):
 									?>
+									<div class="sidebar col-md-4 single-0">
+										<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
+										<?php echo $sub_nav->{0}->sidebar; ?>
+									</div>
+								<?php endif;
+							endif; ?>
+						</div>
+						<?php
+					endif;
+				endif; // !empty($sub->sub) && !empty($sub->content)
+				?>
 
-								</div>
-							</div>
-							<?php
-							if(!empty($sub_nav->{0}->sidebar)):
-								?>
-								<div class="sidebar col-md-4 single-0">
-									<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-									<?php echo $sub_nav->{0}->sidebar; ?>
-								</div>
-							<?php endif;
-						endif;
-					endif; // !empty($sub->sub) && !empty($sub->content)
-					?>
-				</div>
 			</div>
 		</div>
 	</div>

@@ -169,5 +169,19 @@ $h2_color: #fff !default;
       }
     }
   }
+}
 
+.about-us {
+  #{$module} {
+    .slides {
+      h2 {
+        span {
+          &:before {
+            left: -15%;
+
+          }
+        }
+      }
+    }
+  }
 }

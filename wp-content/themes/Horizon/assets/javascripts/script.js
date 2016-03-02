@@ -118,11 +118,11 @@ jQuery( document ).ready(function( $ ) {
             $('.person').removeClass('active');
             $(this).parent().addClass('active');
             $('.team-desc').hide();
-            $('.description-' + $(this).parents('.person').attr('data-description')).show();
+            $(this).parents('.person').next().show();
         }else {
             $(this).parent().removeClass('active');
             $(this).text('Expand');
-            $('.description-' + $(this).parents('.person').attr('data-description')).hide();
+            $(this).parents('.person').next().hide();
         }
     });
 

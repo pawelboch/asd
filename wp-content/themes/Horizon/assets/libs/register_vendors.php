@@ -7,7 +7,11 @@
  * For enqueue this, use functions.php or pagebox module config.
  */
 
-define( 'TEMPLATE_VENDOR_URI', get_template_directory_uri() . '/assets/libs' );
+if( defined( 'TEMPLATE_DIR_URI' )) {
+	define( 'TEMPLATE_VENDOR_URI', TEMPLATE_DIR_URI . '/assets/libs' );
+} else {
+	define( 'TEMPLATE_VENDOR_URI', get_template_directory_uri() . '/assets/libs' );
+}
 
 /**
  * JS files

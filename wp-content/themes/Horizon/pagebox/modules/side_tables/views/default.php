@@ -38,7 +38,7 @@
 				<?php if(!empty($this->get( 'first_tab_content' ))): ?>
 
 					<div class="top">
-						<?php echo $this->get( 'first_tab_content' ) ;?>
+						<?php echo apply_filters( 'the_content',$this->get( 'first_tab_content' )); ?>
 					</div>
 
 				<?php endif;
@@ -74,7 +74,7 @@
 									if(!empty($sub->sub) && !empty($sub->content)): ?>
 
 									<div class="content sub-content single-<?php echo $i ;?>">
-										<?php echo $sub->content ;?>
+										<?php echo apply_filters( 'the_content',$sub->content); ?>
 									</div>
 
 								<?php
@@ -115,7 +115,7 @@
 									if(!empty($sub_nav->{0}->content)): ?>
 
 											<div class="content sub-content single-0 active">
-												<?php echo $sub_nav->{0}->content ;?>
+												<?php echo apply_filters( 'the_content',$sub_nav->{0}->content); ?>
 											</div>
 
 									<?php endif;// !empty($cont->sub) && !empty($cont->content)
@@ -128,7 +128,7 @@
 				?>
 								<div class="sidebar col-md-4 single-0">
 									<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-									<?php echo $sub_nav->{0}->sidebar; ?>
+									<?php echo apply_filters( 'the_content',$sub_nav->{0}->sidebar); ?>
 								</div>
 							<?php endif;
 					endif; ?>
@@ -146,7 +146,7 @@
 				<?php if(!empty($this->get( 'second_tab_content' ))): ?>
 
 					<div class="top">
-						<?php echo $this->get( 'second_tab_content' ) ;?>
+						<?php echo apply_filters( 'the_content',$this->get( 'second_tab_content' )); ?>
 					</div>
 
 				<?php endif;
@@ -182,7 +182,7 @@
 									if(!empty($sub->sub) && !empty($sub->content)): ?>
 
 										<div class="content sub-content single-<?php echo $i ;?>">
-											<?php echo $sub->content ;?>
+											<?php echo apply_filters( 'the_content',$sub->content); ?>
 										</div>
 
 										<?php
@@ -223,7 +223,7 @@
 										if(!empty($sub_nav->{0}->content)): ?>
 
 											<div class="content sub-content single-0 active">
-												<?php echo $sub_nav->{0}->content ;?>
+												<?php echo apply_filters( 'the_content',$sub_nav->{0}->content); ?>
 											</div>
 
 										<?php endif;// !empty($cont->sub) && !empty($cont->content)
@@ -236,7 +236,7 @@
 									?>
 									<div class="sidebar col-md-4 single-0">
 										<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-										<?php echo $sub_nav->{0}->sidebar; ?>
+										<?php echo apply_filters( 'the_content',$sub_nav->{0}->sidebar); ?>
 									</div>
 								<?php endif;
 							endif; ?>
@@ -253,7 +253,7 @@
 				<?php if(!empty($this->get( 'third_tab_content' ))): ?>
 
 					<div class="top">
-						<?php echo $this->get( 'third_tab_content' ) ;?>
+						<?php echo apply_filters( 'the_content',$this->get( 'third_tab_content' ));?>
 					</div>
 
 				<?php endif;
@@ -289,13 +289,12 @@
 									if(!empty($sub->sub) && !empty($sub->content)): ?>
 
 										<div class="content sub-content single-<?php echo $i ;?>">
-											<?php echo $sub->content ;?>
+											<?php echo apply_filters( 'the_content',$sub->content) ;?>
 										</div>
 
 										<?php
 									endif; // !empty($cont->sub) && !empty($cont->content)
 									?>
-
 								</div>
 							</div>
 							<?php
@@ -330,7 +329,7 @@
 										if(!empty($sub_nav->{0}->content)): ?>
 
 											<div class="content sub-content single-0 active">
-												<?php echo $sub_nav->{0}->content ;?>
+												<?php echo apply_filters( 'the_content', $sub_nav->{0}->content) ;?>
 											</div>
 
 										<?php endif;// !empty($cont->sub) && !empty($cont->content)
@@ -343,7 +342,7 @@
 									?>
 									<div class="sidebar col-md-4 single-0">
 										<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-										<?php echo $sub_nav->{0}->sidebar; ?>
+										<?php echo apply_filters( 'the_content',$sub_nav->{0}->sidebar); ?>
 									</div>
 								<?php endif;
 							endif; ?>
@@ -360,7 +359,7 @@
 				<?php if(!empty($this->get( 'fourth_tab_content' ))): ?>
 
 					<div class="top">
-						<?php echo $this->get( 'fourth_tab_content' ) ;?>
+						<?php echo apply_filters( 'the_content', $this->get( 'fourth_tab_content' )); ?>
 					</div>
 
 				<?php endif;
@@ -396,7 +395,7 @@
 									if(!empty($sub->sub) && !empty($sub->content)): ?>
 
 										<div class="content sub-content single-<?php echo $i ;?>">
-											<?php echo $sub->content ;?>
+											<?php echo apply_filters( 'the_content',$sub->content); ?>
 										</div>
 
 										<?php
@@ -437,7 +436,7 @@
 										if(!empty($sub_nav->{0}->content)): ?>
 
 											<div class="content sub-content single-0 active">
-												<?php echo $sub_nav->{0}->content ;?>
+												<?php echo apply_filters( 'the_content', $sub_nav->{0}->content); ?>
 											</div>
 
 										<?php endif;// !empty($cont->sub) && !empty($cont->content)
@@ -450,7 +449,7 @@
 									?>
 									<div class="sidebar col-md-4 single-0">
 										<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-										<?php echo $sub_nav->{0}->sidebar; ?>
+										<?php echo apply_filters( 'the_content',$sub_nav->{0}->sidebar); ?>
 									</div>
 								<?php endif;
 							endif; ?>

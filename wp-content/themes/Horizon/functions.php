@@ -367,3 +367,24 @@ function create_team_member_type() {
 		)
 	);
 }
+
+function team_member_func( $atts )
+{
+	$args = array(
+		'post_type'=> 'team_member',
+		'order'    => 'DESC',
+		'posts_per_page' => '-1',
+//		't_category_web' => $this->get('team_member')
+	);
+
+	$teamMembers = get_posts( $args );
+	$returnString ='';
+//	var_dump($teamMembers);
+
+	foreach($teamMembers as $team) {
+		$returnString .= '<img style="width:100px;height:200px;" src="'.((get_post_thumbnail_id($team->ID)) ? wp_get_attachment_image_src( get_post_thumbnail_id($team->ID), 'medium')[0] : 'https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=284&h=398').'" alt="">';
+		$returnString .= '<h2>'.$team->post_title.'</h2>';
+	}
+	return $returnString;
+}
+add_shortcode( 'team_member', 'team_member_func' );

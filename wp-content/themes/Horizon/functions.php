@@ -1,22 +1,5 @@
 <?php
 
-
-/**
- * Don't show page before login
- */
-
-function personal_message_when_logged_in() {
-$show = isset( $_GET['show'] ) ? $_GET['show'] : false;
-if ( !is_user_logged_in() && $show != 'pokaz'  ){
-  $currnet_url = urlencode("//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
-  wp_redirect( home_url()."/wp-login.php?redirect_to=".$currnet_url);
-  die();
-  }
-}
-if( !defined('PROD') || !PROD ){
-  add_action( 'wp', 'personal_message_when_logged_in' );
-}
-
 /**
  * Defined constants
  */
@@ -29,7 +12,14 @@ define( 'TEMPLATE_DIR_URI', get_template_directory_uri() );
 function theme_enqueue_style() {
 
 	/**
-	 * Load css styles for development
+	 * Load vendor libs.
+	 */
+	if( is_file( TEMPLATE_DIR_PATH . '/assets/libs/register_vendors.php' )) {
+		include_once TEMPLATE_DIR_PATH . '/assets/libs/register_vendors.php';
+	}
+
+	/**
+	 * Load css styles for development.
 	 */
 	if ( defined( 'WP_DEBUG' ) && WP_DEBUG === true ) {
 		$version_hash = uniqid();
@@ -46,7 +36,7 @@ function theme_enqueue_style() {
 		}
 	} else {
 		/**
-		 * Load only one, compressed file for production
+		 * Load only one, compressed file for production.
 		 */
 		wp_enqueue_style( 'theme-style', TEMPLATE_DIR_URI . '/assets/stylesheets/css/style.min.css' );
 	}
@@ -60,10 +50,25 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_style' );
 function theme_enqueue_script() {
 	wp_enqueue_script( 'scripts', TEMPLATE_DIR_URI . '/assets/javascripts/script.js', array( 'jquery-ui-core' ), false, true );
 	wp_enqueue_script( 'slick', TEMPLATE_DIR_URI . '/assets/javascripts/slick.js', array(), false, true);
-	wp_enqueue_script("jquery-effects-core");
+	//wp_enqueue_script('bootstrap4');
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_script' );
+
+/**
+ * Don't show page before login
+ */
+function personal_message_when_logged_in() {
+	$show = isset( $_GET['show'] ) ? $_GET['show'] : false;
+	if ( !is_user_logged_in() && $show != 'pokaz'  ){
+		$currnet_url = urlencode("//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+		wp_redirect( home_url()."/wp-login.php?redirect_to=".$currnet_url);
+		die();
+	}
+}
+if( !defined('PROD') || !PROD ){
+	add_action( 'wp', 'personal_message_when_logged_in' );
+}
 
 /**
  * Enabled post-thumbnail support

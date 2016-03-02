@@ -37,7 +37,11 @@
 		height: 100%;
 		width: 4px;
 		background: #e5e5e5;
-		transition: all .05s ease-in-out 0;
+		transition: all .05s ease-in-out 0s;
+	}
+
+	&.err:after {
+		background: red;
 	}
 
     &:hover:after {

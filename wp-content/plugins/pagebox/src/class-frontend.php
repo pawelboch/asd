@@ -111,12 +111,13 @@ class Frontend {
 
 				$data = json_decode( $value );
 
-				$module_obj = clone $this->modules->modules[ $data->slug ];
+				if( isset( $this->modules->modules[ $data->slug ] )) {
+					$module_obj = clone $this->modules->modules[ $data->slug ];
 
-				$module_obj->set_data( $data );
+					$module_obj->set_data( $data );
 
-				$modules[ $section ][ $key ] = $module_obj;
-
+					$modules[ $section ][ $key ] = $module_obj;
+				}
 			}
 			
 		}

@@ -232,6 +232,20 @@ abstract class Module {
 
 		}
 
+		$required_js = $this->get_config('require_js');
+		if( $required_js && is_array( $required_js )) {
+			foreach( $required_js as $script ) {
+				wp_enqueue_script( $script );
+			}
+		}
+
+		$required_css = $this->get_config('require_css');
+		if( $required_css && is_array( $required_css )) {
+			foreach( $required_css as $script ) {
+				wp_enqueue_style( $script );
+			}
+		}
+
 		// Add module javascript in footer if exists
 		if( is_file( $this->path . '/js/module.js' ) ) {
 			wp_enqueue_script(

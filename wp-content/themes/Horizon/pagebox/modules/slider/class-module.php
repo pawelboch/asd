@@ -47,6 +47,12 @@ class Module extends Abstract_Module {
 			'limit'       => array(
 				'width'    => array( 0, 100 )
 			),
+			// Required JS from libs
+//			'require_js'   => array(
+//				'bootstrap4'
+//			),
+			// Required CSS from libs
+//			'require_css'  => array(),
 			// minimum and maximum percent width that module fits in
 			// WPGeeks_Forms
 			'fields'      => array(

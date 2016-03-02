@@ -37,8 +37,12 @@ $modules  = $this->get( 'modules' );
 								$module_data = json_decode( $module_data_JSON );
 
 								// get module data
-								$module = $modules->get_module( $module_data->slug ); 
-								$module->display_backend( $module->get_slug(), $module_data_JSON, $slug );
+								$module = $modules->get_module( $module_data->slug );
+								if( $module !== false ) {
+									$module->display_backend( $module->get_slug(), $module_data_JSON, $slug );
+								} else {
+									echo '<div class="module err"><strong>Module "'.$module_data->slug.'" does not exists!</strong></div>';
+								}
 							endforeach;
 						endif;
 					?>

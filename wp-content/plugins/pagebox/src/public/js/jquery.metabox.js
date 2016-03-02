@@ -16,33 +16,35 @@
 		closeIcon : ''
 	};
 
-	jQuery(document).ready(function() {
+	$( document ).ready( function() {
+
+		var pagebox = $('#pagebox');
 
 		// remove metabox header
-		jQuery('#pagebox h3.hndle').remove();
-		jQuery('#pagebox .handlediv').remove();
+		pagebox.find('h3.hndle').remove();
+		pagebox.find('.handlediv').remove();
 
 		// enable tooltips
-		jQuery('.tooltip').frosty({
+		$('.tooltip').frosty({
 			position  : 'top',
 			attribute : 'data-tooltip'
 		});
 
 		// init sortable
-		jQuery('#pagebox .modules').sortable({
+		pagebox.find('.modules').sortable({
 			items       : '.module',
 			connectWith : '#pagebox .modules',
 			placeholder : 'module-placeholder'
 		});
 
 		// select template
-		jQuery(document).on('click', '.pagebox[data-action="template"]', function(e) {
+		$(document).on('click', '.pagebox[data-action="template"]', function(e) {
 			e.preventDefault();
 
-			jQuery('.tooltip').frosty('hide');
+			$('.tooltip').frosty('hide');
 
 			// check if section was already chosen
-			if (jQuery('#pagebox #sections [name="pagebox_template"]').length != 0 && !confirm(Pagebox.i18n.sure)) {
+			if (pagebox.find('#sections [name="pagebox_template"]').length != 0 && !confirm(Pagebox.i18n.sure)) {
 				return;
 			}
 
@@ -138,7 +140,13 @@
 					}
 				},
 				success: function (data) {
-					jQuery.featherlight(data, featherlightConfig);
+					var options = {
+						afterContent: function() {
+							$('[data-action="filter"]' ).focus();
+						}
+					};
+					$.extend( options, featherlightConfig );
+					jQuery.featherlight(data, options);
 
 					jQuery('#pagebox-modal-listing .pagebox-tabs').pagebox_tabs();
 				},

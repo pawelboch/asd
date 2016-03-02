@@ -27,15 +27,18 @@
 		#pagebox-predefined {
 			ul {
 				margin: 0;
-				overflow: hidden;
-				max-height: 300px;
-				overflow: auto;			
+				max-height: 90%;
+				overflow: auto;
 			}	
 		}
 
 		.pagebox-search {
 			text-align: right;
 			padding: 10px 2%;
+
+			input {
+				width: 300px;
+			}
 		}
 	}
 
@@ -44,7 +47,7 @@
 		background: #fff;
 		border-left: 4px solid #7ad03a;
 		box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-		margin: 15px 15px 2px;
+		margin: 15px;
 		padding: 1px 12px;
 
 		p {

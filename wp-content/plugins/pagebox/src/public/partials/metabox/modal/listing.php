@@ -45,7 +45,7 @@ $modules = $this->get( 'modules' );
 			</span>
 			<?php else: ?>
 			<div class="pagebox-search">
-				<input type="text" class="pagebox" data-action="filter" placeholder="<?php _e('Filter modules', 'pagebox'); ?>" />
+				<input type="search" class="pagebox" data-action="filter" placeholder="<?php _e('Filter modules', 'pagebox'); ?>" />
 			</div>
 			<ul>
 				<?php 

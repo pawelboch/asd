@@ -49,7 +49,7 @@
 				<?php
 				if (count((array)$sub_nav) > 1 ):
 				?>
-				<div class="left col-md-12">
+				<div class="left">
 					<div class="sub-menu-tabs col-md-8">
 				<?php
 					foreach( $sub_nav as $i => $sub ):
@@ -97,7 +97,7 @@
 				else:
 					if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))):
 					?>
-				<div class="left col-md-12">
+				<div class="left">
 				<?php
 					if( $sub_nav ):
 						if(!empty( $sub_nav->{0}->sub)): ?>
@@ -157,7 +157,7 @@
 				<?php
 				if (count((array)$sub_nav) > 1 ):
 					?>
-					<div class="left col-md-12">
+					<div class="left">
 						<div class="sub-menu-tabs col-md-8">
 							<?php
 							foreach( $sub_nav as $i => $sub ):
@@ -205,7 +205,7 @@
 				else:
 					if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))):
 						?>
-						<div class="left col-md-12">
+						<div class="left">
 							<?php
 							if( $sub_nav ):
 								if(!empty( $sub_nav->{0}->sub)): ?>
@@ -264,7 +264,7 @@
 				<?php
 				if (count((array)$sub_nav) > 1 ):
 					?>
-					<div class="left col-md-12">
+					<div class="left">
 						<div class="sub-menu-tabs col-md-8">
 							<?php
 							foreach( $sub_nav as $i => $sub ):
@@ -311,7 +311,7 @@
 				else:
 					if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))):
 						?>
-						<div class="left col-md-12">
+						<div class="left">
 							<?php
 							if( $sub_nav ):
 								if(!empty( $sub_nav->{0}->sub)): ?>
@@ -370,7 +370,7 @@
 				<?php
 				if (count((array)$sub_nav) > 1 ):
 					?>
-					<div class="left col-md-12">
+					<div class="left">
 						<div class="sub-menu-tabs col-md-8">
 							<?php
 							foreach( $sub_nav as $i => $sub ):
@@ -418,7 +418,7 @@
 				else:
 					if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))):
 						?>
-						<div class="left col-md-12">
+						<div class="left">
 							<?php
 							if( $sub_nav ):
 								if(!empty( $sub_nav->{0}->sub)): ?>

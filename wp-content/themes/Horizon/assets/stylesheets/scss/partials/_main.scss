@@ -4,6 +4,11 @@
 @import "variables";
 
 @font-face {
+  font-family: 'Georgia';
+  src: url('../../fonts/Georgia.ttf') format('truetype');
+}
+
+@font-face {
   font-family: 'Avenir Next Ultra';
   src: url('../../fonts/AvenirNext-UltraLight.ttf') format('truetype');
   font-weight: 200;

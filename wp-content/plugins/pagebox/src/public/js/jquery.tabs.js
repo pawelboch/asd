@@ -10,35 +10,35 @@
 (function( $ ) {
 	'use strict';
 
-	jQuery.fn.pagebox_tabs = function() {
+	$.fn.pagebox_tabs = function() {
 
-		var wrap     = jQuery(this),
-			router   = jQuery(this).find('.pagebox-router'),
-			tabs     = jQuery(this).find('.pagebox-tab'),
+		var wrap     = $(this),
+			router   = wrap.find('.pagebox-router'),
+			tabs     = wrap.find('.pagebox-tab'),
 			index;
 
 		// hide not active slides
-		jQuery(router).find('a').wrapInner('<span/>');
-		jQuery(router).find('a:eq(0)').addClass('current');
-		jQuery(tabs).hide();
-		jQuery(tabs).eq(0).show();
+		router.find('a').wrapInner('<span/>').eq(0).addClass('current');
+		tabs.hide();
+		tabs.eq(0).show();
 		
 		// click action
-		jQuery(wrap).on('click', '.pagebox-router a', function(e){
+		wrap.on('click', '.pagebox-router a', function(e) {
 
 			e.preventDefault();
 
-			index = jQuery(this).index();
+			var self = $(this);
+			index = self.index();
 
-			if (jQuery(this).hasClass('current')) {
+			if (self.hasClass('current')) {
 				return;
 			}
 
-			jQuery(router).find('a').removeClass('current');
-			jQuery(this).addClass('current');
+			router.find('a').removeClass('current');
+			self.addClass('current');
 
-			jQuery(tabs).removeClass('current').slideUp();
-			jQuery(tabs).eq(index).addClass('current').slideDown();
+			tabs.removeClass('current').slideUp();
+			tabs.eq(index).addClass('current').slideDown();
 		});
 
 	}

@@ -32,7 +32,7 @@
 			<div class="rights">
 				<div class="container">
 					<span>
-						© 2015 Horizon Investments, LLC. All Rights Reserved.
+						© 2016 Horizon Investments, LLC. All Rights Reserved.
 					</span>
 				</div>
 			</div>

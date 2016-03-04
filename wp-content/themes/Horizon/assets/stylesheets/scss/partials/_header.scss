@@ -251,17 +251,19 @@ header {
             > .sub-menu {
               display: block;
               position: absolute;
-              padding: 10px 0 0;
-              left: 0;
+              padding: 17px 0 0;
+              left: -15px;
               top: 1rem;
-              margin-top: -3px;
               white-space: nowrap;
 
               li {
                 border-left: none;
                 background-color: #ffc425;
-                padding: 10px 10px;
+                padding: 16px 12px 14px 12px;
                 display: block;
+                min-width: 150px;
+                font-size: 14px;
+                line-height: 14px;
 
                 &:hover {
                   background-color: #ffb41a;
@@ -270,8 +272,8 @@ header {
 
                 a {
                   color: #fff;
-                  font-size: 1rem;
-                  font-family: "Avenir Next";
+                  font-size: 0.875rem;
+                  font-family: "Arial";
 
                 }
               }
@@ -280,6 +282,7 @@ header {
                 top: 0;
                 padding: 0;
                 margin-top: 0;
+                border-left: 1px solid transparent;
 
               }
             }

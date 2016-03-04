@@ -48,7 +48,8 @@ $border-bottom: 2px solid #c2c2c2;
 
           }
 
-          &.active {
+          &.active,
+          &:hover {
             background-color: #ffc425;
 
             h2 {
@@ -96,9 +97,7 @@ $border-bottom: 2px solid #c2c2c2;
         display: none;
         background-color: #fff;
         clear: both;
-        width: 100%;
         position: relative;
-        min-height: 210px;
         font-size: 1.8125rem;
         font-family: "Georgia";
         color: #787878;
@@ -128,7 +127,7 @@ $border-bottom: 2px solid #c2c2c2;
 
         .left {
           background-color: #fff;
-          padding: 35px 36px;
+          padding-top: 15px;
 
           .single-menu {
             color: #000;
@@ -139,7 +138,8 @@ $border-bottom: 2px solid #c2c2c2;
             font-weight: bold;
             margin-bottom: 75px;
 
-            &.active {
+            &.active,
+            &:hover {
               background-color: #303e48;
               color: #fff;
 
@@ -159,6 +159,11 @@ $border-bottom: 2px solid #c2c2c2;
               font-size: 1.125rem;
               line-height: 1.722;
               color: #303e48;
+
+              p, ul {
+                padding: 36px 36px
+
+              }
 
               img {
                 padding: 15px 0;

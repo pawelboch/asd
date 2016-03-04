@@ -115,7 +115,7 @@
 									if(!empty($sub_nav->{0}->content)): ?>
 
 											<div class="content sub-content single-0 active">
-												<?php echo apply_filters( 'the_content',$sub_nav->{0}->content); ?>
+												<?php echo preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', apply_filters( 'the_content',$sub_nav->{0}->content)); ?>
 											</div>
 
 									<?php endif;// !empty($cont->sub) && !empty($cont->content)
@@ -182,7 +182,7 @@
 									if(!empty($sub->sub) && !empty($sub->content)): ?>
 
 										<div class="content sub-content single-<?php echo $i ;?>">
-											<?php echo apply_filters( 'the_content',$sub->content); ?>
+											<?php echo preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', apply_filters( 'the_content',$sub->content)); ?>
 										</div>
 
 										<?php
@@ -223,7 +223,7 @@
 										if(!empty($sub_nav->{0}->content)): ?>
 
 											<div class="content sub-content single-0 active">
-												<?php echo apply_filters( 'the_content',$sub_nav->{0}->content); ?>
+												<?php echo preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', apply_filters( 'the_content',$sub_nav->{0}->content)); ?>
 											</div>
 
 										<?php endif;// !empty($cont->sub) && !empty($cont->content)
@@ -289,7 +289,7 @@
 									if(!empty($sub->sub) && !empty($sub->content)): ?>
 
 										<div class="content sub-content single-<?php echo $i ;?>">
-											<?php echo apply_filters( 'the_content',$sub->content) ;?>
+											<?php echo preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', apply_filters( 'the_content',$sub->content)) ;?>
 										</div>
 
 										<?php
@@ -329,7 +329,7 @@
 										if(!empty($sub_nav->{0}->content)): ?>
 
 											<div class="content sub-content single-0 active">
-												<?php echo apply_filters( 'the_content', $sub_nav->{0}->content) ;?>
+												<?php echo preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', apply_filters( 'the_content', $sub_nav->{0}->content)) ;?>
 											</div>
 
 										<?php endif;// !empty($cont->sub) && !empty($cont->content)
@@ -395,7 +395,7 @@
 									if(!empty($sub->sub) && !empty($sub->content)): ?>
 
 										<div class="content sub-content single-<?php echo $i ;?>">
-											<?php echo apply_filters( 'the_content',$sub->content); ?>
+											<?php echo preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', apply_filters( 'the_content',$sub->content)); ?>
 										</div>
 
 										<?php
@@ -436,7 +436,7 @@
 										if(!empty($sub_nav->{0}->content)): ?>
 
 											<div class="content sub-content single-0 active">
-												<?php echo apply_filters( 'the_content', $sub_nav->{0}->content); ?>
+												<?php echo preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', apply_filters( 'the_content', $sub_nav->{0}->content)); ?>
 											</div>
 
 										<?php endif;// !empty($cont->sub) && !empty($cont->content)

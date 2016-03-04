@@ -50,7 +50,7 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_style' );
 function theme_enqueue_script() {
 	wp_enqueue_script( 'scripts', TEMPLATE_DIR_URI . '/assets/javascripts/script.js', array( 'jquery-ui-core' ), false, true );
 	wp_enqueue_script( 'slick', TEMPLATE_DIR_URI . '/assets/javascripts/slick.js', array(), false, true);
-	//wp_enqueue_script('bootstrap4');
+	wp_enqueue_script( 'parallax' );
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_script' );

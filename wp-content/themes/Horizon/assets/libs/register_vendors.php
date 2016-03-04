@@ -17,6 +17,7 @@ if( defined( 'TEMPLATE_DIR_URI' )) {
  * JS files
  */
 wp_register_script( 'bootstrap4', TEMPLATE_VENDOR_URI . '/bootstrap4/js/bootstrap.min.js', array( 'jquery' ), 'v4.0.0-alpha.2', true );
+wp_register_script( 'parallax', TEMPLATE_VENDOR_URI . '/parallax.js-1.4.2/parallax.min.js', array( 'jquery' ), '1.4.2', true );
 
 /**
  * CSS files

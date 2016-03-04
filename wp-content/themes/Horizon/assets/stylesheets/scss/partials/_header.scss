@@ -20,6 +20,7 @@ header {
   .logo {
     float: left;
     text-transform: uppercase;
+    padding-left: 1rem;
 
     img {
       width: 230px;
@@ -102,6 +103,8 @@ header {
   }
 
   .mobile-nav {
+    padding-right: 1rem;
+
     .nav-toggle {
       cursor: pointer;
       width: 50px;
@@ -112,8 +115,8 @@ header {
       .separator {
         height: 100%;
         width: 100%;
-        padding-left: 10px;
-        border-left: 2px solid #fff;
+        padding-left: 21px;
+        border-left: 1px solid #fff;
 
         .icon-bar {
           height: 4px;
@@ -364,14 +367,18 @@ header {
       }
     }
 
-    .search {
-      .search-ico {
-        display: block;
-        position: relative;
-        float: right;
-        margin-right: 15px;
-        margin-top: 5px;
+    #searchform {
+      padding-top: 20px;
 
+      .search {
+        .search-ico {
+          display: block;
+          position: relative;
+          float: right;
+          margin-right: 13px;
+          margin-top: 0;
+
+        }
       }
     }
   }
@@ -380,5 +387,10 @@ header {
 @media (max-width: map-get($grid-breakpoints, md) ) {
 
   // Breakpoint
+
+}
+
+@media (max-width: map-get($grid-breakpoints, sm) ) {
+
 
 }

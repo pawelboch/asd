@@ -198,6 +198,8 @@
 			// make items sortable
 			iterator.sortable({
 				items : '> table',
+				handle: 'tr.header',
+				axis: "y",
 				update : function(event, ui) {
 					updateIndex();
 					repeater.parents('form').pagebox_form();

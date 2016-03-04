@@ -160,8 +160,10 @@ $border-bottom: 2px solid #c2c2c2;
               font-size: 1.125rem;
               line-height: 1.722;
               color: #303e48;
+              font-family: sans-serif;
+              color: #303e48;
 
-              p, ul {
+              p, ul, h1, h2, h3, h4 {
                 padding: 33px 33px
 
               }

@@ -147,13 +147,14 @@ $border-bottom: 2px solid #c2c2c2;
           }
 
           .sub-menu-tabs {
-            padding-left: 0;
+            padding-left: 33px;
             padding-right: 0;
 
           }
 
           .left-inner {
             padding-left: 0;
+            padding-right: 0;
 
             .sub-content {
               font-size: 1.125rem;
@@ -161,8 +162,12 @@ $border-bottom: 2px solid #c2c2c2;
               color: #303e48;
 
               p, ul {
-                padding: 36px 36px
+                padding: 33px 33px
 
+              }
+
+              ul {
+                margin-left: 50px;
               }
 
               img {

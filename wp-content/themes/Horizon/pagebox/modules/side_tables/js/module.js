@@ -7,6 +7,7 @@ jQuery( document ).ready( function( $ ) {
            $('.pagebox-side_tables-module .tabs .row .content').hide();
            $('.pagebox-side_tables-module .tabs .row .content .sidebar').hide();
            $('.pagebox-side_tables-module .tabs .row .content .left .single-0').show();
+           $('.pagebox-side_tables-module .tabs .row .content .left .sub-menu-tabs > div').removeClass('active');
            $('.pagebox-side_tables-module .tabs .row .content .left #single-0').addClass('active');
            $('.pagebox-side_tables-module .tabs .row .content .sidebar.single-0').show();
            $('.'+$(this).attr('id')).show();

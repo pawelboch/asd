@@ -5,7 +5,7 @@
 
 #{$module} {
   padding-top: 48px;
-  font-family: "Georgia";
+  font-family: 'sans-serif';
   font-size: 1.25rem;
 
   .author,
@@ -46,6 +46,7 @@
     .print,
     .social {
       cursor: pointer;
+      padding: 0;
 
     }
 

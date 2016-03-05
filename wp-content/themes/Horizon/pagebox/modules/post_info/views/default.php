@@ -37,16 +37,16 @@
 
     <div class="share col-md-12">
         <span class="social col-md-6">
-            <i class="fa fa-angle-right"></i>Social
+            Social
         </span>
         <span class="print col-md-6">
             Print
         </span>
         <span class="social-toggle">
-                <img src="<?php echo get_template_directory_uri ()?>/assets/images/facebookico.svg" alt="">
-                <img src="<?php echo get_template_directory_uri ()?>/assets/images/twitterico.svg" alt="">
-                <img src="<?php echo get_template_directory_uri ()?>/assets/images/googleico.svg" alt="">
-                <img src="<?php echo get_template_directory_uri ()?>/assets/images/youtubeico.svg" alt="">
+            <a href="#"><img src="<?php echo get_template_directory_uri ()?>/assets/images/facebookico.svg" alt=""></a>
+            <a href="#"><img src="<?php echo get_template_directory_uri ()?>/assets/images/twitterico.svg" alt=""></a>
+            <a href="#"><img src="<?php echo get_template_directory_uri ()?>/assets/images/youtubeico.svg" alt=""></a>
+            <a href="#"><img src="<?php echo get_template_directory_uri ()?>/assets/images/googleico.svg" alt=""></a>
         </span>
     </div>
 </div>

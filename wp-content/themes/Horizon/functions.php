@@ -26,6 +26,7 @@ function theme_enqueue_style() {
 		wp_enqueue_style( 'fonts-sass', TEMPLATE_DIR_URI . '/assets/stylesheets/css/fonts.css', array(), $version_hash, false );
 		wp_enqueue_style( 'bootstrap', TEMPLATE_DIR_URI . '/assets/stylesheets/css/bootstrap.css', array(), $version_hash, false );
 		wp_enqueue_style( 'style-sass', TEMPLATE_DIR_URI . '/assets/stylesheets/css/style.css', array(), $version_hash, false );
+		wp_enqueue_style( 'fontawesome');
 
 		/**
 		 * Modules autoload css files.

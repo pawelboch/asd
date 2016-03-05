@@ -37,7 +37,7 @@
 
     <div class="share col-md-12">
         <span class="social col-md-6">
-            Social
+            <i class="fa fa-angle-right"></i>Social
         </span>
         <span class="print col-md-6">
             Print

@@ -1,3 +1,5 @@
+@import "vendor/compass/css3/user-interface";
+
 .team-module {
 
   .persons {
@@ -24,11 +26,9 @@
       background-color: #fff;
       display: inline-block;
       width: 25%;
-      padding: 30px 15px;
       position: relative;
 
       div {
-        padding: 15px;
         background-color: #fff;
       }
 
@@ -41,7 +41,10 @@
 
       .description {
         padding-top: 20px;
-        min-height: 50px;
+
+        h2 {
+          padding: 0 !important;
+        }
 
       }
 
@@ -50,6 +53,7 @@
         bottom: 10px;
         color: #0e90d2;
         cursor: pointer;
+        @include user-select(none);
 
       }
     }
@@ -57,7 +61,16 @@
 
   .team-desc {
     display: none;
-    background-color: red;
+    background-color: #fff;
+
+    h2, p {
+      padding: 0 15px !important;
+
+    }
+
+    .right {
+      padding: 0 15px;
+    }
 
   }
 }

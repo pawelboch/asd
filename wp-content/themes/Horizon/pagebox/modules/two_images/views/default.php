@@ -16,7 +16,7 @@
 
 				<div class="col-md-12">
 					<p class="description"><?php echo $this->get( 'description_left' ) ;?></p>
-					<a href="#" class="learn-more-btn col-xs-12 col-sm-4 col-xs-6 btn-2">learn more<span></span></a>
+					<a href="<?php echo $this->get('btn_link1'); ?>" class="learn-more-btn col-xs-12 col-sm-4 col-xs-6 btn-2">learn more<span></span></a>
 				</div>
 
 			</div>
@@ -30,7 +30,7 @@
 
 				<div class="col-md-12">
 					<p class="description"><?php echo $this->get( 'description_right' ) ;?></p>
-					<a href="#" class="learn-more-btn col-xs-12 col-sm-4 col-xs-6 btn-2">learn more<span></span></a>
+					<a href="<?php echo $this->get('btn_link2'); ?>" class="learn-more-btn col-xs-12 col-sm-4 col-xs-6 btn-2">learn more<span></span></a>
 				</div>
 			</div>
 		</div>
@@ -45,7 +45,7 @@
 
 					<div class="col-md-12">
 						<p class="description"><?php echo $this->get( 'description_left' ) ;?></p>
-						<a href="#" class="learn-more-btn col-xs-12 col-sm-4 col-xs-6 btn-2">learn more<span></span></a>
+						<a href="<?php echo $this->get('btn_link1'); ?>" class="learn-more-btn col-xs-12 col-sm-4 col-xs-6 btn-2">learn more<span></span></a>
 					</div>
 
 				</div>

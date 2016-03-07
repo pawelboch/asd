@@ -182,34 +182,22 @@ $border-bottom: 2px solid #c2c2c2;
               .team-module {
 
                 .persons {
-                  display: -webkit-flex;
-                  display: flex;
-                  -webkit-align-items: center;
-                  align-items: center;
-                  -webkit-justify-content: center;
-                  justify-content: center;
-                  /* You can set flex-wrap and flex-direction individually */
-                  -webkit-flex-direction: row;
-                  flex-direction: row;
-                  -webkit-flex-wrap: wrap;
-                  flex-wrap: wrap;
-                  /* Or do it all in one line with flex flow */
-                  -webkit-flex-flow: row wrap;
-                  flex-flow: row wrap;
-                  /* tweak the where items line up on the row */
-                  /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
-                  -webkit-align-content: flex-end;
-                  align-content: flex-end;
+                  display: block;
+                  float: left;
 
                   .person {
-                    background-color: #fff;
                     display: inline-block;
-                    width: 25%;
                     position: relative;
-                    padding: 15px;
+                    vertical-align: middle;
+                    padding: 0;
+                    float: none;
+
+                    &.active {
+                      background-color: #fafafa;
+                    }
 
                     .picture {
-                      background-color: #fff;
+                      padding: 0 15px;
 
                       img {
                         width: 100%;
@@ -221,7 +209,7 @@ $border-bottom: 2px solid #c2c2c2;
 
                     .description {
                       min-height: 150px;
-                      padding-top: 20px;
+                      padding: 20px 15px 0 15px;
 
                       h2, p {
                         padding: 0;
@@ -234,6 +222,8 @@ $border-bottom: 2px solid #c2c2c2;
                       bottom: 10px;
                       color: #0e90d2;
                       cursor: pointer;
+                      padding: 0 15px 0 15px;
+                      width: 100%;
                       @include user-select(none);
 
                     }
@@ -242,17 +232,22 @@ $border-bottom: 2px solid #c2c2c2;
 
                 .team-desc {
                   display: none;
-                  background-color: #fff;
+                  background-color: #fafafa;
+                  float: left;
+                  margin-bottom: 10px;
 
                   h2, p {
                     padding: 0 15px;
 
                   }
 
-                  .right {
-                    padding: 0 15px;
-                  }
+                  .person-desc {
+                    padding: 0 15px 20px;
+                    -webkit-box-shadow: 0px 10px 8px -5px rgba(0,0,0,0.75);
+                    -moz-box-shadow: 0px 10px 8px -5px rgba(0,0,0,0.75);
+                    box-shadow: 0px 10px 8px -5px rgba(0,0,0,0.75);
 
+                  }
                 }
               }
             }

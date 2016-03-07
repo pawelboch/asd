@@ -106,4 +106,11 @@ jQuery( document ).ready(function( $ ) {
         }
     });
 
+    // Scroll to top
+
+    $('#nav-footer li:first-child .sub-menu li').click(function(){
+        $("html, body").animate({
+            scrollTop: 0
+        }, 1600);
+    });
 });

@@ -72,6 +72,11 @@
 
     }
 
+    label {
+      display: none !important; // disable sub-title in gravity form
+
+    }
+
 
     input[type="submit"] {
       color: #fff;
@@ -93,6 +98,47 @@
 
       }
     }
+    //  Gravity form settings
+
+    .gform_wrapper {
+      max-width: 100%;
+    }
+
+    .gform_body div {
+      width: 100%;
+    }
+
+    .gform_wrapper textarea.large {
+      height: 137px;
+    }
+
+    .gform_wrapper .gfield_error .ginput_complex .ginput_left input[type=email], .gform_wrapper .gfield_error .ginput_complex .ginput_left input[type=number], .gform_wrapper .gfield_error .ginput_complex .ginput_left input[type=password], .gform_wrapper .gfield_error .ginput_complex .ginput_left input[type=tel], .gform_wrapper .gfield_error .ginput_complex .ginput_left input[type=text], .gform_wrapper .gfield_error .ginput_complex .ginput_left input[type=url], .gform_wrapper .gfield_error .ginput_complex .ginput_right input[type=email], .gform_wrapper .gfield_error .ginput_complex .ginput_right input[type=number], .gform_wrapper .gfield_error .ginput_complex .ginput_right input[type=password], .gform_wrapper .gfield_error .ginput_complex .ginput_right input[type=tel], .gform_wrapper .gfield_error .ginput_complex .ginput_right input[type=text], .gform_wrapper .gfield_error .ginput_complex .ginput_right input[type=url], .gform_wrapper .ginput_complex input[type=email], .gform_wrapper .ginput_complex input[type=number], .gform_wrapper .ginput_complex input[type=password], .gform_wrapper .ginput_complex input[type=tel], .gform_wrapper .ginput_complex input[type=text], .gform_wrapper .ginput_complex input[type=url], .gform_wrapper .hidden_label input.large, .gform_wrapper .hidden_label select.large, .gform_wrapper .top_label input.large, .gform_wrapper .top_label select.large, .gform_wrapper textarea.large {
+      width: 100%;
+      padding: 15px;
+    }
+    //  Select style
+    .ginput_container_select {
+      background: #fff;
+    }
+    select.large {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      background-attachment: scroll;
+      background-clip: border-box;
+      background-color: rgba(0, 0, 0, 0);
+      background-image: url("../../images/dropDownArrow.svg");
+      background-origin: padding-box;
+      background-position: right 15px bottom 50% !important;
+      background-repeat: no-repeat;
+      background-size: 10px auto;
+      border: 0 none;
+      border-radius: 0;
+      font-size: 16px;
+      line-height: 1;
+      padding: 5px;
+    }
+
   } // .contact-form
 
   @media (max-width: get($grid-breakpoints, sm) ) {

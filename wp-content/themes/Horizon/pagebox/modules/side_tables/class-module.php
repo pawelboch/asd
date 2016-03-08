@@ -195,6 +195,13 @@ class Module extends Abstract_Module {
 							'label'         => __( 'Second sidebar' ),
 							'description'   => __( 'Type second sidebar' )
 						),
+						array(
+							'type'          => 'editor',
+							'group'         => __( 'Second Tab', 'pagebox' ),
+							'name'          => 'full_content',
+							'label'         => __( 'Second full width content' ),
+							'description'   => __( 'Type second full width content' )
+						),
 					),
 				),
 
@@ -268,6 +275,13 @@ class Module extends Abstract_Module {
 							'label'         => __( 'Third sidebar' ),
 							'description'   => __( 'Type third sidebar' )
 						),
+						array(
+							'type'          => 'editor',
+							'group'         => __( 'Third Tab', 'pagebox' ),
+							'name'          => 'full_content',
+							'label'         => __( 'Third full width content' ),
+							'description'   => __( 'Type third full width content' )
+						),
 
 					),
 				),
@@ -340,6 +354,13 @@ class Module extends Abstract_Module {
 							'name'          => 'sidebar',
 							'label'         => __( 'Fourth sidebar' ),
 							'description'   => __( 'Type fourth sidebar' )
+						),
+						array(
+							'type'          => 'editor',
+							'group'         => __( 'Fourth Tab', 'pagebox' ),
+							'name'          => 'full_content',
+							'label'         => __( 'Fourth full width content' ),
+							'description'   => __( 'Type fourth full width content' )
 						),
 					)
 				),

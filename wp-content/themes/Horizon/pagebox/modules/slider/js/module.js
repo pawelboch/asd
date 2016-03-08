@@ -2,7 +2,7 @@ jQuery( document ).ready( function( $ ) {
     // Slick slider enable
 
     $('.slider').slick({
-        dots: false,
+        dots: true,
         arrows: true,
     });
 });

@@ -141,7 +141,7 @@
 			</div>
 
 
-			<div class="content second ">
+			<div class="content second">
 
 				<?php if(!empty($this->get( 'second_tab_content' ))): ?>
 

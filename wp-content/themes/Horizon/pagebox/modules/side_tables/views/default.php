@@ -34,7 +34,7 @@
 
 			<?php foreach($tabSlug as $tab): ?>
 
-				<div class="content <?php echo $tab; ?> active">
+				<div class="content <?php echo $tab; ?> <?php echo ($tab == 'first') ? 'active': ''?>">
 					<?php if(!empty($this->get( $tab.'_tab_content' ))): ?>
 						<div class="top">
 							<?php echo apply_filters( 'the_content',$this->get( $tab.'_tab_content' )); ?>

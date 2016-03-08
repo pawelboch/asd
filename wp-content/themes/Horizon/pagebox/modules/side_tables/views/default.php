@@ -84,7 +84,6 @@
 								<!--If not empty sub full content then show-->
 								<?php if(!empty($sub->sub) && !empty($sub->full_content)): ?>
 									<div class="full-content col-md-12 single-<?php echo $i ;?>">
-										<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
 										<?php echo ($sub->full_content) ? apply_filters( 'the_content',$sub->full_content) : ''?>
 									</div>
 								<?php endif; ?>

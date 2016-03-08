@@ -396,3 +396,43 @@ function team_member_func( $atts )
 	return $returnString;
 }
 add_shortcode( 'team_member', 'team_member_func' );
+
+// Three section custom post type
+
+add_action( 'init', 'create_three_section', 1 );
+function create_three_section() {
+	register_post_type( 'three_section',
+		array(
+			'labels' => array(
+				'name' => __( 'Section' ),
+				'singular_name' => __( 'Sections' )
+			),
+			'public' => true,
+			'has_archive' => true,
+			'supports'   => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
+		)
+	);
+}
+
+function three_section_func( $atts )
+{
+	$args = array(
+		'post_type'=> 'three_section',
+		'order'    => 'ASC',
+		'posts_per_page' => '-1',
+	);
+
+	$threeSection = get_posts( $args );
+
+	$returnString ='<div class="section col-md-12">';
+
+	foreach($threeSection as $section) {
+		$returnString .= '<div class="col-md-4"><div class="picture"><img src="'.((get_post_thumbnail_id($section->ID)) ? wp_get_attachment_image_src( get_post_thumbnail_id($section->ID), 'medium')[0] : 'https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=284&h=398').'" alt=""></div><h2>'.$section->post_title.'</h2><p>'.$section->post_content.'</p></div>';
+	}
+
+	$returnString .= '</div>';
+
+	return $returnString;
+}
+
+add_shortcode( 'three_section', 'three_section_func' );

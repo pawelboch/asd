@@ -15,8 +15,34 @@ $h2_color: #fff !default;
     bottom: 15px;
 
     li button:before {
-      font-size: 40px;
+      font-size: 80px;
     }
+  }
+
+  .slick-prev,
+  .slick-next {
+    background: #eee;
+    opacity: 0.6;
+    height: 50px;
+    width: 50px;
+
+
+    &:before {
+      color: #b2b6b8;
+      content: '>';
+      font-size: 50px;
+      line-height: 0.5;
+
+    }
+  }
+
+
+  .slick-next {
+    right: 0;
+  }
+
+  .slick-prev {
+    left: 0;
   }
 
   .transparency {

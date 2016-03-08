@@ -4,8 +4,8 @@
 		<title><?php wp_title('|', true, 'right'); ?></title>
 		<meta content="index, follow" name="robots">
 		<meta charset="<?php bloginfo('charset'); ?>">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="profile" href="http://gmpg.org/xfn/11">
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 		<?php wp_head(); ?>
@@ -36,14 +36,6 @@
 									?>
 								</nav>
 							</div> <!-- main-nav -->
-							<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-								<div class="search hidden-md-down">
-									<span class="search-ico"></span>
-									<div class="search-input-cont">
-										<input class="search-input" placeholder="Search..." name="s" id="s"> </input>
-									</div>
-								</div>
-							</form>
 						</div> <!-- navigation -->
 						<div class="mobile-nav hidden-lg-up">
 							<div class="nav-toggle">
@@ -54,9 +46,15 @@
 								</div>
 							</div>
 						</div>
+						<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+							<div class="search">
+								<span class="search-ico"></span>
+								<div class="search-input-cont">
+									<input class="search-input" placeholder="Search..." name="s" id="s"> </input>
+								</div>
+							</div>
+						</form>
 					</div>
-
-
 				</div>
 			</div>
 		</header>

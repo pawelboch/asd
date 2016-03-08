@@ -20,7 +20,7 @@ class WPGeeks_Form_Element_Editor extends WPGeeks_Form_Element {
     
     public function setValue($value) {
        
-       $this->element->setAttribute('value', wpautop( $value ) );
+       $this->element->setAttribute('value', wpautop( $value ));
 
        return $this;
    }

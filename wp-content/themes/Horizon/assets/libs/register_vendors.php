@@ -17,8 +17,10 @@ if( defined( 'TEMPLATE_DIR_URI' )) {
  * JS files
  */
 wp_register_script( 'bootstrap4', TEMPLATE_VENDOR_URI . '/bootstrap4/js/bootstrap.min.js', array( 'jquery' ), 'v4.0.0-alpha.2', true );
+wp_register_script( 'parallax', TEMPLATE_VENDOR_URI . '/parallax.js-1.4.2/parallax.min.js', array( 'jquery' ), '1.4.2', true );
 
 /**
  * CSS files
  */
 //wp_register_style( 'test', TEMPLATE_VENDOR_URI . '/test/test.css', array(), false, true );
+wp_register_style( 'font-awesome', TEMPLATE_VENDOR_URI . '/font-awesome-4.5.0/css/font-awesome.css', array( ), '4.5.0', true );

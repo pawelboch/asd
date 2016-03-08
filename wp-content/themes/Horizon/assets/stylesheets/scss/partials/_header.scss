@@ -102,6 +102,8 @@ header {
   }
 
   .mobile-nav {
+    padding-right: 1rem;
+
     .nav-toggle {
       cursor: pointer;
       width: 50px;
@@ -112,8 +114,8 @@ header {
       .separator {
         height: 100%;
         width: 100%;
-        padding-left: 10px;
-        border-left: 2px solid #fff;
+        padding-left: 21px;
+        border-left: 1px solid #fff;
 
         .icon-bar {
           height: 4px;
@@ -251,17 +253,20 @@ header {
             > .sub-menu {
               display: block;
               position: absolute;
-              padding: 10px 0 0;
-              left: 0;
+              padding: 17px 0 0;
+              left: -15px;
               top: 1rem;
-              margin-top: -3px;
               white-space: nowrap;
+              font-family: Arial;
 
               li {
                 border-left: none;
                 background-color: #ffc425;
-                padding: 10px 10px;
+                padding: 16px 12px 14px 12px;
                 display: block;
+                min-width: 150px;
+                font-size: 14px;
+                line-height: 14px;
 
                 &:hover {
                   background-color: #ffb41a;
@@ -270,8 +275,7 @@ header {
 
                 a {
                   color: #fff;
-                  font-size: 1rem;
-                  font-family: "Avenir Next";
+                  font-size: 0.875rem;
 
                 }
               }
@@ -280,6 +284,7 @@ header {
                 top: 0;
                 padding: 0;
                 margin-top: 0;
+                border-left: 1px solid transparent;
 
               }
             }
@@ -361,14 +366,18 @@ header {
       }
     }
 
-    .search {
-      .search-ico {
-        display: block;
-        position: relative;
-        float: right;
-        margin-right: 15px;
-        margin-top: 5px;
+    #searchform {
+      padding-top: 20px;
 
+      .search {
+        .search-ico {
+          display: block;
+          position: relative;
+          float: right;
+          margin-right: 13px;
+          margin-top: 0;
+
+        }
       }
     }
   }
@@ -377,5 +386,10 @@ header {
 @media (max-width: map-get($grid-breakpoints, md) ) {
 
   // Breakpoint
+
+}
+
+@media (max-width: map-get($grid-breakpoints, sm) ) {
+
 
 }

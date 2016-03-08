@@ -26,6 +26,7 @@ function theme_enqueue_style() {
 		wp_enqueue_style( 'fonts-sass', TEMPLATE_DIR_URI . '/assets/stylesheets/css/fonts.css', array(), $version_hash, false );
 		wp_enqueue_style( 'bootstrap', TEMPLATE_DIR_URI . '/assets/stylesheets/css/bootstrap.css', array(), $version_hash, false );
 		wp_enqueue_style( 'style-sass', TEMPLATE_DIR_URI . '/assets/stylesheets/css/style.css', array(), $version_hash, false );
+		wp_enqueue_style( 'font-awesome');
 
 		/**
 		 * Modules autoload css files.
@@ -50,7 +51,7 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_style' );
 function theme_enqueue_script() {
 	wp_enqueue_script( 'scripts', TEMPLATE_DIR_URI . '/assets/javascripts/script.js', array( 'jquery-ui-core' ), false, true );
 	wp_enqueue_script( 'slick', TEMPLATE_DIR_URI . '/assets/javascripts/slick.js', array(), false, true);
-	//wp_enqueue_script('bootstrap4');
+	wp_enqueue_script( 'parallax' );
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_script' );
@@ -385,9 +386,9 @@ function team_member_func( $atts )
 		$taxonomy_objects = get_the_terms( $team->ID, 't_category' );
 		$taxonomy_objects_web = get_the_terms( $team->ID, 't_category_web' );
 
-		$returnString .= '<div class="person"><div class="picture"><img src="'.((get_post_thumbnail_id($team->ID)) ? wp_get_attachment_image_src( get_post_thumbnail_id($team->ID), 'medium')[0] : 'https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=284&h=398').'" alt=""></div>';
-		$returnString .= '<div class="description"><h2>'.$team->post_title.'</h2><p>'.(($taxonomy_objects) ? $taxonomy_objects[0]->name : '').'</p></div><div class="expand">Expand</div></div>';
-		$returnString .= '<div class="team-desc"><div class="left"><h2>'.$team->post_title.'</h2><p>'.(($taxonomy_objects) ? $taxonomy_objects[0]->name : '').'</p><p>'.(($taxonomy_objects_web) ? $taxonomy_objects_web[0]->name : '').'</p></div><div class="right">'.$team->post_content.'</div></div>';
+		$returnString .= '<div class="person col-lg-3 col-md-4 col-sm-6 col-xs-12"><div class="picture"><img src="'.((get_post_thumbnail_id($team->ID)) ? wp_get_attachment_image_src( get_post_thumbnail_id($team->ID), 'medium')[0] : 'https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=284&h=398').'" alt=""></div>';
+		$returnString .= '<div class="description"><h2>'.$team->post_title.'</h2><p>'.(($taxonomy_objects) ? $taxonomy_objects[0]->name : '').'</p>'.$team->post_excerpt.'</div><div class="expand">Expand</div></div>';
+		$returnString .= '<div class="team-desc"><div class="person-name"><h2>'.$team->post_title.'</h2><p>'.(($taxonomy_objects) ? $taxonomy_objects[0]->name : '').'</p><p>'.(($taxonomy_objects_web) ? $taxonomy_objects_web[0]->name : '').'</p></div><div class="person-desc">'.$team->post_content.'</div></div>';
 	}
 
 	$returnString .= '</div></div>';

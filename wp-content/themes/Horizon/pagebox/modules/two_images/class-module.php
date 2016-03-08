@@ -101,6 +101,13 @@ class Module extends Abstract_Module {
 						'sass'			=> true,
 				),
 				array(
+						'type'			=> 'SinglePage',
+						'group'			=> __( 'Left part', 'pagebox'),
+						'name'			=> 'btn_link1',
+						'label'			=> __( 'Left button' ),
+						'description'	=> __( 'Select page')
+				),
+				array(
 						'type'			=> 'text',
 						'group'			=> __( 'Right part', 'pagebox'),
 						'name'			=> 'title_right',
@@ -140,6 +147,13 @@ class Module extends Abstract_Module {
 						'label'			=> __( 'Border color' ),
 						'description'	=> __( 'Border color under image'),
 						'sass'			=> true,
+				),
+				array(
+					'type'			=> 'SinglePage',
+					'group'			=> __( 'Right part', 'pagebox'),
+					'name'			=> 'btn_link2',
+					'label'			=> __( 'Right button' ),
+					'description'	=> __( 'Select page')
 				),
 			)
 		);

@@ -13,13 +13,6 @@ jQuery( document ).ready(function( $ ) {
 
     });
 
-    // Slick slider enable
-
-    $('.slider').slick({
-        dots: false,
-        arrows: true,
-    });
-
     // Header mobile menu
     var nav = $('#nav');
     if($(window).width() < 992){

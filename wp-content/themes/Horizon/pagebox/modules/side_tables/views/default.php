@@ -32,434 +32,108 @@
 				</div>
 			</div>
 
+			<?php foreach($tabSlug as $tab): ?>
 
-			<div class="content first active">
-
-				<?php if(!empty($this->get( 'first_tab_content' ))): ?>
-
-					<div class="top">
-						<?php echo apply_filters( 'the_content',$this->get( 'first_tab_content' )); ?>
-					</div>
-
-				<?php endif;
-
-				$sub_nav = $this->get( 'first_sub_nav' );
-				?>
-
-				<?php
-				if (count((array)$sub_nav) > 1 ):
-				?>
-				<div class="left col-md-12">
-					<div class="sub-menu-tabs col-md-8">
-				<?php
-					foreach( $sub_nav as $i => $sub ):
-						if(!empty($sub->sub)):
-				?>
-
-						<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
-							<?php echo $sub->sub ;?>
+				<div class="content <?php echo $tab; ?> active">
+					<?php if(!empty($this->get( $tab.'_tab_content' ))): ?>
+						<div class="top">
+							<?php echo apply_filters( 'the_content',$this->get( $tab.'_tab_content' )); ?>
 						</div>
-				<?php
-						endif;
-					endforeach;
-				?>
-					</div>
-				<?php
-					foreach( $sub_nav as $i => $sub ):
-				?>
-						<div class="left-inner <?php echo (empty($sub->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
+					<?php endif;
 
-							<div class="sub-menu clearfix">
-								<?php
-									if(!empty($sub->sub) && !empty($sub->content)): ?>
+					$sub_nav = $this->get( $tab.'_sub_nav' );
+					?>
 
-									<div class="content sub-content single-<?php echo $i ;?>">
-										<?php echo apply_filters( 'the_content',$sub->content); ?>
-									</div>
+					<?php if (count((array)$sub_nav) > 1 ): ?>
+						<div class="left col-md-12">
+							<div class="sub-menu-tabs col-md-8">
 
-								<?php
-									endif; // !empty($cont->sub) && !empty($cont->content)
-								?>
+							<?php foreach( $sub_nav as $i => $sub ): ?>
+								<?php if(!empty($sub->sub)): ?>
+
+								<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
+									<?php echo $sub->sub ;?>
+								</div>
+								<?php endif; ?>
+							<?php endforeach; ?>
 
 							</div>
-						</div>
-					<?php
-							if(!empty($sub->sub) && !empty($sub->content) && !empty($sub->sidebar)): ?>
-								<div class="sidebar col-md-4 single-<?php echo $i ;?>">
-									<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-									<?php echo ($sub->sidebar) ? $sub->sidebar : ''?>
-								</div>
-							<?php endif;
-					endforeach; // $sub_nav as $i => $sub
-				?>
-				 </div>
-				<?php
-				else:
-					if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))):
-					?>
-				<div class="left col-md-12">
-				<?php
-					if( $sub_nav ):
-						if(!empty( $sub_nav->{0}->sub)): ?>
-								<div class="sub-menu-tabs col-md-8">
-									<div id="single-0" class="single-menu col-md-3 active">
-										<?php echo $sub_nav->{0}->sub ;?>
-									</div>
-								</div>
-							<?php
-						endif;
-				?>
-						<div class="left-inner <?php echo (empty($sub_nav->{0}->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
-							<div class="sub-menu clearfix">
-								<?php
-									if(!empty($sub_nav->{0}->content)): ?>
 
-											<div class="content sub-content single-0 active">
-												<?php echo apply_filters( 'the_content',$sub_nav->{0}->content); ?>
+							<?php foreach( $sub_nav as $i => $sub ): ?>
+
+								<div class="left-inner <?php echo (empty($sub->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
+
+									<div class="sub-menu clearfix">
+										<?php if(!empty($sub->sub) && !empty($sub->content)): ?>
+
+											<div class="content sub-content single-<?php echo $i ;?>">
+												<?php echo apply_filters( 'the_content',$sub->content); ?>
 											</div>
 
-									<?php endif;// !empty($cont->sub) && !empty($cont->content)
-								?>
+										<?php endif; ?>
+									</div>
 
-							</div>
-						</div>
-				<?php
-							if(!empty($sub_nav->{0}->sidebar)):
-				?>
-								<div class="sidebar col-md-4 single-0">
-									<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-									<?php echo apply_filters( 'the_content',$sub_nav->{0}->sidebar); ?>
 								</div>
-							<?php endif;
-					endif; ?>
+								<?php if(!empty($sub->sub) && !empty($sub->content) && !empty($sub->sidebar)): ?>
+									<div class="sidebar col-md-4 single-<?php echo $i ;?>">
+										<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
+										<?php echo ($sub->sidebar) ? $sub->sidebar : ''?>
+									</div>
+								<?php endif; ?>
+								<?php if(!empty($sub->sub) && !empty($sub->full_content)): ?>
+									<div class="full-content col-md-12 single-<?php echo $i ;?>">
+										<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
+										<?php echo ($sub->full_content) ? apply_filters( 'the_content',$sub->full_content) : ''?>
+									</div>
+								<?php endif; ?>
+
+							<?php endforeach; ?>
+						 </div>
+					<?php else: ?>
+
+						<?php if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))): ?>
+							<div class="left col-md-12">
+								<?php if( $sub_nav ): ?>
+									<?php if(!empty( $sub_nav->{0}->sub)): ?>
+										<div class="sub-menu-tabs col-md-8">
+											<div id="single-0" class="single-menu col-md-3 active">
+												<?php echo $sub_nav->{0}->sub ;?>
+											</div>
+										</div>
+									<?php endif; ?>
+
+									<div class="left-inner <?php echo (empty($sub_nav->{0}->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
+										<div class="sub-menu clearfix">
+											<?php if(!empty($sub_nav->{0}->content)): ?>
+
+												<div class="content sub-content single-0 active">
+													<?php echo apply_filters( 'the_content',$sub_nav->{0}->content); ?>
+												</div>
+
+											<?php endif; ?>
+										</div>
+									</div>
+
+									<?php if(!empty($sub_nav->{0}->sidebar)): ?>
+												<div class="sidebar col-md-4 single-0">
+													<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
+													<?php echo apply_filters( 'the_content',$sub_nav->{0}->sidebar); ?>
+												</div>
+									<?php endif; ?>
+									<?php if(!empty($sub_nav->{0}->full_content)): ?>
+												<div class="full-content col-md-12 single-0">
+													<?php echo apply_filters( 'the_content',$sub_nav->{0}->full_content); ?>
+												</div>
+									<?php endif; ?>
+								<?php endif; ?>
+							</div>
+						<?php
+						endif;
+					endif; // !empty($sub->sub) && !empty($sub->content)
+					?>
+
 				</div>
-					<?php
-					endif;
-				endif; // !empty($sub->sub) && !empty($sub->content)
-				?>
-
-			</div>
-
-
-			<div class="content second ">
-
-				<?php if(!empty($this->get( 'second_tab_content' ))): ?>
-
-					<div class="top">
-						<?php echo apply_filters( 'the_content',$this->get( 'second_tab_content' )); ?>
-					</div>
-
-				<?php endif;
-
-				$sub_nav = $this->get( 'second_sub_nav' );
-				?>
-
-				<?php
-				if (count((array)$sub_nav) > 1 ):
-					?>
-					<div class="left col-md-12">
-						<div class="sub-menu-tabs col-md-8">
-							<?php
-							foreach( $sub_nav as $i => $sub ):
-								if(!empty($sub->sub)):
-									?>
-
-									<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
-										<?php echo $sub->sub ;?>
-									</div>
-									<?php
-								endif;
-							endforeach;
-							?>
-						</div>
-						<?php
-						foreach( $sub_nav as $i => $sub ):
-							?>
-							<div class="left-inner <?php echo (empty($sub->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
-
-								<div class="sub-menu clearfix">
-									<?php
-									if(!empty($sub->sub) && !empty($sub->content)): ?>
-
-										<div class="content sub-content single-<?php echo $i ;?>">
-											<?php echo apply_filters( 'the_content',$sub->content); ?>
-										</div>
-
-										<?php
-									endif; // !empty($cont->sub) && !empty($cont->content)
-									?>
-
-								</div>
-							</div>
-							<?php
-							if(!empty($sub->sub) && !empty($sub->content) && !empty($sub->sidebar)): ?>
-								<div class="sidebar col-md-4 single-<?php echo $i ;?>">
-									<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-									<?php echo ($sub->sidebar) ? $sub->sidebar : ''?>
-								</div>
-							<?php endif;
-						endforeach; // $sub_nav as $i => $sub
-						?>
-					</div>
-					<?php
-				else:
-					if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))):
-						?>
-						<div class="left col-md-12">
-							<?php
-							if( $sub_nav ):
-								if(!empty( $sub_nav->{0}->sub)): ?>
-									<div class="sub-menu-tabs col-md-8">
-										<div id="single-0" class="single-menu col-md-3 active">
-											<?php echo $sub_nav->{0}->sub ;?>
-										</div>
-									</div>
-									<?php
-								endif;
-								?>
-								<div class="left-inner <?php echo (empty($sub_nav->{0}->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
-									<div class="sub-menu clearfix">
-										<?php
-										if(!empty($sub_nav->{0}->content)): ?>
-
-											<div class="content sub-content single-0 active">
-												<?php echo apply_filters( 'the_content',$sub_nav->{0}->content); ?>
-											</div>
-
-										<?php endif;// !empty($cont->sub) && !empty($cont->content)
-										?>
-
-									</div>
-								</div>
-								<?php
-								if(!empty($sub_nav->{0}->sidebar)):
-									?>
-									<div class="sidebar col-md-4 single-0">
-										<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-										<?php echo apply_filters( 'the_content',$sub_nav->{0}->sidebar); ?>
-									</div>
-								<?php endif;
-							endif; ?>
-						</div>
-						<?php
-					endif;
-				endif; // !empty($sub->sub) && !empty($sub->content)
-				?>
-
-			</div>
-
-			<div class="content third ">
-
-				<?php if(!empty($this->get( 'third_tab_content' ))): ?>
-
-					<div class="top">
-						<?php echo apply_filters( 'the_content',$this->get( 'third_tab_content' ));?>
-					</div>
-
-				<?php endif;
-
-				$sub_nav = $this->get( 'third_sub_nav' );
-				?>
-
-				<?php
-				if (count((array)$sub_nav) > 1 ):
-					?>
-					<div class="left col-md-12">
-						<div class="sub-menu-tabs col-md-8">
-							<?php
-							foreach( $sub_nav as $i => $sub ):
-								if(!empty($sub->sub)):
-									?>
-
-									<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
-										<?php echo $sub->sub ;?>
-									</div>
-									<?php
-								endif;
-							endforeach;
-							?>
-						</div>
-						<?php
-						foreach( $sub_nav as $i => $sub ):
-							?>
-							<div class="left-inner <?php echo (empty($sub->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
-
-								<div class="sub-menu clearfix">
-									<?php
-									if(!empty($sub->sub) && !empty($sub->content)): ?>
-
-										<div class="content sub-content single-<?php echo $i ;?>">
-											<?php echo apply_filters( 'the_content',$sub->content) ;?>
-										</div>
-
-										<?php
-									endif; // !empty($cont->sub) && !empty($cont->content)
-									?>
-								</div>
-							</div>
-							<?php
-							if(!empty($sub->sub) && !empty($sub->content) && !empty($sub->sidebar)): ?>
-								<div class="sidebar col-md-4 single-<?php echo $i ;?>">
-									<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-									<?php echo ($sub->sidebar) ? $sub->sidebar : ''?>
-								</div>
-							<?php endif;
-						endforeach; // $sub_nav as $i => $sub
-						?>
-					</div>
-					<?php
-				else:
-					if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))):
-						?>
-						<div class="left col-md-12">
-							<?php
-							if( $sub_nav ):
-								if(!empty( $sub_nav->{0}->sub)): ?>
-									<div class="sub-menu-tabs col-md-8">
-										<div id="single-0" class="single-menu col-md-3 active">
-											<?php echo $sub_nav->{0}->sub ;?>
-										</div>
-									</div>
-									<?php
-								endif;
-								?>
-								<div class="left-inner <?php echo (empty($sub_nav->{0}->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
-									<div class="sub-menu clearfix">
-										<?php
-										if(!empty($sub_nav->{0}->content)): ?>
-
-											<div class="content sub-content single-0 active">
-												<?php echo apply_filters( 'the_content', $sub_nav->{0}->content) ;?>
-											</div>
-
-										<?php endif;// !empty($cont->sub) && !empty($cont->content)
-										?>
-
-									</div>
-								</div>
-								<?php
-								if(!empty($sub_nav->{0}->sidebar)):
-									?>
-									<div class="sidebar col-md-4 single-0">
-										<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-										<?php echo apply_filters( 'the_content',$sub_nav->{0}->sidebar); ?>
-									</div>
-								<?php endif;
-							endif; ?>
-						</div>
-						<?php
-					endif;
-				endif; // !empty($sub->sub) && !empty($sub->content)
-				?>
-
-			</div>
-
-			<div class="content fourth ">
-
-				<?php if(!empty($this->get( 'fourth_tab_content' ))): ?>
-
-					<div class="top">
-						<?php echo apply_filters( 'the_content', $this->get( 'fourth_tab_content' )); ?>
-					</div>
-
-				<?php endif;
-
-				$sub_nav = $this->get( 'fourth_sub_nav' );
-				?>
-
-				<?php
-				if (count((array)$sub_nav) > 1 ):
-					?>
-					<div class="left col-md-12">
-						<div class="sub-menu-tabs col-md-8">
-							<?php
-							foreach( $sub_nav as $i => $sub ):
-								if(!empty($sub->sub)):
-									?>
-
-									<div id="single-<?php echo $i ;?>" class="single-menu col-md-3">
-										<?php echo $sub->sub ;?>
-									</div>
-									<?php
-								endif;
-							endforeach;
-							?>
-						</div>
-						<?php
-						foreach( $sub_nav as $i => $sub ):
-							?>
-							<div class="left-inner <?php echo (empty($sub->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
-
-								<div class="sub-menu clearfix">
-									<?php
-									if(!empty($sub->sub) && !empty($sub->content)): ?>
-
-										<div class="content sub-content single-<?php echo $i ;?>">
-											<?php echo apply_filters( 'the_content',$sub->content); ?>
-										</div>
-
-										<?php
-									endif; // !empty($cont->sub) && !empty($cont->content)
-									?>
-
-								</div>
-							</div>
-							<?php
-							if(!empty($sub->sub) && !empty($sub->content) && !empty($sub->sidebar)): ?>
-								<div class="sidebar col-md-4 single-<?php echo $i ;?>">
-									<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-									<?php echo ($sub->sidebar) ? $sub->sidebar : ''?>
-								</div>
-							<?php endif;
-						endforeach; // $sub_nav as $i => $sub
-						?>
-					</div>
-					<?php
-				else:
-					if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))):
-						?>
-						<div class="left col-md-12">
-							<?php
-							if( $sub_nav ):
-								if(!empty( $sub_nav->{0}->sub)): ?>
-									<div class="sub-menu-tabs col-md-8">
-										<div id="single-0" class="single-menu col-md-3 active">
-											<?php echo $sub_nav->{0}->sub ;?>
-										</div>
-									</div>
-									<?php
-								endif;
-								?>
-								<div class="left-inner <?php echo (empty($sub_nav->{0}->sidebar)) ? 'col-md-12' : 'col-md-8'; ?>">
-									<div class="sub-menu clearfix">
-										<?php
-										if(!empty($sub_nav->{0}->content)): ?>
-
-											<div class="content sub-content single-0 active">
-												<?php echo apply_filters( 'the_content', $sub_nav->{0}->content); ?>
-											</div>
-
-										<?php endif;// !empty($cont->sub) && !empty($cont->content)
-										?>
-
-									</div>
-								</div>
-								<?php
-								if(!empty($sub_nav->{0}->sidebar)):
-									?>
-									<div class="sidebar col-md-4 single-0">
-										<img src="../../../wp-content/themes/Horizon/assets/images/sidebar_doc.png">
-										<?php echo apply_filters( 'the_content',$sub_nav->{0}->sidebar); ?>
-									</div>
-								<?php endif;
-							endif; ?>
-						</div>
-						<?php
-					endif;
-				endif; // !empty($sub->sub) && !empty($sub->content)
-				?>
-
-			</div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </div>

@@ -115,6 +115,13 @@ class Module extends Abstract_Module {
 							'label'         => __( 'First sidebar' ),
 							'description'   => __( 'Type first sidebar' )
 						),
+						array(
+							'type'          => 'editor',
+							'group'         => __( 'First Tab', 'pagebox' ),
+							'name'          => 'full_content',
+							'label'         => __( 'First full width content' ),
+							'description'   => __( 'Type first full width content' )
+						),
 					),
 				),
 

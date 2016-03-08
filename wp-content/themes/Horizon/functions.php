@@ -408,7 +408,6 @@ function create_three_section() {
 				'singular_name' => __( 'Sections' )
 			),
 			'public' => true,
-			'has_archive' => true,
 			'supports'   => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
 		)
 	);
@@ -426,8 +425,10 @@ function three_section_func( $atts )
 
 	$returnString ='<div class="section col-md-12">';
 
+	$i=1;
 	foreach($threeSection as $section) {
-		$returnString .= '<div class="col-md-4"><div class="picture"><img src="'.((get_post_thumbnail_id($section->ID)) ? wp_get_attachment_image_src( get_post_thumbnail_id($section->ID), 'medium')[0] : 'https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=284&h=398').'" alt=""></div><h2>'.$section->post_title.'</h2><p>'.$section->post_content.'</p></div>';
+		$returnString .= '<div class="col-md-4 part-'.$i.'"><div class="picture"><img src="'.((get_post_thumbnail_id($section->ID)) ? wp_get_attachment_image_src( get_post_thumbnail_id($section->ID), 'medium')[0] : 'https://placeholdit.imgix.net/~text?txtsize=33&txt=&w=284&h=398').'" alt=""></div><h2 style="color: '.$section->post_excerpt.' ">'.$section->post_title.'</h2><p>'.$section->post_content.'</p></div>';
+		$i=$i+1;
 	}
 
 	$returnString .= '</div>';

@@ -43,7 +43,7 @@
 					?>
 					<!--If number of sub nav is more than 1-->
 					<?php if (count((array)$sub_nav) > 1 ): ?>
-						<div class="left col-md-12">
+						<div class="left">
 							<!--Showing sub menu tabs-->
 							<div class="sub-menu-tabs col-md-8">
 
@@ -93,7 +93,7 @@
 					<!-- If numbers of sub nav is less or equal 1-->
 					<?php else: ?>
 						<?php if(!(empty($sub_nav->{0}->sub) && empty($sub_nav->{0}->content))): ?>
-							<div class="left col-md-12">
+							<div class="left">
 								<?php if( $sub_nav ): ?>
 									<?php if(!empty( $sub_nav->{0}->sub)): ?>
 										<div class="sub-menu-tabs col-md-8">

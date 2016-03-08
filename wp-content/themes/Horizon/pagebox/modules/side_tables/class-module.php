@@ -204,13 +204,6 @@ class Module extends Abstract_Module {
 						),
 					),
 				),
-				array(
-					'type'			=> 'image',
-					'group'			=> __( 'Second Tab', 'pagebox' ),
-					'name'			=> 'full_bleed',
-					'label'			=> __( 'Second tab image' ),
-					'description' 	=> __( 'Second tab image' )
-				),
 
 
 

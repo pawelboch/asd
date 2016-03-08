@@ -6,10 +6,12 @@ jQuery( document ).ready( function( $ ) {
            $(this).addClass('active');
            $('.pagebox-side_tables-module .tabs .row .content').hide();
            $('.pagebox-side_tables-module .tabs .row .content .sidebar').hide();
+           $('.pagebox-side_tables-module .tabs .row .content .full-content').hide();
            $('.pagebox-side_tables-module .tabs .row .content .left .single-0').show();
            $('.pagebox-side_tables-module .tabs .row .content .left .sub-menu-tabs > div').removeClass('active');
            $('.pagebox-side_tables-module .tabs .row .content .left #single-0').addClass('active');
            $('.pagebox-side_tables-module .tabs .row .content .sidebar.single-0').show();
+           $('.pagebox-side_tables-module .tabs .row .content .full-content.single-0').show();
            $('.'+$(this).attr('id')).show();
            window.location.hash = $(this).attr('data-hash');
        });
@@ -21,6 +23,7 @@ jQuery( document ).ready( function( $ ) {
             $('.pagebox-side_tables-module .left .single-menu').removeClass('active');
             $(this).addClass('active');
             $('.pagebox-side_tables-module .tabs .row .content .sidebar').hide();
+            $('.pagebox-side_tables-module .tabs .row .content .full-content').hide();
             $('.pagebox-side_tables-module .tabs .row .content .left .content').hide();
             $('.'+$(this).attr('id')).show();
     });
